@@ -1,0 +1,46 @@
+%https://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field/4531500#4531500: SO post #4531500
+\begin{figure}[htbp]
+	\centering
+	\lstset{
+		numbers=left,
+		numberstyle= \tiny,
+		keywordstyle= \color{blue!70},
+		commentstyle= \color{red!50!green!50!blue!50},
+		frame=shadowbox,
+		rulesepcolor= \color{red!20!green!20!blue!20} ,
+		xleftmargin=1.5em,xrightmargin=0em, aboveskip=1em,
+		framexleftmargin=1.5em,
+                numbersep= 5pt,
+		language=C,
+    basicstyle=\scriptsize\ttfamily,
+    numberstyle=\scriptsize\ttfamily,
+    emphstyle=\bfseries,
+                moredelim=**[is][\color{red}]{@}{@},
+		escapeinside= {(*@}{@*)}
+	}
+\begin{lstlisting}[]
+public static void addLibraryPath(String pathToAdd) throws Exception {
+    final Field usrPathsField = ClassLoader.class.getDeclaredField("usr_paths");
+    usrPathsField.setAccessible(true);
+
+    //get array of paths
+    final String[] paths = (String[])usrPathsField.get(null);
+
+    //check if the path to add is already present
+    for(String path : paths) {
+        if(path.equals(pathToAdd)) {
+            return;
+        }
+    }
+
+    //add the new path
+    final String[] newPaths = Arrays.copyOf(paths, paths.length + 1);
+    newPaths[newPaths.length-1] = pathToAdd;
+    usrPathsField.set(null, newPaths);
+}
+\end{lstlisting}
+        \vspace{-12pt}
+        \caption{StackOverflow Post \#15409446 on Adding New Paths for
+          Native Libraries at Runtime in Java}
+        \label{fig:example1}
+\end{figure}
