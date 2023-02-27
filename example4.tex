@@ -19,12 +19,13 @@
 	}
 \begin{lstlisting}[]
 Charset charset = Charset.forName("US-ASCII");
-try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
+(*@{\color{orange}{try}@*) {
+    BufferedReader reader = Files.(*@{\color{orange}{newBufferedReader}@*)(file, charset);
     String line = null;
-    while ((line = reader.readLine()) != null) {
+    while ((line = reader.(*@{\color{orange}{readLine}@*)()) != null) {
         System.out.println(line);
     }
-} catch (IOException x) {
+} (*@{\color{orange}{catch (IOException x)}@*) {
     System.err.format("IOException: %s%n", x);
 }
 \end{lstlisting}
