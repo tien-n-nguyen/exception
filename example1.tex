@@ -1,4 +1,3 @@
-%https://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field/4531500#4531500: SO post #4531500
 \begin{figure}[htbp]
 	\centering
 	\lstset{
@@ -20,27 +19,27 @@
 	}
 \begin{lstlisting}[]
 public static void addLibraryPath(String pathToAdd) throws Exception {
-    final Field usrPathsField = ClassLoader.class.getDeclaredField("usr_paths");
-    usrPathsField.setAccessible(true);
+  final Field usrPathsField = ClassLoader.class.(*@{\color{orange}{getDeclaredField("usr\_paths");}@*)
+  usrPathsField.setAccessible(true);
 
-    //get array of paths
-    final String[] paths = (String[])usrPathsField.get(null);
+  //get array of paths
+  final String[] paths = (String[])usrPathsField.get(null);
 
-    //check if the path to add is already present
-    for(String path : paths) {
-        if(path.equals(pathToAdd)) {
-            return;
-        }
-    }
+  //check if the path to add is already present
+  for(String path : paths) {
+      if(path.equals(pathToAdd)) {
+          return;
+      }
+  }
 
-    //add the new path
-    final String[] newPaths = Arrays.copyOf(paths, paths.length + 1);
-    newPaths[newPaths.length-1] = pathToAdd;
-    usrPathsField.set(null, newPaths);
+  //add the new path
+  final String[] newPaths = Arrays.copyOf(paths, paths.length + 1);
+  newPaths[newPaths.length-1] = pathToAdd;
+  usrPathsField.set(null, newPaths);
 }
 \end{lstlisting}
         \vspace{-12pt}
-        \caption{StackOverflow Post \#15409446 on Adding New Paths for
+        \caption{StackOverflow Post \#15409223 on Adding New Paths for
           Native Libraries at Runtime in Java}
         \label{fig:example1}
 \end{figure}

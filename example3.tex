@@ -1,0 +1,36 @@
+\begin{figure}[htbp]
+	\centering
+	\lstset{
+		numbers=left,
+		numberstyle= \tiny,
+		keywordstyle= \color{blue!70},
+		commentstyle= \color{red!50!green!50!blue!50},
+		frame=shadowbox,
+		rulesepcolor= \color{red!20!green!20!blue!20} ,
+		xleftmargin=1.5em,xrightmargin=0em, aboveskip=1em,
+		framexleftmargin=1.5em,
+                numbersep= 5pt,
+		language=C,
+    basicstyle=\scriptsize\ttfamily,
+    numberstyle=\scriptsize\ttfamily,
+    emphstyle=\bfseries,
+                moredelim=**[is][\color{red}]{@}{@},
+		escapeinside= {(*@}{@*)}
+	}
+\begin{lstlisting}[]
+public Object readField(Class<?> clazz, String name, Object instance) {
+  (*@{\color{orange}{try}@*) {
+    Field field = clazz.(*@{\color{orange}{getDeclaredField}@*)(name);
+    if (!field.isAccessible()) {
+       field.setAccessible(true);
+    }
+    return field.get(instance);
+  } (*@{\color{orange}{catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)}@*) {
+   throw new RuntimeException("Cannot read field value: " + clazz.getName() + "#" + name, e);
+  }
+}
+\end{lstlisting}
+        \vspace{-12pt}
+        \caption{GitHub project \code{quarkus} with similar Exceptions}
+        \label{fig:example3}
+\end{figure}

@@ -1,0 +1,52 @@
+\begin{figure}[htbp]
+	\centering
+	\lstset{
+		numbers=left,
+		numberstyle= \tiny,
+		keywordstyle= \color{blue!70},
+		commentstyle= \color{red!50!green!50!blue!50},
+		frame=shadowbox,
+		rulesepcolor= \color{red!20!green!20!blue!20} ,
+		xleftmargin=1.5em,xrightmargin=0em, aboveskip=1em,
+		framexleftmargin=1.5em,
+                numbersep= 5pt,
+		language=C,
+    basicstyle=\scriptsize\ttfamily,
+    numberstyle=\scriptsize\ttfamily,
+    emphstyle=\bfseries,
+                moredelim=**[is][\color{red}]{@}{@},
+		escapeinside= {(*@}{@*)}
+	}
+\begin{lstlisting}[]
+/** ...
+ * taken from http://stackoverflow.com/questions/15409223/
+ * adding-new-paths-for-native-libraries-at-runtime-in-java
+ */
+private static void addLibraryPath(String pathToAdd) {
+  (*@{\color{orange}{try}@*) {
+    final Field usrPathsField = ClassLoader.class.(*@{\color{orange}{getDeclaredField("usr\_paths");}@*)
+    usrPathsField.setAccessible(true);
+
+    // get array of paths
+    final String[] paths = (String[]) usrPathsField.get(null);
+
+    // check if the path to add is already present
+    for (String path : paths) {
+      if (path.equals(pathToAdd)) {
+	return;
+      }
+    }
+
+    // add the new path
+    final String[] newPaths = Arrays.copyOf(paths, paths.length + 1);
+    newPaths[newPaths.length - 1] = pathToAdd;
+    usrPathsField.set(null, newPaths);
+  } (*@{\color{orange}{catch (NoSuchFieldException | SecurityException | IllegalArgumentException |    IllegalAccessException e)}@*) {
+	throw new RuntimeException(e);
+  }
+}
+\end{lstlisting}
+        \vspace{-12pt}
+        \caption{GitHub project \code{armint} Adapts SO Post in Figure~\ref{fig:example1}}
+        \label{fig:example2}
+\end{figure}
