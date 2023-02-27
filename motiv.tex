@@ -39,6 +39,32 @@ tool to recommend proper exception handling in order to adapt the
 incomplete code snippets. For example, what lines need to be included
 in a \code{try-catch} block, and what exceptions need to be handled.
 
+%spec, heuristic, mining, IR
+
+To address the issue, several automated approaches have been proposed
+to recommend proper exception
+handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. Earlier
+approaches utilized {\em heuristic strategies} on exception types,
+method calls, and variables' types to recommend exception handling
+code~\cite{barbosa-bsse12}. While the heuristics might not work in all
+cases, {\em exception handling policies} could be
+enforced~\cite{barbosa-tse16,barbosa-saner18}. However, the policies
+must be pre-defined and encoded in the tool. To overcome that, the
+{\em mining approaches} are based on the idea that similar code
+requires similar exception handling~\cite{chanchal-scam14}. Some
+approaches also leverage mined patterns to repair exception-handling
+bugs~\cite{zhong-jss18}. A key issue with the mining approaches is
+that the two code fragments might not be exactly matched, but they
+share a few key elements that require the same exception handling.
+Thus, Nguyen {\em et al.}~\cite{xrank-fse20} propose a {\em
+  information retrieval} (IR) approach using a fuzzy set technique to
+learn the associations between the method calls (e.g.,
+\code{get\-Declared\-Field}) and the exceptions (e.g.,
+\code{No\-Such\-Field\-Exception}, \code{Security\-Exception}, etc.)
+that need to be handled. A key drawback of the IR approach is that it
+relies on the threshold for a match in an retrieval, which might often
+not be easily pre-defined.
+
 
 
 \input{example2.tex}
