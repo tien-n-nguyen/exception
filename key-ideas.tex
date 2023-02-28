@@ -1,55 +1,35 @@
 \subsection{Key Ideas}
 \label{key:sec}
 
-\noindent Following Observations 1--4, we design \tool for~par\-tial
-program dependence analysis with the following key ideas:
+\noindent We design {\tool} for exception handling recommendation for
+Java code: 1) given a code snippet, it will point out which statements
+in the snippet need to be placed within a \code{try-catch} block, and
+what exceptions need to be handled in the catch clause. Following
+Observations 1--4, we design {\tool} with the following key ideas:
 
-\vspace{3pt}
-\subsubsection{{\bf [Key Idea 1] Neural Network-Based Approach to Partial Program Dependence Analysis}}
+%\vspace{3pt}
+\subsubsection{{\bf [Key Idea 1] Neural Network-Based Approach to Exception Hanlding Recommendation}}
 %\vspace{2pt}
 %\subsubsection*{{\bf [Key Idea 1] Neural Network-Based Approach to Partial Program Dependence Analysis}}
-Instead of deterministically producing the program dependencies in a
-best-effort manner, following Observation 2, we design a deep learning
-model (DL) to learn to analyze the program dependencies among the
-statements in the given source code. By leveraging the~pro\-gram
-dependencies extracted by program analysis techniques~\cite{pdg} for
-the complete code in the open-source projects (e.g., GitHub) in the
-training process, the DL model can derive the inter-statement program
-dependencies for a given code snippet.
+Instead of deterministically deriving the exceptions to be handled in
+a heuristic or mining manner for a given (incomplete) code snippet, following
+Observation 2, we design a deep learning model (DL) to learn to
+analyze that snippet to recommend the statements in the
+\code{try-catch} block and the exceptions in the \code{catch} clause.
+By leveraging the \code{try-catch} blocks of the complete code in the
+open-source projects (e.g., GitHub) in the training proces, our DL
+model can decide what statements in the given code snippet to be
+placed in a \code{try-catch} block and what exceptions to be handled.
 
-\vspace{2pt}
-\subsubsection{{\bf [Key Idea 2] Program Dependence Decoding from Dense Statement Representations}}
+
+%\vspace{2pt}
+\subsubsection{{\bf [Key Idea 2] Span-based ...}}
 We seek inspiration from the neural network-based dependency parsing
-approaches~\cite{chen-manning-2014-fast} in NLP. They successfully
-learn the semantic relations between the words in a sentence by
-learning the dependencies between their latent representations
-obtained from mapping them into an embedding space. Following suit, we
-design \tool to learn the representations for the statements in source
-code so as to learn the program dependence relations between them.
+approaches~\cite{?} in Natural Language Processing (NLP). They
+successfully learn ... Following suit, we design \tool to learn the
+representations for the statements in source code so as to learn the
+span ...
 
 \vspace{2pt}
-\subsubsection{{\bf [Key Idea 3] Enhancing Statement Representations with Intra-Statement and Inter-Statement Context Learning}}
-The quality of the statement representations determines how accurately
-\tool can predict the program dependence relations. To this effect, we
-rely on two types of contextualization.
-%: intra-statement and inter-statement.
-{\bf Intra-statement context} refers to the program entities
-represented by the code tokens within an individual statement, which
-helps the model derive the control/data dependencies among the
-statements. For example, in Fig.~\ref{fig:example2}, the variable
-declaration statement on line 3 contains the token (variable)
-\code{buffer}, which is also referred to in the assignment statement
-on line 7. Intra-statement contextualization makes information about
-the local context within the individual statements on line 3 and line
-7 available globally, thus helping the model recognize the declaration
-and reference of the same variable. This facilitates the recognition
-of the data dependency between the two statements via a def-use
-relation with variable \code{buffer}.
-
-For the two statements under study, {\bf inter-statement
-  context} helps \tool model the effect that all the other
-statements in the code snippet have on the relationship between
-them. For example, in Fig.~\ref{fig:example}, knowing that the
-\code{if} statement on line 6 is nested within a \code{while} loop on
-lines 5--8 will help the model recognize that the execution of assignment statement on line 7 depends not only on the condition on
-line 6, but also on the loop-condition on line 5.
+\subsubsection{{\bf [Key Idea 3] Learning the connection between API methods and Exceptions}}
+...
