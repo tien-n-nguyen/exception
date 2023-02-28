@@ -1,0 +1,32 @@
+\section{Introduction}
+\label{sec:intro}
+
+The online question and answering (Q\&A) forums, e.g., StackOverflow
+(S/O) provide important resources for developers to learn how to use
+software libraries and frameworks. While the code snippets in an S/O
+answer are good starting points, they are often incomplete with
+several missing details and contain ambiguous references, etc.  Zhang
+{\em et al.}~\cite{zhang-icse19} have conducted a large-scale
+empirical study on the nature and extent of manual adaptions of the
+S/O code snippets by developers into their GitHub repositories.  They
+reported that the adaptations between S/O code examples and their
+GitHub counterpart projects are prevalent and non-trivial. The
+qualitatively inspected all the adaptation cases and classified them
+into 24 different adaptation types. They highlighted several
+adaptation types including {\em type conversion}, {\em handling
+  potential exceptions}, and {\em adding if
+  checks}~\cite{zhang-icse19}. Among them, adding a \code{try-catch}
+block to wrap the code snippet and enumerating all the handled
+exceptions in the catch clause are frequently performed (132 cases out
+of 629 S/O examples) yet not automated by existing code integration
+techniques.
+
+The adaptation process for exception handling is not trivial as Nguyen
+{\em et al.}~\cite{xrank-fse20} have reported that it is challenging
+for developers to learn and memorize what API method could cause
+exceptions and what exceptions need to be handled. Kechagia {\em et
+  al.}~\cite{kechagia-msr14} found that 19\% of the crashes in Android
+applications could have been caused by insufficient documented
+exceptions in Android APIs. Thus, it is desirable to have an automated
+tool to recommend proper exception handling for such adaptation of
+online code snippets.
