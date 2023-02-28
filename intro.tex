@@ -30,3 +30,35 @@ applications could have been caused by insufficient documented
 exceptions in Android APIs. Thus, it is desirable to have an automated
 tool to recommend proper exception handling for such adaptation of
 online code snippets.
+
+There exist several approaches to automatically recommend proper
+exception
+handling~\cite{barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16,xrank-fse20,throw-ase22}. They
+can be classified into different categories. The first category of
+approaches relies on a few {\em heuristics} on exception types, API
+calls, and variable types to recommend exception handling
+code~\cite{barbosa-bsse12}. These heuristic-based approaches do not
+always work in all the cases. The second category of approaches
+utilized {\em exception handling policies}, which are enforced in all
+cases~\cite{barbosa-tse16,barbosa-saner18}. However, the policies need
+to be pre-defined and encoded within the enforcing tools.  This is not
+an ideal solution considering the fast evolution of software
+libraries. To enable more flexibility than policy enforcement, the
+third category leverages the {\em mining algorithms} that derives
+similar exception handling for two similar code
+fragments~\cite{chanchal-scam14}. While avoiding the hard-coding of
+rules, these mining approaches suffer the issue of how much similar
+for two fragments to be considered as having similar exception
+handling. In fact, two API method calls in two different contexts
+might require to handle the same exception. For example, two fragments
+of code containing an opening of the files for different purposes in
+two contexts might need to catch and handle the \code{IOException} due
+to the call to \code{new\-Buffered\-Reader}. To provide more
+flexibility in matching the code, the fourth category follows the {\em
+  information retrieval} (IR) direction~\cite{xrank-fse20}.
+
+using a fuzzy set technique to learn the associations between the
+method calls (e.g., \code{...}) and the exceptions (e.g., \code{...}).
+
+XRank, XHand ...
+

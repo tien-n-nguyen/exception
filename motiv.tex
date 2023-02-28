@@ -52,16 +52,16 @@ handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-
 approaches utilized {\em heuristic strategies} on exception types,
 method calls, and variables' types to recommend exception handling
 code~\cite{barbosa-bsse12}. While the heuristics might not work in all
-cases, {\em exception handling policies} could be
-enforced~\cite{barbosa-tse16,barbosa-saner18}. However, the policies
-must be pre-defined and encoded in the tool. To overcome that, the
-{\em mining approaches} are based on the idea that similar code
-requires similar exception handling~\cite{chanchal-scam14}. Some
+cases, other approaches enforce {\em exception handling
+  policies}~\cite{barbosa-tse16,barbosa-saner18}. However, the
+policies must be pre-defined and encoded in the tool. To overcome
+that, the {\em mining approaches} are based on the idea that similar
+code requires similar exception handling~\cite{chanchal-scam14}. Some
 approaches also leverage mined patterns to repair exception-handling
 bugs~\cite{zhong-jss18}. A key issue with the mining approaches is
 that the two code fragments might not be exactly matched, but they
 share a few key elements that require the same exception handling.
-Thus, Nguyen {\em et al.}~\cite{xrank-fse20} propose a {\em
+Thus, Nguyen {\em et al.}~\cite{xrank-fse20} propose an {\em
   information retrieval} (IR) approach using a fuzzy set technique to
 learn the associations between the method calls (e.g.,
 \code{get\-Declared\-Field}) and the exceptions (e.g.,
