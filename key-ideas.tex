@@ -5,31 +5,40 @@
 Java code: 1) given a code snippet, it will point out which statements
 in the snippet need to be placed within a \code{try-catch} block, and
 what exceptions need to be handled in the catch clause. Following
-Observations 1--4, we design {\tool} with the following key ideas:
+Observations 1-5, we design {\tool} with the following key ideas:
 
 %\vspace{3pt}
 \subsubsection{{\bf [Key Idea 1] Neural Network-Based Approach to Exception Handling Recommendation}}
 %\vspace{2pt}
 %\subsubsection*{{\bf [Key Idea 1] Neural Network-Based Approach to Partial Program Dependence Analysis}}
-Instead of deterministically deriving the exceptions to be handled in
-a heuristic or mining manner for a given (incomplete) code snippet, following
-Observation 2, we design a deep learning model (DL) to learn to
-analyze that snippet to recommend the statements in the
-\code{try-catch} block and the exceptions in the \code{catch} clause.
-By leveraging the \code{try-catch} blocks of the complete code in the
+Instead of deterministically deriving the exceptions to be handled for
+a given (incomplete) code snippet, following Observation 2, we design
+a deep learning model (DL) to learn to analyze that snippet to
+recommend the statements to be placed within the \code{try-catch}
+block and to recommend the exceptions in the \code{catch} clause.  By
+leveraging the \code{try-catch} blocks of the complete code in the
 open-source projects (e.g., GitHub) in the training process, our DL
-model can decide what statements in the given code snippet to be
-placed in a \code{try-catch} block and what exceptions to be handled.
+model can help the adaptation in two tasks: 1) deciding what
+statements in the given code snippet to be placed in a
+\code{try-catch} block, and 2) deciding what exceptions to be handled.
 
+\vspace{2pt}
+\subsubsection{{\bf [Key Idea 2] Leveraging Context to Avoid
+Ambiguity and Learning the Connections between API elements and
+Exception Types}} Instead of learning only the associations between an
+API element and exception types, we leverage as the context the
+complete methods in the code corpus for training, which are parseable
+and provide us the identities (i.e., FQNs) of the API elements. Our DL
+model will also leverage the context to learn the connections between
+the key API elements in the context and the exception types that need
+to be caught.
 
 %\vspace{2pt}
-\subsubsection{{\bf [Key Idea 2] Span-based ...}}
-We seek inspiration from the neural network-based dependency parsing
+\subsubsection{{\bf [Key Idea 3] Span-based ...}}
+We seek inspiration from the neural network-based span-based ...
 approaches~\cite{?} in Natural Language Processing (NLP). They
 successfully learn ... Following suit, we design \tool to learn the
 representations for the statements in source code so as to learn the
 span ...
 
-\vspace{2pt}
-\subsubsection{{\bf [Key Idea 3] Context ...}}
-...
+
