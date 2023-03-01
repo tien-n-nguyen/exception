@@ -55,10 +55,13 @@ of code containing an opening of the files for different purposes in
 two contexts might need to catch and handle the \code{IOException} due
 to the call to \code{new\-Buffered\-Reader}. To provide more
 flexibility in matching the code, the fourth category follows the {\em
-  information retrieval} (IR) direction~\cite{xrank-fse20}.
-
-using a fuzzy set technique to learn the associations between the
-method calls (e.g., \code{...}) and the exceptions (e.g., \code{...}).
-
-XRank, XHand ...
+  information retrieval} (IR)
+direction~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
+a code fragment and recommends a ranked list of exceptions that need
+to be handled in a \code{catch} clause. XHand~\cite{xrank-fse20}
+recommends the exception handling code in a \code{catch} block for a
+given code fragment. Both uses a fuzzy set technique to learn the
+associations between the method calls (e.g.,
+\code{new\-Buffered\-Reader}) and the exceptions (e.g.,
+\code{IOException}).
 
