@@ -49,12 +49,13 @@ similar exception handling for two similar code
 fragments~\cite{chanchal-scam14}. While avoiding the hard-coding of
 rules, these mining approaches suffer the issue of how much similar
 for two fragments to be considered as having similar exception
-handling. In fact, two API method calls in two different contexts
-might require to handle the same exception. For example, two fragments
-of code using JDK containing an opening of the files for different
-purposes in two contexts might need to catch and handle the
-\code{IOException} due to the call to
-\code{java.io.nio.new\-Buffered\-Reader}.
+handling. For the mining approaches, deterministically setting a
+threshold for frequent occurrences is challenging.
+%In fact, two API method calls in two different contexts might require
+%to handle the same exception. For example, two fragments of code
+%using JDK containing an opening of the files for different purposes
+%in two contexts might need to catch and handle the \code{IOException}
+%due to the call to \code{java.io.nio.new\-Buffered\-Reader}.
 
 To provide more flexibility in matching the code, the fourth category
 follows the {\em information retrieval} (IR)

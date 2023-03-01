@@ -8,67 +8,124 @@
 
 Let us use a few real-world examples to explain the problem and
 motivate our approach. Figure~\ref{fig:example1} displays a code
-snippet in an answer to the StackOverflow (SO) question 15409223 on
+snippet in an answer to the StackOverflow question 15409223 on
 how to ``add new paths for native libraries at runtime in Java''.  The
 code snippet serves the illustrating purpose, thus, does not contain
 all the details regarding what exceptions that need to be handled. It
-just contains a throw of a generic \code{Exception} in the method
-header (\code{addLibraryPath}). From the empirical study from Zhang
+contains only a throw of a generic \code{Exception} in the method
+header~(\code{addLibraryPath}). From the empirical study from Zhang
 {\em et al.}~\cite{zhang-icse19}, this code snippet was adopted by the
-developers into their Github project named \code{armint} as seen in
-Figure~\ref{fig:example2}. In \code{armint} code, the developers
-handle in a \code{try-catch} block the all possible exceptions caused
+developers into their Github project named \code{armint} (see
+Figure~\ref{fig:example2}). In \code{armint} code, the developers
+handle in a \code{try-catch} block all possible exceptions caused
 by \code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
 according to JDK's documentation including
 \code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
-\code{Illegal\-Argument\-Exception}, and
+\code{Illegal\-Argument\-Excep\-tion}, and
 \code{Illegal\-Access\-Exception} (line 24 of
 Figure~\ref{fig:example2}).
 
 In their study, Zhang {\em et al.}~\cite{zhang-icse19} have reported
-that such adaptation is still largely manual due to the lack of
-documentation for exception handling. Kechagia {\em et
-  al.}~\cite{kechagia-msr14} found that 69\% of the methods from
-Android packages in their stack traces had undocumented exceptions in
-the Android API. The manual adaptation on exception handling by
-inserting a \code{try-catch} block is quite popular (in 31 out 629
-cases). Such manual adaptation could lead to exception-related bugs,
-which could cause serious issues including crashes or unstable
-states~\cite{xrank-fse20}. Thus, it is desirable to have an automated
-tool to recommend proper exception handling in order to adapt the
-incomplete code snippets. For example, what lines need to be included
-in a \code{try-catch} block, and what exceptions need to be handled.
+that such adaptation is still largely manual.
+%Kechagia {\em et al.}~\cite{kechagia-msr14} found that 69\% of the
+%methods from Android packages in their stack traces had undocumented
+%exceptions in the Android APIs.
+The manual adaptation on exception handling by inserting a
+\code{try-catch} block is quite popular, yet not automated by any
+tools. Such manual adaptation for a code snippet could lead to
+exception-related bugs, which could cause serious issues including
+crashes or unstable states~\cite{xrank-fse20} because it is not
+trivial for developers to memorize what API methods could cause
+exceptions and what exceptions need to be handled.
+%
+Thus, it is desirable to have an automated tool to recommend proper
+exception handling in order to adapt the incomplete code snippets.
+For example, such a tool could recommend what lines need to be
+included in a \code{try-catch} block, and what exceptions need to be
+handled.
 
 \begin{Observation} [{\bf Exception Handling Recommendation}]
-Automated recommendation to properly handle exceptions is desirable in
-assisting developers to adapt incomplete code snippets into their codebases.
+Automated recommendation to properly handle exceptions is desirable to
+assist developers in adapting incomplete code snippets into their
+codebases.
 \end{Observation}
 
 %spec, heuristic, mining, IR
 
-To address the issue, several automated approaches have been proposed
-to recommend proper exception
-handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. Earlier
-approaches utilized {\em heuristic strategies} on exception types,
-method calls, and variables' types to recommend exception handling
-code~\cite{barbosa-bsse12}. While the heuristics might not work in all
-cases, other approaches enforce {\em exception handling
-  policies}~\cite{barbosa-tse16,barbosa-saner18}. However, the
-policies must be pre-defined and encoded in the tool. To overcome
-that, the {\em mining approaches} are based on the idea that similar
-code requires similar exception handling~\cite{chanchal-scam14}. Some
-approaches also leverage mined patterns to repair exception-handling
-bugs~\cite{zhong-jss18}. A key issue with the mining approaches is
-that the two code fragments might not be exactly matched, but they
-share a few key elements that require the same exception handling.
-Thus, Nguyen {\em et al.}~\cite{xrank-fse20} propose an {\em
-  information retrieval} (IR) approach using a fuzzy set technique to
-learn the associations between the method calls (e.g.,
+For such recommendation, several automated approaches have been
+proposed to recommend proper exception
+handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. While
+early approaches were not effective in all the cases due to their
+heuristics~\cite{barbosa-bsse12}, the exception policies are too
+strict in enforcing them, yet requires the rules to be encoded in the
+tools~\cite{barbosa-tse16,barbosa-saner18}. XRank~\cite{xrank-fse20}
+and XHand~\cite{xrank-fse20} have shown that information retrieval
+(IR) techniques such as fuzzy sets could perform better than the
+mining approaches~\cite{chanchal-scam14}, which suffers the issue of
+setting a threshold for frequent occurrences.
+
+However, the state-of-the-art IR-based approaches~\cite{xrank-fse20}
+have the following key limitations. First, it is not trivial to
+pre-define a threshold for feature matching for a retrieval of an
+element, e.g., the threshold to determine the associations between an
+API method call (e.g., \code{get\-Declared\-Field}) and an exception
+type (e.g., \code{No\-Such\-Field\-Exception}). Second, relying on the
+lexical values of the elements' names, XRank/XHand~\cite{xrank-fse20}
+cannot handle the ambiguous names of the APIs or exceptions in an
+incomplete code snippet (e.g., the API method \code{get} at line 6 of
+Figure~\ref{fig:example1} is a popular name), which might be
+unparseable to resolve their fully-qualified names. Thus, this reduces
+its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} considers
+only the associations between an API method with an exception type,
+and discards the surrounding code context in a \code{try-catch} block.
+For example, it learns the association between the method call (e.g.,
 \code{get\-Declared\-Field}) and the exceptions (e.g.,
 \code{No\-Such\-Field\-Exception}, \code{Security\-Exception}, etc.)
-that need to be handled. A key drawback of the IR approach is that it
-relies on the threshold for a match in an retrieval, which might often
-not be easily pre-defined.
+that need to be handled. This makes their tool further suffer the
+ambiguity issue.
+
+
+%Earlier approaches utilized {\em heuristic strategies} on exception
+%types, method calls, and variables' types to recommend exception
+%handling code~\cite{barbosa-bsse12}. While the heuristics might not
+%work in all the cases, other approaches enforce {\em exception
+%  handling policies}~\cite{barbosa-tse16,barbosa-saner18}. However,
+%the policies must be pre-defined and encoded in the tool. To overcome
+%that, the {\em mining approaches} are based on the idea that similar
+%code requires similar exception handling~\cite{chanchal-scam14}.
+%Some approaches also leverage mined patterns to repair
+%exception-handling bugs~\cite{zhong-jss18}.
+%A key issue with the mining approaches is that the two code fragments
+%might not be exactly matched, but they share a few key elements that
+%require the same exception handling.  Thus, Nguyen {\em et
+%  al.}~\cite{xrank-fse20} propose an {\em information retrieval} (IR)
+%approach using a fuzzy set technique to learn the associations between
+%the method calls (e.g., \code{get\-Declared\-Field}) and the
+%exceptions (e.g., \code{No\-Such\-Field\-Exception},
+%\code{Security\-Exception}, etc.)  that need to be handled. A key
+%drawback of the IR approach is that it relies on the threshold for a
+%match in an retrieval, which might often not be easily pre-defined.
+
+
+%To address the issue, several automated approaches have been proposed
+%to recommend proper exception
+%handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. Earlier approaches utilized {\em heuristic strategies} on exception types, method calls, and variables' types to recommend exception handling
+%code~\cite{barbosa-bsse12}. While the heuristics might not work in all
+%the cases, other approaches enforce {\em exception handling
+%  policies}~\cite{barbosa-tse16,barbosa-saner18}. However, the
+%policies must be pre-defined and encoded in the tool. To overcome
+%that, the {\em mining approaches} are based on the idea that similar
+%code requires similar exception handling~\cite{chanchal-scam14}.
+%A key issue with the mining approaches is that the two code fragments
+%might not be exactly matched, but they share a few key elements that
+%require the same exception handling.  Thus, Nguyen {\em et
+%  al.}~\cite{xrank-fse20} propose an {\em information retrieval} (IR)
+%approach using a fuzzy set technique to learn the associations between
+%the method calls (e.g., \code{get\-Declared\-Field}) and the
+%exceptions (e.g., \code{No\-Such\-Field\-Exception},
+%\code{Security\-Exception}, etc.)  that need to be handled. A key
+%drawback of the IR approach is that it relies on the threshold for a
+%match in an retrieval, which might often not be easily pre-defined.
 
 \input{example2.tex}
 
