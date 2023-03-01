@@ -173,15 +173,31 @@ need to be handled.
 
 In our motivating example, the connection between
 \code{java.\-lang.\-Class.\-get\-Declared\-Field} and the exceptions
-\code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
+\code{No\-Such\-Field\-Exception}, \code{Secur\-ity\-Exception},
 \code{Illegal\-Argument\-Exception}, and
 \code{Illegal\-Access\-Exception} can be learned from the existing
 code corpora. Thus, a model can learn to recommend those exceptions
 for an incomplete code snippet involving \code{get\-Declared\-Field}.
 %======================================================
 
-\input{example4.tex}
+\begin{Observation} [{\bf Context Helps Resolve Name Ambiguity}]
+The context of API elements and surrounding code can help resolve the
+ambiguity of the names of those elements in incomplete code snippets.
+\end{Observation}
 
+For a given incomplete code, as explained earlier, the names of the
+API elements (methods, fields, classes) could be ambiguous.  However,
+if a model can learn from the complete code the fully-qualified names
+(FQNs) of the API elements, the context consisting of those API
+elements as well as the other program elements in the surrounding code
+could help a model determine their correct identities (i.e.,
+FQNs). For example, in Figure~\ref{fig:example1}, considering all the
+API elements in the code, a model can decide
+\code{java.\-lang.\-Class.\-Field.\-get} the identity of the \code{get}
+function at line 6.
+
+
+%======================================================
 For the list of statements in an incomplete code, not all of them
 needs to be wrapped around in a \code{try-catch} block. For example,
 considering the example of using \code{new\-Buffered\-Reader} in
@@ -191,6 +207,8 @@ Figure~\ref{fig:example4}. While the API call
 character set does not. Moreover, the statement at line 5 with the API
 call to \code{readLine} needs to be wrapped in a \code{try-catch}
 block as well.
+
+\input{example4.tex}
 
 \begin{Observation} [{\bf Learn to Decide What Statements to be in a Try-Catch block}]
   A model can learn from the code corpora what statements need to be
