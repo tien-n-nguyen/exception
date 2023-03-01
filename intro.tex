@@ -67,21 +67,73 @@ given code fragment. Both uses a fuzzy set technique to learn the
 associations between the method calls (e.g.,
 \code{new\-Buffered\-Reader}) and the exceptions (e.g.,
 \code{IOException}). While the IR-based approach achieves higher
-accuracy than others~\cite{xrank-fse20}, it has key limitations
-that reduce its effectiveness. First, it is not straightforward to {\bf
+accuracy than others~\cite{xrank-fse20}, it has key limitations that
+reduce its effectiveness. First, it is not trivial to {\bf
   pre-define a threshold} for feature matching for a retrieval of an
 element (e.g., an exception or API method). The effectiveness of those
 IR techniques depends much on the correct value of such pre-defined
-threshold. Second, the IR-based techniques rely on the {\bf lexical
-  values} of the code tokens and API elements, which can be {\em
-  ambiguous in an incomplete code snippet}. For example, the
+threshold. Second, the IR-based techniques rely on the lexical values
+of the code tokens and API elements, whose names can be {\em
+  ambiguous} in an incomplete code snippet. For example, the
 \code{Document} class in \code{org.\-w3c.\-dom} of the W3C library has
 the same simple name as the \code{Document} class in
 \code{com.\-google.\-gwt.\-dom.\-client.\-Document} of the Google Web
 Toolkit (GWT) library. An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
 of exceptions than the one in the GWT library. Those IR-based
-techniques are not sufficiently flexible to handle such ambiguous
-names. Third, the IR techniques {\em do not consider the {\bf context} of
-  surrounding code}, thus, further suffering the ambiguity of
-API methods and exceptions.
+techniques are not sufficiently flexible to handle such {\bf ambiguous
+  names}. Third, the IR techniques {\em do not consider the {\bf
+    context} of surrounding code}, thus, further suffering the
+ambiguity of API methods and exceptions.
+
+In this paper, we propose {\tool}, a learning-based exception handling
+recommender, to accept a given Java code snippet, and 1) to recommend
+what statements need to be placed in a \code{try-catch} block and 2)
+to recommend what exception types need to be caught in the
+\code{catch} clause.  We find a motivation for such a data-driven,
+learning-based approach from the previous studies that exception
+handling for the API elements is frequently repeated across different
+projects~\cite{chanchal-scam14,zhong-jss18}. The rationale is that the
+designers of a software library have the intents for users to use
+certain API elements with corresponding exception handling types.
+Thus, we design {\tool} to learn from the exception handling
+statements and types retrieved from complete source code in a large
+code corpus, and derive the exception handling for the (partial) code
+snippet under study.
+
+%no threshold
+%context: ambiguity and connection (complete code)
+%span...
+
+{\tool} is designed to capture the basic insights to overcome key
+limitations of the state-of-the-art approaches. First, with the
+learning-based approach, {\tool} does not rely on a pre-defined
+threshold for explicit feature matching for the retrieval of API
+elements or exception types. Second, instead of learning only the
+associations between API elements and corresponding exception types,
+we also consider the code context surrounding them. This gives {\tool}
+two advantages. (1) During training, the complete code enables the
+identifications (i.e., the fully-qualified names (FQNs)) of the API
+elements. During predicting, for the given incomplete code, the
+context enables {\tool} learn the identities via the relations among
+those API elements in the context, thus, avoiding the name ambiguity.
+(2) the context also helps the model implicitly learn the important
+features to connect between the key API elements and the corresponding
+exception types.
+
+We design a learning-based model ...
+
+We have conducted several experiments to evaluate {\tool}. ...
+
+In brief, this paper makes the following major contributions:
+
+\noindent {\bf 1. [Neural Network-based Automated Exception Handling
+    Recommendation]}. {\tool} is the first neural network approach to
+  automated exception handling recommendation for both complete as
+  well as partial code.
+
+\noindent {\bf 2. [Empirical Evaluation]}. We conducted an extensive
+empirical evaluation showing {\tool}'s high accuracy in exception
+handling recommendation for both statements and exception types.
+
+  
