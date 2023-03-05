@@ -88,12 +88,13 @@ of {\em interdependent API elements} to resolve the ambiguity of API
 methods and exceptions.
 
 In this paper, we propose {\tool}, a learning-based exception handling
-recommender, to accept a given Java code snippet, and 1) to recommend
-{\em what statements need to be placed in a \code{try-catch} block}
-and 2) to recommend {\em what exception types need to be caught in the
-  \code{catch} clause}.  We find a motivation for such a data-driven,
-learning-based approach from the previous studies that exception
-handling for the API elements is frequently repeated across different
+recommender, to accept a given Java code snippet, and to recommend
+1) {\em what statements need to be placed in a \code{try-catch} block}
+({\xstate}) and 2) {\em what exception types need to be
+  caught in the \code{catch} clause} ({\xtype}).  We find a motivation
+for such a data-driven, learning-based approach from the previous
+studies that exception handling for the API elements is frequently
+repeated across different
 projects~\cite{chanchal-scam14,zhong-jss18}. The rationale is that the
 designers of a software library have the intents for users to use
 certain API elements with corresponding exception handling types.
@@ -116,14 +117,27 @@ we also consider the code context surrounding them. This gives {\tool}
 two advantages. (1) During training, the complete code enables the
 identifications (i.e., the fully-qualified names (FQNs)) of the API
 elements. During predicting, for the given incomplete code, the
-context enables {\tool} {\em learn the identities via the
+context enables {\tool} {\em learn the identities of the APIs via the
   dependencies/relations} among those API elements in the context,
 thus, avoiding the name ambiguity. Let us call it {\em dependency
-  context}. (2) the context of surrounding code also helps the model
+  context}. (2) The context of surrounding code also helps the model
 implicitly learn the important features to connect between the key API
 elements and the corresponding exception types.
 
-We design a learning-based model ...
+We design a learning-based model that considers exception handling
+recommendation as a dual-task learning between recommending the
+statements for \code{try-catch} block ({\xstate}) and recommending
+exception types to be handled ({\xtype}). The learning for {\xstate}
+and that for {\xtype} can be mutually beneficial. If a model learns
+what statements with certain API method calls to be included in a
+\code{try-catch} block (e.g., \code{inputStream.read}), based on the
+complete code in the corpus, it can learn that certain exception types
+need to be handled (e.g., \code{IOException}). In contrast, if a model
+learns what exceptions need to be handled
+(\code{Index\-Out\-Of\-Bounds\-Exception}), it will certainly be
+easier to decide whether to include a statement in a \code{try-catch}
+block (e.g., a statement with
+\code{java.\-lang.\-String.\-sub\-String}). {\bf MORE...}
 
 We have conducted several experiments to evaluate {\tool}. ...
 
