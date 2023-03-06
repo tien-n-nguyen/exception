@@ -34,7 +34,7 @@ online code snippets.
 There exist several approaches to automatically recommend proper
 exception
 handling~\cite{barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16,xrank-fse20,throw-ase22}. They
-can be classified into different categories. The first category of
+can be classified into four categories. The first category of
 approaches relies on a few {\em heuristics} on exception types, API
 calls, and variable types to recommend exception handling
 code~\cite{barbosa-bsse12}. These heuristic-based approaches do not
@@ -114,15 +114,15 @@ threshold for explicit feature matching for the retrieval of API
 elements or exception types. Second, instead of learning only the
 associations between API elements and corresponding exception types,
 we also consider the code context surrounding them. This gives {\tool}
-two advantages. (1) During training, the complete code enables the
+two advantages. During training, the complete code enables the
 identifications (i.e., the fully-qualified names (FQNs)) of the API
 elements. During predicting, for the given incomplete code, the
 context enables {\tool} {\em learn the identities of the APIs via the
   dependencies/relations} among those API elements in the context,
 thus, avoiding the name ambiguity. Let us call it {\em dependency
-  context}. (2) The context of surrounding code also helps the model
-implicitly learn the important features to connect between the key API
-elements and the corresponding exception types.
+  context}. Moreover, the context of surrounding code also helps the
+model implicitly learn the important features to connect between the
+key API elements and the corresponding exception types.
 
 We design a learning-based model that considers exception handling
 recommendation as a dual-task learning between recommending the

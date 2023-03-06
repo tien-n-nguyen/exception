@@ -34,9 +34,9 @@ The manual adaptation on exception handling by inserting a
 \code{try-catch} block is quite popular, yet not automated by any
 tools. Such manual adaptation for a code snippet could lead to
 exception-related bugs, which could cause serious issues including
-crashes or unstable states~\cite{xrank-fse20} because it is not
-trivial for developers to memorize what API methods could cause
-exceptions and what exceptions need to be handled.
+crashes or unstable states~\cite{xrank-fse20}. It is not trivial for
+developers to memorize what API methods could cause exceptions and
+what exceptions need to be handled~\cite{xrank-fse20}.
 %
 Thus, it is desirable to have an automated tool to recommend proper
 exception handling in order to adapt the incomplete code snippets.
@@ -52,37 +52,48 @@ codebases.
 
 %spec, heuristic, mining, IR
 
-For such recommendation, several automated approaches have been
-proposed to recommend proper exception
+As explained in Section~\ref{sec:intro}, for such recommendation, four
+categories of automated approaches have been proposed to recommend
+exception
 handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. While
-early approaches were not effective in all the cases due to their
-heuristics~\cite{barbosa-bsse12}, the exception policies are too
-strict in enforcing them, yet requires the rules to be encoded in the
-tools~\cite{barbosa-tse16,barbosa-saner18}. XRank~\cite{xrank-fse20}
-and XHand~\cite{xrank-fse20} have shown that information retrieval
-(IR) techniques such as fuzzy sets could perform better than the
-mining approaches~\cite{chanchal-scam14}, which suffers the issue of
-setting a threshold for frequent occurrences.
+early approaches were not effective in all cases due to their {\em
+  heuristics}~\cite{barbosa-bsse12}, the {\em exception policies} are
+too strict in enforcing them, yet requires the rules to be encoded in
+the tools~\cite{barbosa-tse16,barbosa-saner18}. The state-of-the-art
+approaches with {\em information retrieval} (e.g.,
+XRank/Xhand~\cite{xrank-fse20}) have been shown to outperform the
+existing approaches including the {\em mining
+  ones}~\cite{chanchal-scam14} (which suffers the issue of setting a
+threshold for frequent occurrences).
 
-However, the state-of-the-art IR-based approaches~\cite{xrank-fse20}
-have the following key limitations. First, it is not trivial to
-pre-define a threshold for feature matching for a retrieval of an
-element, e.g., the threshold to determine the associations between an
-API method call (e.g., \code{get\-Declared\-Field}) and an exception
-type (e.g., \code{No\-Such\-Field\-Exception}). Second, relying on the
-lexical values of the elements' names, XRank/XHand~\cite{xrank-fse20}
-cannot handle the ambiguous names of the APIs or exceptions in an
-incomplete code snippet (e.g., the API method \code{get} at line 6 of
+%XRank~\cite{xrank-fse20} and XHand~\cite{xrank-fse20} have shown that
+%information retrieval (IR) techniques such as fuzzy sets could perform
+%better than the mining approaches~\cite{chanchal-scam14}, which
+%suffers the issue of setting a threshold for frequent occurrences.
+
+However, those state-of-the-art, IR-based
+approaches~\cite{xrank-fse20} have the following key
+limitations. First, it is not trivial to pre-define a threshold for
+feature matching for a retrieval of an element, e.g., the threshold to
+determine the associations between an API~call (e.g.,
+\code{get\-Declared\-Field}) and an exception type (e.g.,
+\code{No\-Such\-Field\-Exception}). Second, relying on the lexical
+values of the elements' names, XRank/XHand~\cite{xrank-fse20} cannot
+handle the ambiguous names of the APIs or exceptions in an incomplete
+code snippet (e.g., the API method \code{get} at line 6 of
 Figure~\ref{fig:example1} is a popular name), which might be
 unparseable to resolve their fully-qualified names. Thus, this reduces
-its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} considers
+its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} consider
 only the associations between an API method with an exception type,
 and discards the surrounding code context in a \code{try-catch} block.
-For example, it learns the association between the method call (e.g.,
+For example, it learns the association between the API call (e.g.,
 \code{get\-Declared\-Field}) and the exceptions (e.g.,
 \code{No\-Such\-Field\-Exception}, \code{Security\-Exception}, etc.)
-that need to be handled. This makes their tool further suffer the
-ambiguity issue.
+that need to be handled. Without the context, it is even more
+challenging to decide the identities of the APIs via their simple
+names.
+
+%This makes their tool further suffer the ambiguity issue.
 
 
 %Earlier approaches utilized {\em heuristic strategies} on exception
@@ -144,13 +155,14 @@ ambiguity issue.
 Now, consider the complete code example in Figure~\ref{fig:example3}
 from the Github project named \code{quarkus}. While there are
 differences between the complete code in Figure~\ref{fig:example3} and
-the adapted code in Figure~\ref{fig:example2}, the presence of the API
-call to \code{get\-Declared\-Field} has made the list of the handled
-exceptions the same (line 8 in Figure~\ref{fig:example3} and line 24
-in Figure~\ref{fig:example2}). This is expected because the designers
-of the JDK library have the intents for developers to use the API
-method \code{get\-Declared\-Field} within a \code{try-catch} block and
-to handle the list of exceptions as in line 8 of
+the adapted code in Figure~\ref{fig:example2}, due to the presence of
+the API call to \code{get\-Declared\-Field} in both code, the list of
+the handled exceptions is the same (line 8 in
+Figure~\ref{fig:example3} and line 24 in
+Figure~\ref{fig:example2}). This is expected because the designers of
+the JDK library have the intents for developers to use the API method
+\code{get\-Declared\-Field} within a \code{try-catch} block and to
+handle the list of exceptions as in line 8 of
 Figure~\ref{fig:example3}. Thus, to adapt the incomplete code snippet
 in Figure~\ref{fig:example1}, one could learn from the public code
 repositories to properly handle the exceptions.
@@ -180,21 +192,42 @@ code corpora. Thus, a model can learn to recommend those exceptions
 for an incomplete code snippet involving \code{get\-Declared\-Field}.
 %======================================================
 
-\begin{Observation} [{\bf Context Helps Resolve Name Ambiguity}]
-The context of API elements and surrounding code can help resolve the
-ambiguity of the names of those elements in incomplete code snippets.
+\begin{Observation} [{\bf Dependencies and Surrounding Context Help Resolve Name Ambiguity}]
+The program dependencies among the API elements and the surrounding
+code context can help resolve the ambiguity of the names of those
+elements in incomplete code snippets.
 \end{Observation}
 
-For a given incomplete code, as explained earlier, the names of the
-API elements (methods, fields, classes) could be ambiguous.  However,
-if a model can learn from the complete code the fully-qualified names
-(FQNs) of the API elements, the context consisting of those API
-elements as well as the other program elements in the surrounding code
-could help a model determine their correct identities (i.e.,
-FQNs). For example, in Figure~\ref{fig:example1}, considering all the
-API elements in the code, a model can decide
-\code{java.\-lang.\-Class.\-Field.\-get} the identity of the \code{get}
-function at line 6.
+For an incomplete code snippet, as explained earlier, the simple names
+of the API elements (methods, fields, classes) could be ambiguous.
+However, if a model can learn from the complete code the
+fully-qualified names (FQNs) of the API elements, the context
+consisting of those API elements and their program dependencies as
+well as the other program elements in the surrounding context could
+help a model determine the correct identities of the API elements
+(i.e., FQNs), leading to correct prediction of the handled exceptions.
+%
+In Figure~\ref{fig:example1}, to determine the identities of
+\code{Field} (line 2), \code{get\-Declared\-Field} (line 2),
+\code{set\-Accessible} (line 3), \code{get} (line 6), etc., a model
+could rely on the dependencies among them in the surrounding context.
+For example, the return type of \code{get\-Declared\-Field} is
+\code{Field} (thanks to line 2), which has an API method named
+\code{set\-Accessible} (thanks to line 3) and another API method named
+\code{get} (thanks to line 6). Considering all such dependencies among
+the API elements in the context and with the knowledge learned from
+the complete code, a model could decide that the identity of
+\code{Field} is \code{java.\-lang.\-Class.\-Field}, that of
+\code{set\-Accessible} is
+\code{java.\-lang.\-Class.\-Field.\-set\-Accessible}, and that of the
+\code{get} function at line 6 is
+\code{java.\-lang.\-Class.\-Field.\-get}. The rationale is that a
+model could see such dependencies among those API elements before in
+a complete code in the corpus.
+
+%that of \code{Field} is
+%\code{java.\-lang.\-Class.\-Field}, and that of \code{set\-Accessible}
+%is \code{java.\-lang.\-Class.\-Field.\-set\-Accessible}.
 
 
 %======================================================
