@@ -45,6 +45,7 @@ included in a \code{try-catch} block, and what exceptions need to be
 handled.
 
 \begin{Observation} [{\bf Exception Handling Recommendation}]
+\label{ob1}
 Automated recommendation to properly handle exceptions is desirable to
 assist developers in adapting incomplete code snippets into their
 codebases.
@@ -168,6 +169,7 @@ in Figure~\ref{fig:example1}, one could learn from the public code
 repositories to properly handle the exceptions.
 
 \begin{Observation} [{\bf Regularity of Exception Handling}]
+\label{ob2}
 Finding the patterns from complete code in existing code corpora could
 be a good strategy to {\bf learn to properly handle the exceptions} in
 adapting an (incomplete) code snippet into a codebase.
@@ -179,6 +181,7 @@ adapting an (incomplete) code snippet into a codebase.
 
 %=======================================================
 \begin{Observation} [{\bf Connections between API methods and Exceptions}]
+\label{ob3}
 The presence of certain API elements helps decide the exceptions that
 need to be handled.
 \end{Observation}
@@ -193,6 +196,7 @@ for an incomplete code snippet involving \code{get\-Declared\-Field}.
 %======================================================
 
 \begin{Observation} [{\bf Dependencies and Surrounding Context Help Resolve Name Ambiguity}]
+\label{ob4}
 The program dependencies among the API elements and the surrounding
 code context can help resolve the ambiguity of the names of those
 elements in incomplete code snippets.
@@ -244,6 +248,7 @@ block as well.
 \input{example4.tex}
 
 \begin{Observation} [{\bf Learn to Decide What Statements to be in a Try-Catch block}]
+\label{ob5}
   A model can learn from the code corpora what statements need to be
   within a \code{try-catch} block or not.
 \end{Observation}
