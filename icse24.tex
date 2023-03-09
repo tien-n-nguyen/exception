@@ -358,7 +358,22 @@
 %% article.
 
 \begin{abstract}
-Abstract goes here.
+With practical code reuse, the code fragments from developer forums
+often migrate to applications. Owing to the incomplete nature of such
+fragments, they often lack of the details on exception handling. The
+adaptation for exception handling to the codebase is not trivial as
+developers must learn and memorize what API methods could cause
+exceptions and what exceptions need to be handled. We propose {\tool},
+a learning-based exception handling recommender, to accept a given
+Java code snippet, and to recommend what statements need to be placed
+in a \code{try-catch} block, and what exception types need to be
+caught in the \code{catch} clause. We overcome the limitations of the
+state-of-the-art information retrieval approaches by our learning
+exception handling from complete code via GCN and an explainable AI
+model with the consideration of the program dependencies in the
+surrounding code context, which enables {\tool} to learn the
+identities of the APIs and the relations with the corresponding
+exception types. ...
 \end{abstract}
 
 %Our empirical evaluation on a C\# dataset with 1,612 tangled commits
