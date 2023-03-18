@@ -17,9 +17,10 @@ adaptation types including {\em type conversion}, {\em handling
   potential exceptions}, and {\em adding if
   checks}~\cite{zhang-icse19}. Among them, adding a \code{try-catch}
 block to wrap the code snippet and enumerating all the handled
-exceptions in the catch clause are frequently performed (132 cases out
-of 629 S/O examples), yet not automated by existing code integration
-techniques.
+exceptions in the catch clause are frequently performed,
+%(132 cases out of 629 S/O examples),
+yet not automated by existing tools.
+%code integration techniques.
 
 The adaptation process for exception handling is not trivial as Nguyen
 {\em et al.}~\cite{xrank-fse20} have reported that it is challenging
@@ -38,16 +39,16 @@ can be classified into four categories. The first category of
 approaches relies on a few {\em heuristics} on exception types, API
 calls, and variable types to recommend exception handling
 code~\cite{barbosa-bsse12}. These heuristic-based approaches do not
-always work in all the cases. The second category of approaches
+always work in all cases. The second category of approaches
 utilized {\em exception handling policies}, which are enforced in all
 cases~\cite{barbosa-tse16,barbosa-saner18}. However, the policies need
 to be pre-defined and encoded within the enforcing tools.  This is not
 an ideal solution considering the fast evolution of software
 libraries. To enable more flexibility than policy enforcement, the
-third category leverages the {\em mining algorithms} that derives
+third category leverages {\em mining algorithms} that derive
 similar exception handling for two similar code
-fragments~\cite{chanchal-scam14}. While avoiding the hard-coding of
-rules, these mining approaches suffer the issue of how much similar
+fragments~\cite{chanchal-scam14}. While avoiding hard-coding of
+the rules, these mining approaches suffer the issue of how much similar
 for two fragments to be considered as having similar exception
 handling. For the mining approaches, deterministically setting a
 threshold for frequent occurrences is also challenging.
@@ -57,51 +58,52 @@ threshold for frequent occurrences is also challenging.
 %in two contexts might need to catch and handle the \code{IOException}
 %due to the call to \code{java.io.nio.new\-Buffered\-Reader}.
 
-To provide more flexibility in above code matching, the fourth
-category follows the {\em information retrieval} (IR)
+To provide more flexibility in code matching, the fourth category
+follows the {\em information retrieval} (IR)
 direction~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
 a code fragment and recommends a ranked list of exceptions that need
 to be handled in a \code{catch} clause. XHand~\cite{xrank-fse20}
 recommends the exception handling code in a \code{catch} block for a
-given code fragment. Both use a fuzzy set technique to learn the
-associations between the method calls (e.g.,
+given code fragment. Both use a fuzzy set technique to compute the
+associations between the API calls (e.g.,
 \code{new\-Buffered\-Reader}) and the exceptions (e.g.,
 \code{IOException}). While the IR-based approach achieves higher
-accuracy than others~\cite{xrank-fse20}, it has key limitations that
-reduce its effectiveness. First, it is not trivial to {\bf pre-define
-  a threshold} for feature matching for a retrieval of an exception
-type or an API element. The effectiveness of those IR techniques
-depends much on the correct value of such pre-defined
-threshold. Second, the IR-based techniques rely on the lexical values
-of the code tokens and API elements, whose names can be {\em
-  ambiguous} in an incomplete code snippet. For example, the
-\code{Document} class in \code{org.\-w3c.\-dom} of the W3C library has
-the same simple name as the \code{Document} class in
+accuracy than the others~\cite{xrank-fse20}, it still has key
+limitations. First, it is not trivial to {\bf pre-define a threshold}
+for feature matching for a retrieval of an exception type or an API
+element. The effectiveness of those IR techniques depends much on the
+correct value of such pre-defined threshold. Second, the IR-based
+techniques rely on the lexical values of the code tokens and API
+elements, whose names can be {\em ambiguous} in an incomplete code
+snippet. For example, the \code{Document} class in
+\code{org.\-w3c.\-dom} of the W3C library has the same simple name as
+the \code{Document} class in
 \code{com.\-google.\-gwt.\-dom.\-client.\-Document} of the Google Web
 Toolkit (GWT) library. An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
 of exceptions than the one in the GWT library. Those IR-based
 techniques are not sufficiently flexible to handle such {\bf ambiguous
   names}. Third, the IR techniques {\em do not consider the {\bf
-    context} of surrounding code}, thus, cannot leverage the context
-of {\em interdependent API elements} to resolve the ambiguity of the
-names of the API methods and exceptions.
+    context} of surrounding code}, thus, cannot leverage the {\em
+  interdependent API elements} to resolve the ambiguity of the names
+of those API elements and exceptions.
 
 In this paper, we propose {\tool}, a learning-based exception handling
-recommender, to accept a given Java code snippet and recommend
-1) {\em what statements need to be placed in a \code{try-catch} block}
-({\xstate}) and 2) {\em what exception types need to be
-  caught in the \code{catch} clause} ({\xtype}).  We find a motivation
-for such a data-driven, learning-based approach from the previous
-studies that exception handling for the API elements is frequently
+recommender, to accept a given Java code snippet and recommend 1) {\em
+  whether a try-catch block is needed for the snippet} ({\xblock}), 2)
+{\em what statements need to be placed in a \code{try-catch} block}
+({\xstate}) and 3) {\em what exception types need to be caught in the
+  \code{catch} clause} ({\xtype}).  We find a motivation for such a
+data-driven, learning-based approach from the previous studies
+reporting that exception handling for the API elements is frequently
 repeated across different
 projects~\cite{chanchal-scam14,zhong-jss18}. The rationale is that the
 designers of a software library have the intents for users to use
 certain API elements with corresponding exception handling types.
 Thus, we design {\tool} to learn from the exception handling
-statements and types retrieved from complete source code in a large
-code corpus, and derive the exception handling for the (partial) code
-snippet under study.
+statements and exception types retrieved from complete source code in
+a large code corpus, and derive the exception handling for the
+(partial) code snippet under study.
 
 %no threshold
 %context: ambiguity and connection (complete code)
@@ -117,39 +119,40 @@ we also consider the code context surrounding them. This gives {\tool}
 two advantages. During training, the complete code enables the
 identifications (i.e., the fully-qualified names (FQNs)) of the API
 elements. During predicting, for the given incomplete code, the
-context enables {\tool} {\em learn the identities of the API elements
+context enables {\tool} to {\em learn the identities of the API elements
   via the dependencies/relations} among them in the context, thus,
 avoiding the name ambiguity. Let us call it {\em dependency
   context}. Moreover, the context of surrounding code also helps the
 model implicitly learn the important features to connect between the
-key API elements and the corresponding exception types.
+API elements and the corresponding exception types.
 
-{\em We design a ML model that considers exception handling recommendation
-as a dual-task learning between recommending the statements for
-\code{try-catch} block ({\xstate}) and recommending exception types to
-be handled ({\xtype}). The learning for {\xstate} and that for
-{\xtype} can be mutually beneficial. If a model learns what statements
-with certain API method calls to be included in a \code{try-catch}
-block (e.g., \code{inputStream.read}), based on the complete code in
-the corpus, it can learn that certain exception types need to be
-handled (e.g., \code{IOException}). In contrast, if a model learns
-what exceptions need to be handled
-(\code{Index\-Out\-Of\-Bounds\-Exception}), it will certainly be
-easier to decide whether to include a statement in a \code{try-catch}
-block (e.g., a statement with
-\code{java.\-lang.\-String.\-sub\-String}).} {\bf MORE...}
+%{\em We design a ML model that considers exception handling recommendation
+%as a dual-task learning between recommending the statements for
+%\code{try-catch} block ({\xstate}) and recommending exception types to
+%be handled ({\xtype}). The learning for {\xstate} and that for
+%{\xtype} can be mutually beneficial. If a model learns what statements
+%with certain API method calls to be included in a \code{try-catch}
+%block (e.g., \code{inputStream.read}), based on the complete code in
+%the corpus, it can learn that certain exception types need to be
+%handled (e.g., \code{IOException}). In contrast, if a model learns
+%what exceptions need to be handled
+%(\code{Index\-Out\-Of\-Bounds\-Exception}), it will certainly be
+%easier to decide whether to include a statement in a \code{try-catch}
+%block (e.g., a statement with
+%\code{java.\-lang.\-String.\-sub\-String}).} {\bf MORE...}
 
-{\em We leverage Graph Convolutional Network (GCN) to represent the
-  program dependence graph (PDG) to capture the control and data
-  dependencies among the API elements in the surrounding
-  context. Learning the dependencies via GCN enables us to realize the
-  key idea {\em ``Tell Me Your Friends, I'll Tell You Who You Are''}
-  to learn the identities of the API elements in a given incomplete
-  code, leading to better learning in both {\xstate} and
-  {\xtype}. Moreover, we treat the problem of deriving the exception
-  types to be handled as a classification among the exceptions.
+We leverage Graph Convolutional Network (GCN) to represent the program
+dependence graph (PDG) to capture the control and data dependencies
+among the API elements in the surrounding context. Learning the
+dependencies via GCN enables us to realize the key idea {\em ``Tell Me
+  Your Friends, I'll Tell You Who You Are''} to learn the identities
+of the API elements in a given incomplete code, leading to better
+learning in {\xblock}, {\xstate} and {\xtype}. Moreover, we treat the
+problem of predicting a \code{try-catch} block as a classification
+(Y/N) as well as that of deriving the handled exception types as a
+classification among the exceptions.
 %
-To predict the statements in a given code snippet that need to be
+To predict which statements in a given code snippet that need to be
 wrapped in a \code{try-catch} block, we leverage the explainable ML
 model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' on why
   the GCN model has arrived at its decision}. Specifically, {\tool}
@@ -159,15 +162,23 @@ $M$. GNNExplainer will learn the output explainable subgraph, which is
 defined as a minimal sub-graph $\mathcal{G}$ in the PDG of $M$ that
 {\em minimizes the prediction scores between using the entire $G_M$
   and using $\mathcal{G}$}. The idea is that if an edge is {\em
-  removed} from $G_M$, and {\em the decision of the model is
-  affected, then the edge is crucial and must be included in the
-  explanation for the detection result}. Thus, the minimal sub-graph
-$\mathcal{G}$ in PDG contains the nodes and edges, {\em i.e.}
-including the {\em crucial statements} that are most decisive/relevant
-to the classification on exception types. We consider them as the statements
-that need to be in a \code{try-catch} block.}
+  removed} from $G_M$, and {\em the decision of the model is affected,
+  then the edge is crucial and must be included in the explanation for
+  the detection result}. Thus, the minimal sub-graph $\mathcal{G}$ in
+PDG contains the nodes and edges, {\em i.e.}  including the {\em
+  crucial statements} that are most decisive/relevant to the
+classification on exception types. We consider them as the statements
+that need to be placed in a \code{try-catch} block.
 
-We have conducted several experiments to evaluate {\tool}. ...
+We have conducted several experiments to evaluate {\tool}. We have
+collected a large dataset of XXX projects from Github, with XX,XXX
+methods and XX,XXX \code{try-catch} blocks. Our empirical evaluation
+shows that {\tool} achieves a high accuracy of XX\% in predicting if a
+code snippet needs a \code{try-catch} block. It also achieves a high
+accuracy of XX\% in recommending which statements in the snippet to be
+placed in a try-catch block. Our result shows that {\xtype} relatively
+improves over the state-of-the-art approach in exception type
+recommendation from XX\%–YY\% in accuracy.
 
 In brief, this paper makes the following major contributions:
 
@@ -176,7 +187,12 @@ In brief, this paper makes the following major contributions:
   automated exception handling recommendation for both complete as
   well as partial code.
 
-\noindent {\bf 2. [Empirical Evaluation]}. We conducted an extensive
+  \noindent {\bf 2. [Graph Neural Network and Explainable AI (XAI)]} We
+  leverage Graph Convolutional Network to capture the program
+  dependencies among API elements and exceptions and leverage XAI
+  to derive the statements to be placed in a \code{try-catch} block.
+
+\noindent {\bf 3. [Empirical Evaluation]}. We conducted an extensive
 empirical evaluation showing {\tool}'s high accuracy in exception
 handling recommendation for both statements and exception types.
 
