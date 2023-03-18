@@ -8,17 +8,17 @@
 
 Let us use a few real-world examples to explain the problem and
 motivate our approach. Figure~\ref{fig:example1} displays a code
-snippet in an answer to the StackOverflow question 15409223 on
-how to ``add new paths for native libraries at runtime in Java''.  The
-code snippet serves the illustrating purpose, thus, does not contain
-all the details regarding what exceptions that need to be handled. It
-contains only a throw of a generic \code{Exception} in the method
-header~(\code{addLibraryPath}). From the empirical study from Zhang
-{\em et al.}~\cite{zhang-icse19}, this code snippet was adopted by the
-developers into their Github project named \code{armint} (see
+snippet in an answer to the StackOverflow question 15409223 on how to
+``add new paths for native libraries at runtime in Java''.  The code
+snippet serves as an illustration in the S/O post, thus, does
+not contain all the details on what exceptions that need to be
+handled. It contains only a throw of a generic \code{Exception} in the
+method header~(\code{addLibraryPath}). From the empirical study from
+Zhang {\em et al.}~\cite{zhang-icse19}, this code snippet was adopted
+by the developers into their Github project named \code{armint} (see
 Figure~\ref{fig:example2}). In \code{armint} code, the developers
-handle in a \code{try-catch} block all possible exceptions caused
-by \code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
+handle in a \code{try-catch} block all possible exceptions caused by
+\code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
 according to JDK's documentation including
 \code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
 \code{Illegal\-Argument\-Excep\-tion}, and
@@ -40,9 +40,9 @@ what exceptions need to be handled~\cite{xrank-fse20}.
 %
 Thus, it is desirable to have an automated tool to recommend proper
 exception handling in order to adapt the incomplete code snippets.
-For example, such a tool could recommend what lines need to be
-included in a \code{try-catch} block, and what exceptions need to be
-handled.
+Such a tool could recommend if a \code{try-catch} block is needed,
+what lines need to be included in that block, and what exceptions need
+to be handled.
 
 \begin{Observation} [{\bf Exception Handling Recommendation}]
 \label{ob1}
@@ -79,17 +79,17 @@ threshold to determine the associations between an API~call (e.g.,
 \code{get\-Declared\-Field}) and an exception type (e.g.,
 \code{No\-Such\-Field\-Exception}). Second, relying on the lexical
 values of the elements' names, XRank/XHand~\cite{xrank-fse20} cannot
-handle the ambiguous names of the APIs or exceptions in an incomplete
-code snippet (e.g., the API method \code{get} at line 6 of
-Figure~\ref{fig:example1} occurs in multiple libraries), which might
-be unparseable to resolve their fully-qualified names. Thus, this
-reduces its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20}
-consider only the associations between an API method with an exception
-type, and discards the surrounding code context in a \code{try-catch}
-block.  For example, it learns the association between the names of
+handle the ambiguous names of the APIs or exceptions (e.g., the API
+method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
+multiple libraries) in an incomplete code snippet, which might be
+unparseable to resolve their fully-qualified names. Thus, this reduces
+its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} consider
+only the associations between an API method with an exception type,
+and discard the surrounding code context in a \code{try-catch} block.
+For example, they compute the association between the names of
 the API call (e.g., \code{get\-Declared\-Field}) and the exceptions
 (e.g., \code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
-etc.) that need to be handled. Without the context, it is even more
+etc.)  that need to be handled. Without the context, it is even more
 challenging to decide the identities of the APIs via only simple
 names.
 
@@ -226,7 +226,7 @@ the complete code, a model could decide that the identity of
 \code{get} function at line 6 is
 \code{java.\-lang.\-Class.\-Field.\-get}. The rationale is that a
 model could see such dependencies among those API elements before in
-a complete code in the corpus.
+a complete code in the training corpus.
 
 %that of \code{Field} is
 %\code{java.\-lang.\-Class.\-Field}, and that of \code{set\-Accessible}
@@ -248,6 +248,6 @@ block as well.
 
 \begin{Observation} [{\bf Learn to Decide What Statements to be in a Try-Catch block}]
 \label{ob5}
-  A model can learn from the code corpora what statements need to be
+  A model can learn from the code corpora what statements need to be placed
   within a \code{try-catch} block or not.
 \end{Observation}
