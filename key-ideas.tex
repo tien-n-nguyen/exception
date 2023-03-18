@@ -2,11 +2,13 @@
 \label{key:sec}
 
 \noindent We design {\tool} for exception handling recommendation for
-Java code: given a code snippet, it will point out which statements in
-the snippet need to be placed within a \code{try-catch} block, and
-what exceptions need to be handled in the catch clause. We refer to
-those two tasks as {\xstate} and {\xtype}, respectively. Following
-Observations 1-5, we design it with the following key ideas:
+Java code: given a code snippet, it will 1) predict if a
+\code{try-catch} block is required, 2) point out which statements in
+the snippet need to be placed in a \code{try-catch} block, and 3)
+recommend what exceptions need to be handled in the catch clause. We
+refer to those three tasks as {\xblock}, {\xstate} and {\xtype},
+respectively. Following Observations 1-5, we design {\tool} with the
+following key ideas:
 
 %\vspace{3pt}
 \subsubsection{{\bf [Key Idea 1] Neural Network-Based Approach to Exception Handling Recommendation}}
@@ -15,11 +17,12 @@ Observations 1-5, we design it with the following key ideas:
 Instead of deterministically deriving the exceptions to be handled for
 a given (incomplete) code snippet, following Observation~\ref{ob2}, we
 design a deep learning model (DL) to learn to analyze that snippet to
-recommend the statements to be placed within the \code{try-catch}
-block and to recommend the exceptions in the \code{catch} clause.  By
-leveraging the \code{try-catch} blocks of the complete code in the
-open-source projects in the training process, our DL model can help
-the adaptation in the above tasks: {\xstate} and {\xtype}.
+recommend if a \code{try-catch} block is needed and the statements to
+be placed within the \code{try-catch} block, and to recommend the
+exceptions in the \code{catch} clause.  By leveraging the
+\code{try-catch} blocks of the complete code in the open-source
+projects in the training process, our DL model can help the adaptation
+in all three above tasks.
 
 %: 1) deciding what
 %statements in the given code snippet to be placed in a
@@ -29,39 +32,48 @@ the adaptation in the above tasks: {\xstate} and {\xtype}.
 \subsubsection{{\bf [Key Idea 2] Leveraging Context to Avoid
 Ambiguity and Learning the Connections between API elements and
 Exception Types}} Instead of learning only the associations between an
-API element and exception types as in XRank~\cite{xrank-fse20}, we
-leverage as the context the complete methods in the code corpus for
-training, which are parseable and provide us the identities (i.e.,
-FQNs) of the API elements. Our DL model will also leverage the context
-and dependencies among the API elements to learn their identities as
-explained in Observation~\ref{ob4}. Importantly, that leads to the
-learning of the connections between the key API elements in the
-context and the exception types that need to be handled
-(Observation~\ref{ob3}).
+API element and exception types as in XRank~\cite{xrank-fse20},
+{\tool} leverages as the context the complete methods in the code
+corpus in training, which are parseable and provide the identities
+(i.e., FQNs) of the API elements. In predicting for a code snippet,
+{\tool} will also leverage the context and dependencies among the API
+elements to learn their identities as explained in
+Observation~\ref{ob4}. Importantly, that leads to the learning of the
+connections between the key API elements in the context and the
+exception types that need to be handled (Observation~\ref{ob3}).
 
-\subsubsection{{\bf [Key Idea 3] Dual-Task Learning between {\xstate} and {\xtype}}} The learning of deciding what statements to be in a \code{try-catch}
-block could benefit much on the learning of deciding what exception
-types to be handled. In Figure~\ref{fig:example4}, if a model learns
-that line 3 (with \code{new\-Buffered\-Reader}) and line 5 (with
-\code{read\-Line}) need to be in \code{try-catch}, it could learn from
-the code corpus and decide \code{IOException} as the exception type to
-be handled. In contrast, if a model learns correctly that the
-\code{IOException} needs to be handled, from the history, it can learn
-that \code{new\-Buffered\-Reader} and \code{read\-Line} can throw that
-exception and determine that the line 3 and 5 need to be in
-\code{try-catch}.
+%\subsubsection{{\bf [Key Idea 3] Dual-Task Learning between {\xstate} and {\xtype}}} The learning of deciding what statements to be in a \code{try-catch}
+%block could benefit much on the learning of deciding what exception
+%types to be handled. In Figure~\ref{fig:example4}, if a model learns
+%that line 3 (with \code{new\-Buffered\-Reader}) and line 5 (with
+%\code{read\-Line}) need to be in \code{try-catch}, it could learn from
+%the code corpus and decide \code{IOException} as the exception type to
+%be handled. In contrast, if a model learns correctly that the
+%\code{IOException} needs to be handled, from the history, it can learn
+%that \code{new\-Buffered\-Reader} and \code{read\-Line} can throw that
+%exception and determine that the line 3 and 5 need to be in
+%\code{try-catch}.
 
-{\em
-\subsubsection{{\bf [Key Idea 4] Span-based ...}}
-We seek inspiration from the neural network-based span-based ...
-approaches~\cite{?} in Natural Language Processing (NLP). They
-successfully learn ... Following suit, we design \tool to learn the
-representations for the statements in source code so as to learn the
-span ...}
+%{\em
+%\subsubsection{{\bf [Key Idea 3] Span-based ...}}
+%We seek inspiration from the neural network-based span-based ...
+%approaches~\cite{?} in Natural Language Processing (NLP). They
+%successfully learn ... Following suit, we design \tool to learn the
+%representations for the statements in source code so as to learn the
+%span ...}
 
 
-{\em
-\subsubsection{{\bf [Key Idea 5] Leveraging Explainable AI to Predict Statements in a Try-Catch Block}}
-...
-}
-
+\subsubsection{{\bf [Key Idea 3] Leveraging Explainable AI to Predict Statements in a Try-Catch Block}} To predict which statements in a given code snippet that need to be
+wrapped in a \code{try-catch} block, we leverage the explainable ML
+model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' why
+  the GCN model has arrived at its decision}. Specifically, {\tool}
+takes as input the GCN model along with its decision on the
+classification of the task {\xblock}, and the given code.
+GNNExplainer will learn the subgraph of the PDG for the given code,
+which is called an {\em explainable subgraph}, that minimizes the
+prediction scores between using the orginal PDG and using the
+subgraph. That is, that minimal subgraph contains the crucial
+statements that are most decisive to the classification result for
+{\xblock}.  Thus, those statements returned from GNNExplainer can be
+considered as the statements that need to placed in a \code{try-catch}
+block.
