@@ -157,46 +157,60 @@ capture the structure.
 	\centering
 	\includegraphics[width=3.4in]{xblock.png}
   %      \vspace{-0.1in}
-	\caption{\code{Try-catch} Block Checker with R-GCN}
+	\caption{\code{Try-catch} Block Checker with R-GCN ({\xblock})}
 	\label{fig:gcn}	
 \end{figure}
 
-Figure~\ref{fig:gcn} presents how we use Feature-Attention GCN model
-(FA-GCN)~\cite{FAGCN} for detection. The rationale is that FA-GCN can
-deal well with the graphs with sparse features (not all the statements
-share the same properties), and potentially noisy features in a PDG.
-%Figure~\ref{fig:gcn} explains how {\tool} detects vulnerable code using
-%FA-GCN.
-First, we parse the method $M$ into PDG. Similar to CNN using the
-filter on an image, FA-GCN performs sliding a small window along all
-the nodes (statements) of the PDG. For example, in
-Figure~\ref{fig:gcn}, the window marked with A for the node
-$S27$ consists of itself and the neighboring statements/nodes $S6$,
-$S22$, $S25$, and $S29$. Another window (marked with B) is
-for the node $S23$, including itself and the neighboring nodes:
-$S22$ and $S25$. For each window, FA-GCN generates the feature
-representation matrix for the statement at the center. For example,
-for the window centered at $S27$, it generates the feature vector
-$F_{S27}$ for $S27$, using the process explained in
-Figure~\ref{fig:feature}. From the representation vectors for
-all statements, FA-GCN uses a join layer to link all these vectors
-into the Feature Matrix $\mathcal{F}_{m}$ for method $M$. A row in
-$\mathcal{F}_m$ corresponds to a window in~PDG.
+Figure~\ref{fig:gcn} presents how we use the R-GCN model~\cite{yi} to
+detect if a \code{try-catch} block is needed.
+%The rationale is that FA-GCN can deal well with the graphs with sparse
+%features (not all the statements share the same properties), and
+%potentially noisy features in a PDG.
+First, the code is processed by DeepPDA~\cite{icse23} to build
+the PDG. The R-GCN, similar to CNN in processing an image, performs
+a sliding window along the nodes in the graph. A window for a node
+consists of the neighboring nodes in the PDG.
+%Similar to CNN using the filter on an image, FA-GCN performs sliding
+%a small window along all the nodes (statements) of the PDG. For
+%example, in Figure~\ref{fig:gcn}, the window marked with A for the
+%node $S27$ consists of itself and the neighboring statements/nodes
+%$S6$, $S22$, $S25$, and $S29$. Another window (marked with B) is for
+%the node $S23$, including itself and the neighboring nodes: $S22$ and
+%$S25$.
+To process a window, the model generates the feature representation
+matrix for the node at the center using the procedure described in
+Figure~\ref{fig:feature}.
+%For example, for the window centered at $S27$, it generates the
+%feature vector $F_{S27}$ for $S27$, using the process explained in
+%Figure~\ref{fig:feature}.
+From the representation vectors for all statements (nodes), the R-GCN
+model will produce the outputs at the output layer. We then connect
+all of its outputs to a fully connected layer to transform the matrix
+into a vector $V_C$ to represent the given code $C$. With $V_C$, we
+perform classification by using two hidden layers and a softmax
+function to produce a classification for $C$ if it needs a
+\code{try-catch} block or not.
 
-Next, FA-GCN performs the convolution operation by first calculating
-the symmetric normalized Laplacian matrix~$\tilde{A}$~\cite{GCN16},
-and then calculating the convolution to generate the representation
-matrix $M_{m}$ for the method $m$. After that, we use the traditional
-steps as in a CNN model: using a spatial pyramid pooling layer (to
-normalize the method representation matrix into a uniform size, and
-reduce its total size), and connecting its output to a fully connected
-layer to transform the matrix into a vector $V_m$ to represent
-$m$. With $V_m$, we perform classification by using two hidden layers
-(controlling the length of vectors and output) and a softmax function
-to produce a prediction score for $m$. We use those scores as {\em
-  vulnerability scores to rank the methods} in a project. The decision
-for $m$ as $\mathcal{V}$ or $\mathcal{NV}$ is done via a trainable
-threshold on the prediction score~\cite{li2018vuldeepecker,li2019improving}.
+%We use those scores as {\em vulnerability scores to rank the methods}
+%in a project.
+
+%uses a join layer to link all these vectors into the
+%Feature Matrix $\mathcal{F}_{m}$ for method $M$. A row in
+%$\mathcal{F}_m$ corresponds to a window in~PDG.
+%Next, FA-GCN performs the convolution operation by first calculating
+%the symmetric normalized Laplacian matrix~$\tilde{A}$~\cite{GCN16},
+%and then calculating the convolution to generate the representation
+%matrix $M_{m}$ for the method $m$. After that, we use the traditional
+%steps as in a CNN model: using a spatial pyramid pooling layer (to
+%normalize the method representation matrix into a uniform size, and
+%reduce its total size), and connecting its output to a fully connected
+%layer to transform the matrix into a vector $V_m$ to represent
+%$m$. With $V_m$, we perform classification by using two hidden layers
+%(controlling the length of vectors and output) and a softmax function
+%to produce a prediction score for $m$. We use those scores as {\em
+%  vulnerability scores to rank the methods} in a project. The decision
+%for $m$ as $\mathcal{V}$ or $\mathcal{NV}$ is done via a trainable
+%threshold on the prediction score~\cite{li2018vuldeepecker,li2019improving}.
 
 %The model also assigns a score for $m$. We consider those scores
 
