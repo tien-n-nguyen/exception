@@ -77,30 +77,39 @@ statement, while the PDG captures the dependencies among statements.
 \vspace{-1pt}
 \subsubsection{Sequence of Sub-tokens of a Statement}
 
-At the lexical level, we capture the content of a statement in term of
-the sequence of sub-tokens. We choose the sub-token granularity
-because the sub-tokens are more likely to be repeated than the entire
-lexical tokens in source code~\cite{icse20-methodname}.
-%because they are basic elements in source code.
-%To distinguish between the vulnerable code and the surrounding code,
-%for a vulnerable statement, we also consider the fixed statement
-%during training. For the non-vulnerable statements or deleted ones, we
-%use the zero vector.
-%
-We tokenize each statement and keep only the variables, method and
-class names. The names are broken into sub-tokens using CamelCase or
-Hungarian convention. We remove the sub-tokens with one character to
-avoid the influence of noises. For example, in
-Figure~\ref{fig:feature}, the tokens of $S_{27}$ are collected and
-broken down into the sequence: \code{copy}, \code{to}, \code{user},
-\code{arg}, {\em etc}. Then, we use GloVe~\cite{glove2014}, to build the
-vectors for tokens, together with Gate Recurrent Unit
-(GRU)~\cite{chung2014empirical} to build the feature vector for the
-sequence of sub-tokens for $S_{27}$.
-%
-GloVe is known to capture well semantic similarity among tokens. GRU
-is chosen to summarize the sequence of vectors into one feature vector
-for the next step.
+At the lexical level, the lexical content of a statement is
+represented via a sequence of the sub-tokens. The sub-token
+granularity has been shown to have higher regularity than the
+tokens~\cite{icse20-methodname}. Each statement is tokenized using
+CamelCase or Hungarian convention. Then, only variables, methods,
+fields, and class' names are kept. The sub-tokens with one character
+are removed to avoid noises. As an example, in
+Figure~\ref{fig:example1} at line 2, we collect the sequence of
+sub-tokens as follows: \code{final}, \code{Field}, \code{usr},
+\code{Paths}, etc. Then, we use a word embedding~\cite{glove2014} to
+build the vectors for the sub-tokens, together with Gate Recurrent
+Unit (GRU)~\cite{chung2014empirical} to build the feature vector for
+the sequence of sub-tokens for the current statement.
+
+
+%At the lexical level, we capture the content of a statement in term of
+%the sequence of sub-tokens. We choose the sub-token granularity
+%because the sub-tokens are more likely to be repeated than the entire
+%lexical tokens in source code~\cite{icse20-methodname}.
+%We tokenize each statement and keep only the variables, method and
+%class names. The names are broken into sub-tokens using CamelCase or
+%Hungarian convention. We remove the sub-tokens with one character to
+%avoid the influence of noises. For example, in
+%Figure~\ref{fig:feature}, the tokens of $S_{27}$ are collected and
+%broken down into the sequence: \code{copy}, \code{to}, \code{user},
+%\code{arg}, {\em etc}. Then, we use GloVe~\cite{glove2014}, to build the
+%vectors for tokens, together with Gate Recurrent Unit
+%(GRU)~\cite{chung2014empirical} to build the feature vector for the
+%sequence of sub-tokens for $S_{27}$.
+%GloVe is known to capture well semantic similarity among tokens. GRU
+%is chosen to summarize the sequence of vectors into one feature vector
+%for the next step.
+
 %In the case of a vulnerable statement and its fixed ones, we combine
 %them via multiplication to get the feature vector.
 
