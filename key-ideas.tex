@@ -1,7 +1,7 @@
 \subsection{Key Ideas}
 \label{key:sec}
 
-\noindent We design {\tool} for exception handling recommendation for
+We design {\tool} for exception handling recommendation for
 Java code: given a code snippet, it will 1) predict if a
 \code{try-catch} block is required, 2) point out which statements in
 the snippet need to be placed in a \code{try-catch} block, and 3)
@@ -9,6 +9,8 @@ recommend what exceptions need to be handled in the \code{catch}
 clause. We refer to those three tasks as {\xblock}, {\xstate} and
 {\xtype}, respectively. Following Observations 1-5, we design {\tool}
 with the following key ideas:
+
+
 
 %\vspace{3pt}
 \subsubsection{{\bf [Key Idea 1] Neural Network-Based Approach to Exception Handling Recommendation}}
@@ -27,6 +29,8 @@ in all three above tasks.
 %: 1) deciding what
 %statements in the given code snippet to be placed in a
 %\code{try-catch} block, and 2) deciding what exceptions to be handled.
+
+
 
 \vspace{2pt}
 \subsubsection{{\bf [Key Idea 2] Leveraging Context to Avoid
