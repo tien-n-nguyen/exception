@@ -79,77 +79,25 @@ pre-define a threshold for feature matching for a retrieval, e.g., the
 threshold to determine the associations between an API~call (e.g.,
 \code{get\-Declared\-Field}) and an exception type (e.g.,
 \code{No\-Such\-Field\-Exception}). Second, relying on the lexical
-values of the elements' names, XRank/XHand~\cite{xrank-fse20} cannot
-handle the ambiguous names of the APIs or exceptions (e.g., the API
+values of the elements' names, XRank/XHand~\cite{xrank-fse20} suffer
+the issue of ambiguous names of the APIs or exceptions (e.g., the API
 method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
-multiple libraries) in an incomplete code snippet, which might be
-unparseable for fully-qualified name resolution. Thus, this reduces
-its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} consider
-only the associations between an API method with an exception type,
-and discard the surrounding code context in a \code{try-catch} block.
-For example, they compute the association between the names of
-the API call (e.g., \code{get\-Declared\-Field}) and the exceptions
-(e.g., \code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
-etc.)  that need to be handled. Without the context, it is even more
-challenging to decide the identities of the APIs via only simple
-names.
+multiple libraries) in an incomplete code snippet, which might not be
+parseable for fully-qualified name resolution. Thus, this reduces its
+effectiveness. Finally,
+%XRank/XHand~\cite{xrank-fse20}
+they consider only the associations between an API method with an
+exception type, and discard the surrounding code context in a
+\code{try-catch} block.  For example, they compute the association
+between the names of the API call (e.g., \code{get\-Declared\-Field})
+and the exceptions (e.g., \code{No\-Such\-Field\-Exception},
+\code{Security\-Exception}, etc.)  that need to be handled. Without
+the context, it is even more challenging to decide the identities of
+the APIs via only simple names.
 
-%This makes their tool further suffer the ambiguity issue.
-
-
-%Earlier approaches utilized {\em heuristic strategies} on exception
-%types, method calls, and variables' types to recommend exception
-%handling code~\cite{barbosa-bsse12}. While the heuristics might not
-%work in all the cases, other approaches enforce {\em exception
-%  handling policies}~\cite{barbosa-tse16,barbosa-saner18}. However,
-%the policies must be pre-defined and encoded in the tool. To overcome
-%that, the {\em mining approaches} are based on the idea that similar
-%code requires similar exception handling~\cite{chanchal-scam14}.
-%Some approaches also leverage mined patterns to repair
-%exception-handling bugs~\cite{zhong-jss18}.
-%A key issue with the mining approaches is that the two code fragments
-%might not be exactly matched, but they share a few key elements that
-%require the same exception handling.  Thus, Nguyen {\em et
-%  al.}~\cite{xrank-fse20} propose an {\em information retrieval} (IR)
-%approach using a fuzzy set technique to learn the associations between
-%the method calls (e.g., \code{get\-Declared\-Field}) and the
-%exceptions (e.g., \code{No\-Such\-Field\-Exception},
-%\code{Security\-Exception}, etc.)  that need to be handled. A key
-%drawback of the IR approach is that it relies on the threshold for a
-%match in an retrieval, which might often not be easily pre-defined.
-
-
-%To address the issue, several automated approaches have been proposed
-%to recommend proper exception
-%handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. Earlier approaches utilized {\em heuristic strategies} on exception types, method calls, and variables' types to recommend exception handling
-%code~\cite{barbosa-bsse12}. While the heuristics might not work in all
-%the cases, other approaches enforce {\em exception handling
-%  policies}~\cite{barbosa-tse16,barbosa-saner18}. However, the
-%policies must be pre-defined and encoded in the tool. To overcome
-%that, the {\em mining approaches} are based on the idea that similar
-%code requires similar exception handling~\cite{chanchal-scam14}.
-%A key issue with the mining approaches is that the two code fragments
-%might not be exactly matched, but they share a few key elements that
-%require the same exception handling.  Thus, Nguyen {\em et
-%  al.}~\cite{xrank-fse20} propose an {\em information retrieval} (IR)
-%approach using a fuzzy set technique to learn the associations between
-%the method calls (e.g., \code{get\-Declared\-Field}) and the
-%exceptions (e.g., \code{No\-Such\-Field\-Exception},
-%\code{Security\-Exception}, etc.)  that need to be handled. A key
-%drawback of the IR approach is that it relies on the threshold for a
-%match in an retrieval, which might often not be easily pre-defined.
 
 \input{example2.tex}
 
-%\subsection{Observations}
-%\label{sec:obs}
-
-%To facilitate the reuse of code snippets in a forum, an automated tool
-%is needed to derive the fully-qualified names of the API elements in
-%the snippets so that the proper import statements are added in the
-%code.
-%To build an automated tool to assist developers in proper exception
-%handling, we draw the motivation from the following observations.
 
 \input{example3.tex}
 
@@ -174,10 +122,6 @@ Finding the patterns from complete code in existing code corpora could
 be a good strategy to {\bf learn to properly handle the exceptions} in
 adapting an (incomplete) code snippet into a codebase.
 \end{Observation}
-
-%Tien
-%Explain on using context to determine the APIs and exception types
-%And make connections between them.
 
 %=======================================================
 \begin{Observation} [{\bf Connections between API methods and Exceptions}]
@@ -220,18 +164,14 @@ For example, the return type of \code{get\-Declared\-Field} is
 \code{set\-Accessible} (thanks to line 3) and another API method named
 \code{get} (thanks to line 6). Considering all such dependencies among
 the API elements in the context and with the knowledge learned from
-the complete code, a model could decide that the identity of
+the complete code, a model could decide that in the code snippet, the identity of
 \code{Field} is \code{java.\-lang.\-Class.\-Field}, that of
 \code{set\-Accessible} is
 \code{java.\-lang.\-Class.\-Field.\-set\-Accessible}, and that of the
 \code{get} function at line 6 is
 \code{java.\-lang.\-Class.\-Field.\-get}. The rationale is that a
 model could see such dependencies among those API elements before in
-a complete code in the training corpus.
-
-%that of \code{Field} is
-%\code{java.\-lang.\-Class.\-Field}, and that of \code{set\-Accessible}
-%is \code{java.\-lang.\-Class.\-Field.\-set\-Accessible}.
+a complete code in training (Figure~\ref{fig:example3}).
 
 
 %======================================================
