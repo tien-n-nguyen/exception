@@ -8,7 +8,7 @@
 
 Let us use a few real-world examples to explain the problem and
 motivate our approach. Figure~\ref{fig:example1} displays a code
-snippet in an answer to the StackOverflow question 15409223 on how to
+snippet in an answer to the StackOverflow (S/O) question 15409223 on how to
 ``add new paths for native libraries at runtime in Java''.  The code
 snippet serves as an illustration in the S/O post, thus, does
 not contain all the details on what exceptions that need to be
@@ -25,24 +25,25 @@ according to JDK's documentation including
 \code{Illegal\-Access\-Exception} (line 24 of
 Figure~\ref{fig:example2}).
 
-In their study, Zhang {\em et al.}~\cite{zhang-icse19} have reported
-that such adaptation is still largely manual.
+%In their study, Zhang {\em et al.}~\cite{zhang-icse19} have reported
+%that
+%Such adaptation is still largely manual~\cite{zhang-icse19}.
 %Kechagia {\em et al.}~\cite{kechagia-msr14} found that 69\% of the
 %methods from Android packages in their stack traces had undocumented
 %exceptions in the Android APIs.
 The manual adaptation on exception handling by inserting a
 \code{try-catch} block is quite popular, yet not automated by any
-tools. Such manual adaptation for a code snippet could lead to
-exception-related bugs, which could cause serious issues including
-crashes or unstable states. It is not trivial for
-developers to memorize what API methods could cause exceptions and
-what exceptions need to be handled~\cite{xrank-fse20}.
-%
-Thus, it is desirable to have an automated tool to recommend proper
-exception handling in order to adapt the incomplete code snippets.
-Such a tool could recommend if a \code{try-catch} block is needed,
-what lines need to be included in that block, and what exceptions need
+tools~\cite{zhang-icse19}. Such manual adaptation for a code snippet
+could lead to exception-related bugs, which could cause serious issues
+including crashes or unstable states. It is not trivial for developers
+to memorize what API methods could cause exceptions and what
+exceptions need to be handled~\cite{xrank-fse20}. Thus, it is
+desirable to have an automated tool to recommend proper exception
+handling in order to adapt the incomplete code snippets.  Such a tool
+could recommend if a \code{try-catch} block is needed for the snippet,
+what lines need to be included in that block, and what exception types need
 to be handled.
+
 
 \begin{Observation} [{\bf Exception Handling Recommendation}]
 \label{ob1}
@@ -82,7 +83,7 @@ values of the elements' names, XRank/XHand~\cite{xrank-fse20} cannot
 handle the ambiguous names of the APIs or exceptions (e.g., the API
 method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
 multiple libraries) in an incomplete code snippet, which might be
-unparseable to resolve their fully-qualified names. Thus, this reduces
+unparseable for fully-qualified name resolution. Thus, this reduces
 its effectiveness. Finally, XRank/XHand~\cite{xrank-fse20} consider
 only the associations between an API method with an exception type,
 and discard the surrounding code context in a \code{try-catch} block.

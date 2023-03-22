@@ -157,18 +157,20 @@ To predict which statements in a given code snippet that need to be
 wrapped in a \code{try-catch} block, we leverage the explainable ML
 model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' on why
   the GCN model has arrived at its decision}. Specifically, {\tool}
-takes as input the GCN model along with its decision on whether a
-\code{try-catch} block is needed, and the input PDG $G_M$ of the given
-code $M$. GNNExplainer will learn the output explainable subgraph,
-which is defined as a minimal sub-graph $\mathcal{G}$ in the PDG of
-$M$ that {\em minimizes the prediction scores between using the entire
-  $G_M$ and using $\mathcal{G}$}. The idea is that if an edge is {\em
-  removed} from $G_M$, and {\em the decision of the model is affected,
+takes two inputs: 1) the input PDG $G_C$ of the given code $C$,
+2) the trained GCN model along with its decision on whether a
+\code{try-catch} block is needed for $C$.
+%
+GNNExplainer will learn the output explainable subgraph, which is
+defined as a minimal sub-graph $\mathcal{G}$ in the PDG of $C$ that
+{\em minimizes the prediction scores between using the entire $G_C$
+  and using $\mathcal{G}$}. The idea is that if an edge is {\em
+  removed} from $G_C$, and {\em the decision of the model is affected,
   then the edge is crucial and must be included in the explanation for
   the detection result}. Thus, the minimal sub-graph $\mathcal{G}$ in
 PDG contains the nodes and edges, {\em i.e.}  including the {\em
   crucial statements} that are most decisive/relevant to the
-classification on exception types. We consider them as the statements
+classification on exception blocks. We consider them as the statements
 that need to be placed in a \code{try-catch} block.
 
 We have conducted several experiments to evaluate {\tool}. We have
@@ -178,7 +180,7 @@ shows that {\tool} achieves a high accuracy of XX\% in predicting if a
 code snippet needs a \code{try-catch} block. It also achieves a high
 accuracy of XX\% in recommending which statements in the snippet to be
 placed in a try-catch block. Our result shows that {\xtype} relatively
-improves over the state-of-the-art approach in exception type
+improves over the state-of-the-art IR approach in exception type
 recommendation from XX\%–YY\% in accuracy.
 
 In brief, this paper makes the following major contributions:
@@ -195,6 +197,6 @@ In brief, this paper makes the following major contributions:
 
 \noindent {\bf 3. [Empirical Evaluation]}. We conducted an extensive
 empirical evaluation showing {\tool}'s high accuracy in exception
-handling recommendation for both statements and exception types.
+handling recommendation for exception blocks, statements, and types.
 
   
