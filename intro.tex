@@ -16,7 +16,7 @@ into 24 different adaptation types. They highlighted several
 adaptation types including {\em type conversion}, {\em handling
   potential exceptions}, and {\em adding if
   checks}~\cite{zhang-icse19}. Among them, adding a \code{try-catch}
-block to wrap the code snippet and enumerating all the handled
+block to wrap the code snippet and listing the handled
 exceptions in the catch clause are frequently performed,
 %(132 cases out of 629 S/O examples),
 yet not automated by existing tools.
@@ -29,7 +29,7 @@ exceptions and what exceptions need to be handled. Kechagia {\em et
   al.}~\cite{kechagia-msr14} found that 19\% of the crashes in Android
 applications could have been caused by insufficient documented
 exceptions in Android APIs. Thus, it is desirable to have an automated
-tool to recommend proper exception handling for such adaptation of
+tool to recommend proper exception handling for the adaptation of
 online code snippets.
 
 There exist several approaches to automatic recommendation of 
@@ -42,7 +42,7 @@ code~\cite{barbosa-bsse12}. These heuristic-based approaches do not
 always work in all cases. The second category of approaches
 utilized {\em exception handling policies}, which are enforced in all
 cases~\cite{barbosa-tse16,barbosa-saner18}. However, the policies need
-to be pre-defined and encoded within the enforcing tools.  This is not
+to be pre-defined and encoded within the recommending tools.  This is not
 an ideal solution considering the fast evolution of software
 libraries. To enable more flexibility than policy enforcement, the
 third category leverages {\em mining algorithms} that derive
@@ -67,26 +67,27 @@ recommends the exception handling code in a \code{catch} block for a
 given code fragment. Both use a fuzzy set technique to compute the
 associations between the API calls (e.g.,
 \code{new\-Buffered\-Reader}) and the exceptions (e.g.,
-\code{IOException}). While the IR-based approach achieves higher
-accuracy than the others~\cite{xrank-fse20}, it still has key
-limitations. First, it is not trivial to {\bf pre-define a threshold}
-for feature matching for a retrieval of an exception type or an API
-element. The effectiveness of those IR techniques depends much on the
-correct value of such pre-defined threshold. Second, the IR-based
-techniques rely on the lexical values of the code tokens and API
-elements, whose names can be {\em ambiguous} in an incomplete code
-snippet. For example, the \code{Document} class in
-\code{org.\-w3c.\-dom} of the W3C library has the same simple name as
-the \code{Document} class in
+\code{IOException}).
+
+While the IR-based approach achieves higher accuracy than the
+others~\cite{xrank-fse20}, it has key limitations. First, it is
+not trivial to {\bf pre-define a threshold} for feature matching for a
+retrieval of an exception type or an API element. The effectiveness of
+those IR techniques depends much on the correct value of such
+pre-defined threshold. Second, the IR-based techniques rely on the
+lexical values of the code tokens and API elements, whose names can be
+{\em ambiguous} in an incomplete code snippet. For example, the
+\code{Document} class in \code{org.\-w3c.\-dom} of the W3C library has
+the same simple name as the \code{Document} class in
 \code{com.\-google.\-gwt.\-dom.\-client.\-Document} of the Google Web
 Toolkit (GWT) library. An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
 of exceptions than the one in the GWT library. Those IR-based
 techniques are not sufficiently flexible to handle such {\bf ambiguous
   names}. Third, the IR techniques {\em do not consider the {\bf
-    context} of surrounding code}, thus, cannot leverage the {\em
-  interdependent API elements} to resolve the ambiguity of the names
-of those API elements and exceptions.
+    context} of surrounding code}, thus, cannot leverage the {\em {\bf
+    dependencies} among API elements} to resolve the ambiguity of the
+names of API elements and exceptions.
 
 In this paper, we propose {\tool}, a learning-based exception handling
 recommender, to accept a given Java code snippet and recommend 1) {\em
@@ -117,11 +118,11 @@ elements or exception types. Second, instead of learning only the
 associations between API elements and corresponding exception types,
 we also consider the code context surrounding them. This gives {\tool}
 two advantages. During training, the complete code enables the
-identifications (i.e., the fully-qualified names (FQNs)) of the API
+identifications (i.e., the fully-qualified names) of the API
 elements. During predicting, for the given incomplete code, the
-context enables {\tool} to {\em learn the identities of the API elements
-  via the dependencies/relations} among them in the context, thus,
-avoiding the name ambiguity. Let us call it {\em dependency
+context enables {\tool} to {\em learn the identities of the API
+  elements via the dependencies/relations} among them in the context,
+thus, avoiding the name ambiguity. Let us call it {\em dependency
   context}. Moreover, the context of surrounding code also helps the
 model implicitly learn the important features to connect between the
 API elements and the corresponding exception types.
@@ -149,19 +150,19 @@ dependencies via GCN enables us to realize the key idea {\em ``Tell Me
 of the API elements in a given incomplete code, leading to better
 learning in {\xblock}, {\xstate} and {\xtype}. Moreover, we treat the
 problem of predicting a \code{try-catch} block as a classification
-(Y/N) as well as that of deriving the handled exception types as a
-classification among the exceptions.
+(Y/N) as well as the problem of deriving the handled exception types
+as a classification among the exceptions.
 %
 To predict which statements in a given code snippet that need to be
 wrapped in a \code{try-catch} block, we leverage the explainable ML
 model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' on why
   the GCN model has arrived at its decision}. Specifically, {\tool}
-takes as input the GCN model along with its decision on the
-classification, and the input PDG $G_M$ of the given code
-$M$. GNNExplainer will learn the output explainable subgraph, which is
-defined as a minimal sub-graph $\mathcal{G}$ in the PDG of $M$ that
-{\em minimizes the prediction scores between using the entire $G_M$
-  and using $\mathcal{G}$}. The idea is that if an edge is {\em
+takes as input the GCN model along with its decision on whether a
+\code{try-catch} block is needed, and the input PDG $G_M$ of the given
+code $M$. GNNExplainer will learn the output explainable subgraph,
+which is defined as a minimal sub-graph $\mathcal{G}$ in the PDG of
+$M$ that {\em minimizes the prediction scores between using the entire
+  $G_M$ and using $\mathcal{G}$}. The idea is that if an edge is {\em
   removed} from $G_M$, and {\em the decision of the model is affected,
   then the edge is crucial and must be included in the explanation for
   the detection result}. Thus, the minimal sub-graph $\mathcal{G}$ in
