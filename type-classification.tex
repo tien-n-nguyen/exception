@@ -3,7 +3,7 @@
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=3in]{xtype-2.png}
+\includegraphics[width=3in]{xtype-3.png}
 \vspace{-10pt}
 \caption{Exception Type Recommendation ({\xtype})}
 \label{fig:xtype}
@@ -18,8 +18,8 @@ statements were determined to be placed in the \code{try-catch} block.
 We use another R-GCN model that acts as a classifier for different
 exception types (Figure~\ref{overview}). For training, the source code
 with \code{try-catch} blocks is used as input. {\tool} parses and
-processes them in the same way to build the feature vector
-representations for the statements as in {\xblock}
+processes them in the same way to build the PDG subgraph and the
+feature vector representations for the statements as in {\xblock}
 (Figure~\ref{fig:feature}). However, in prediction, the input is the
 sub-graph $\mathcal{G}_C$ of the PDG because the GNNExplainer already
 determined that those statements in that sub-graph need to be placed
