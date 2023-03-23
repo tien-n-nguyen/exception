@@ -1,10 +1,10 @@
 \section{Try-Catch Statement Detector via Explainable AI}
 \label{interpretation:sec}
 
-This section explains {\xstate} and how to leverage an Explainable AI
+This section explains {\xstate} and how we leverage an Explainable AI
 model in GNNExplainer~\cite{GNNExplainer} to detect what statements in
-the code snippet that needs to be placed in a \code{try-catch} block
-given that {\xblock} had decided the necessity of such a block.
+the given code snippet need to be placed in a \code{try-catch} block
+provided that {\xblock} had decided the necessity of such a block.
 
 %Tien
 {\xstate} takes the following as inputs: 1) the PDG ($G_C$) of the
@@ -73,13 +73,14 @@ was used as input). When an edge-mask set is applied, some of the
 edges (and the inducing nodes) are masked. With the new graph being
 used as~the new input, if the trained R-GCN model in {\xblock}
 produces ``Yes'' as the result, i.e., the classification does not
-change, then the edges in the edge-mask set are not
-important. Thus, they will not be included in the explanation
-graph $\mathcal{G}_C$. If the trained R-GCN model in {\xblock} with
-the new input graph produces ``No'' as the result, i.e., the
-classification does change, then those edges in the edge-mask set are
-important to the model, thus, being included in the explanation graph
-$\mathcal{G}_C$. Similar logic is applied to {\em feature-mask} $FM$.
+change, then the edges in the edge-mask set are not important. Thus,
+they will not be included in the explanation graph $\mathcal{G}_C$. If
+the trained R-GCN model in {\xblock} with the new input graph produces
+``No'' as the result, i.e., the classification does change from
+``Yes'' to ``No'', then those edges in the edge-mask set are important
+to the model, thus, being included in the explanation graph
+$\mathcal{G}_C$. Similar logic is applied to include or exclude the
+features in the {\em feature-mask} $FM$.
 
 
 
@@ -169,61 +170,31 @@ definition of conditional entropy can be expressed~as
 \end{equation}
 This conditional entropy is a measure of how
 much uncertainty remains about the outcome $Y$ when we know
-$G=\mathcal{G}_C$. GNNEXplainer also limits the size of
-$\mathcal{G}_C$ by $K_C$, {\em i.e.}, taking $K_C$ edges that give the
-highest mutual information with the prediction outcome $Y$.
+$G=\mathcal{G}_C$.
 %
-Direct optimization of the formula(~\ref{eq2}) is not tractable, thus,
-GNNExplainer treats $\mathcal{G}_C$ as a random graph variable
-$\mathcal{G}$. The objective in Equation(~\ref{eq2}) becomes:
-\begin{equation}
-  \label{eq3}
-  \min_{\mathcal{G}} \EX_{\mathcal{G}_C \sim \mathcal{G}} H(Y|G=\mathcal{G}_C)
-\end{equation}
-\begin{equation}
-  \label{eq4}
-  \min_{\mathcal{G}} H(Y| G=\EX_{\mathcal{G}}[\mathcal{G}_C])
-\end{equation}
-From Equation~\ref{eq3}, we obtain Equation~\ref{eq4} with Jensen's
-inequality.  The conditional entropy in Equation~\ref{eq4} can be
-optimized by replacing $\EX_{\mathcal{G}}[\mathcal{G}_C]$ to be
-optimized by masking with $EM$ on the input graph $G_C$.  Now, we can
-reduce the problem to learning the mask $EM$.  Similar logic is
-applied to $FM$. More details can be found
-in~\cite{GNNExplainer}. The resulting sub-graph $\mathcal{G}_C$ is
-used to derive the statements to be placed in a \code{try-catch}
-block. Note that, we can set the statements to be consecutive.
-
-%We can similarly produce the interpretations for the cases of non-vulnerability result.
-
-%%% Tien removed
-%%For the feature set $\mathcal{X}_M$, GNNExplainer also gives each
-%%feature an important score $Score_{i}$. Because we use FA-GCN with
-%%attention mechanism, we aggregate the score with the weight learned
-%%for the feature $i$ at the feature generation step in the attention
-%%layer. Specifically, the new score is calculated:
-%%\begin{equation}\label{eq:13}
-%%\mathcal{S}_i = Score_{i}\sum_j W_{i,j}
-%%\end{equation}
-%%Where $j$ is the index of the statement in the method $M$.
-%% ========================
-%%The scores $\mathcal{S}_i$s are used to rank the features, which
-%%represent the variables.
-
-%We then perform a backward slicing using {\bf joern}~\cite{joern} from
-%each crucial variable at a crucial statement.
+%GNNEXplainer also limits the size of $\mathcal{G}_C$ by $K_C$, {\em
+%  i.e.}, taking $K_C$ edges that give the highest mutual information
+%with the prediction outcome $Y$.
 %
-%Both the sub-graph $G_M$ and the variables in $X_M$ are used as the
-%interpretations for the outcome of FA-GCN model. We can also produce
-%the interpretations for the cases of non-vulnerability results in the
-%same manner.
-
-%and presented to users.
-
-%As for key feature set $X_{s,m}$, GNNExplainer gives each feature an importance score $S_{s,m,i}$ to show the importance of the feature $i$. To make it more connected with our FA-GCN model, we calculate the new importance score $\tilde{S_{s,m,i}}$ with the weights learned from feature generate step in the attention layer by:
-
-%\begin{equation}\label{eq:13}
-%\tilde{S_{s,m,i}} = S_{s,m,i}\sum_j W_{i,j}
+%Direct optimization of the formula(~\ref{eq2}) is not tractable, thus,
+%GNNExplainer treats $\mathcal{G}_C$ as a random graph variable
+%$\mathcal{G}$. The objective in Equation(~\ref{eq2}) becomes:
+%\begin{equation}
+%  \label{eq3}
+%  \min_{\mathcal{G}} \EX_{\mathcal{G}_C \sim \mathcal{G}} H(Y|G=\mathcal{G}_C)
 %\end{equation}
+%\begin{equation}
+%  \label{eq4}
+%  \min_{\mathcal{G}} H(Y| G=\EX_{\mathcal{G}}[\mathcal{G}_C])
+%\end{equation}
+%From Equation~\ref{eq3}, we obtain Equation~\ref{eq4} with Jensen's
+%inequality.  The conditional entropy in Equation~\ref{eq4} can be
+%optimized by replacing $\EX_{\mathcal{G}}[\mathcal{G}_C]$ to be
+%optimized by masking with $EM$ on the input graph $G_C$.  Now, we can
+%reduce the problem to learning the mask $EM$.  Similar logic is
+%applied to $FM$.
 
-%Where $j$ is the index of the statement in the method $M$. Base on the new importance score, {\tool} could get a new ordered list of key features. Because we would like to get the interpretation about variable only for feature interpretation, {\tool} picks out the top features that only are representing the variables as the important features for the interpretation.
+More details can be found in~\cite{GNNExplainer}. The resulting
+sub-graph $\mathcal{G}_C$ is used to derive the statements to be
+placed in a \code{try-catch} block. Note that, we can set the
+statements to be consecutive.
