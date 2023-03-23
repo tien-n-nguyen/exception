@@ -86,16 +86,15 @@ Figure~\ref{fig:feature}.
 %feature vector $F_{S27}$ for $S27$, using the process explained in
 %Figure~\ref{fig:feature}.
 From the representation vectors for all statements (nodes), the R-GCN
-model will produce the outputs at the output layer. We connect
-all of its outputs to a fully connected layer to transform the matrix
-into a vector $V_C$ to represent the given code $C$. We then perform
-classification by using two hidden layers and a softmax function on
-$V_C$ to decide if a \code{try-catch} block is needed for
-$C$ or not.
+model will produce the outputs at the output layer. The R-GCN model
+connects all of its outputs to a fully connected layer to transform
+the matrix into a vector $V_C$ to represent the given code $C$. We
+then perform classification by using a softmax function on $V_C$ to
+decide if a \code{try-catch} block is needed for $C$ or not.
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=3.4in]{xblock-2.png}
+	\includegraphics[width=3.4in]{xblock.png}
   %      \vspace{-0.1in}
 	\caption{\code{Try-catch} Block Checker with R-GCN ({\xblock})}
 	\label{fig:gcn}	
