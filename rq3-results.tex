@@ -1,4 +1,4 @@
-\subsection{RQ3. Exception Type Prediction Comparison Study }
+\subsection{RQ3. Effectiveness on Exception Type Recommendation}
 \label{sec:rq3}
 
 
@@ -10,7 +10,7 @@
 			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{p{3cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}}
 				\hline
-				\# Stmts in Oracle Block& Metrics& {\textsc{\tool}\xspace} \\
+				\# ET in Oracle Block& Metrics& {\textsc{\tool}\xspace} \\
 				\hline
 				\multirow{1}{*}{1 (40376)}   & Hit-1  & 25841 (64\%) \\
 				\hline
@@ -21,21 +21,22 @@
 				& Hit-2     & 181 (33\%)\\
 				& Hit-3     & 115 (21\%) \\
 				\hline
-				\multirow{4}{*}{3+ (124)}  & Hit-1   & 73 (59\%) \\
-				& Hit-2     & 44 (35\%) \\
-				& Hit-3     & 21 (17\%))\\
+				\multirow{4}{*}{3+ (391)}  & Hit-1   & 233 (59\%) \\
+				& Hit-2     & 134 (35\%) \\
+				& Hit-3     & 65 (17\%))\\
 				\hline
 			\end{tabular}		
+		ET: Exception types
 			\label{RQ3_results_1}
 		\end{center}
 	}
 \end{table}
 
-{\color{red}{1. Our model do well on hit-1 condition which means in most cases, our model can at least predict one exception type correctly for a try-catch block. 2. Results show that the more exception types one try-catch block has, our model is harder to predict all of the correct. }}
+{\color{red}{1. Our model do well on hit-1 condition which means in most cases, our model can at least predict one exception type correctly for a try-catch block. 2. Results show that the more exception types one try-catch block has, our model is harder to predict all of them correctly. }}
 
 
 \begin{table}[t]
-	\caption{RQ1. Detailed Performance Comparison on Different \# of Statements in a Predicted Try-Catch Block (Precision)}
+	\caption{RQ3. Detailed Performance Comparison on Different \# of Statements in a Predicted Try-Catch Block (Precision)}
 	\vspace{-10pt}
 	\tabcolsep 2pt
 	{\small
@@ -43,9 +44,9 @@
 			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{p{3cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}}
 				\hline
-				\# Stmts in Predicted Block & Metrics & {\textsc{\tool}\xspace} \\
+				\# ET in Predicted Block & Metrics & {\textsc{\tool}\xspace} \\
 				\hline
-				\multirow{1}{*}{1 (36728)}   & Hit-1  & 13589 (37\%) \\
+				\multirow{1}{*}{1 (36995)}   & Hit-1  & 13589 (37\%) \\
 				\hline
 				\multirow{2}{*}{2 (4981)}  & Hit-1   & 1594 (32\%) \\
 				& Hit-2       						& 947 (19\%) \\
@@ -55,9 +56,8 @@
 				& Hit-3         				  	& 185 (9\%) \\
 				\hline
 			\end{tabular}
+		ET: Exception types
 			\label{RQ3_results_2}
 		\end{center}
 	}
 \end{table}
-
-{\color{red}{When setting the max number of exception types to 3, our model predict more exceptions types than the truth in some cases because our model training target is to have higher F-score. For example, there are 40376 one exception type try-catch block, but our model only predict 36728 block that has one exception type while others have more than one exception types.}}

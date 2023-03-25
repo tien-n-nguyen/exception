@@ -1,8 +1,8 @@
-\subsection{RQ2. Try-Catch Block Detection Comparison Study}
+\subsection{RQ2. Effectiveness on Try-Catch Statement Detection}
 \label{sec:rq2}
 
 \begin{table}[t]
-	\caption{RQ2. Try-Catch Block Detection Performance Comparison}
+	\caption{RQ2. Effectiveness on Try-Catch Statement Detection}
 	\begin{center}
 		\small
 		\renewcommand{\arraystretch}{1} 
@@ -20,4 +20,4 @@
 	\end{center}
 \end{table}
 
-{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$}}
+{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$. Later, I will add an example showing that the statement that our model predicted in the try-catch block contains the method call which lead to the correct exception types prediction.}}

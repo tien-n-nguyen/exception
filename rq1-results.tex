@@ -1,20 +1,22 @@
-\subsection{RQ1. Try-Catch Block Necessity Checking Comparison Study}
+\subsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
 \label{sec:rq1}
 
 \begin{table}[h]
 	\caption{RQ1. Comparison with the Baseline for the Try-Catch Block Necessity Checking}
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{p{2cm}<{\centering}p{2.5cm}<{\centering}p{2.5cm}<{\centering}}
+		\begin{tabular}{p{1.5cm}<{\centering}|p{1.25cm}<{\centering}p{1.25cm}<{\centering}|p{1.25cm}<{\centering}p{1.25cm}<{\centering}}
 			\hline
-			Category  & \tool  & XRank \\
+			\multirow{2}{*}{Category} & \multicolumn{2}{c|}{Our Dataset} & \multicolumn{2}{c}{ExDataset}\\
+			\cline{2-5}
+			  & \tool  & XRank & \tool  & XRank\\
 			\hline
-			Recall    & \textbf{0.81} & \\
-			Precision & \textbf{0.66} & \\
-			F-score   & \textbf{0.73} & \\
+			Recall    & \textbf{0.81} & &&\\
+			Precision & \textbf{0.66} & &&\\
+			F-score   & \textbf{0.73} & &&\\
 			\hline
 		\end{tabular}
-		\label{RQ1_results}
+		\label{RQ1_results_1}
 	\end{center}
 \end{table}
 
