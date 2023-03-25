@@ -1,2 +1,23 @@
-\subsection{RQ2... }
+\subsection{RQ2. Try-Catch Block Detection Comparison Study}
 \label{sec:rq2}
+
+\begin{table}[t]
+	\caption{RQ2. Try-Catch Block Detection Performance Comparison}
+	\begin{center}
+		\small
+		\renewcommand{\arraystretch}{1} 
+		\begin{tabular}{p{0.8cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}}
+			\hline
+			 	&  \multicolumn{10}{c}{Accuracy} \\
+			\cline{2-11}
+			     	&  N1  & N2   &  N3  & N4   &N5    & N6   &N7    & N8   &N9    & N10 \\
+			\hline
+			\tool       &  &  &  &  &  & 0.76 &  &  &  &   \\
+			\hline
+		\end{tabular}
+		Nx: x is the number of nodes in the sub-graph (try-catch block)
+		\label{RQ2_results}
+	\end{center}
+\end{table}
+
+{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$}}
