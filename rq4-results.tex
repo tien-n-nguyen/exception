@@ -1,0 +1,82 @@
+\subsection{RQ4. Sensitivity Analysis }
+\label{sec:rq4}
+
+
+\begin{table}[h]
+	\caption{RQ4. Impact of Different Features on Try-Catch Block Necessity Checking}
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{p{1.75cm}<{\centering}p{1.75cm}<{\centering}p{1.75cm}<{\centering}p{1.75cm}<{\centering}}
+			\hline
+			Category  & \tool w/o SOT & \tool w/o AST & \tool \\
+			\hline
+			Recall    & & & \textbf{0.81} \\
+			Precision & & &\textbf{0.66} \\
+			F-score   & & &\textbf{0.73} \\
+			\hline
+		\end{tabular}
+		SOT: Sequence of tokens; AST: Abstract syntax tree
+		\label{RQ4_results_1}
+	\end{center}
+\end{table}
+
+{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
+
+\begin{table}[t]
+	\caption{RQ4. Impact of Different Features on Exception Type Prediction (Recall)}
+	\tabcolsep 2pt
+	{\small
+		\begin{center}
+			\renewcommand{\arraystretch}{1}
+			\begin{tabular}{p{1.5cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}}
+				\hline
+				\# Stmts in Oracle Block& Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
+				\hline
+				\multirow{1}{*}{1 (40376)}   & Hit-1  &&& 25841 (64\%) \\
+				\hline
+				\multirow{2}{*}{2 (2634)}  & Hit-1   &&& 2028 (77\%) \\
+				& Hit-2         &&&  1081 (41\%) \\
+				\hline
+				\multirow{3}{*}{3 (547)}  & Hit-1    &&& 334 (61\%) \\
+				& Hit-2     &&& 181 (33\%)\\
+				& Hit-3     &&& 115 (21\%) \\
+				\hline
+				\multirow{4}{*}{3+ (124)}  & Hit-1   &&& 73 (59\%) \\
+				& Hit-2     &&& 44 (35\%) \\
+				& Hit-3     &&& 21 (17\%))\\
+				\hline
+			\end{tabular}
+		SOT: Sequence of tokens; AST: Abstract syntax tree		
+			\label{RQ4_results_2}
+		\end{center}
+	}
+\end{table}
+
+\begin{table}[t]
+	\caption{RQ1. Impact of Different Features on Exception Type Prediction (Precision)}
+	\vspace{-10pt}
+	\tabcolsep 2pt
+	{\small
+		\begin{center}
+			\renewcommand{\arraystretch}{1}
+			\begin{tabular}{p{1.5cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}}
+				\hline
+				\# Stmts in Predicted Block & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
+				\hline
+				\multirow{1}{*}{1 (36728)}   & Hit-1  &&& 13589 (37\%) \\
+				\hline
+				\multirow{2}{*}{2 (4981)}  & Hit-1   &&& 1594 (32\%) \\
+				& Hit-2       						&&& 947 (19\%) \\
+				\hline
+				\multirow{3}{*}{3 (1972)}  & Hit-1   && & 611 (31\%) \\
+				& Hit-2         					&&& 458 (23\%)\\
+				& Hit-3         				  	&&& 185 (9\%) \\
+				\hline
+			\end{tabular}
+		SOT: Sequence of tokens; AST: Abstract syntax tree
+			\label{RQ4_results_3}
+		\end{center}
+	}
+\end{table}
+
+{\color{red}{Without sequence of tokens or AST in exception type prediction will lead to the reduce of results of all hit-1, hit-2, and hit-3. Once I finish this sensitivity experiments, I will update these two table. }}
