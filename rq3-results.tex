@@ -1,63 +1,141 @@
-\subsection{RQ3. Effectiveness on Exception Type Recommendation}
+\subsection{Effectiveness on Exception Type Recommendation (RQ3)}
 \label{sec:rq3}
 
-
 \begin{table}[t]
-	\caption{RQ3. Detailed Performance Comparison on Different \# of Statements in an Oracle Try-Catch Block (Recall)}
-	\tabcolsep 2pt
+  \caption{Detailed Results on Different Numbers of Exception Types in a
+    \code{catch} clause in Oracle Set (RQ3) (Recall)}
 	{\small
 		\begin{center}
 			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
+			\begin{tabular}{p{4.5cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}}
 				\hline
-				\# ET in Oracle Block& Metrics& {\textsc{\tool}\xspace} \\
+				\# Ex. Types in \code{catch} clause in Oracle Set & Metrics &  Accuracy\\
 				\hline
-				\multirow{1}{*}{1 (40376)}   & Hit-1  & 25841 (64\%) \\
+				\multirow{1}{*}{1 (40,376 instances)}   & Hit-1  & 25,841 (64\%) \\
 				\hline
-				\multirow{2}{*}{2 (2634)}  & Hit-1   & 2028 (77\%) \\
-				& Hit-2         &  1081 (41\%) \\
+				\multirow{2}{*}{2 (2,634 instances)}  & Hit-1   & 2,028 (77\%) \\
+				& Hit-2         &  1,081 (41\%) \\
 				\hline
-				\multirow{3}{*}{3 (547)}  & Hit-1    & 334 (61\%) \\
+				\multirow{3}{*}{3 (547 instances)}  & Hit-1    & 334 (61\%) \\
 				& Hit-2     & 181 (33\%)\\
 				& Hit-3     & 115 (21\%) \\
 				\hline
-				\multirow{4}{*}{3+ (391)}  & Hit-1   & 233 (59\%) \\
+				\multirow{4}{*}{3+ (391 instances)}  & Hit-1   & 233 (59\%) \\
 				& Hit-2     & 134 (35\%) \\
-				& Hit-3     & 65 (17\%))\\
+				& Hit-3     & 65 (17\%)\\
+                                \hline
+                                & Hit-All & 27,037 (62\%)\\
 				\hline
 			\end{tabular}		
-		ET: Exception types
-			\label{RQ3_results_1}
+			\label{tab:recall-3}
 		\end{center}
 	}
 \end{table}
 
-{\color{red}{1. Our model do well on hit-1 condition which means in most cases, our model can at least predict one exception type correctly for a try-catch block. 2. Results show that the more exception types one try-catch block has, our model is harder to predict all of them correctly. }}
+\subsubsection{{\bf Recall on Exception Type Recommendation}}
+\label{sec:req3-recall}
+
+Table~\ref{tab:recall-3} displays the {\em Recall} result on how well
+{\tool} covers on the actual correct exception types in \code{catch}
+clauses in the oracle. The result is with respect to the instances
+(code snippets) in the dataset with different numbers $K$ of exception
+types in \code{catch} clauses: $K$ = the number of Exception Types in
+a \code{catch} clause = $1,2,3+$. For example, in the oracle, there
+are 547 instances with 3 exception types in a \code{catch}
+clause. {\tool}'s predicted set correctly contains all 3 exception
+types for 115 instances (21\%) (\code{Hit-All}), contains 2 of them
+for 181 instances (33\%), and one exception type for 334 instances
+(61\%).
+
+%\begin{table}[t]
+%	\caption{Results on Recall for Exception Types in a Try-Catch Block in Oracle Set (RQ3)}
+%	{\small
+%		\begin{center}
+%			\renewcommand{\arraystretch}{1}
+%			\begin{tabular}{p{1cm}<{\centering}|p{1.5cm}<{\centering}}
+%				\hline
+%				Metrics & Accuracy \\
+%				\hline
+%                                Hit-1 & 28,436 (64.7\%)\\
+%                                Hit-2 & 1,396\\
+%                                Hit-3 & 180\\
+%                                Hit-All & 27,037\\
+%			\end{tabular}		
+%			\label{tab:recall-3-sum}
+%		\end{center}
+%	}
+%\end{table}
+
+%Total: 43,948
+
+As seen in Table~\ref{tab:recall-3}, there are 40,376 instances (92\%)
+over 43,948 total instances with a single exception type in the
+\code{catch} clause in the oracle. {\tool} can cover correctly the
+exception type in 25,841 (64\%) of the instances. There are 2,634
+instances with two exception types in the oracle and {\tool} can
+correctly suggest both types in 1,081 (41\%) of the cases. In 2,028
+instances (77\%), at least one exception type is predicted correctly.
+
+Note that \code{Hit-All} = \code{Hit-$N$} when $N$(\# overlaps) = $K$
+(\# exception types). For $K$=1..3, which is a total of 43,557
+instances (99.1\%), {\tool} covers all the exception types {\bf
+  (\code{Hit-All}) in 27,037 instances (62\%)}. That is, developers do
+not have looked for other exception types in 62\% of the
+cases. Thus, it performs well in Hit-All in 99.1\% of the entire
+dataset. However, producing the exact-matched sets for all exception
+types when $K$ $\geq$ 3 is still challenging.
+
+%{\color{red}{1. Our model do well on hit-1 condition which means in most cases, our model can at least predict one exception type correctly for a try-catch block. 2. Results show that the more exception types one try-catch block has, our model is harder to predict all of them correctly. }}
+
+\subsubsection{{\bf Precision on Exception Type Recommendation}}
+\label{sec:req3-precision}
 
 
 \begin{table}[t]
-	\caption{RQ3. Detailed Performance Comparison on Different \# of Statements in a Predicted Try-Catch Block (Precision)}
-	\vspace{-10pt}
-	\tabcolsep 2pt
+  \caption{Detailed Results on Different Numbers of Exception Types in a \code{catch} clause in Predicted Set (RQ3) (Precision)}
+	\vspace{-12pt}
 	{\small
 		\begin{center}
 			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
+			\begin{tabular}{p{5cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}}
 				\hline
-				\# ET in Predicted Block & Metrics & {\textsc{\tool}\xspace} \\
+				\# Ex. Types in \code{catch} clause in Predicted Set & Metrics & Accuracy \\
 				\hline
-				\multirow{1}{*}{1 (36995)}   & Hit-1  & 13589 (37\%) \\
+				\multirow{1}{*}{1 (36,995)}   & Hit-1  & 13,589 (37\%) \\
 				\hline
-				\multirow{2}{*}{2 (4981)}  & Hit-1   & 1594 (32\%) \\
+				\multirow{2}{*}{2 (4,981)}  & Hit-1   & 1,594 (32\%) \\
 				& Hit-2       						& 947 (19\%) \\
 				\hline
-				\multirow{3}{*}{3 (1972)}  & Hit-1    & 611 (31\%) \\
+				\multirow{3}{*}{3 (1,972)}  & Hit-1    & 611 (31\%) \\
 				& Hit-2         					& 458 (23\%)\\
 				& Hit-3         				  	& 185 (9\%) \\
 				\hline
 			\end{tabular}
-		ET: Exception types
-			\label{RQ3_results_2}
+			\label{tab:precision-3}
 		\end{center}
 	}
 \end{table}
+
+Table~\ref{tab:precision-3} shows the {\em Precision} result on how
+well {\tool} correctly predicts on the actual exception types in
+\code{catch} clauses in the oracle. The result is with respect to
+different numbers $K$ of exception types in \code{catch} clauses that
+{\tool} predicted. For example, there are a total of 1,972 instances
+(code snippets) in which {\tool} predicted three exception types.
+Among them, with \code{Hit-3} = 9\%, there are 185 instances that all
+three predicted exception types are correct (some other types might be
+missing). With \code{Hit-2}=23\%, there are 458 instances in which two
+of the predicted exception types are correct. With \code{Hit-1}=31\%,
+there are 611 instances in which only one predicted exception type is
+correct. In general, in {\bf 14,721 (i.e., 33.4\%)} of the cases, all
+the predicted exception types are correctly matched with the actual
+ones.
+
+
+%For example, when the number of the CC statements in a p redicted set
+%is 𝐾 ′=3, there are 23 bugs in which all of those 3 faulty statements
+%are correct (there might be other statements missing). There are 27
+%bugs in which two of the 3 predicted, faulty statements are
+%correct. There are 55 bugs in which only one of the 3 predicted,
+%faulty statements are correct. As seen, regardless of 𝑁, FixLocator is
+%more precise than the baselines for all 𝐾 ′s.
