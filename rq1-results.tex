@@ -1,13 +1,14 @@
-\subsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
+\subsection{Comparison on Try-Catch Block Necessity Checking Effectiveness (RQ1)}
 \label{sec:rq1}
 
 \begin{table}[h]
-	\caption{RQ1. Comparison with the Baseline for the Try-Catch Block Necessity Checking}
+  \caption{Try-Catch Necessity Checking Comparison (RQ1)}
+  \vspace{-12pt}
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{p{1.5cm}<{\centering}|p{1.25cm}<{\centering}p{1.25cm}<{\centering}|p{1.25cm}<{\centering}p{1.25cm}<{\centering}}
 			\hline
-			\multirow{2}{*}{Category} & \multicolumn{2}{c|}{Our Dataset} & \multicolumn{2}{c}{ExDataset}\\
+			\multirow{2}{*}{Category} & \multicolumn{2}{c|}{{\tool} Dataset} & \multicolumn{2}{c}{FuzzyCatch Dataset}\\
 			\cline{2-5}
 			  & \tool  & XRank & \tool  & XRank\\
 			\hline
@@ -16,8 +17,34 @@
 			F-score   & \textbf{0.73} & &&\\
 			\hline
 		\end{tabular}
-		\label{RQ1_results_1}
+		\label{tab:xblock}
 	\end{center}
 \end{table}
 
-{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
+%{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
+
+Table~\ref{tab:xblock} displays the comparison result. As seen,
+{\tool} achieves a high level of performance across two datasets. In
+our dataset, with a precision of 66\%, it can decide correctly 2 out
+of 3 cases whether a code snippet requires a \code{try-catch} block or
+not. With a recall of 81\%, {\tool} is able to cover 4 out of 5 cases
+that needs to be placed in a \code{try-catch} block. Users just need
+to find 1 out of 5 cases. As a result, it achieves a high F-score of
+0.73. In FuzzyCatch dataset, {\tool} achieves a high level of
+performance with XX\% precision, YY\% recall, and ZZ\% F-score.
+
+In comparison, in {\tool} dataset, {\tool} improves relatively over
+the state-of-the-art approach, XRank, XX\% in precision, YY\% in
+recall, and ZZ\% in F-score. In FuzzyCatch, the relative improvements
+are XX\%, YY\%, and ZZ\% in precision, recall, and F-score,
+respectively.
+
+We examined the cases that {\tool} performed better than XRank.
+First, XRank relies on the association scores between the presence of
+API method calls and the presence of a \code{try-catch} block. The
+decisions on the necessity of a \code{try-catch} block or the
+exception types depend on the pre-defined thresholds in XRank on those
+association scores. Thus, those pre-defined thresholds might not be
+suitable with either all the API methods or all the datasets. Second,
+...
+
