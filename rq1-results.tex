@@ -23,40 +23,40 @@
 
 %{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
 
-Table~\ref{tab:xblock} displays the comparison result. As seen,
-{\tool} achieves a high level of performance across two datasets. In
-our dataset, with a precision of 66\%, it can decide correctly 2 out
-of 3 cases whether a code snippet requires a \code{try-catch} block or
-not. With a recall of 81\%, {\tool} is able to cover 4 out of 5 cases
-that needs to be placed in a \code{try-catch} block. Users just need
-to find 1 out of 5 cases. As a result, it achieves a high F-score of
-0.73. In FuzzyCatch dataset, {\tool} achieves a high level of
-performance with XX\% precision, YY\% recall, and ZZ\% F-score.
+Table~\ref{tab:xblock} displays the comparison result. As seen, our
+approach achieves a high level of performance across two datasets. In
+{\tool} dataset, with a precision of 66\%, it can decide correctly 2
+out of 3 cases whether a code snippet requires a \code{try-catch}
+block or not. With a recall of 81\%, {\tool} is able to cover 4 out of
+5 cases that needs to be placed in a \code{try-catch} block. Users
+just need to find 1 out of 5 cases. As a result, it achieves a high
+F-score of 0.73. In FuzzyCatch dataset, {\tool} achieves a high level
+of performance with XX\% precision, YY\% recall, and ZZ\% F-score.
 
-In comparison, in {\tool} dataset, {\tool} improves relatively over
+In comparison, in {\tool} dataset, our model improves relatively over
 the state-of-the-art approach, XRank, XX\% in precision, YY\% in
-recall, and ZZ\% in F-score. In FuzzyCatch, the relative improvements
-are XX\%, YY\%, and ZZ\% in precision, recall, and F-score,
-respectively.
+recall, and ZZ\% in F-score. In FuzzyCatch dataset, the relative
+improvements are XX\%, YY\%, and ZZ\% in precision, recall, and
+F-score, respectively.
 
-We examined the cases that {\tool} performed better than XRank.
-First, XRank relies on the association scores between the presence of
-API method calls and the presence of a \code{try-catch} block. The
-decisions on the necessity of a \code{try-catch} block or the
-exception types depend on the pre-defined thresholds in XRank on those
-association scores. Thus, those pre-defined thresholds might not be
-suitable with either all the API methods or all the datasets. Second,
-for the incomplete code snippets in which the names of the API methods
-in different packages or different libraries are the same (e.g.,
-\code{toString} or \code{getText} in various JDK packages), XRank
-cannot distinguish them and use one entry in the dictionary for them
-due to its IR approach. In contrast, unlike XRank which considers only
-the API method calls in a \code{try-catch} block, {\tool} consider the
-code in the block as the context to learn the program dependencies
-among the names of those API elements. That is, it leverages the
-relations among the names of those API elements to learn their
-identities, thus, deciding better the need of \code{try-catch} blocks
-and the corresponding exception types.
+We examined closely the cases that {\tool} performed better than
+XRank.  First, XRank relies on the association scores between the
+presence of API method calls and the presence of a \code{try-catch}
+block. The decisions on the necessity of a \code{try-catch} block or
+the exception types depend on the pre-defined thresholds in XRank on
+those association scores. Thus, those pre-defined thresholds might not
+be suitable with either all the API methods or all the
+datasets. Second, for the incomplete code snippets in which the names
+of the API methods in different packages or different libraries are
+the same (e.g., \code{toString} or \code{getText} in various JDK
+packages), XRank cannot distinguish them and use one entry in the
+dictionary for them due to its IR approach. In contrast, unlike XRank
+which considers only the API method calls in a \code{try-catch} block,
+{\tool} consider the code in the block as the context to learn the
+program dependencies among the names of those API elements. That is,
+it leverages the relations among the names of those API elements to
+learn their identities, thus, deciding better the need of
+\code{try-catch} blocks and the corresponding exception types.
 
 For example, in a code snippet, \code{getText} has XXX\% API method
 candidates. However, considering that the relation between \code{css}
