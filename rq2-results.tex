@@ -1,8 +1,9 @@
-\subsection{RQ2. Effectiveness on Try-Catch Statement Detection}
+\subsection{Try-Catch Statement Detection Effectiveness (RQ2)}
 \label{sec:rq2}
 
 \begin{table}[t]
-	\caption{RQ2. Effectiveness on Try-Catch Statement Detection}
+  \caption{Try-Catch Statement Detection Effectiveness (RQ2)}
+  \vspace{-12pt}
 	\begin{center}
 		\small
 		\renewcommand{\arraystretch}{1} 
@@ -15,9 +16,30 @@
 			\tool       &  &  &  &  &  & 0.76 &  &  &  &   \\
 			\hline
 		\end{tabular}
-		Nx: x is the number of nodes in the sub-graph (try-catch block)
-		\label{RQ2_results}
+		Nx is number of nodes in the explanation
+                sub-graph (\code{try-catch} block)
+		\label{tab:rq2}
 	\end{center}
 \end{table}
 
-{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$. Later, I will add an example showing that the statement that our model predicted in the try-catch block contains the method call which lead to the correct exception types prediction.}}
+Table~\ref{tab:rq2} displays the result on detecting the statements
+that need to be placed in a \code{try-catch} block. $N$ is a parameter
+in GNNExplainer that defines the number of nodes in the explanation
+graph $\mathcal{G}_C$, i.e., the statements to be placed in the
+\code{try-catch} block.
+%
+As the number of nodes (statements) in $\mathcal{G}_C$ increases, the
+number of correct statements covered also increases, thus, accuracy
+increases. However, as the number of statements increases higher than
+5, accuracy increases more slowly. In our dataset, the average size of
+a \code{try-catch} block is 5.7 statements. As seen, the accuracy as
+$N$=6 is 76\%. That is, by predicting 6 statements on average, {\tool}
+can correctly point out 76\% of the total number of statements in the
+entire dataset that need to be placed in a \code{try-catch} block.
+For the statements that do not need to be placed in a \code{try-catch}
+block, {\tool} correctly makes prediction with accuracy of XX\% (not
+shown).
+
+As an example, ...
+
+%{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$. Later, I will add an example showing that the statement that our model predicted in the try-catch block contains the method call which lead to the correct exception types prediction.}}
