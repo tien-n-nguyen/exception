@@ -1,7 +1,7 @@
 \subsection{Comparison on Try-Catch Block Necessity Checking Effectiveness (RQ1)}
 \label{sec:rq1}
 
-\begin{table}[h]
+\begin{table}[t]
   \caption{Try-Catch Necessity Checking Comparison (RQ1)}
   \vspace{-12pt}
 	\begin{center}
@@ -46,5 +46,29 @@ decisions on the necessity of a \code{try-catch} block or the
 exception types depend on the pre-defined thresholds in XRank on those
 association scores. Thus, those pre-defined thresholds might not be
 suitable with either all the API methods or all the datasets. Second,
-...
+for the incomplete code snippets in which the names of the API methods
+in different packages or different libraries are the same (e.g.,
+\code{toString} or \code{getText} in various JDK packages), XRank
+cannot distinguish them and use one entry in the dictionary for them
+due to its IR approach. In contrast, unlike XRank which considers only
+the API method calls in a \code{try-catch} block, {\tool} consider the
+code in the block as the context to learn the program dependencies
+among the names of those API elements. That is, it leverages the
+relations among the names of those API elements to learn their
+identities, thus, deciding better the need of \code{try-catch} blocks
+and the corresponding exception types.
 
+For example, in a code snippet, \code{getText} has XXX\% API method
+candidates. However, considering that the relation between \code{css}
+and \code{getText} in \code{...()\-.css()\-.getText()}, we only have 4
+candidates for \code{getText}. Finally, considering the return value
+of \code{getText} is an argument of \code{setInnerText}, only one
+candidate is remained:
+\code{com\-.google\-.gwt\-.resources\-.client\-.CssResource\-.getText()}.
+Because it has not seen any \code{try-catch} block for that, {\tool}
+decides that the code snippet does not need a \code{try-catch} block.
+XRank considers only the {\em pairwise} associate scores between an
+{\em individual API method call} and the presence of a
+\code{try-catch} block, it disregards the relations/dependencies among
+the API names, which can help identify their identities, leading to
+the decision on the \code{try-catch} block and exception types.
