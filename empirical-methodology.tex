@@ -2,22 +2,43 @@
 
 \subsubsection{Datasets}
 
-\subsubsection{RQ1.}
+We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}. 
 
-{\em Baselines.}
+To build the dataset DeepEx, we first collect XXX methods from XXX Java projects. And then, we picked XXX methods that contain at least one try-catch block from all methods. To avoid the influence of multiple try-catch blocks, we split the methods into code snippets by checking the above and below statements, one by one, starting from the closest one for each try-catch block, to verify if the statement is included in the other try-catch block. If not, we put it in the current code snippet. If yes, we stop here and finish the code snippet.
 
-{\em Procedure.}
+Following the steps mentioned above, we have XXX code snippets containing one try-catch block as positive data. Then, we randomly create the same amount of code snippets that do not contain a try-catch block as negative data from the Java projects we collected. So, in total, the DeepEx dataset includes XXX code snippets. As for the FuzzyCatch dataset, it includes 1,000 data, and all of them are positive data.
 
-{\em Tuning.}
 
-{\em Metrics.}
+\subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
 
-\subsubsection{RQ2.}
+{\em Baselines.} We compared {\tool} against the state-of-the-art try-catch necessity checking approach XRank~\cite{nguyen2020code}.
 
-{\em Baselines.}
+{\em Procedure.} We took all the code snippets from DeepEX and FuzzyCatch datasets. On the DeepEx dataset, we randomly split both the positive and negative data points into 80\%, 10\%, 10\%, in which 80\% of the code snippets as the training dataset, 10\% of the code snippets as the tuning dataset, and 10\% of the code snippets as the testing dataset for the baseline and {\tool}. And on the FuzzyCatch dataset, we directly use the trained model from the DeepEx dataset and test it on the FuzzyCatch dataset for both the baseline and {\tool}.
 
-{\em Procedure.}
+{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the following key hyper-parameters to have the best performance: (1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its output (64, 128, 256); (5) Number of GCN layers (4, 6, 8).
 
-{\em Tuning.}
+{\em Metrics.} In this RQ, we use \textbf{Recall, Precision, and F-score} to evaluate the performance of \tool and the baseline. They are calculated as $Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F-score = \frac{2*Recall*Precision}{Recall+Precision}$
 
-{\em Metrics.}
+\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection}
+
+{\em Procedure.} In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that are predicted as needing a try-catch block, the \tool will run the try-catch statement detection on them. To fully use the dataset and evaluate \tool on more data, here we estimate the accuracy of RQ1 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 to train, validate and test the model performance.
+
+{\em Tuning.} We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
+
+{\em Metrics.} In this RQ, we use \textbf{Accuracy} as the evaluation metrics. For each statement in the try-catch block, if \tool included it in the generated sub-graph, we think the prediction on it is correct. Otherwise, it is incorrect. The Accuracy is calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
+
+\subsubsection{RQ3. Effectiveness on Exception Type Recommendation}
+
+{\em Baselines.} We compared {\tool} against the state-of-the-art exception type recommendation approach XRank~\cite{nguyen2020code}.
+
+{\em Procedure.} In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that \tool can successfully predict all statements in the try-catch block successfully, the \tool will run the exception type prediction on them. Similarly, as RQ2, to fully use the dataset and evaluate \tool on more data, here we estimate the Accuracy of RQ2 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 and RQ2 to train, validate and test the model performance.
+
+{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the following key hyper-parameters to have the best performance: (1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its output (64, 128, 256); (5) Number of GCN layers (4, 6, 8).
+
+{\em Metrics.} In this RQ, we use \textbf{Hit-n} as the evaluation metrics. Hit-n here means within the true labeled statement set, there are at least \textbf{n} statements predicted correctly by \tool.
+
+\subsubsection{RQ4. Ablation Study}
+
+{\em Procedure.} In this RQ, we would like to evaluate the impact of the key features SOT (sequence of tokens) and AST (abstract syntax tree) on the model performance in RQ1 and RQ3. To do that, we remove one key feature at a time and use the differences between the experimental results to evaluate the impact of that feature.
+
+{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
