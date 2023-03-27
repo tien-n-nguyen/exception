@@ -4,6 +4,7 @@
 \begin{table}[t]
   \caption{Detailed Results on Different Numbers of Exception Types in a
     \code{catch} clause in Oracle Set (RQ3) (Recall)}
+  \vspace{-12pt}
 	{\small
 		\begin{center}
 			\renewcommand{\arraystretch}{1}
@@ -26,7 +27,8 @@
                                 \hline
                                 & Hit-All & 27,037 (62\%)\\
 				\hline
-			\end{tabular}		
+			\end{tabular}
+	                The sum of the percentages in each row section is not 100\% because Hit-1 contains Hit-2, which contains Hit-3, and so on. Hit-$N$: the overlap between the predicted set and the oracle set is at least $N$.
 			\label{tab:recall-3}
 		\end{center}
 	}
@@ -36,15 +38,16 @@
 \label{sec:req3-recall}
 
 Table~\ref{tab:recall-3} displays the {\em Recall} result on how well
-{\tool} covers on the actual exception types in the \code{catch}
-clauses in the oracle. The result is with respect to the instances
+{\em {\tool} covers on the actual exception types in the \code{catch}
+  clauses in the oracle}. The result is with respect to the instances
 (code snippets) in the dataset with different numbers $K$ of exception
-types in \code{catch} clauses: $K$ = the number of Exception Types in
-a \code{catch} clause = $1,2,3+$. For example, in the oracle, there
-are 547 instances with 3 exception types in a \code{catch}
-clause. {\tool}'s predicted set correctly contains all 3 exception
-types for 115 instances (21\%) (\code{Hit-All}), contains 2 of them
-for 181 instances (33\%), and one exception type for 334 instances
+types in the \code{catch} clauses: $K$ = the number of Exception Types
+in a \code{catch} clause in the oracle = $1,2,3+$. For example, in the
+oracle, there are 547 instances with 3 exception types in a
+\code{catch} clause. {\tool}'s predicted set correctly contains all 3
+exception types for 115 instances (21\%) (\code{Hit-All}). The
+predicted set contains {\em at least 2 out of 3} for 181 instances
+(33\%), and contains {\em at least} one exception type for 334 instances
 (61\%).
 
 %\begin{table}[t]
