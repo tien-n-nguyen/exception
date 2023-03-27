@@ -79,14 +79,16 @@ instances with two exception types in the oracle and {\tool} can
 correctly suggest both types in 1,081 (41\%) of the cases. In 2,028
 instances (77\%), at least one exception type is predicted correctly.
 
-Note that \code{Hit-All} = \code{Hit-$N$} when $N$(\# overlaps) = $K$
-(\# exception types). For $K$=1..3, which is a total of 43,557
-instances (99.1\%), {\tool} covers all the exception types {\bf
-  (\code{Hit-All}) in 27,037 instances (62\%)}. That is, developers do
-not have looked for other exception types in 62\% of the
-cases. Thus, it performs well in Hit-All in 99.1\% of the entire
-dataset. However, producing the exact-matched sets for all exception
-types when $K$ $\geq$ 3 is still challenging.
+Note that \code{Hit-All} = \code{Hit-$N$} when $N$(the number of
+overlaps between the predicted and oracle sets) = $K$ (the number of
+exception types). For $K$=1..3, which is a total of 43,557 instances
+(99.1\%), {\bf {\tool} covers all the exception types (\code{Hit-All})
+  in 27,037 instances (62\%)}. That is, developers do not have looked
+for other exception types in 62\% of the cases. Thus, it performs well
+in \code{Hit-All} in 99.1\% of the entire dataset. Producing the
+exact-matched sets for all exception types when $K$ $>$ 3 is still
+challenging, however, those cases are only 0.9\% in the entire
+dataset.
 
 %{\color{red}{1. Our model do well on hit-1 condition which means in most cases, our model can at least predict one exception type correctly for a try-catch block. 2. Results show that the more exception types one try-catch block has, our model is harder to predict all of them correctly. }}
 
