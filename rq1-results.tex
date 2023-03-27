@@ -75,8 +75,7 @@ considers only the {\em pairwise} associate scores between an {\em
   individual API method call} and the presence of a \code{try-catch}
 block. It disregards those above relations/dependencies among the API
 names. Thus, it might misunderstand that \code{getText} needs a
-\code{try-catch} due to the co-occurrence of other API elements that
-need one. That is, without considering the dependency context, XRank
-might not be able to make the correct identification of the API
-elements via their names, leading to incorrect exception handling
-recommendation.
+\code{try-catch} due to the co-occurrences of other API elements that
+need one. That is, without the dependency context, XRank might
+make incorrect identification of the API elements via their names,
+leading to incorrect exception recommendation.
