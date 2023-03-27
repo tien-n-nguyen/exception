@@ -39,6 +39,11 @@ entire dataset that need to be placed in a \code{try-catch} block.
 %For the statements that do not need to be placed in a \code{try-catch}
 %block, {\tool} correctly makes prediction with accuracy of XX\% (not
 %shown).
+Note that {\tool} via {\xstate} predicts the statements to be placed
+in the \code{try-catch} block only after {\xblock} predicted that the
+given code needs such a block. Therefore, the incorrect cases from
+{\xblock} (i.e., those cases that need to be in a \code{try-catch} block
+but were predicted not) are also counted as incorrect in {\xstate}.
 
 As an example, ...
 
