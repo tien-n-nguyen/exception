@@ -1,12 +1,14 @@
-\subsection{RQ4. Ablation Study}
+\subsection{Ablation Study (RQ4)}
 \label{sec:rq4}
 
 
+
 \begin{table}[h]
-	\caption{RQ4. Impact of Different Features on Try-Catch Block Necessity Checking}
+  \caption{RQ4. Impact of Different Features on Try-Catch Block Necessity Checking}
+  \vspace{-12pt}
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{p{1.75cm}<{\centering}p{1.75cm}<{\centering}p{1.75cm}<{\centering}p{1.75cm}<{\centering}}
+		\begin{tabular}{p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}}
 			\hline
 			Category  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
@@ -16,11 +18,39 @@
 			\hline
 		\end{tabular}
 		SOT: Sequence of tokens; AST: Abstract syntax tree
-		\label{RQ4_results_1}
+		\label{tab:sensi-xblock}
 	\end{center}
 \end{table}
 
-{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
+\subsubsection{Impact of Different Features on Try-Catch Block Necessity Checking ({\xblock})}
+
+Table~\ref{tab:sensi-xblock} displays the results when we removed the
+two key features in {\tool} and measured the performance of {\xblock}.
+As seen, without the sequences of code (lexical tokens) for each
+statement, Recall, Precision, and F-score decrease XX\%, YY\%, and
+ZZ\%, respectively. Without considering the AST structure, Recall,
+Precision, and F-score also decrease even further with XX\%, YY\%, and
+ZZ\%, respectively. In other words, the code structure has a higher
+contribution than the lexical values of code tokens.
+
+
+%{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
+
+\begin{table}[h]
+	\caption{RQ4. Impact of Different Features on Statement Prediction}
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}}
+			\hline
+			Category  & \tool w/o SOT & \tool w/o AST & \tool \\
+			\hline
+			Accuracy    & & & \textbf{0.76} \\
+			\hline
+		\end{tabular}
+		SOT: Sequence of tokens; AST: Abstract syntax tree
+		\label{RQ4_results_1}
+	\end{center}
+\end{table}
 
 \begin{table}[t]
 	\caption{RQ4. Impact of Different Features on Exception Type Prediction (Recall)}
@@ -82,70 +112,70 @@
 {\color{red}{Without sequence of tokens or AST in exception type prediction will lead to the reduce of results of all hit-1, hit-2, and hit-3. Once I finish this sensitivity experiments, I will update these two table. }}
 
 
-\begin{table}[t]
-	\caption{RQ4. Impact of the \# Limit of Exception Type on Exception Type Prediction (Recall)}
-	\tabcolsep 2pt
-	{\small
-		\begin{center}
-			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
-				\hline
-				\# ET in Oracle Block& Metrics& {\textsc{\tool}\xspace} \\
-				\hline
-				\multirow{1}{*}{1 (40376)}   & Hit-1  & 27867 (69\%) \\
-				\hline
-				\multirow{2}{*}{2 (2634)}  & Hit-1   & 2131 (81\%) \\
-				& Hit-2         &  1162 (44\%) \\
-				\hline
-				\multirow{3}{*}{3 (547)}  & Hit-1    & 353 (64\%) \\
-				& Hit-2     & 189 (35\%)\\
-				& Hit-3     & 142 (26\%) \\
-				\hline
-				\multirow{4}{*}{4 (267)}  & Hit-1   & 175 (65\%) \\
-				& Hit-2     & 107 (40\%) \\
-				& Hit-3     & 55 (21\%))\\
-				& Hit-4     & 21 (8\%))\\
-				\hline
-				\multirow{4}{*}{4+ (124)}  & Hit-1   & 77 (62\%) \\
-				& Hit-2     & 46 (38\%) \\
-				& Hit-3     & 21 (17\%))\\
-				& Hit-4     & 5 (4\%))\\
-				\hline
-			\end{tabular}		
-			ET: Exception types
-			\label{RQ4_results_4}
-		\end{center}
-	}
-\end{table}
+%%%\begin{table}[t]
+%%%	\caption{RQ4. Impact of the \# Limit of Exception Type on Exception Type Prediction (Recall)}
+%%%	\tabcolsep 2pt
+%%%	{\small
+%%%		\begin{center}
+%%%			\renewcommand{\arraystretch}{1}
+%%%			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
+%%%				\hline
+%%%				\# ET in Oracle Block& Metrics& {\textsc{\tool}\xspace} \\
+%%%				\hline
+%%%				\multirow{1}{*}{1 (40376)}   & Hit-1  & 27867 (69\%) \\
+%%%				\hline
+%%%				\multirow{2}{*}{2 (2634)}  & Hit-1   & 2131 (81\%) \\
+%%%				& Hit-2         &  1162 (44\%) \\
+%%%				\hline
+%%%				\multirow{3}{*}{3 (547)}  & Hit-1    & 353 (64\%) \\
+%%%				& Hit-2     & 189 (35\%)\\
+%%%				& Hit-3     & 142 (26\%) \\
+%%%				\hline
+%%%				\multirow{4}{*}{4 (267)}  & Hit-1   & 175 (65\%) \\
+%%%				& Hit-2     & 107 (40\%) \\
+%%%				& Hit-3     & 55 (21\%))\\
+%%%				& Hit-4     & 21 (8\%))\\
+%%%				\hline
+%%%				\multirow{4}{*}{4+ (124)}  & Hit-1   & 77 (62\%) \\
+%%%				& Hit-2     & 46 (38\%) \\
+%%%				& Hit-3     & 21 (17\%))\\
+%%%				& Hit-4     & 5 (4\%))\\
+%%%				\hline
+%%%			\end{tabular}		
+%%%			ET: Exception types
+%%%			\label{RQ4_results_4}
+%%%		\end{center}
+%%%	}
+%%%\end{table}
 
-\begin{table}[t]
-	\caption{RQ4. Impact of the \# Limit of Exception Type on Exception Type Prediction (Precision)}
-	\vspace{-10pt}
-	\tabcolsep 2pt
-	{\small
-		\begin{center}
-			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
-				\hline
-				\# ET in Predicted Block & Metrics & {\textsc{\tool}\xspace} \\
-				\hline
-				\multirow{1}{*}{1 (34707)}   & Hit-1  & 11113 (32\%) \\
-				\hline
-				\multirow{2}{*}{2 (5892)}  & Hit-1   & 1829 (31\%) \\
-				& Hit-2       						& 764 (13\%) \\
-				\hline
-				\multirow{3}{*}{3 (2321)}  & Hit-1    & 654 (28\%) \\
-				& Hit-2         					& 437 (19\%)\\
-				& Hit-3         				  	& 159 (7\%) \\
-				\hline
-				\multirow{4}{*}{4 (1028)}  & Hit-1    & 268 (26\%) \\
-				& Hit-2         					& 211 (21\%)\\
-				& Hit-3         				  	& 94 (9\%) \\
-				& Hit-4         				  	& 33 (3\%) \\
-				\hline
-			\end{tabular}
-			ET: Exception types
-			\label{RQ4_results_5}
-		\end{center}
-	}
-\end{table}
+%%%\begin{table}[t]
+%%%	\caption{RQ4. Impact of the \# Limit of Exception Type on Exception Type Prediction (Precision)}
+%%%	\vspace{-10pt}
+%%%	\tabcolsep 2pt
+%%%	{\small
+%%%		\begin{center}
+%%%			\renewcommand{\arraystretch}{1}
+%%%			\begin{tabular}{p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2.5cm}<{\centering}}
+%%%				\hline
+%%%				\# ET in Predicted Block & Metrics & {\textsc{\tool}\xspace} \\
+%%%				\hline
+%%%				\multirow{1}{*}{1 (34707)}   & Hit-1  & 11113 (32\%) \\
+%%%				\hline
+%%%				\multirow{2}{*}{2 (5892)}  & Hit-1   & 1829 (31\%) \\
+%%%				& Hit-2       						& 764 (13\%) \\
+%%%				\hline
+%%%				\multirow{3}{*}{3 (2321)}  & Hit-1    & 654 (28\%) \\
+%%%				& Hit-2         					& 437 (19\%)\\
+%%%				& Hit-3         				  	& 159 (7\%) \\
+%%%				\hline
+%%%				\multirow{4}{*}{4 (1028)}  & Hit-1    & 268 (26\%) \\
+%%%				& Hit-2         					& 211 (21\%)\\
+%%%				& Hit-3         				  	& 94 (9\%) \\
+%%%				& Hit-4         				  	& 33 (3\%) \\
+%%%				\hline
+%%%			\end{tabular}
+%%%			ET: Exception types
+%%%			\label{RQ4_results_5}
+%%%		\end{center}
+%%%	}
+%%%\end{table}
