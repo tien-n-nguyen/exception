@@ -15,7 +15,7 @@
 This section describes our graph-based {\xblock} model. We first
 explain how we build the context-aware representation learning for the
 given code, and then how we use such learned vectors for the detection
-of the presence of \code{try-catch} block using R-GCN~\cite{yi}.
+of the presence of \code{try-catch} block using R-GCN~\cite{rgcn}.
 
 \subsection{Code Representation Learning}
 \label{replearn:sec}
@@ -28,20 +28,18 @@ dependencies among statements.
 \vspace{-1pt}
 \subsubsection{Sequence of Sub-tokens of a Statement}
 
-At the lexical level, the lexical content of a statement is
-represented via a sequence of the sub-tokens. The sub-token
-granularity has been shown to have higher regularity than the
-tokens~\cite{icse20-methodname}. Each statement is tokenized using
-CamelCase or Hungarian convention. Then, only variables, methods,
-fields, and class' names are kept. The sub-tokens with one character
-are removed to avoid noises. As an example, in
+At the lexical level, a statement is represented via a sequence of the
+sub-tokens. The sub-token granularity has been shown to have higher
+regularity than the tokens~\cite{icse20-methodname}. Each statement is
+tokenized using CamelCase or Hungarian convention. Then, only
+variables, methods, fields, and class' names are kept. The sub-tokens
+with one character are removed to avoid noises. In
 Figure~\ref{fig:example1} at line 2, we collect the sequence of
 sub-tokens as follows: \code{final}, \code{Field}, \code{usr},
-\code{Paths}, etc. Then, we use a word embedding
-technique~\cite{glove2014} to build the vectors for the sub-tokens,
-together with Gate Recurrent Unit (GRU)~\cite{chung2014empirical} to
-build the feature vector for the sequence of sub-tokens for the
-current statement (see Figure~\ref{fig:feature}).
+\code{Paths}, etc. We use a word embedding technique~\cite{glove2014}
+to build the vectors for the sub-tokens, together with Gate Recurrent
+Unit (GRU)~\cite{chung2014empirical} to build the feature vector for
+the sequence of sub-tokens for a statement (Figure~\ref{fig:feature}).
 
 
 \vspace{-1pt}
@@ -53,8 +51,8 @@ given statement, and then feeds it to the Tree-LSTM
 model~\cite{tai2015improved}, which produces a feature vector to
 capture the structure of the statement (Figure~\ref{fig:feature}). If
 the given code is incomplete, we use PPA~\cite{dagenais-oopsla08}, a
-partial program analysis tool to produce the AST in a best-effort
-fashion.
+partial program analysis tool to produce the AST for the code in a
+best-effort fashion.
 
 
 \subsection{\code{Try-catch} Block Checker with R-GCN}
@@ -62,7 +60,7 @@ fashion.
 
 
 
-Figure~\ref{fig:gcn} illustrates how we use the R-GCN model~\cite{yi} to
+Figure~\ref{fig:gcn} illustrates how we use the R-GCN model~\cite{rgcn} to
 detect if a \code{try-catch} block is needed.
 %The rationale is that FA-GCN can deal well with the graphs with sparse
 %features (not all the statements share the same properties), and

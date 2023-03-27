@@ -8,9 +8,10 @@ provided that {\xblock} had decided the necessity of such a block.
 
 %Tien
 {\xstate} takes the following as inputs: 1) the PDG ($G_C$) of the
-given code $C$, 2) the trained R-GCN model for {\xblock}, and 3) the
-positive detection result $\mathcal{V}$ with the prediction score.
-Figure~\ref{fig:GNNEX} illustrates the process in {\xstate}.
+given code $C$, 2) the trained R-GCN model for {\xblock}, along with
+the positive detection result $\mathcal{V}$ with the prediction score.
+Figure~\ref{fig:GNNEX} displays an illustration of the process in
+{\xstate}.
 
 % Let us explain how we use GNNExplainer~\cite{GNNExplainer} to build
 %our graph-based interpretation. The input includes the trained FA-GCN
@@ -72,14 +73,14 @@ block is needed for the given code (in which the entire original PDG
 was used as input). When an edge-mask set is applied, some of the
 edges (and the inducing nodes) are masked. With the new graph being
 used as~the new input, if the trained R-GCN model in {\xblock}
-produces ``Yes'' as the result, i.e., the classification does not
-change, then the edges in the edge-mask set are not important. Thus,
+produces ``Yes'' as the result, i.e., {\em the classification does not
+change, then the edges in the edge-mask set are not important}. Thus,
 they will not be included in the explanation graph $\mathcal{G}_C$. If
 the trained R-GCN model in {\xblock} with the new input graph produces
-``No'' as the result, i.e., the classification does change from
+``No'' as the result, i.e., {\em the classification does change from
 ``Yes'' to ``No'', then those edges in the edge-mask set are important
 to the model, thus, being included in the explanation graph
-$\mathcal{G}_C$. Similar logic is applied to include or exclude the
+$\mathcal{G}_C$}. Similar logic is applied to include or exclude the
 features in the {\em feature-mask} $FM$.
 
 
