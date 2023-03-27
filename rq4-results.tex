@@ -37,7 +37,7 @@ contribution than the lexical values of code tokens.
 %{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
 
 \begin{table}[h]
-	\caption{RQ4. Impact of Different Features on Statement Prediction}
+	\caption{RQ4. Impact of Different Features on \code{Try-catch} Statement Prediction}
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}}
@@ -48,9 +48,35 @@ contribution than the lexical values of code tokens.
 			\hline
 		\end{tabular}
 		SOT: Sequence of tokens; AST: Abstract syntax tree
-		\label{RQ4_results_1}
+		\label{tab:sensi-xstate}
 	\end{center}
 \end{table}
+
+\subsubsection{Impact of Different Features on Try-Catch Statement Detection ({\xstate})}
+
+Table~\ref{tab:sensi-xstate} displays the results when we removed the
+two key features in {\tool} and measured the performance of {\xstate}.
+We used six as the limit on the number of nodes in the explanation
+sub-graph in which {\tool} achieves an accuracy of 0.76. The rationale
+is that the average number of the statements in a \code{try-catch}
+block in our dataset is 5.7. As seen, without the sequences of code
+(lexical tokens) for each statement, Accuracy decreases XX\%. Without
+considering the AST structure, Accuracy also decreases even further
+with XX\%. In other words, the code structure has a higher
+contribution than the lexical values of code tokens.
+
+\subsubsection{Impact of Different Features on Exception Type Recommendation ({\xtype})}
+
+Tables~\ref{tab:sensi-xtype-recall}
+and~\ref{tab:sensi-xtype-precision} display the results when we
+removed the two key features in {\tool} and measured the performance
+of {\xtype}. As seen, without the sequences of code (lexical tokens)
+for each statement, all the evaluation metrics \code{Hit}-$n$ decrease
+across the board in both recall and precision. Without considering the
+AST structure, all the evaluation metrics decrease slightly further.
+Thus, this result is consistent with the above results as the code
+structure has a higher contribution than the lexical values of code
+tokens.
 
 \begin{table}[t]
 	\caption{RQ4. Impact of Different Features on Exception Type Prediction (Recall)}
@@ -60,7 +86,7 @@ contribution than the lexical values of code tokens.
 			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{p{2cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}}
 				\hline
-				\# ET in Oracle Block& Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
+				\# ET in Try-Catch Block in Oracle & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
 				\multirow{1}{*}{1 (40376)}   & Hit-1  &&& 25841 (64\%) \\
 				\hline
@@ -73,11 +99,11 @@ contribution than the lexical values of code tokens.
 				\hline
 				\multirow{4}{*}{3+ (391)}  & Hit-1   &&& 233 (59\%) \\
 				& Hit-2     &&& 134 (35\%) \\
-				& Hit-3     &&& 65 (17\%))\\
+				& Hit-3     &&& 65 (17\%)\\
 				\hline
 			\end{tabular}
 		ET:Exception types; SOT: Sequence of tokens; AST: Abstract syntax tree		
-			\label{RQ4_results_2}
+			\label{tab:sensi-xtype-recall}
 		\end{center}
 	}
 \end{table}
@@ -91,7 +117,7 @@ contribution than the lexical values of code tokens.
 			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{p{2cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}}
 				\hline
-				\# ET in Predicted Block & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
+				\# ET in Predicted \code{Try-Catch} Block & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
 				\multirow{1}{*}{1 (36995)}   & Hit-1  &&& 13589 (37\%) \\
 				\hline
@@ -104,12 +130,12 @@ contribution than the lexical values of code tokens.
 				\hline
 			\end{tabular}
 		ET: Exception types; SOT: Sequence of tokens; AST: Abstract syntax tree
-			\label{RQ4_results_3}
+			\label{tab:sensi-xtype-precision}
 		\end{center}
 	}
 \end{table}
 
-{\color{red}{Without sequence of tokens or AST in exception type prediction will lead to the reduce of results of all hit-1, hit-2, and hit-3. Once I finish this sensitivity experiments, I will update these two table. }}
+%{\color{red}{Without sequence of tokens or AST in exception type prediction will lead to the reduce of results of all hit-1, hit-2, and hit-3. Once I finish this sensitivity experiments, I will update these two table. }}
 
 
 %%%\begin{table}[t]
