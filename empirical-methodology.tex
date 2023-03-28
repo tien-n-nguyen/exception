@@ -2,6 +2,8 @@
 
 \subsubsection{Datasets}
 
+%jodatime, jdk, Android, xstream, gwt, hibernate
+
 We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}. 
 
 To build the dataset DeepEx, we first collect XXX methods from XXX Java projects. And then, we picked XXX methods that contain at least one try-catch block from all methods. To avoid the influence of multiple try-catch blocks, we split the methods into code snippets by checking the above and below statements, one by one, starting from the closest one for each try-catch block, to verify if the statement is included in the other try-catch block. If not, we put it in the current code snippet. If yes, we stop here and finish the code snippet.
