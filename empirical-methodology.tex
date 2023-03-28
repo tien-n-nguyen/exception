@@ -4,30 +4,119 @@
 
 %jodatime, jdk, Android, xstream, gwt, hibernate
 
-We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}. 
+We have conducted experiments on two datasets: 1) {\em Github dataset}
+for intrinsic evaluation on three exception handling recommendation
+tasks ({\xblock}, {\xstate}, and {\xtype}), and 2) {\em FuzzyCatch}
+dataset~\cite{xrank-fse20} on the exception-related bugs.
 
-To build the dataset DeepEx, we first collect XXX methods from XXX Java projects. And then, we picked XXX methods that contain at least one try-catch block from all methods. To avoid the influence of multiple try-catch blocks, we split the methods into code snippets by checking the above and below statements, one by one, starting from the closest one for each try-catch block, to verify if the statement is included in the other try-catch block. If not, we put it in the current code snippet. If yes, we stop here and finish the code snippet.
+%FuzzyCatch dataset was provided by the authors of
+%XRank/XHand~\cite{xrank-fse20}. We used FuzzyCatch dataset for our
+%extrinsic evaluation.
 
-Following the steps mentioned above, we have XXX code snippets containing one try-catch block as positive data. Then, we randomly create the same amount of code snippets that do not contain a try-catch block as negative data from the Java projects we collected. So, in total, the DeepEx dataset includes XXX code snippets. As for the FuzzyCatch dataset, it includes 1,000 data, and all of them are positive data.
+We collected the Github dataset as follows. We first chose in Github
+{\color{red}{\bf XXX}} Java projects with the highest ratings that use
+the following libraries jodatime, JDK, Android, xtream, GWT, and
+Hibernate. These are the well-estabished libraries that have been used
+in several prior research on the topics related to
+APIs~\cite{icse18,liveapi14}. We then selected the methods with at
+least one \code{try-catch} block. If there is one \code{try-catch}
+block, we take the body of the enclosing method as the code
+snippet. If there are multiple \code{try-catch} blocks in a method, we
+split the method into multiple code snippets by checking the above and
+below statements, one by one, starting from the closest one for each
+\code{try-catch} block, to verify if the statement is included in the
+other block. If not, we put it in the current code snippet. If yes, we
+stop and finish the current code snippet. In total, we have
+{\color{red}{\bf XX,XXX}} code snippets containing one
+\code{try-catch} block as positive samples. We also randomly selected
+from the same Github projects the same amount of code snippets that do
+not have any \code{try-catch} block as the negative samples.
+
+For our extrinsic evaluation, we used FuzzyCatch dataset, provided by
+the authors of XRank/XHand~\cite{xrank-fse20}, which contains 1,000
+samples of methods with exception-related bugs (missing
+\code{try-catch} blocks or missing catching some exceptions).
+
+%We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}. 
+
+%To build the dataset DeepEx, we first collect XXX methods from XXX Java projects. And then, we picked XXX methods that contain at least one try-catch block from all methods. To avoid the influence of multiple try-catch blocks, we split the methods into code snippets by checking the above and below statements, one by one, starting from the closest one for each try-catch block, to verify if the statement is included in the other try-catch block. If not, we put it in the current code snippet. If yes, we stop here and finish the code snippet.
+
+%Following the steps mentioned above, we have XXX code snippets containing one try-catch block as positive data. Then, we randomly create the same amount of code snippets that do not contain a try-catch block as negative data from the Java projects we collected. So, in total, the DeepEx dataset includes XXX code snippets. As for the FuzzyCatch dataset, it includes 1,000 data, and all of them are positive data.
 
 
-\subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
+\subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking\\}
 
-{\em Baselines.} We compared {\tool} against the state-of-the-art try-catch necessity checking approach XRank~\cite{nguyen2020code}.
+\indent {\em Baselines.} We compared {\xblock} against
+XRank~\cite{xrank-fse20} (XRank is part of FuzzyCatch tool). XRank
+computed the exception risk score for each API call (i.e., the
+potential need of \code{try-catch} block). If one score of a call in
+the snippet is higher than a threshold, the code snippet is considered
+as needing a \code{try-catch} block.
 
-{\em Procedure.} We took all the code snippets from DeepEX and FuzzyCatch datasets. On the DeepEx dataset, we randomly split both the positive and negative data points into 80\%, 10\%, 10\%, in which 80\% of the code snippets as the training dataset, 10\% of the code snippets as the tuning dataset, and 10\% of the code snippets as the testing dataset for the baseline and {\tool}. And on the FuzzyCatch dataset, we directly use the trained model from the DeepEx dataset and test it on the FuzzyCatch dataset for both the baseline and {\tool}.
+{\em Procedure.} We used the Github dataset and randomly split both
+the positive and negative sets into 80\%, 10\%, and 10\% of the code
+snippets for training, tuning, and testing.
 
-{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the following key hyper-parameters to have the best performance: (1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its output (64, 128, 256); (5) Number of GCN layers (4, 6, 8).
+%We took all the code snippets from DeepEX and FuzzyCatch datasets. On
+%the DeepEx dataset, we randomly split both the positive and negative
+%data points into 80\%, 10\%, 10\%, in which 80\% of the code snippets
+%as the training dataset, 10\% of the code snippets as the tuning
+%dataset, and 10\% of the code snippets as the testing dataset for the
+%baseline and {\tool}.
 
-{\em Metrics.} In this RQ, we use \textbf{Recall, Precision, and F-score} to evaluate the performance of \tool and the baseline. They are calculated as $Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F-score = \frac{2*Recall*Precision}{Recall+Precision}$
+%THIS PART FOR RQ5
+%----------------
+%And on the FuzzyCatch dataset, we directly use
+%the trained model from the DeepEx dataset and test it on the
+%FuzzyCatch dataset for both the baseline and {\tool}.
 
-\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection}
+{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the
+following key hyper-parameters to have the best performance: (1) Epoch
+size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
+(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
+output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
 
-{\em Procedure.} In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that are predicted as needing a try-catch block, the \tool will run the try-catch statement detection on them. To fully use the dataset and evaluate \tool on more data, here we estimate the accuracy of RQ1 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 to train, validate and test the model performance.
+{\em Metrics.} We use \textbf{Recall, Precision}, and {\bf F-score} to
+evaluate the performance of the approaches. They are calculated as
+$Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F$-score
+$=$ $\frac{2*Recall*Precision}{Recall+Precision}$. $TP$: true
+positive, $FN$: false negative, $FP$: false positive.
 
-{\em Tuning.} We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
+\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection\\}
 
-{\em Metrics.} In this RQ, we use \textbf{Accuracy} as the evaluation metrics. For each statement in the try-catch block, if \tool included it in the generated sub-graph, we think the prediction on it is correct. Otherwise, it is incorrect. The Accuracy is calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
+\indent {\em Baselines.} None. FuzzyCatch (XRank/XHand) does not have
+this.
+
+{\em Procedure.} We used Github dataset for this experiment. For the
+snippets that need \code{try-catch}, but were predicted as not, we
+consider them as incorrect because the resulting statements do not
+make sense for incorrect {\xblock}'s detection. The snippets that do not
+need \code{try-catch}, but were predicted as yes, we also consider
+them as incorrect. Thus, for the evaluation of {\xstate}, we used the
+set of code snippets that {\xblock} predicted correctly as either
+needing or not needing a \code{try-catch} block. We used the same data
+splitting with 80\%, 10\%, and 10\% for training, tuning, and testing
+as in RQ1.  The statements within \code{try-catch} blocks are used for
+positive labels, and the ones without them for negative labels. Each
+code snippet in the testing set and the trained R-GCN model in
+{\xblock} are the input of the GNNExplainer model in {\xstate} in this
+experiment.
+
+%In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that are predicted as needing a try-catch block, the \tool will run the try-catch statement detection on them. To fully use the dataset and evaluate \tool on more data, here we estimate the accuracy of RQ1 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 to train, validate and test the model performance.
+
+{\em Tuning.} We used the same parameters as in
+GNNExplainer~\cite{GNNExplainer}. It also has a parameter on the limit
+of the number $N$ of the nodes in the explanation sub-graph. We
+varied $N$=1..10. The average number of statements in a
+\code{try-catch} block in Github dataset is 5.7.
+
+%We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
+
+{\em Metrics.} In this experiment, we use \textbf{Accuracy} as the
+evaluation metrics. For each statement in the try-catch block, if
+\tool included it in the generated sub-graph, we think the prediction
+on it is correct. Otherwise, it is incorrect. The Accuracy is
+calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
 
 \subsubsection{RQ3. Effectiveness on Exception Type Recommendation}
 
