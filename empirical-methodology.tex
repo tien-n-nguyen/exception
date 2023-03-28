@@ -37,7 +37,7 @@ the authors of XRank/XHand~\cite{xrank-fse20}, which contains 1,000
 samples of methods with exception-related bugs (missing
 \code{try-catch} blocks or missing catching some exceptions).
 
-%We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}. 
+%We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 
 %To build the dataset DeepEx, we first collect XXX methods from XXX Java projects. And then, we picked XXX methods that contain at least one try-catch block from all methods. To avoid the influence of multiple try-catch blocks, we split the methods into code snippets by checking the above and below statements, one by one, starting from the closest one for each try-catch block, to verify if the statement is included in the other try-catch block. If not, we put it in the current code snippet. If yes, we stop here and finish the code snippet.
 
@@ -87,19 +87,20 @@ positive, $FN$: false negative, $FP$: false positive.
 \indent {\em Baselines.} None. FuzzyCatch (XRank/XHand) does not have
 this.
 
-{\em Procedure.} We used Github dataset for this experiment. For the
-snippets that need \code{try-catch}, but were predicted as not, we
-consider them as incorrect because the resulting statements do not
-make sense for incorrect {\xblock}'s detection. The snippets that do not
-need \code{try-catch}, but were predicted as yes, we also consider
-them as incorrect. Thus, for the evaluation of {\xstate}, we used the
-set of code snippets that {\xblock} predicted correctly as either
-needing or not needing a \code{try-catch} block. We used the same data
-splitting with 80\%, 10\%, and 10\% for training, tuning, and testing
-as in RQ1.  The statements within \code{try-catch} blocks are used for
-positive labels, and the ones without them for negative labels. Each
-code snippet in the testing set and the trained R-GCN model in
-{\xblock} are the input of the GNNExplainer model in {\xstate} in this
+{\em Procedure.} We processed the Github dataset for this experiment
+as follows. For the snippets that need \code{try-catch}, but were
+predicted as not, we consider them as incorrect because the resulting
+statements predicted from {\xstate} do not make sense for incorrect
+{\xblock}'s detection. The snippets that do not need \code{try-catch},
+but were predicted as yes, we also consider them as incorrect for the
+same reason. Thus, for the evaluation of {\xstate}, we used the set of
+code snippets that {\xblock} predicted correctly as needing a
+\code{try-catch} block. We used the same data splitting scheme with
+80\%, 10\%, and 10\% for training, tuning, and testing as in RQ1.  The
+statements within \code{try-catch} blocks are used for positive
+labels, and the ones without them for negative labels. Each code
+snippet in the testing set and the trained R-GCN model in {\xblock}
+are the input of the GNNExplainer model in {\xstate} in this
 experiment.
 
 %In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that are predicted as needing a try-catch block, the \tool will run the try-catch statement detection on them. To fully use the dataset and evaluate \tool on more data, here we estimate the accuracy of RQ1 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 to train, validate and test the model performance.
@@ -112,24 +113,105 @@ varied $N$ from 1 to 10. The average number of statements in a
 
 %We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
 
-{\em Metrics.} In this experiment, we use \textbf{Accuracy} as the
-evaluation metrics. For each statement in the try-catch block, if
-\tool included it in the generated sub-graph, we think the prediction
-on it is correct. Otherwise, it is incorrect. The Accuracy is
-calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
+{\em Metrics.} If {\xstate} predicts for a statement correctly if it
+is in a \code{try-catch} block or not, we count it as a correct case.
+Otherwise, it is an incorrect one. \textbf{Accuracy} is
+defined as the ratio between the number of correct statements over the
+total number of statements.
 
-\subsubsection{RQ3. Effectiveness on Exception Type Recommendation}
+%For each statement in the try-catch block, if
+%\tool included it in the generated sub-graph, we think the prediction
+%on it is correct. Otherwise, it is incorrect. The Accuracy is
+%calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
 
-{\em Baselines.} We compared {\tool} against the state-of-the-art exception type recommendation approach XRank~\cite{nguyen2020code}.
+\subsubsection{RQ3. Effectiveness on Exception Type Recommendation\\}
 
-{\em Procedure.} In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that \tool can successfully predict all statements in the try-catch block successfully, the \tool will run the exception type prediction on them. Similarly, as RQ2, to fully use the dataset and evaluate \tool on more data, here we estimate the Accuracy of RQ2 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 and RQ2 to train, validate and test the model performance.
+{\em Baselines.} None. XRank/Xhand do not support this feature.
 
-{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the following key hyper-parameters to have the best performance: (1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its output (64, 128, 256); (5) Number of GCN layers (4, 6, 8).
+%We compared {\tool} against the state-of-the-art exception type recommendation approach XRank~\cite{nguyen2020code}.
 
-{\em Metrics.} In this RQ, we use \textbf{Hit-n} as the evaluation metrics. Hit-n here means within the true labeled statement set, there are at least \textbf{n} statements predicted correctly by \tool.
+{\em Procedure.} We processed the Github dataset for this experiment
+in the same manner as in RQ2 because the result of {\xtype} (i.e.,
+what exception types need to be in the \code{catch} clause) makes
+sense only when one knows that the given code snippet needs to have a
+\code{try-catch} block. Thus, for the evaluation of {\xtype}, we used
+the set of code snippets that {\xblock} predicted correctly as needing
+a try-catch block. We used the same splitting as RQ2. The exception
+types in the \code{catch} clauses are used as the labels.
+
+%In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that \tool can successfully predict all statements in the try-catch block successfully, the \tool will run the exception type prediction on them. Similarly, as RQ2, to fully use the dataset and evaluate \tool on more data, here we estimate the Accuracy of RQ2 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 and RQ2 to train, validate and test the model performance.
+
+{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the
+following key hyper-parameters to have the best performance: (1) Epoch
+size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
+(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
+output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
+
+{\em Metrics.} Let us use $E$ and $P$ to denote the set of the
+exception types in the oracle and the set of predicted
+ones for one code snippet in the testing. We aim to measure 1) how
+precise {\tool} predicts the exception types ({\bf Precision}), i.e.,
+how accurate the predicted types in $P$, and 2) how much {\tool} can
+cover in its prediction with respect to the oracle ({\bf Recall}),
+i.e., how much of $E$ that the predicted set $P$ can cover. Toward
+measuring Precision and Recall, we define {\bf Hit-$n$} as the number
+of the cases in which the predicted set $P$ contains
+{\em at least} $n$ correct exception types, i.e., $P$ and $E$ overlaps
+{\em at least} $n$ exception types regardless of the sizes of both
+sets.
+
+In Github dataset, more than 99.3\% of the code snippets have 1--3
+exception types in a \code{catch} clause. Thus, we compute Hit-$n$,
+Precision, and Recall for the size of $E$ (|$E$|) from 1--3 and 3+,
+and for the size of $P$ (|$P$|) from 1--3 and 3+.
+%
+When computing Recall, we use the set $E$ as the basis. Recall at a
+size $N_E$ of $E$ is computed as the ratio between Hit-$n$ at that
+size and the total number of cases with that size $N_E$. We compute
+Recall for all $N_E$ = 1--3, and 3+, and $n$=1--$N_E$. We also define
+\code{Hit-All}$_{Rec}$ as \code{Hit}-$n$ when the number $n$ of
+overlapping exception types is equal to |$E$|, i.e., all exception
+types in the oracle set for a code snippet are covered.
+%
+When computing Precision, we use the set $P$ as the basis. Precision
+at a size $N_P$ of $P$ is computed as the ratio between Hit-$n$ at
+that size and the total number of cases with that size $N_P$. We
+compute Precision for all $N_P$ = 1--3, and $n$=1--$N_P$. We also
+define \code{Hit-All}$_{Prec}$ as \code{Hit}-$n$ when the number $n$
+of overlapping exception types is equal to |$P$|, i.e., all predicted
+types in the predicted set $P$ for a snippet are
+correct.
+
+
+%In this RQ, we use \textbf{Hit-n} as the evaluation metrics. Hit-n
+%here means within the true labeled statement set, there are at least
+%\textbf{n} statements predicted correctly by \tool.
 
 \subsubsection{RQ4. Ablation Study}
 
-{\em Procedure.} In this RQ, we would like to evaluate the impact of the key features SOT (sequence of tokens) and AST (abstract syntax tree) on the model performance in RQ1 and RQ3. To do that, we remove one key feature at a time and use the differences between the experimental results to evaluate the impact of that feature.
+In this experiment, we aim to evaluate the impact on the performance
+of the key features: sequences of code tokens and Abstract Syntax Tree
+We removed one key feature at a time and compared the performance with
+the original model to evaluate its impact. We used the same evaluation
+metrics as in the previous experiments. Because our model is designed
+with R-GCN, we cannot remove it to evaluate the impact of dependencies.
 
-{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
+%{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
+
+\subsubsection{RQ5. Extrinsic Evaluation on Exception-related Bug Detection\\}
+
+
+\indent {\em Baselines.} FuzzyCatch~\cite{xrank-fse20} leverages XRank
+to detect the exception-related bugs, which are the code snippets that
+were supposed to handle exceptions, but missed
+\code{try-catch} blocks and/or exceptions. We used {\tool} to detect
+such bugs and compare with FuzzyCatch.
+
+{\em Procedure.} We trained {\tool} on the Github dataset and detected
+the exception-related bugs in FuzzyCatch bug dataset.
+
+{\em Metrics.} We compared the detection against the oracle in
+FuzzyCatch dataset. If a model detects a buggy snippet (missing a
+\code{try-catch} block and/or exceptions), we consider it as correct.
+Otherwise, it is a miss. We use {\bf Recall}, {\bf
+  Precision}, and {\bf F-score} as in RQ1.
