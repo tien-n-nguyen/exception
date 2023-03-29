@@ -90,7 +90,7 @@ techniques are not sufficiently flexible to handle such {\bf ambiguous
 names of API elements and exceptions.
 
 In this paper, we propose {\tool}, a learning-based exception handling
-recommender, to accept a given Java code snippet and recommend 1) {\em
+recommender, which accepts a given Java code snippet and recommends 1) {\em
   whether a try-catch block is needed for the snippet} ({\xblock}), 2)
 {\em what statements need to be placed in a \code{try-catch} block}
 ({\xstate}) and 3) {\em what exception types need to be caught in the
@@ -100,7 +100,7 @@ reporting that exception handling for the API elements is frequently
 repeated across different
 projects~\cite{chanchal-scam14,zhong-jss18}. The rationale is that the
 designers of a software library have the intents for users to use
-certain API elements with corresponding exception handling types.
+certain API elements with corresponding exception types.
 Thus, we design {\tool} to learn from the statements in
 \code{try-catch} blocks and the exception types retrieved from complete
 source code in a large code corpus, and derive the above exception handling
@@ -114,17 +114,17 @@ for the (partial) code snippet under study.
 {\tool} is designed to capture the basic insights to overcome key
 limitations of the state-of-the-art approaches. First, with the
 learning-based approach, {\tool} does not rely on a pre-defined
-threshold for explicit feature matching for the retrieval of API
+threshold for explicit feature matching for the retrieval of the API
 elements or exception types. Second, instead of learning only the
-associations between API elements and corresponding exception types,
-we also consider the code context surrounding them. This gives {\tool}
-two advantages. During training, the complete code enables the
+associations between the API elements and corresponding exception
+types, we also consider the code context surrounding them. This gives
+{\tool} two advantages. During predicting, for a given incomplete
+code, the context enables {\tool} to {\em learn the identities of the
+  API elements via the dependencies/relations} among them in the
+context, thus, avoiding the name ambiguity. Let us call it {\em
+  dependency context}. During training, the complete code enables the
 identifications (i.e., the fully-qualified names) of the API
-elements. During predicting, for the given incomplete code, the
-context enables {\tool} to {\em learn the identities of the API
-  elements via the dependencies/relations} among them in the context,
-thus, avoiding the name ambiguity. Let us call it {\em dependency
-  context}. Moreover, the context of surrounding code also helps the
+elements. Moreover, the context of surrounding code also helps the
 model implicitly learn the important features to connect between the
 API elements and the corresponding exception types.
 
@@ -153,7 +153,7 @@ leading to better learning in {\xblock}, {\xstate} and
 {\xtype}. Moreover, we treat the problem of predicting a
 \code{try-catch} block as a classification (Y/N) as well as the
 problem of deriving the handled exception types as a classification
-among the exceptions.
+among exceptions.
 %
 To predict which statements in a given code snippet that need to be
 wrapped in a \code{try-catch} block, we leverage the explainable ML
@@ -170,24 +170,27 @@ defined as a minimal sub-graph $\mathcal{G}$ in the PDG of $C$ that
   removed} from $G_C$, and {\em the decision of the model is affected,
   the edge is crucial and must be included in the explanation for
   the detection result}. Thus, the minimal sub-graph $\mathcal{G}$ in
-PDG contains the nodes and edges, {\em i.e.}  including the {\em
+PDG contains the nodes and edges, {\em i.e.},  including the {\em
   crucial statements} that are most decisive/relevant to the
 classification on exception blocks. We consider them as the statements
 to be placed in a \code{try-catch}~block.
 
 We have conducted several experiments to evaluate {\tool}. We have
-collected a large dataset of 5,726 projects from Github, with 19,379 code snippets that contains one \code{try-catch} blocks.
+collected a large dataset of 5,726 projects from Github, with 19,379
+code snippets that contain \code{try-catch} blocks.
 %
-Our empirical evaluation shows that {\tool} relatively improves {\bf
-  -7.1\%, 28.3\%, and 12.3\%} over the state-of-the-art model,
-XRank~\cite{xrank-fse20}, in \code{try-catch} block necessity checking
-in Recall, Precision, and F-score, respectively. It also achieves a
-high accuracy of {\bf 74\%} in recommending the statements to be
-placed in a \code{try-catch} block. It can cover all the needed
-exception types in 63\% of the cases and predict correctly all
-exception types in 33\% of the cases. Our extrinsic evaluation also
-shows that {\tool} improves {\bf XX\%} in F-score over the existing
-approach in detecting exception-handling related bugs.
+Our empirical evaluation shows that {\tool} relatively
+improves 12.3\% in F-score over the state-of-the-art approach,
+XRank~\cite{xrank-fse20} in \code{try-catch} block necessity checking.
+%{\bf -7.1\%, 28.3\%, and 12.3\%} over the state-of-the-art model,
+%XRank~\cite{xrank-fse20}, in \code{try-catch} block necessity checking
+%in Recall, Precision, and F-score, respectively.
+{\tool} also achieves a high accuracy of 74\% in recommending the
+statements to be placed in a \code{try-catch} block. It can cover all
+the needed exception types in 63\% of the cases and predict correctly
+all exception types in 33\% of the cases. Our extrinsic evaluation
+also shows that {\tool} improves {\color{red}{XX\%}} in F-score over
+FuzzyCatch~\cite{xrank-fse20} in detecting exception-related~bugs.
 
 %Our empirical evaluation shows that {\tool} achieves a high accuracy
 %of XX\% in predicting if a code snippet needs a \code{try-catch}

@@ -8,21 +8,21 @@
 
 Let us use a few real-world examples to explain the problem and
 motivate our approach. Figure~\ref{fig:example1} displays a code
-snippet in an answer to the StackOverflow (S/O) question 15409223 on how to
-``add new paths for native libraries at runtime in Java''.  The code
-snippet serves as an illustration in the S/O post, thus, does
-not contain all the details on what exceptions that need to be
-handled. It contains only a throw of a generic \code{Exception} in the
-method header~(\code{addLibraryPath}). From the empirical study from
-Zhang {\em et al.}~\cite{zhang-icse19}, this code snippet was adopted
-by the developers into their Github project named \code{armint} (see
-Figure~\ref{fig:example2}). In \code{armint} code, the developers
-handle in a \code{try-catch} block all possible exceptions caused by
+snippet in~an~answer to the StackOverflow (S/O) question 15409223 on
+how~to~``add new paths for native libraries at runtime in Java''.  The
+code snippet serves as an illustration in the S/O post, thus, does not
+contain all the details on what exceptions that need to be handled. It
+contains only a throw of a generic \code{Exception} in the method
+header~(\code{addLibraryPath}). From Zhang {\em et al.}'s
+study~\cite{zhang-icse19}, this code snippet was adopted by developers
+into their Github project named \code{armint}
+(Figure~\ref{fig:example2}).~\code{armint}'s developers handle in a
+\code{try-catch} block several exceptions caused~by
 \code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
-according to JDK's documentation including
+according to JDK's documentation, e.g.,
 \code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
-\code{Illegal\-Argument\-Excep\-tion}, and
-\code{Illegal\-Access\-Exception} (line 24 of
+\code{Illegal\-Argu\-ment\-Excep\-tion}, and
+\code{Illegal\-Access\-Exception} (line 24,
 Figure~\ref{fig:example2}).
 
 %In their study, Zhang {\em et al.}~\cite{zhang-icse19} have reported
