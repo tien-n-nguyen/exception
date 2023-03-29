@@ -33,18 +33,21 @@ number of correct statements covered also increases, thus, accuracy
 increases. However, as the number of statements increases higher than
 5, accuracy increases more slowly. In our dataset, the average size of
 a \code{try-catch} block is 5.7 statements. As seen, the accuracy as
-$N$=6 is 76\%. That is, by predicting 6 statements on average, {\tool}
-can correctly point out 76\% of the total number of statements in the
-entire dataset that need to be placed in a \code{try-catch} block.
-For the statements that do not need to be placed in a \code{try-catch}
-block, {\tool} correctly makes prediction with accuracy of XX\% (not
-shown). Note that {\tool} via {\xstate} predicts the statements to be
-placed in the \code{try-catch} block only after {\xblock} predicted
-that the given code needs such a block. Therefore, the incorrect cases
-from {\xblock} (i.e., those cases that need to be in a
-\code{try-catch} block but were predicted not) are also counted as
-incorrect in {\xstate}.
+$N_x$=6 is 76\%. That is, by pointing out 6 statements on average,
+{\tool} can correctly suggest 76\% of the total number of statements
+in the dataset that need to be placed in \code{try-catch}
+blocks. That is, it points out correctly 4.5 out of 6 statements to be
+in a \code{try-catch} block. For the statements that do not need to be
+placed in a \code{try-catch} block, {\tool} predicts correctly with
+{\bf 81\%} accuracy (not shown).
 
-As an example, ...
+\input{example-experiment}
+
+%Note that {\tool} via {\xstate} predicts the statements to be placed
+%in the \code{try-catch} block only after {\xblock} predicted that the
+%given code needs such a block. Therefore, the incorrect cases from
+%{\xblock} (i.e., those cases that need to be in a \code{try-catch}
+%block but were predicted not) are also counted as incorrect in
+%{\xstate}.
 
 %{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$. Later, I will add an example showing that the statement that our model predicted in the try-catch block contains the method call which lead to the correct exception types prediction.}}

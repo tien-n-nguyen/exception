@@ -1,0 +1,41 @@
+\begin{figure}[t]
+	\centering
+	\lstset{
+		numbers=left,
+		numberstyle= \tiny,
+		keywordstyle= \color{blue!70},
+		commentstyle= \color{red!50!green!50!blue!50},
+		frame=shadowbox,
+		rulesepcolor= \color{red!20!green!20!blue!20} ,
+		xleftmargin=1.5em,xrightmargin=0em, aboveskip=1em,
+		framexleftmargin=1.5em,
+                numbersep= 5pt,
+		language=C,
+    basicstyle=\scriptsize\ttfamily,
+    numberstyle=\scriptsize\ttfamily,
+    emphstyle=\bfseries,
+                moredelim=**[is][\color{red}]{@}{@},
+		escapeinside= {(*@}{@*)}
+	}
+\begin{lstlisting}[]
+int ret = -1;
+try {
+  FileInputStream fin = new FileInputStream(path);
+  int length = fin.available();
+  byte[] buf = new byte[length];
+  fin.read(buf);
+  ret = loadFromBuffer(buf);
+  fin.close();
+} catch (FileNotFoundException e) {
+    Log.e(TAG, "error:" + e);
+    e.printStackTrace();
+} catch (IOException e) {
+    Log.e(TAG, "error:" + e);
+    e.printStackTrace();
+}
+return ret;
+\end{lstlisting}
+        \vspace{-16pt}
+        \caption{Correct Exception Handling Suggestion by {\tool}}
+        \label{fig:example-experiment}
+\end{figure}
