@@ -7,7 +7,7 @@
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{|p{1.5cm}<{\centering}|p{1.25cm}<{\centering}|p{1.25cm}<{\centering}|p{1.5cm}<{\centering}}
+		\begin{tabular}{|p{1.5cm}<{\centering}|p{1.25cm}<{\centering}|p{1.75cm}<{\centering}|p{1.25cm}<{\centering}}
 		  \hline
 			\multirow{2}{*}{} & \multicolumn{2}{c|}{FuzzyCatch Dataset} \\
 			\cline{2-3}
@@ -18,10 +18,17 @@
 			F-score   & \textbf{0.73} & \\
 			\hline
 		\end{tabular}
-		\label{tab:xblock}
+		\label{tab:bug}
 	\end{center}
 \end{table}
 
 %{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
 
-Table~\ref{tab:xblock} displays the comparison result. 
+Table~\ref{tab:bug} displays the comparison result. As seen, {\tool}
+can be used to detect well real-world exception-related bugs in which
+the code snippet needs but did not have the \code{try-catch} blocks or
+miss some exceptions. In comparison, {\tool} improves over the
+state-of-the-art FuzzyCatch, an IR approach, {\bf XX\%} in Precision,
+{\bf YY\%} in Recall, and {\bf ZZ\%} in F-score. The examples of buggy
+code and fixes with the addition of \code{try-catch} blocks are
+available at FuzzyCatch's code repository: ebrand.ly/ExDataset.
