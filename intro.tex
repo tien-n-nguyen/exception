@@ -10,7 +10,7 @@ several missing details, even with ambiguous references, etc.  Zhang
 empirical study on the nature and extent of manual adaptations of the
 S/O code snippets by developers into their Github repositories.  They
 reported that the adaptations from S/O code examples to their
-Github counterpart projects are prevalent and non-trivial. They
+Github counterpart projects are prevalent. They
 qualitatively inspected all the adaptation cases and classified them
 into 24 different adaptation types. They highlighted several
 adaptation types including {\em type conversion}, {\em handling
@@ -59,14 +59,14 @@ threshold for frequent occurrences is also challenging.
 %due to the call to \code{java.io.nio.new\-Buffered\-Reader}.
 
 To provide more flexibility in code matching, the fourth category
-follows the {\em information retrieval} (IR)
-direction~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
+follows {\em information retrieval}
+(IR)~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
 source code and recommends a ranked list of API method calls in the
-code that are potentially involved in the exceptions in a \code{catch}
-clause. XHand~\cite{xrank-fse20} recommends the exception handling
-code in a \code{catch} block for a given code. Both use a
-fuzzy set technique to compute the associations between the API calls
-(e.g., \code{new\-Buffered\-Reader}) and the exceptions (e.g.,
+code that are potentially involved in the exceptions in a \code{catch-try}
+block. XHand~\cite{xrank-fse20} recommends the exception handling
+code in a \code{catch} block for a given code. Both use a fuzzy set
+technique to compute the associations between the API calls (e.g.,
+\code{new\-Buffered\-Reader}) and the exceptions (e.g.,
 \code{IOException}).
 
 While the IR-based approach achieves higher accuracy than the
@@ -79,10 +79,10 @@ lexical values of the code tokens and API elements, whose names can be
 {\em ambiguous} in an incomplete code snippet. For example, the
 \code{Document} class in \code{org.\-w3c.\-dom} of the W3C library has
 the same simple name as the \code{Document} class in
-\code{com.\-google.\-gwt.\-dom.\-client.\-Document} of the Google Web
-Toolkit (GWT) library. An API method to open/write/read a
+\code{com.\-google.\-gwt.\-dom.\-client.\-Document} of Google Web
+Toolkit library (GWT). An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
-of exceptions than the one in the GWT library. Those IR-based
+of exceptions than the one in GWT. Those IR-based
 techniques are not sufficiently flexible to handle such {\bf ambiguous
   names}. Third, the IR techniques {\em do not consider the {\bf
     context} of surrounding code}, thus, cannot leverage the {\em {\bf
