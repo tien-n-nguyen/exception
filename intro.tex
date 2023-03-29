@@ -176,17 +176,16 @@ classification on exception blocks. We consider them as the statements
 to be placed in a \code{try-catch}~block.
 
 We have conducted several experiments to evaluate {\tool}. We have
-collected a large dataset of XXX projects from Github, with XX,XXX
-methods and XX,XXX \code{try-catch} blocks.
+collected a large dataset of 5,726 projects from Github, with 19,379 code snippets that contains one \code{try-catch} blocks.
 %
 Our empirical evaluation shows that {\tool} relatively improves {\bf
-  XX\%, YY\%, and ZZ\%} over the state-of-the-art model,
+  -7.1\%, 28.3\%, and 12.3\%} over the state-of-the-art model,
 XRank~\cite{xrank-fse20}, in \code{try-catch} block necessity checking
 in Recall, Precision, and F-score, respectively. It also achieves a
-high accuracy of up to {\bf 76\%} in recommending the statements to be
+high accuracy of {\bf 74\%} in recommending the statements to be
 placed in a \code{try-catch} block. It can cover all the needed
-exception types in 62\% of the cases and predict correctly all
-exception types in 33.5\% of the cases. Our extrinsic evaluation also
+exception types in 63\% of the cases and predict correctly all
+exception types in 33\% of the cases. Our extrinsic evaluation also
 shows that {\tool} improves {\bf XX\%} in F-score over the existing
 approach in detecting exception-handling related bugs.
 

@@ -14,9 +14,9 @@
 			\hline
 			  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
-			Recall    & & & \textbf{0.81} \\
-			Precision & & &\textbf{0.66} \\
-			F-score   & & &\textbf{0.73} \\
+			Recall    & 0.69 & 0.71 & \textbf{0.79} \\
+			Precision & 0.64 & 0.57 &\textbf{0.68} \\
+			F-score   & 0.66 & 0.63 &\textbf{0.73} \\
 			\hline
 		\end{tabular}
 		SOT: Sequence of tokens; AST: Abstract Syntax Tree
@@ -29,10 +29,10 @@
 Table~\ref{tab:sensi-xblock} displays the results when we removed the
 two key features in {\tool} and measured {\xblock}'s performance. As
 seen, without the sequences of code (lexical tokens) for each
-statement, Recall, Precision, and F-score decrease XX\%, YY\%, and
-ZZ\%, respectively. Without considering the AST structure, Recall,
-Precision, and F-score also decrease even further with XX\%, YY\%, and
-ZZ\%, respectively. In other words, the code structure has a higher
+statement, Recall, Precision, and F-score decrease 12.7\%, 5.9\%, and
+9.6\%, respectively. Without considering the AST structure, Recall,
+Precision, and F-score also decrease even further with 10.1\%, 16.2\%, and
+13.7\%, respectively. In other words, the code structure has a higher
 contribution than the lexical values of code tokens.
 
 
@@ -49,7 +49,7 @@ contribution than the lexical values of code tokens.
 			\hline
 			  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
-			Accuracy    & & & \textbf{0.76} \\
+			Accuracy    & 0.75 & 0.73 & \textbf{0.76} \\
 			\hline
 		\end{tabular}
 		SOT: Sequence of tokens; AST: Abstract syntax tree
@@ -64,7 +64,7 @@ contribution than the lexical values of code tokens.
 We used six as the limit on the number of nodes in the explanation
 sub-graph in which {\tool} achieves 0.76 of Accuracy. Note: the
 average number of the statements in a \code{try-catch} block in our
-dataset is 5.7. As seen, the result in Table~\ref{tab:sensi-xstate} is
+dataset is 5.9. As seen, the result in Table~\ref{tab:sensi-xstate} is
 consistent with Table~\ref{tab:sensi-xblock}, as AST contributes
 slightly more than code sequences.
 
@@ -102,18 +102,18 @@ Thus, code structure has slightly higher impact than code sequence.
 				\hline
 				\# ET in \code{Try-Catch} Block in Oracle & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
-				\multirow{1}{*}{1 (40376)}   & Hit-1  &&& 25,841 (64\%) \\
+				\multirow{1}{*}{1 (1,385 instances)} & Hit-1  &833 (60\%)& 791 (57\%)& 918 (66\%) \\
 				\hline
-				\multirow{2}{*}{2 (2634)}  & Hit-1   &&& 2,028 (77\%) \\
-				& Hit-2         &&&  1081 (41\%) \\
+				\multirow{2}{*}{2 (98 instances)}    & Hit-1  &69 (70\%)& 66 (67\%)& 75 (77\%) \\
+				                                     & Hit-2  &39 (40\%)& 37 (38\%)&  41 (42\%) \\
 				\hline
-				\multirow{3}{*}{3 (547)}  & Hit-1    &&& 334 (61\%) \\
-				& Hit-2     &&& 181 (33\%)\\
-				& Hit-3     &&& 115 (21\%) \\
+				\multirow{3}{*}{3 (18 instances)}    & Hit-1  &10 (56\%)&11 (61\%)& 12 (67\%) \\
+				                                     & Hit-2  &4 (22\%)& 4 (22\%)& 5 (28\%)\\
+				                                     & Hit-3  &2 (11\%)& 3 (17\%)& 3 (17\%) \\
 				\hline
-				\multirow{4}{*}{3+ (391)}  & Hit-1   &&& 233 (59\%) \\
-				& Hit-2     &&& 134 (35\%) \\
-				& Hit-3     &&& 65 (17\%)\\
+				\multirow{4}{*}{3+ (30 instances)}   & Hit-1  &16 (53\%)&15 (50\%)& 18 (60\%) \\
+				                                     & Hit-2  &9 (30\%)& 8 (27\%)& 10 (33\%) \\
+				                                     & Hit-3  &3 (10\%)& 2 (7\%)& 4 (13\%)\\
 				\hline
 			\end{tabular}
 		ET:Exception types; SOT: Sequence of tokens; AST: Abstract syntax tree		
@@ -133,14 +133,14 @@ Thus, code structure has slightly higher impact than code sequence.
 				\hline
 				\# ET in Predicted \code{Try-Catch} Block & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
-				\multirow{1}{*}{1 (36995)}   & Hit-1  &&& 13,589 (37\%) \\
+				\multirow{1}{*}{1 (1,154 instances)}   & Hit-1  &357 (31\%)& 309 (27\%)& 442 (38\%) \\
 				\hline
-				\multirow{2}{*}{2 (4981)}  & Hit-1   &&& 1,594 (32\%) \\
-				& Hit-2       						&&& 947 (19\%) \\
+				\multirow{2}{*}{2 (294 instances)}  & Hit-1   &83 (28\%)& 78 (27\%)& 90 (31\%) \\
+				& Hit-2       						&57 (19\%)& 51 (17\%)& 61 (21\%) \\
 				\hline
-				\multirow{3}{*}{3 (1972)}  & Hit-1   && & 611 (31\%) \\
-				& Hit-2         					&&& 458 (23\%)\\
-				& Hit-3         				  	&&& 185 (9\%) \\
+				\multirow{3}{*}{3 (83 instances)}  & Hit-1    & 24 (29\%)& 21 (25\%)& 27 (33\%) \\
+				& Hit-2         					&19 (23\%)& 18 (22\%)& 23 (28\%)\\
+				& Hit-3         				  	&6 (7\%)& 4 (5\%)& 6 (7\%) \\
 				\hline
 			\end{tabular}
 		ET: Exception types; SOT: Sequence of tokens; AST: Abstract syntax tree

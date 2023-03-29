@@ -27,7 +27,7 @@ below statements, one by one, starting from the closest one for each
 \code{try-catch} block, to verify if the statement is included in the
 other block. If not, we put it in the current code snippet. If yes, we
 stop and finish the current code snippet. In total, we have
-{\color{red}{\bf XX,XXX}} code snippets containing one
+19,379 code snippets containing one
 \code{try-catch} block as positive samples. We also randomly selected
 from the same Github projects the same amount of code snippets that do
 not have any \code{try-catch} block as the negative samples.
@@ -96,9 +96,7 @@ but were predicted as yes, we also consider them as incorrect for the
 same reason. Thus, for the evaluation of {\xstate}, we used the set of
 code snippets that {\xblock} predicted correctly as needing a
 \code{try-catch} block. We used the same data splitting scheme with
-80\%, 10\%, and 10\% for training, tuning, and testing as in RQ1.  The
-statements within \code{try-catch} blocks are used for positive
-labels, and the ones without them for negative labels. Each code
+80\%, 10\%, and 10\% for training, tuning, and testing as in RQ1. Each code
 snippet in the testing set and the trained R-GCN model in {\xblock}
 are the input of the GNNExplainer model in {\xstate} in this
 experiment.
@@ -109,7 +107,7 @@ experiment.
 GNNExplainer~\cite{GNNExplainer}. It also has a parameter on the limit
 of the number $N$ of the nodes in the explanation sub-graph. We
 varied $N$ from 1 to 10. The average number of statements in a
-\code{try-catch} block in Github dataset is 5.7.
+\code{try-catch} block in Github dataset is 5.9.
 
 %We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
 
@@ -160,7 +158,7 @@ of the cases in which the predicted set $P$ contains
 {\em at least} $n$ exception types regardless of the sizes of both
 sets.
 
-In Github dataset, more than 99.3\% of the code snippets have 1--3
+In Github dataset, more than 98.1\% of the code snippets have 1--3
 exception types in a \code{catch} clause. Thus, we compute Hit-$n$,
 Precision, and Recall for the size of $E$ (|$E$|) from 1--3 and 3+,
 and for the size of $P$ (|$P$|) from 1--3 and 3+.

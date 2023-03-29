@@ -13,7 +13,7 @@
 			\cline{2-11}
 			     	&  N1  & N2   &  N3  & N4   &N5    & N6   &N7    & N8   &N9    & N10 \\
 			\hline
-			\tool       &  &  &  &  &  & 0.76 &  &  &  &   \\
+			\tool       &  &  &  & 0.66 & 0.71 & 0.74 & 0.76 & 0.77 &  &   \\
 			\hline
 		\end{tabular}
 		Nx is number of nodes in the explanation
@@ -32,14 +32,14 @@ As the number of nodes (statements) in $\mathcal{G}_C$ increases, the
 number of correct statements covered also increases, thus, accuracy
 increases. However, as the number of statements increases higher than
 5, accuracy increases more slowly. In our dataset, the average size of
-a \code{try-catch} block is 5.7 statements. As seen, the accuracy as
-$N_x$=6 is 76\%. That is, by pointing out 6 statements on average,
-{\tool} can correctly suggest 76\% of the total number of statements
+a \code{try-catch} block is 5.9 statements. As seen, the accuracy as
+$N_x$=6 is 74\%. That is, by pointing out 6 statements on average,
+{\tool} can correctly suggest 74\% of the total number of statements
 in the dataset that need to be placed in \code{try-catch}
 blocks. That is, it points out correctly 4.5 out of 6 statements to be
 in a \code{try-catch} block. For the statements that do not need to be
 placed in a \code{try-catch} block, {\tool} predicts correctly with
-{\bf 81\%} accuracy (not shown).
+{\bf 63\%} accuracy (not shown).
 
 \input{example-experiment}
 

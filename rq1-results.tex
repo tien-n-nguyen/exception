@@ -7,15 +7,15 @@
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{|p{1.5cm}<{\centering}|p{1.25cm}<{\centering}|p{1.25cm}<{\centering}|p{1.25cm}<{\centering}}
+		\begin{tabular}{|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|}
 		  \hline
 			\multirow{2}{*}{} & \multicolumn{2}{c|}{Github Dataset} \\
 			\cline{2-3}
 			  & \tool  & XRank~\cite{xrank-fse20} \\
 			\hline
-			Recall    & \textbf{0.81} & \\
-			Precision & \textbf{0.66} & \\
-			F-score   & \textbf{0.73} & \\
+			Recall    & 0.79 & \textbf{0.85}\\
+			Precision & \textbf{0.68} & 0.53\\
+			F-score   & \textbf{0.73} & 0.65\\
 			\hline
 		\end{tabular}
 		\label{tab:xblock}
@@ -26,17 +26,17 @@
 
 Table~\ref{tab:xblock} displays the comparison result. As seen, our
 approach achieves a high level of performance across two
-datasets. With a Precision of 66\%, it can decide correctly 2 out of 3
+datasets. With a Precision of 68\%, it can decide correctly 2 out of 3
 cases whether a code snippet requires a \code{try-catch} block or
-not. With a Recall of 81\%, {\tool} is able to cover 4 out of 5 cases
+not. With a Recall of 79\%, {\tool} is able to cover 4 out of 5 cases
 that needs to be placed in a \code{try-catch} block. Users just need
 to find 1 out of 5 cases. As a result, it achieves a high F-score of
 0.73.
 %In FuzzyCatch dataset, {\tool} also achieves a high level of
 %performance with XX\% precision, YY\% recall, and ZZ\% F-score.
 In comparison, {\tool} improves relatively over the state-of-the-art
-approach, XRank, {\bf XX\%} in Recall, {\bf YY\%} in Precision, and
-{\bf ZZ\%} in F-score.
+approach, XRank, {\bf -7.1\%} in Recall, {\bf 28.3\%} in Precision, and
+{\bf 12.3\%} in F-score.
 
 %In FuzzyCatch dataset, the relative improvements are XX\%, YY\%, and
 %ZZ\% in precision, recall, and F-score, respectively.
