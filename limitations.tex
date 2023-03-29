@@ -1,0 +1,11 @@
+
+\noindent {{\bf Limitations and Threats to Validity}}. First, {\tool} did not handle the code with multiple \code{try-catch}
+blocks. Second, it cannot generate new exception types that were not
+in the training corpus. Third, it does not support the generation of
+exception handling code inside the body of \code{catch}. Finally,
+{\tool} needs training data, thus, does not work for a new library
+without any API usage~yet.
+
+Our solution is specifically for Java. Our collected data might not be
+representative. However, we use well-established open-source projects with
+well-known libraries.
