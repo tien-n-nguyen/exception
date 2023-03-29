@@ -39,9 +39,14 @@ of API elements or exception types. Second, the IR techniques are not
 flexible as the ML approaches because they use the lexical values of
 API simple names. Thus, they suffer the ambiguity in the names of API
 elements in incomplete code snippets. Lastly, XRank/XHand considers
-only the API method calls and disregard the surrounding code context
-and the dependencies/relations among the API elements to disambiguate
-the simple names of the API elements.
+only pairwise associations between the API method calls and
+exceptions. It disregards the surrounding code context and the
+dependencies/relations. Note that XRank/XHand simply uses
+Groum~\cite{fse09}, a dependency graph among API elements, to collect
+the API method calls, but did not use those dependencies in computing
+the association scores.
+%among the API elements to disambiguate the simple names of the API
+%elements.
 
 In addition to exception handling recommendation research,
 ThEx~\cite{thex-ase22} predict which exception(s) shall be thrown

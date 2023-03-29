@@ -1,7 +1,7 @@
 \subsection{Comparison on \code{Try-Catch} Block Necessity Checking Effectiveness (RQ1)}
 \label{sec:rq1}
 
-\begin{table}[htpb]
+\begin{table}[t]%[htpb]
   \caption{Try-Catch Necessity Checking Comparison (RQ1)}
   \vspace{-12pt}
 	\begin{center}
@@ -59,27 +59,35 @@ the names of API elements to learn their identities, thus,
 deciding better the need of \code{try-catch} blocks and the
 corresponding exception types.
 
-For example, in a code snippet, \code{getText} has a very large number
-of API method candidates. However, considering that the relation
-between \code{css} and \code{getText} in the code
-\code{`...()\-.css()\-.getText()'}, we only have 4 candidates for
-\code{getText}. Finally, considering the return value of
-\code{getText} is an argument of \code{setInnerText(...)}, only one
-candidate is remained:
+%Tien
+
+Take as an example a code snippet (not shown) in our dataset with the
+presence of \code{getText}. This name is popular with a very large number
+of API method candidates.
+%For example, in a code snippet, \code{getText} has a very large number
+%of API method candidates.
+However, considering the relation between \code{css} and
+\code{getText} in the code \code{`...css()\-.getText()'}, we only have
+4 candidates for \code{getText}. Finally, considering the return
+value of \code{getText} as an argument of \code{setInnerText(...)} in
+the code \code{`setInnerText(...css()\-.getText())'}, only one candidate is
+remained:
 \code{com\-.google\-.gwt\-.resources\-.client\-.CssResource\-.getText()}.
 Thus, those relations actually can help identify the API elements,
 leading to better decision in {\tool} on the \code{try-catch} block
-and exception types. Because it has not seen any \code{try-catch}
-block involving \code{com\-.....getText()} and those related ones,
-{\tool} decides that the code snippet does not need a \code{try-catch}
-block. In contrast, XRank considers only the {\em pairwise} associate
-scores between an {\em individual API method call} and the presence of
-a \code{try-catch} block. It disregards those above
+and exception types.
+%
+Because it has not seen any \code{try-catch} block involving
+\code{com\-.....getText()} and those related ones, {\tool} decides
+that the code snippet does not need a \code{try-catch} block. In
+contrast, XRank considers only the {\em pairwise} associate scores
+between an {\em individual API method call} and the exception types
+in a \code{catch} clause. It disregards those above
 relations/dependencies among the API names. Thus, it might
 misunderstand that \code{getText} needs a \code{try-catch} due to the
 co-occurrences of other API elements that need one. That is, without
-the dependencies, XRank might make incorrect identification of
-the API elements via their names, leading to incorrect exception
+the dependencies, XRank might make incorrect identification of the API
+elements via their names, leading to incorrect exception
 recommendation.
 
 %considering Groum but only to get better API ...
