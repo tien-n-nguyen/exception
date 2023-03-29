@@ -3,21 +3,23 @@
 
 
 
-\begin{table}[h]
-  \caption{RQ4. Impact of Different Features on Try-Catch Block Necessity Checking}
+\begin{table}[t]
+  \caption{RQ4. Impact of Different Features on {\xblock}}
+    %Try-Catch Block Necessity Checking}
   \vspace{-12pt}
-	\begin{center}
+  \begin{center}
+    \small
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}}
 			\hline
-			Category  & \tool w/o SOT & \tool w/o AST & \tool \\
+			  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
 			Recall    & & & \textbf{0.81} \\
 			Precision & & &\textbf{0.66} \\
 			F-score   & & &\textbf{0.73} \\
 			\hline
 		\end{tabular}
-		SOT: Sequence of tokens; AST: Abstract syntax tree
+		SOT: Sequence of tokens; AST: Abstract Syntax Tree
 		\label{tab:sensi-xblock}
 	\end{center}
 \end{table}
@@ -25,8 +27,8 @@
 \subsubsection{Impact of Different Features on Try-Catch Block Necessity Checking ({\xblock})}
 
 Table~\ref{tab:sensi-xblock} displays the results when we removed the
-two key features in {\tool} and measured the performance of {\xblock}.
-As seen, without the sequences of code (lexical tokens) for each
+two key features in {\tool} and measured {\xblock}'s performance. As
+seen, without the sequences of code (lexical tokens) for each
 statement, Recall, Precision, and F-score decrease XX\%, YY\%, and
 ZZ\%, respectively. Without considering the AST structure, Recall,
 Precision, and F-score also decrease even further with XX\%, YY\%, and
@@ -36,13 +38,16 @@ contribution than the lexical values of code tokens.
 
 %{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
 
-\begin{table}[h]
-	\caption{RQ4. Impact of Different Features on \code{Try-catch} Statement Prediction}
+\begin{table}[t]
+  \caption{RQ4. Impact of Different Features on {\xstate}}
+  \vspace{-12pt}
+    %\code{Try-catch} Statement Prediction}
+  \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}}
 			\hline
-			Category  & \tool w/o SOT & \tool w/o AST & \tool \\
+			  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
 			Accuracy    & & & \textbf{0.76} \\
 			\hline
@@ -54,43 +59,52 @@ contribution than the lexical values of code tokens.
 
 \subsubsection{Impact of Different Features on Try-Catch Statement Detection ({\xstate})}
 
-Table~\ref{tab:sensi-xstate} displays the results when we removed the
-two key features in {\tool} and measured the performance of {\xstate}.
+%Table~\ref{tab:sensi-xstate} displays the results when we removed the
+%two key features in {\tool} and measured the performance of {\xstate}.
 We used six as the limit on the number of nodes in the explanation
-sub-graph in which {\tool} achieves an accuracy of 0.76. The rationale
-is that the average number of the statements in a \code{try-catch}
-block in our dataset is 5.7. As seen, without the sequences of code
-(lexical tokens) for each statement, Accuracy decreases XX\%. Without
-considering the AST structure, Accuracy also decreases even further
-with XX\%. In other words, the code structure has a higher
-contribution than the lexical values of code tokens.
+sub-graph in which {\tool} achieves 0.76 of Accuracy. Note: the
+average number of the statements in a \code{try-catch} block in our
+dataset is 5.7. As seen, the result in Table~\ref{tab:sensi-xstate} is
+consistent with Table~\ref{tab:sensi-xblock}, as AST contributes
+slightly more than code sequences.
+
+%without the sequences of code (lexical tokens) for each statement,
+%Accuracy decreases XX\%. Without considering the AST structure,
+%Accuracy also decreases even further with XX\%. In other words, the
+%code structure has a higher contribution than the lexical values of
+%code tokens.
 
 \subsubsection{Impact of Different Features on Exception Type Recommendation ({\xtype})}
 
 Tables~\ref{tab:sensi-xtype-recall}
-and~\ref{tab:sensi-xtype-precision} display the results when we
-removed the two key features in {\tool} and measured the performance
-of {\xtype}. As seen, without the sequences of code (lexical tokens)
-for each statement, all the evaluation metrics \code{Hit}-$n$ decrease
-across the board in both recall and precision. Without considering the
-AST structure, all the evaluation metrics decrease slightly further.
-Thus, this result is consistent with the above results as the code
-structure has a higher contribution than the lexical values of code
-tokens.
+and~\ref{tab:sensi-xtype-precision} display the results. As seen, the
+impact result is consistent with those in
+Tables~\ref{tab:sensi-xblock} and~\ref{tab:sensi-xstate}.
+Thus, code structure has slightly higher impact than code sequence.
+
+%when we removed the two key features in {\tool} and measured the
+%performance of {\xtype}. As seen, without the sequences of code
+%(lexical tokens) for each statement, all the evaluation metrics
+%\code{Hit}-$n$ decrease across the board in both recall and
+%precision. Without considering the AST structure, all the evaluation
+%metrics decrease slightly further.  Thus, this result is consistent
+%with the above results as the code structure has a higher contribution
+%than the lexical values of code tokens.
 
 \begin{table}[t]
-	\caption{RQ4. Impact of Different Features on Exception Type Prediction (Recall)}
+  \caption{Impact of Different Features on {\xtype} (Recall)}
+  \vspace{-12pt}
 	\tabcolsep 2pt
 	{\small
 		\begin{center}
 			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{p{2cm}<{\centering}|p{1cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}}
 				\hline
-				\# ET in Try-Catch Block in Oracle & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
+				\# ET in \code{Try-Catch} Block in Oracle & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
-				\multirow{1}{*}{1 (40376)}   & Hit-1  &&& 25841 (64\%) \\
+				\multirow{1}{*}{1 (40376)}   & Hit-1  &&& 25,841 (64\%) \\
 				\hline
-				\multirow{2}{*}{2 (2634)}  & Hit-1   &&& 2028 (77\%) \\
+				\multirow{2}{*}{2 (2634)}  & Hit-1   &&& 2,028 (77\%) \\
 				& Hit-2         &&&  1081 (41\%) \\
 				\hline
 				\multirow{3}{*}{3 (547)}  & Hit-1    &&& 334 (61\%) \\
@@ -109,7 +123,7 @@ tokens.
 \end{table}
 
 \begin{table}[t]
-	\caption{RQ4. Impact of Different Features on Exception Type Prediction (Precision)}
+	\caption{Impact of Different Features on {\xtype} (Precision)}
 	\vspace{-10pt}
 	\tabcolsep 2pt
 	{\small
@@ -119,9 +133,9 @@ tokens.
 				\hline
 				\# ET in Predicted \code{Try-Catch} Block & Metrics &{\textsc{\tool w/o SOT}\xspace}&{\textsc{\tool w/o AST}\xspace}& {\textsc{\tool}\xspace} \\
 				\hline
-				\multirow{1}{*}{1 (36995)}   & Hit-1  &&& 13589 (37\%) \\
+				\multirow{1}{*}{1 (36995)}   & Hit-1  &&& 13,589 (37\%) \\
 				\hline
-				\multirow{2}{*}{2 (4981)}  & Hit-1   &&& 1594 (32\%) \\
+				\multirow{2}{*}{2 (4981)}  & Hit-1   &&& 1,594 (32\%) \\
 				& Hit-2       						&&& 947 (19\%) \\
 				\hline
 				\multirow{3}{*}{3 (1972)}  & Hit-1   && & 611 (31\%) \\
