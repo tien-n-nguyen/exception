@@ -13,9 +13,9 @@
 			\cline{2-3}
 			  & \tool  & XRank~\cite{xrank-fse20} \\
 			\hline
-			Recall    & 0.79 & \textbf{0.85}\\
+			Recall    & 0.79 & \textbf{0.81}\\
 			Precision & \textbf{0.68} & 0.53\\
-			F-score   & \textbf{0.73} & 0.65\\
+			F-score   & \textbf{0.73} & 0.63\\
 			\hline
 		\end{tabular}
 		\label{tab:xblock}
@@ -48,12 +48,12 @@ Precision and 12.3\% in F-score.
 %XRank.
 
 Examining the result, we reported the following. First, if the
-association score of one API method in the snippet and one exception
-is higher than a threshold, XRank decides that a \code{try-catch}
-block is needed. Thus, {\em its recall is high, but the precision is
-  just slightly better than a coin toss (0.53) in our balanced
-  dataset. Thus, it often tends to output ``Yes''. That leads to lower
-  F-score than {\tool}'s}.
+association score of {\em only one API method} in the snippet and {\em one
+exception} is higher than a threshold, XRank decides that a
+\code{try-catch} block is needed.  Thus, it often tends to output
+  ``Yes''. {\em Its recall is slightly
+  better, but precision is just marginally better than a coin toss
+  (0.53) in our balanced dataset. That leads to lower F-score than {\tool}}.
 %
 Second,
 %XRank relies on the association scores between the presence of
@@ -61,7 +61,7 @@ Second,
 the decisions on the necessity of a \code{try-catch} block or the
 exception types depend on the pre-defined thresholds in XRank on those
 association scores. Thus, those pre-defined thresholds might not be
-suitable across all API methods. Third, for the incomplete code
+suitable across the libraries. Third, for the incomplete code
 snippets in which the names of the API methods in different packages
 or libraries are the same (e.g., \code{toString} or \code{getText} in
 various JDK packages), XRank cannot distinguish them and use one entry
