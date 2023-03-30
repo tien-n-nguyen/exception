@@ -42,14 +42,15 @@ Table~\ref{tab:recall-3} displays the {\em Recall} result on how well
 {\em {\tool} covers on the actual exception types in the \code{catch}
   clauses in the oracle}. The result is with respect to the instances
 (code snippets) in the dataset with different numbers $K$ of exception
-types in the \code{catch} clauses: $K$ = the number of Exception Types
-in a \code{catch} clause in the oracle = $1,2,3,3+$. For example, in the
-oracle, there are 18 instances with 3 exception types in a
-\code{catch} clause. {\tool}'s predicted set correctly contains all 3
-exception types for 3 instances (17\%) (\code{Hit-All}). The
-predicted set contains {\em at least 2 out of 3} for 5 instances
-(28\%), and contains {\em at least} one exception type for 12 instances
-(67\%).
+types in the \code{catch} clauses: $K$ = the number of exception types
+in a \code{catch} clause in the oracle = $1,2,3,3+$. For example, in
+the oracle, there are 98 instances with 2 exception types in a
+\code{catch} clause. {\tool}'s predicted set correctly contains all 2
+exception types for 41 instances (42\%) (\code{Hit-All}$_{Rec}$). The
+predicted set contains {\em at least 1 out of 2} exception types for
+75 instances (77\%).
+
+%, and contains {\em at least} one exception type for 12 instances (67\%).
 
 %\begin{table}[t]
 %	\caption{Results on Recall for Exception Types in a Try-Catch Block in Oracle Set (RQ3)}
@@ -75,11 +76,12 @@ predicted set contains {\em at least 2 out of 3} for 5 instances
 %As seen in Table~\ref{tab:recall-3},
 
 There are 1,385 instances (90.5\%) over 1,531 total instances with a
-single exception type in the \code{catch} clause in the
-oracle in the testing dataset. {\tool} covers correctly the exception type in 918
+single exception type in the \code{catch} clause in the oracle in the
+testing dataset. {\tool} covers correctly the exception type in 918
 (66\%) of the instances. There are 98 instances with two exception
-types in the oracle and {\tool} correctly suggests both types in
-41 (42\%) of the~cases.
+types in the oracle and it correctly suggests both types in 41 cases
+(42\%).
+
 
 %In 2,028 instances (77\%), at least one exception type is predicted correctly.
 
@@ -131,24 +133,23 @@ the cases. Thus, it achieves high \code{Hit-All}$_{Rec}$ in 98.1\% of
 	}
 \end{table}
 
-Table~\ref{tab:precision-3} shows the {\em Precision} result.
-%on how well {\tool} correctly predicts the actual exception types in
-%\code{catch} clauses in the oracle.
-The result is shown with respect to different numbers $K$ of {\em
-  predicted exception types} in the \code{catch} clauses. For example,
-as seen in Table~\ref{tab:precision-3}, there are a total of 83
-instances (code snippets) in which {\tool} predicted three exception
-types in a \code{try-catch} block. Among them, with \code{Hit-1}=33\%,
-there are 27 instances in which at least one predicted exception type
-is correct. With \code{Hit-2}=28\%, there are 23 instances in which
-at least two of the predicted exception types are correct. With
-\code{Hit-3} = 7\%, there are 6 instances that all three predicted
-exception types are correct (some types might be missing).  Producing
-the exact-matched sets (\code{Hit-All}) for all exception types when
-$K \ge$ 3 is still challenging, however, those cases are only 1.9\% in
-the entire~dataset. We do not have the row for 3+ because in our
-dataset, 98.1\% of the cases have $\leq$3 exception types, and we
-set 3 as the limit for {\xtype}.
+Table~\ref{tab:precision-3} shows the {\em Precision} result, which is
+shown with respect to different numbers $K$ of {\em predicted
+  exception types} in the \code{catch} clauses. For example, as seen
+in Table~\ref{tab:precision-3}, there are a total of 294 instances
+(code snippets) in which {\tool} predicted two exception types in a
+\code{try-catch} block. Among them, with \code{Hit-1}=31\%, there are
+90 instances in which at least one predicted exception type is
+correct. With \code{Hit-2}=21\%, there are 61 instances in which both
+the predicted exception types are correct (some types might be
+missing).
+%With \code{Hit-3} = 7\%, there are 6 instances that all three
+%predicted exception types are correct (some types might be missing).
+Producing the exact-matched sets (\code{Hit-All}) for all exception
+types when $K \ge$ 3 is still challenging, however, those cases are
+only 1.9\% in the entire~dataset. We do not have the row for 3+
+because in our dataset, 98.1\% of the cases have $\leq$3 exception
+types, thus, we set 3 as the limit of the number of exception types for {\xtype}.
 
 Importantly, \code{Hit-All}$_{Prec}$ = \code{Hit-$n$} when
 $n$ (the number of overlaps between the predicted and oracle sets) =
@@ -158,7 +159,7 @@ For $k$=1..3, which is a total of 1,531 instances (98.1\%), {\bf
   (\code{Hit-All}$_{Prec}$) in 509 instances (33\%)}. That is, in
 509 instances (i.e., 33\%), all the predicted exception types are
 actually the correct ones. Developers do not have to delete any
-exception types in a predicted set, thus, saving their efforts.
+exception types in a predicted set, thus, {\tool} can save their efforts.
 
 
 
