@@ -7,15 +7,15 @@
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{|p{1.5cm}<{\centering}|p{1.25cm}<{\centering}|p{1.75cm}<{\centering}|p{1.25cm}<{\centering}}
+		\begin{tabular}{|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|}
 		  \hline
 			\multirow{2}{*}{} & \multicolumn{2}{c|}{FuzzyCatch Dataset} \\
 			\cline{2-3}
 			  & \tool  & FuzzyCatch~\cite{xrank-fse20} \\
 			\hline
-			Recall    & \textbf{0.81} & \\
-			Precision & \textbf{0.66} & \\
-			F-score   & \textbf{0.73} & \\
+			Recall    & 0.75 & \textbf{0.79}\\
+			Precision & \textbf{0.62} & 0.54\\
+			F-score   & \textbf{0.68} & 0.64\\
 			\hline
 		\end{tabular}
 		\label{tab:bug}
@@ -28,7 +28,7 @@ Table~\ref{tab:bug} displays the comparison result. As seen, {\tool}
 can be used to detect well real-world exception-related bugs in which
 the code snippet needs but did not have the \code{try-catch} blocks or
 miss some exceptions. In comparison, {\tool} improves over the
-state-of-the-art FuzzyCatch, an IR approach, {\bf XX\%} in Precision,
-{\bf YY\%} in Recall, and {\bf ZZ\%} in F-score. The examples of buggy
+state-of-the-art FuzzyCatch, an IR approach, {\bf 14.8\%} in Precision,
+{\bf -5.1\%} in Recall, and {\bf 5.8\%} in F-score. The examples of buggy
 code and fixes with the addition of \code{try-catch} blocks are
 available at FuzzyCatch's code repository: ebrand.ly/ExDataset.

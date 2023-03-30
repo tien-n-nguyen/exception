@@ -206,7 +206,7 @@ were supposed to handle exceptions, but missed
 such bugs and compare with FuzzyCatch.
 
 {\em Procedure.} We trained {\tool} on the Github dataset and detected
-the exception-related bugs in FuzzyCatch bug dataset.
+the exception-related bugs in FuzzyCatch bug dataset. To make the FuzzyCatch dataset a balanced dataset for a fair comparison, we randomly select the same number of non-buggy code snippets comparing the bugs as the negative samples from the methods in the FuzzyCatch dataset.
 
 {\em Metrics.} We compared the detection against the oracle in
 FuzzyCatch dataset. If a model detects a buggy snippet (missing a
