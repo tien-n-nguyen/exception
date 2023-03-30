@@ -20,16 +20,16 @@
 \begin{lstlisting}[]
 public void onCreate(Bundle state) {
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  + try {
+  (*@{\color{orange}{+ try \{}@*)
     final WindowManager.LayoutParams attrs = getWindow().getAttributes();
     final Class<?> cls = attrs.getClass();
     final Field fld = cls.getField("buttonBrightness");
     if (fld != null && "float".equals(fld.getType().toString())) {
     fld.setFloat(attrs, 0);
-  + }
-  + } catch (NoSuchFieldException e) {
-  + } catch (IllegalAccessException e) {
-  + }...
+  (*@{\color{orange}{+ \}}@*)
+  (*@{\color{orange}{+ \} catch (NoSuchFieldException e) \{}@*)
+  (*@{\color{orange}{+ \} catch (IllegalAccessException e) \{}@*)
+  (*@{\color{orange}{+ \}}@*)...
 }
 \end{lstlisting}
         \vspace{-16pt}
