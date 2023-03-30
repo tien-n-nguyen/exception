@@ -7,7 +7,7 @@
 We conducted experiments on two datasets: 1) {\em Github dataset}
 for intrinsic evaluation on exception handling recommendation tasks
 ({\xblock}, {\xstate}, {\xtype}), and 2) {\em FuzzyCatch}
-dataset~\cite{xrank-fse20} for extrinsic evalution on
+dataset~\cite{xrank-fse20} for extrinsic evaluation on
 exception-related bug detection.
 %
 %FuzzyCatch dataset was provided by the authors of
@@ -17,7 +17,7 @@ exception-related bug detection.
 We collected the Github dataset as follows. We first chose in Github
 5,726 Java projects with the highest ratings that use
 the following libraries: jodatime, JDK, Android, xtream, GWT, and
-Hibernate. These are the well-estabished libraries that have been used
+Hibernate. These are the well-established libraries that have been used
 in several prior research on the topics related to
 APIs~\cite{icse18,liveapi14}. We then selected the methods with at
 least one \code{try-catch} block. If there is one \code{try-catch}
@@ -53,7 +53,7 @@ code snippets with no exception-related bugs as the negative samples.
 XRank~\cite{xrank-fse20} (XRank is part of FuzzyCatch tool). XRank
 computed the exception risk score for each API call.
 %(i.e., the potential need of \code{try-catch} block).
-If one score of a call in the snippet is higher than a threshold, 
+If one score of a call in the snippet is higher than a threshold,
 it is considered as needing a \code{try-catch} block.
 
 {\em Procedure.} We used the Github dataset and randomly split both
@@ -143,10 +143,12 @@ types in the \code{catch} clauses are used as the labels.
 %In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that \tool can successfully predict all statements in the try-catch block successfully, the \tool will run the exception type prediction on them. Similarly, as RQ2, to fully use the dataset and evaluate \tool on more data, here we estimate the Accuracy of RQ2 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 and RQ2 to train, validate and test the model performance.
 
 {\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the
-following key hyper-parameters to have the best performance: (1) Epoch
-size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
-(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
-output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
+key hyper-parameters to have the best performance as in RQ1 including
+epoch size, batch size, learning rate, vector length, and R-GCN layers.
+%(1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3)
+%Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature
+%embeddings and its output (64, 128, 256); (5) Number of R-GCN layers
+%(4, 6, 8).
 
 {\em Metrics.} Let us use $E$ and $P$ to denote the set of the
 exception types in the oracle and the set of predicted
