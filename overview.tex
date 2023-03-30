@@ -10,20 +10,22 @@
 \end{center}
 \end{figure*}
 
-Let us present the overview of our approach. In general, {\tool}
-consists of three main components. The first component, {\xblock},
-aims to check if it is necessary to have a \code{try-catch} block for
-the given code snippet $C$. We extract the program dependence graph
-(PDG) from the source code using DeepPDA~\cite{icse23} that is capable
-of generating the PDG for any (in)complete code snippet. The PDG is
-used as an input for a Relational Graph Convolutional Network
-(R-GCN)~\cite{rgcn}, which acts as a classifier for {\xblock}. During
-training, we use the complete source code in the open-source projects
-in which each positive sample contains at least a \code{try-catch}
-block, and each negative sample does not contain any. If there are
-multiple consecutive blocks, we split them into individual
-ones. During prediction, {\xblock} uses the trained R-GCN model to predict
-whether the given source code needs a \code{try-catch} block or not.
+%Let us present the overview of our approach.
+
+In general, {\tool} has three main components. The first
+component, {\xblock}, aims to check if it is necessary to have a
+\code{try-catch} block for a given code snippet $C$. We extract the
+program dependence graph (PDG) from the source code using
+DeepPDA~\cite{icse23} that is capable of generating the PDG for any
+(in)complete code snippet. The PDG is used as an input for a
+Relational Graph Convolutional Network (R-GCN)~\cite{rgcn}, which acts
+as a classifier for {\xblock}. During training, we use the complete
+source code in the open-source projects in which each positive sample
+contains at least a \code{try-catch} block, and each negative sample
+does not contain any. If there are multiple consecutive blocks, we
+split them into individual ones. During prediction, {\xblock} uses the
+trained R-GCN model to predict whether the code snippet $C$ needs a
+\code{try-catch} block or not.
 
 In the case that the code snippet $C$ needs a \code{try-catch} block,
 the second component, {\xstate}, is aimed to detect which statements
@@ -33,7 +35,7 @@ input: 1) the PDG of the given code snippet, and 2) the trained R-GCN
 model for the \code{try-catch} necessity checker ({\xblock}), together
 with the classification result ``Yes'' from that R-GCN model of
 {\xblock}. {\xstate} leverages GNNExplainer~\cite{GNNExplainer}, a
-Graph-based Explainable AI model to decide the statements in the PDG
+graph-based, Explainable AI model to decide the statements in the PDG
 that are most decisive and relevant to the reason why the code snippet
 $C$ is required to have a \code{try-catch} block. During training, in
 a positive sample, the statements in a \code{try-catch} block are

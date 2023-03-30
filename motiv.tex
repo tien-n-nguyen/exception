@@ -155,6 +155,8 @@ consisting of those API elements and their program dependencies
 could help a model determine the correct identities of the API
 elements, leading to correct prediction of the handled exceptions.
 
+\input{example4.tex}
+
 In Figure~\ref{fig:example1}, to derive the identities of
 \code{Field} (line 2), \code{get\-Decl\-ared\-Field} (line 2),
 \code{set\-Accessible} (line 3), \code{get} (line 6), etc., a model
@@ -167,13 +169,16 @@ the API elements in the context and with the knowledge learned from
 the complete code, a model could decide that in the code snippet, the identity of
 \code{Field} is \code{java.\-lang.\-Class.\-Field}, that of
 \code{set\-Accessible} is
-\code{java.\-lang.\-Class.\-Field.\-set\-Accessible}, and that of the
-\code{get} function at line 6 is
+\code{java.\-lang.\-Class.\-Field.\-set\-Accessible}, and that of 
+\code{get} at line 6 is
 \code{java.\-lang.\-Class.\-Field.\-get}. The rationale is that a
 model could see such dependencies among those API elements before in
-a complete code in a training corpus (Figure~\ref{fig:example3}).
+a complete code in training.
+%(Figure~\ref{fig:example3}).
 
-\input{example4.tex}
+
+
+
 
 %======================================================
 For the list of statements in an incomplete code, not all of them

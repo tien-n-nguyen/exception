@@ -4,8 +4,8 @@
 We design {\tool} for exception handling recommendation for
 Java code: given a code snippet, it will 1) predict if a
 \code{try-catch} block is required, 2) point out which statements in
-the snippet need to be placed in a \code{try-catch} block, and 3)
-recommend what exceptions need to be handled in the \code{catch}
+the code snippet need to be placed in a \code{try-catch} block, and 3)
+suggest what exceptions need to be caught in the \code{catch}
 clause. We refer to those three tasks as {\xblock}, {\xstate} and
 {\xtype}, respectively. Following Observations 1-5, we design {\tool}
 with the following key ideas:
@@ -34,7 +34,7 @@ in all three above tasks.
 
 \vspace{2pt}
 \subsubsection{{\bf [Key Idea 2] Leveraging Context to Avoid
-Name Ambiguity and Learning the Connections between API elements and
+Name Ambiguity and Learning the Relations between API elements and
 Exception Types}} Instead of learning only the associations between an
 API element and exception types as in XRank~\cite{xrank-fse20},
 {\tool} leverages as the context the complete code in the training
@@ -42,7 +42,7 @@ corpus, which are parsable and provide the identities (i.e., FQNs) of
 the API elements. In predicting for a code snippet, {\tool} will also
 leverage the context and dependencies among the API elements to learn
 their identities (see Observation~\ref{ob4}). Importantly,
-that leads to the learning of the connections between the key API
+that leads to the learning of the relations between the key API
 elements in the context and the handled exception types
 (Observation~\ref{ob3}).
 
