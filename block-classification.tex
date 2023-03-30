@@ -12,15 +12,17 @@
 \end{figure}
 
 %Tien
-This section describes our graph-based {\xblock} model. We first
-explain how we build the context-aware representation learning for the
-given code, and then how we use such learned vectors for the detection
-of the presence of \code{try-catch} block using R-GCN~\cite{rgcn}.
+%This section describes our graph-based {\xblock} model.
+
+We first explain how {\xblock} builds the context-aware representation
+learning for the given code, and uses such learned vectors to decide
+if the presence of \code{try-catch} block is needed using
+R-GCN~\cite{rgcn}.
 
 \subsection{Code Representation Learning}
 \label{replearn:sec}
 
-Let us present how we build the vectors for code features
+Let us explain how we build the vectors for code features
 (Figure~\ref{fig:feature}). We aim to capture the lexical and
 structural features for a statement, while PDG captures the program
 dependencies among statements.
@@ -86,9 +88,10 @@ Figure~\ref{fig:feature}.
 From the representation vectors for all statements (nodes), the R-GCN
 model will produce the outputs at the output layer. The R-GCN model
 connects all of its outputs to a fully connected layer to transform
-the matrix into a vector $V_C$ to represent the given code $C$. We
-then perform classification by using a softmax function on $V_C$ to
-decide if a \code{try-catch} block is needed for $C$ or not.
+the matrix into a vector $V_C$ to represent the given code
+$C$. {\tool} then performs classification by using a softmax function
+on $V_C$ to decide if a \code{try-catch} block is needed for the
+source code $C$ or not.
 
 \begin{figure}[t]
 	\centering

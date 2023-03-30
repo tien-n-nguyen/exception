@@ -1,14 +1,16 @@
 \subsection{Key Ideas}
 \label{key:sec}
 
-We design {\tool} for exception handling recommendation for
-Java code: given a code snippet, it will 1) predict if a
-\code{try-catch} block is required, 2) point out which statements in
-the code snippet need to be placed in a \code{try-catch} block, and 3)
-suggest what exceptions need to be caught in the \code{catch}
-clause. We refer to those three tasks as {\xblock}, {\xstate} and
-{\xtype}, respectively. Following Observations 1-5, we design {\tool}
-with the following key ideas:
+We design {\tool} for Java exception handling recommendation:
+given a code snippet, it will 1) predict if a \code{try-catch} block
+is required ({\xblock}), 2) point out which statements in the code
+snippet need to be placed in a \code{try-catch} block ({\xstate}), and
+3) suggest what exceptions need to be caught in the \code{catch}
+clause ({\xtype}).
+%We refer to those three tasks as {\xblock}, {\xstate} and {\xtype},
+%respectively.
+Following Observations 1-5, we design {\tool} with the following key
+ideas:
 
 
 

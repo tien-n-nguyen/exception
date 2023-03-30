@@ -32,7 +32,7 @@ exceptions in Android APIs. Thus, it is desirable to have an automated
 tool to recommend proper exception handling for the adaptation of
 online code snippets.
 
-There exist several approaches to automatic recommendation of 
+There exist several approaches to automatic recommendation of
 exception
 handling~\cite{barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16,xrank-fse20,throw-ase22}. They
 can be classified into four categories. The first category of
@@ -163,7 +163,7 @@ takes two inputs: 1) the input PDG $G_C$ of the given code $C$,
 2) the trained GCN model along with its decision on a
 \code{try-catch} block being needed for $C$.
 %
-GNNExplainer will learn the explaination subgraph, which is
+GNNExplainer will learn the explanation subgraph, which is
 defined as a minimal sub-graph $\mathcal{G}$ in the PDG of $C$ that
 {\em minimizes the prediction~scores between using the entire $G_C$
   and using $\mathcal{G}$}. The idea is that if an~edge is {\em
@@ -218,4 +218,4 @@ handling recommendation as well as in exception-related bug detection.
 
 %for exception blocks, statements, and types.
 
-  
+

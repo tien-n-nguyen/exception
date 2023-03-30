@@ -1,9 +1,9 @@
-\section{Exception Type Recommender}
+\section{{\xtype}: Exception Type Recommender}
 \label{sec:type}
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=2.8in]{xtype-3.png}
+\includegraphics[width=3in]{xtype-3.png}
 \vspace{-10pt}
 \caption{Exception Type Recommendation ({\xtype})}
 \label{fig:xtype}
@@ -26,9 +26,9 @@ determined that those statements in that sub-graph need to be placed
 in a \code{try-catch} block. In this case, the feature vectors for the
 sub-graph are also built in the same way as in
 Figure~\ref{fig:feature}. The R-GCN model processes the input
-(sub)graph in a similar manner as in Figure~\ref{fig:gcn} except the
-post-processing on the output of that model.  Instead of connecting
-the output vector of the R-GCN model to a fully connected layer, we
+(sub)graph in a similar manner as in Figure~\ref{fig:gcn} except for the
+processing on the model's output. Instead of connecting
+the output of the R-GCN model to a fully connected layer, we
 feed that output to multiple softmax functions to act as the
 classifiers for the exception types in the dictionary (e.g.,
 \code{IOException}). Each classifier is responsible for one exception

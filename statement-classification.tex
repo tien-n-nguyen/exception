@@ -1,15 +1,15 @@
-\section{Try-Catch Statement Detector via Explainable AI}
+\section{{\xstate}: Try-Catch Statement Detector via Explainable ML Model}
 \label{interpretation:sec}
 
-This section explains {\xstate} and how we leverage an Explainable AI
-model in GNNExplainer~\cite{GNNExplainer} to detect what statements in
-the given code snippet need to be placed in a \code{try-catch} block
+This section presents {\xstate} and how we leverage an Explainable AI
+model, GNNExplainer~\cite{GNNExplainer}, to detect what statements in
+the given code snippet $C$ need to be placed in a \code{try-catch} block
 provided that {\xblock} had decided the necessity of such a block.
 
 %Tien
 {\xstate} takes the following as inputs: 1) the PDG ($G_C$) of the
 given code $C$, 2) the trained R-GCN model for {\xblock}, along with
-the positive detection result $\mathcal{V}$ with the prediction score.
+the positive detection result $\mathcal{V_C}$ and the prediction score.
 Figure~\ref{fig:GNNEX} displays an illustration of the process in
 {\xstate}.
 
@@ -44,15 +44,15 @@ instead of searching for that minimal subgraph, it learns the {\em
   edge-mask} set $EM$ of the edges and the {\em feature-mask} set $FM$
 of the features. Learning those two sets $EM$ and $FM$ helps derive
 the explanation sub-graph $\mathcal{G}_C$ and the set of crucial
-feature $\mathcal{X}_C$ by masking-out the edges in $EM$ and the
-feature in~$FM$ from $G_C$ and $X_C$:
+feature $\mathcal{X}_C$ by masking-out the edges in $EM$ from $G_C$,
+and the feature in $FM$ from $X_C$:
 \begin{equation}\label{eq:11}
 \mathcal{G}_C = G_C \bigodot EM
 \end{equation}
 \begin{equation}\label{eq:12}
 \mathcal{X}_M = X_M \bigodot FM
 \end{equation}
-$\bigodot$ is used to denote ``masking-out''.
+$\bigodot$ is used to denote the ``masking-out'' operation.
 
 %To derive the interpretations, the key goal is to find a sub-graph
 %$\mathcal{G}_M$ in the PDG $G_M$ of the method $M$ that minimizes the
@@ -120,7 +120,7 @@ features in the {\em feature-mask} $FM$.
 	\centering
 	\includegraphics[width=3in]{XAI.png}
         \vspace{-0.06in}
-	\caption{Masking to Derive Explanation Sub-Graphs with Statements in a Try-Catch Block}
+	\caption{Masking to derive explanation sub-graphs with statements in a Try-Catch block ({\xstate})}
         \vspace{-0.06in}
 	\label{fig:GNNEX}	
 \end{figure}
@@ -167,7 +167,7 @@ definition of conditional entropy can be expressed~as
 \begin{equation}
   \label{eq2}
 -\EX_{Y|\mathcal{G}_C}
-  [log P_{R-GCN} (Y|G=\mathcal{G}_C]
+  [log P_{R-GCN} (Y|G=\mathcal{G}_C)]
 \end{equation}
 This conditional entropy is a measure of how
 much uncertainty remains about the outcome $Y$ when we know
