@@ -16,27 +16,30 @@ exception-related bug detection.
 %
 We collected the Github dataset as follows. We first chose in Github
 5,726 Java projects with the highest ratings that use
-the following libraries jodatime, JDK, Android, xtream, GWT, and
+the following libraries: jodatime, JDK, Android, xtream, GWT, and
 Hibernate. These are the well-estabished libraries that have been used
 in several prior research on the topics related to
 APIs~\cite{icse18,liveapi14}. We then selected the methods with at
 least one \code{try-catch} block. If there is one \code{try-catch}
-block, we take the body of the enclosing method as the code
+block, we take the body of the method as the code
 snippet. If there are multiple \code{try-catch} blocks in a method, we
 split the method into multiple code snippets by checking the above and
 below statements, one by one, starting from the closest one for each
 \code{try-catch} block, to verify if the statement is included in the
 other block. If not, we put it in the current code snippet. If yes, we
-stop and finish the current code snippet. In total, we have
+finish the current one. In total, we have
 19,379 code snippets containing one
 \code{try-catch} block as positive samples. We also randomly selected
 from the same Github projects the same amount of code snippets that do
 not have any \code{try-catch} block as the negative samples.
 
-For our extrinsic evaluation, we used FuzzyCatch dataset, provided by
-the authors of XRank/XHand~\cite{xrank-fse20}, which contains 1,000
-samples of methods with exception-related bugs (missing
-\code{try-catch} blocks or missing catching some exceptions).
+For extrinsic evaluation, we used FuzzyCatch dataset, provided by
+the authors of XRank/XHand~\cite{xrank-fse20}, which contains
+{\color{red}{600}} samples of methods with exception-related bugs
+(missing \code{try-catch} blocks or missing catching some exceptions).
+We also randomly selected from the projects in FuzzyCatch dataset the
+same amount of code snippets with no exception-related bugs as the negative
+samples.
 
 %We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 
@@ -49,10 +52,10 @@ samples of methods with exception-related bugs (missing
 
 \indent {\em Baselines.} We compared {\xblock} against
 XRank~\cite{xrank-fse20} (XRank is part of FuzzyCatch tool). XRank
-computed the exception risk score for each API call (i.e., the
-potential need of \code{try-catch} block). If one score of a call in
-the snippet is higher than a threshold, the code snippet is considered
-as needing a \code{try-catch} block.
+computed the exception risk score for each API call.
+%(i.e., the potential need of \code{try-catch} block).
+If one score of a call in the snippet is higher than a threshold, 
+it is considered as needing a \code{try-catch} block.
 
 {\em Procedure.} We used the Github dataset and randomly split both
 the positive and negative sets into 80\%, 10\%, and 10\% of the code
@@ -81,7 +84,7 @@ output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
 evaluate the performance of the approaches. They are calculated as
 $Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F$-score
 $=$ $\frac{2*Recall*Precision}{Recall+Precision}$. $TP$: true
-positive, $FN$: false negative, $FP$: false positive.
+positive, $FN$: false negative, and $FP$: false positive.
 
 \subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection\\}
 
@@ -148,7 +151,7 @@ output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
 
 {\em Metrics.} Let us use $E$ and $P$ to denote the set of the
 exception types in the oracle and the set of predicted
-ones for one code snippet in the testing. We aim to measure 1) how
+ones for one code snippet in the testing set. We aim to measure 1) how
 precise {\tool} predicts the exception types ({\bf Precision}), i.e.,
 how accurate the predicted types in $P$, and 2) how much {\tool} can
 cover in its prediction with respect to the oracle ({\bf Recall}),
@@ -189,7 +192,7 @@ correct.
 \subsubsection{RQ4. Ablation Study}
 
 In this experiment, we aim to evaluate the impact on the performance
-of the key features: sequences of code tokens and Abstract Syntax Tree
+of the key features: sequences of code tokens and Abstract Syntax Tree.
 We removed one key feature at a time and compared the performance with
 the original model to evaluate its impact. We used the same evaluation
 metrics as in the previous experiments. Because our model is designed
@@ -203,14 +206,16 @@ with R-GCN, we cannot remove it to evaluate the impact of dependencies.
 \indent {\em Baselines.} FuzzyCatch~\cite{xrank-fse20} leverages XRank
 to detect the exception-related bugs, which are the code snippets that
 were supposed to handle exceptions, but missed
-\code{try-catch} blocks and/or exceptions. We used {\tool} to detect
-such bugs and compare with FuzzyCatch.
+\code{try-catch} blocks and/or exceptions.
+%We used {\tool} to detect such bugs and compare with FuzzyCatch.
 
 {\em Procedure.} We trained {\tool} on the Github dataset and detected
-the exception-related bugs in FuzzyCatch bug dataset. To make the FuzzyCatch dataset a balanced dataset for a fair comparison, we randomly select the same number of non-buggy code snippets comparing the bugs as the negative samples from the methods in the FuzzyCatch dataset.
+the exception-related bugs in FuzzyCatch bug dataset.
 
-{\em Metrics.} We compared the detection against the oracle in
-FuzzyCatch dataset. If a model detects a buggy snippet (missing a
-\code{try-catch} block and/or exceptions), we consider it as correct.
-Otherwise, it is a miss. We use {\bf Recall}, {\bf
-  Precision}, and {\bf F-score} as in RQ1.
+%To make the FuzzyCatch dataset a balanced dataset for a fair comparison, we randomly select the same number of non-buggy code snippets comparing the bugs as the negative samples from the methods in the FuzzyCatch dataset.
+
+{\em Metrics.} We compared the result against the oracle in FuzzyCatch
+dataset. If a model correctly detects a (non)buggy snippet (missing a
+\code{try-catch} block or exceptions), we consider it as correct.
+Otherwise, it is a miss. We use {\bf Recall}, {\bf Precision}, and
+{\bf F-score} as in RQ1.
