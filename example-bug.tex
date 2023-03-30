@@ -1,0 +1,38 @@
+\begin{figure}[t]%[htbp]
+	\centering
+	\lstset{
+		numbers=left,
+		numberstyle= \tiny,
+		keywordstyle= \color{blue!70},
+		commentstyle= \color{red!50!green!50!blue!50},
+		frame=shadowbox,
+		rulesepcolor= \color{red!20!green!20!blue!20} ,
+		xleftmargin=1.5em,xrightmargin=0em, aboveskip=1em,
+		framexleftmargin=1.5em,
+                numbersep= 5pt,
+		language=C,
+    basicstyle=\scriptsize\ttfamily,
+    numberstyle=\scriptsize\ttfamily,
+    emphstyle=\bfseries,
+                moredelim=**[is][\color{red}]{@}{@},
+		escapeinside= {(*@}{@*)}
+	}
+\begin{lstlisting}[]
+public void onCreate(Bundle state) {
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  + try {
+    final WindowManager.LayoutParams attrs = getWindow().getAttributes();
+    final Class<?> cls = attrs.getClass();
+    final Field fld = cls.getField("buttonBrightness");
+    if (fld != null && "float".equals(fld.getType().toString())) {
+    fld.setFloat(attrs, 0);
+  + }
+  + } catch (NoSuchFieldException e) {
+  + } catch (IllegalAccessException e) {
+  + }...
+}
+\end{lstlisting}
+        \vspace{-16pt}
+        \caption{Exception-Related Bug \#106 in FuzzyCatch dataset (missing \code{try-catch}) (detected by {\tool})}
+        \label{fig:example-bug}
+\end{figure}
