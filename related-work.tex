@@ -2,36 +2,35 @@
 \label{sec:related}
 
 The automated approaches to recommend exception handling can be
-classified into four categories. The first category of approaches
-defines the {\em heuristics} on exception types, API calls, and
-variable types to recommend proper exception
-handling~\cite{barbosa-bsse12}.
-%These heuristic-based approaches do not always work in all the cases
-%and need to be updated for the new/updated API elements or a new
-%library. To address the heuristics,
-The second category of approaches relied on the enforced {\em
-  exception handling policies}~\cite{barbosa-tse16,barbosa-saner18}.
-%Exception policies are defined via domain-specific
-%language~\cite{barbosa-tse16}.
-%Exception Policy Expert (EPE)~\cite{barbosa-saner18} is a tool
-%embedded in Eclipse IDE that warns developers about exception policy
-%violations. The drawback of this category is the hard-code of the
-%policies in the EPE tool.
-%To overcome the pre-defined exception handling policies,
-The third category of approaches aim to {\em mine the frequent
-  exception handling} code from a large corpus. These mining
-approaches~\cite{chanchal-scam14} provide more flexibility than policy
-enforcement.
-%They rely on the idea that similar code has similar exception
-%handling. As with mining, these approaches face the challenge of
-%deterministically setting the threshold for similar code and similar
-%exception handling. In many cases, the two pieces of code are quite
-%different, yet have the same set of exceptions to be handled.
-
-The fourth category with {\em information retrieval} (IR)
-approaches~\cite{xrank-fse20} provides more flexibility than the
-mining approaches. XRank~\cite{xrank-fse20} recommends a ranked list
-of API calls that might need exception handling and
+classified into four categories as presented in Section~\ref{sec:intro}.
+%The first category of approaches defines the {\em heuristics} on
+%exception types, API calls, and variable types to recommend proper
+%exception handling~\cite{barbosa-bsse12}.
+%%These heuristic-based approaches do not always work in all the cases
+%%and need to be updated for the new/updated API elements or a new
+%%library. To address the heuristics,
+%The second category of approaches relied on the enforced {\em
+%  exception handling policies}~\cite{barbosa-tse16,barbosa-saner18}.
+%%Exception policies are defined via domain-specific
+%%language~\cite{barbosa-tse16}.
+%%Exception Policy Expert (EPE)~\cite{barbosa-saner18} is a tool
+%%embedded in Eclipse IDE that warns developers about exception policy
+%%violations. The drawback of this category is the hard-code of the
+%%policies in the EPE tool.
+%%To overcome the pre-defined exception handling policies,
+%The third category of approaches aim to {\em mine the frequent
+%  exception handling} code from a large corpus. These mining
+%approaches~\cite{chanchal-scam14} provide more flexibility than policy
+%enforcement.
+%%They rely on the idea that similar code has similar exception
+%%handling. As with mining, these approaches face the challenge of
+%%deterministically setting the threshold for similar code and similar
+%%exception handling. In many cases, the two pieces of code are quite
+%%different, yet have the same set of exceptions to be handled.
+The closest work to {\tool} is the state-of-the-art {\em information
+  retrieval} (IR) approaches~\cite{xrank-fse20}, which provides more
+flexibility than the others. XRank~\cite{xrank-fse20} recommends a
+ranked list of API calls that might need exception handling and
 XHand~\cite{xrank-fse20} recommends exception handling code. Both
 leverages fuzzy set theory to compute the associations between API
 method calls and the exception types. This direction has three key
@@ -42,10 +41,10 @@ use the lexical values of API simple names. Thus, they suffer the
 ambiguity in the names of API elements in incomplete code
 snippets. Lastly, XRank/XHand considers only pairwise associations
 between the API method calls and exceptions. It disregards the
-surrounding code context and the dependencies/relations. Note that
-XRank/XHand simply uses Groum~\cite{fse09}, a dependency graph among
-API elements, to collect the API calls, but did not use those
-dependencies in computing the association scores.
+surrounding code context and the dependencies/relations. XRank/XHand
+simply uses Groum~\cite{fse09}, a dependency graph among API elements,
+to collect the API calls, but did not use dependencies in
+computing the association scores.
 %among the API elements to disambiguate the simple names of the API
 %elements.
 
