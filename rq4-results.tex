@@ -4,7 +4,7 @@
 
 
 \begin{table}[t]
-  \caption{RQ4. Impact of Different Features on {\xblock}}
+  \caption{Impact of Different Features on {\xblock} (RQ4)}
     %Try-Catch Block Necessity Checking}
   \vspace{-12pt}
   \begin{center}
@@ -32,14 +32,14 @@ seen, without the sequences of code (lexical tokens) for each
 statement, Recall, Precision, and F-score decrease 12.7\%, 5.9\%, and
 9.6\%, respectively. Without considering the AST structure, Recall,
 Precision, and F-score also decrease even further with 10.1\%, 16.2\%, and
-13.7\%, respectively. In other words, the code structure has a higher
-contribution than the lexical values of code tokens.
+13.7\%, respectively. In other words, {\em the code structure has a higher
+contribution than the lexical values of code tokens}.
 
 
 %{\color{red}{Without sequence of tokens or AST in try-catch block necessity checking will lead to the reduce of results. Once I finish this sensitivity experiments, I will update this table. }}
 
 \begin{table}[t]
-  \caption{RQ4. Impact of Different Features on {\xstate}}
+  \caption{Impact of Different Features on {\xstate} (RQ4)}
   \vspace{-12pt}
     %\code{Try-catch} Statement Prediction}
   \small
@@ -49,10 +49,10 @@ contribution than the lexical values of code tokens.
 			\hline
 			  & \tool w/o SOT & \tool w/o AST & \tool \\
 			\hline
-			Accuracy    & 0.75 & 0.73 & \textbf{0.76} \\
+			Accuracy    & 0.75 & 0.73 & \textbf{0.74} \\
 			\hline
 		\end{tabular}
-		SOT: Sequence of tokens; AST: Abstract syntax tree
+		SOT: Sequence of tokens; AST: Abstract Syntax Tree
 		\label{tab:sensi-xstate}
 	\end{center}
 \end{table}
@@ -62,7 +62,7 @@ contribution than the lexical values of code tokens.
 %Table~\ref{tab:sensi-xstate} displays the results when we removed the
 %two key features in {\tool} and measured the performance of {\xstate}.
 We used six as the limit on the number of nodes in the explanation
-sub-graph in which {\tool} achieves 0.76 of Accuracy. Note: the
+sub-graph in which {\tool} achieves 0.74 of Accuracy. Note: the
 average number of the statements in a \code{try-catch} block in our
 dataset is 5.9. As seen, the result in Table~\ref{tab:sensi-xstate} is
 consistent with Table~\ref{tab:sensi-xblock}, as AST contributes
