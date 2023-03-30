@@ -1,27 +1,6 @@
 \subsection{Try-Catch Statement Detection (RQ2)}
 \label{sec:rq2}
 
-\begin{table}[t]
-  \caption{Try-Catch Statement Detection Effectiveness (RQ2)}
-  \vspace{-12pt}
-	\begin{center}
-		\small
-		\renewcommand{\arraystretch}{1} 
-		\begin{tabular}{p{0.8cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}}
-			\hline
-			 	&  \multicolumn{10}{c}{Accuracy} \\
-			\cline{2-11}
-			     	&  N1  & N2   &  N3  & N4   &N5    & N6   &N7    & N8   &N9    & N10 \\
-			\hline
-			\tool       &  &  &  & 0.66 & 0.71 & 0.74 & 0.76 & 0.77 &  &   \\
-			\hline
-		\end{tabular}
-		Nx is number of nodes in the explanation
-                sub-graph (\code{try-catch} block)
-		\label{tab:rq2}
-	\end{center}
-\end{table}
-
 Table~\ref{tab:rq2} displays the result on detecting the statements
 that need to be placed in a \code{try-catch} block. $N_x$ is a parameter
 in GNNExplainer that defines the number of nodes in the explanation
@@ -39,7 +18,7 @@ in the dataset that need to be placed in \code{try-catch}
 blocks. That is, it points out correctly 4.5 out of 6 statements to be
 in a \code{try-catch} block. For the statements that do not need to be
 placed in a \code{try-catch} block, {\tool} predicts correctly with
-{\bf 63\%} accuracy (not shown).
+63\% accuracy (not shown).
 
 \input{example-experiment}
 
@@ -60,10 +39,10 @@ lines contain three crucial API method calls: 1)
 could help the model learn the identities of the API elements via
 their names \code{FileInputStream}, \code{read}, and \code{close},
 despite that the code snippet does not have the fully-qualified names
-for those elements. This confirms the need of integrating {\em program
+for those API elements. This confirms the need of integrating {\em program
   dependencies} in our solution. {\bf Finally}, {\tool} was also able
 to learn from the training corpus that those names refer to those API
-elements, which often correspond with the exception types: 1)
+elements, which often correspond to the following exception types: 1)
 \code{FileInputStream} with \code{FileNotFoundException}, and 2)
 \code{FileInputStream.read} and \code{FileInputStream.close} with
 \code{IOException}.
