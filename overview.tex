@@ -41,7 +41,7 @@ $C$ is required to have a \code{try-catch} block. During training, in
 a positive sample, the statements in a \code{try-catch} block are
 marked as positive, and the ones outside of the block as negative. All
 the statements in a negative sample are marked as negative. During
-prediction, the output of the GNNExplainer is a list of statements in
+prediction, the output of GNNExplainer is a list of statements in
 $C$ (e.g., $S_3$, $S_4$, $S_5$) that made the R-GCN model in {\xblock}
 to decide the need of a \code{try-catch} block. We consider them as
 the statements to be in a \code{try-catch} block.
@@ -51,5 +51,5 @@ During training, the exception types in a \code{try-catch} block in
 the positive samples are used as the labels. During prediction,
 {\xtype} takes as input the result from GNNExplainer, which is the
 subgraph of the PDG of the given source code $C$. Another R-GCN model
-is used and acted as a classifier for all the labels of exception
+is used and acted as a classifier for all the exception
 types.
