@@ -74,26 +74,26 @@ threshold for frequent occurrences).
 %suffers the issue of setting a threshold for frequent occurrences.
 
 However, the state-of-the-art, IR-based approaches~\cite{xrank-fse20}
-have the following key limitations. First, it is not trivial to
+have the following limitations. First, it is not trivial to
 pre-define a threshold for feature matching for a retrieval, e.g., the
 threshold to determine the associations between an API~call (e.g.,
 \code{get\-Declared\-Field}) and an exception type (e.g.,
 \code{No\-Such\-Field\-Exception}). Second, relying on the lexical
-values of the elements' names, XRank/XHand~\cite{xrank-fse20} suffer
+values of API elements' names, XRank/XHand~\cite{xrank-fse20} suffer
 the issue of ambiguous names of the APIs or exceptions (e.g., the API
 method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
 multiple libraries) in an incomplete code snippet, which might not be
-parseable for fully-qualified name resolution. Thus, this reduces its
+parseable for fully-qualified name resolution. Thus, this reduces 
 effectiveness. Finally,
 %XRank/XHand~\cite{xrank-fse20}
 they consider only the associations between an API method with an
 exception type, and discard the surrounding code context in a
 \code{try-catch} block.  For example, they compute the association
 between the names of the API call (e.g., \code{get\-Declared\-Field})
-and the exceptions (e.g., \code{No\-Such\-Field\-Exception},
-\code{Security\-Exception}, etc.)  that need to be handled. Without
-the context, it is even more challenging to decide the identities of
-the APIs via only simple names.
+and the exceptions that need to be handled (e.g.,
+\code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
+etc.). Without the context, it is even more challenging to decide the
+identities of the APIs via only simple names.
 
 
 \input{example2.tex}
@@ -104,14 +104,13 @@ the APIs via only simple names.
 Now, consider the complete code example in Figure~\ref{fig:example3}
 from the Github project named \code{quarkus}. While there are
 differences between the complete code in Figure~\ref{fig:example3} and
-the adapted code in Figure~\ref{fig:example2}, due to the presence of
-the API call to \code{get\-Declared\-Field} in both code, the list of
-the handled exceptions is the same (line 8 in
-Figure~\ref{fig:example3} and line 24 in
-Figure~\ref{fig:example2}). This is expected because the designers of
-the JDK library have the intent for developers to use the API method
-\code{get\-Declared\-Field} within a \code{try-catch} block and to
-handle the list of exceptions as in line 8 of
+the adapted code in Figure~\ref{fig:example2}, the lists of the handled
+exceptions are the same (line 8 in Figure~\ref{fig:example3} and line
+24 in Figure~\ref{fig:example2}) due to the presence of the API call
+to \code{get\-Declared\-Field} in both code. This is expected because
+the designers of the JDK library have the intent for developers to use
+the API method \code{get\-Declared\-Field} within a \code{try-catch}
+block and to handle the list of exceptions as in line 8 of
 Figure~\ref{fig:example3}. Thus, to adapt the incomplete code snippet
 in Figure~\ref{fig:example1}, one could learn from the public code
 repositories to properly handle the exceptions.
@@ -124,17 +123,19 @@ adapting an (incomplete) code snippet into a codebase.
 \end{Observation}
 
 %=======================================================
-\begin{Observation} [{\bf Connections between API methods and Exceptions}]
+\begin{Observation} [{\bf Relations between API methods and Exceptions}]
 \label{ob3}
 The presence of certain API elements helps decide the exceptions that
 need to be handled.
 \end{Observation}
 
-In our motivating example, the connection between
+%In our motivating example,
+
+For example, the relation between
 \code{java.\-lang.\-Class.\-get\-Declared\-Field} and the exceptions
 \code{No\-Such\-Field\-Exception}, \code{Secur\-ity\-Exception},
 \code{Illegal\-Argument\-Exception}, and
-\code{Illegal\-Access\-Exception} can be learned from the existing
+\code{Illegal\-Access\-Exception} can be learned from the
 code corpora. Thus, a model can learn to recommend those exceptions
 for an incomplete code snippet involving \code{get\-Declared\-Field}.
 %======================================================
@@ -151,18 +152,17 @@ of the API elements (methods, fields, classes) could be ambiguous.
 However, if a model can learn from the complete code the
 fully-qualified names (FQNs) of the API elements, the context
 consisting of those API elements and their program dependencies
-%as well as the other program elements in the surrounding context
 could help a model determine the correct identities of the API
 elements, leading to correct prediction of the handled exceptions.
-%
-In Figure~\ref{fig:example1}, to determine the identities of
-\code{Field} (line 2), \code{get\-Declared\-Field} (line 2),
+
+In Figure~\ref{fig:example1}, to derive the identities of
+\code{Field} (line 2), \code{get\-Decl\-ared\-Field} (line 2),
 \code{set\-Accessible} (line 3), \code{get} (line 6), etc., a model
 could rely on the dependencies among them in the surrounding context.
 For example, the return type of \code{get\-Declared\-Field} is
 \code{Field} (thanks to line 2), which has an API method named
 \code{set\-Accessible} (thanks to line 3) and another API method named
-\code{get} (thanks to line 6). Considering all such dependencies among
+\code{get} (thanks to line 6). Considering all those dependencies among
 the API elements in the context and with the knowledge learned from
 the complete code, a model could decide that in the code snippet, the identity of
 \code{Field} is \code{java.\-lang.\-Class.\-Field}, that of
@@ -171,7 +171,7 @@ the complete code, a model could decide that in the code snippet, the identity o
 \code{get} function at line 6 is
 \code{java.\-lang.\-Class.\-Field.\-get}. The rationale is that a
 model could see such dependencies among those API elements before in
-a complete code in training (Figure~\ref{fig:example3}).
+a complete code in a training corpus (Figure~\ref{fig:example3}).
 
 \input{example4.tex}
 
