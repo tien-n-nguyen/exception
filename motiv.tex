@@ -9,13 +9,13 @@
 Let us use a few real-world examples to explain the problem and
 motivate our approach. Figure~\ref{fig:example1} displays a code
 snippet in~an~answer to the StackOverflow (S/O) question 15409223 on
-how~to~``add new paths for native libraries at runtime in Java''.  The
-code snippet serves as an illustration in the S/O post, thus, does not
-contain all the details on what exceptions that need to be handled. It
-contains only a throw of a generic \code{Exception} in the method
-header~(\code{addLibraryPath}). From Zhang {\em et al.}'s
-study~\cite{zhang-icse19}, this code snippet was adopted by developers
-into their Github project named \code{armint}
+how~to~ {\em ``add new paths for native libraries at runtime in
+  Java''}.  The code snippet serves as an illustration in the S/O
+post, thus, does not contain all the details on what exceptions that
+need to be handled. It contains only a throw of a generic
+\code{Exception} in the method header~(\code{addLibraryPath}). From
+Zhang {\em et al.}'s study~\cite{zhang-icse19}, this code snippet was
+adopted by developers into their Github project named \code{armint}
 (Figure~\ref{fig:example2}).~\code{armint}'s developers handle in a
 \code{try-catch} block several exceptions caused~by
 \code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
@@ -74,26 +74,26 @@ threshold for frequent occurrences).
 %suffers the issue of setting a threshold for frequent occurrences.
 
 However, the state-of-the-art, IR-based approaches~\cite{xrank-fse20}
-have the following limitations. First, it is not trivial to
-pre-define a threshold for feature matching for a retrieval, e.g., the
-threshold to determine the associations between an API~call (e.g.,
+have the limitations. First, it is not trivial to pre-define
+a threshold for feature matching for a retrieval, e.g., the threshold
+to determine the associations between an API~call (e.g.,
 \code{get\-Declared\-Field}) and an exception type (e.g.,
 \code{No\-Such\-Field\-Exception}). Second, relying on the lexical
 values of API elements' names, XRank/XHand~\cite{xrank-fse20} suffer
 the issue of ambiguous names of the APIs or exceptions (e.g., the API
 method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
 multiple libraries) in an incomplete code snippet, which might not be
-parseable for fully-qualified name resolution. Thus, this reduces 
-effectiveness. Finally,
-%XRank/XHand~\cite{xrank-fse20}
-they consider only the associations between an API method with an
-exception type, and discard the surrounding code context in a
-\code{try-catch} block.  For example, they compute the association
-between the names of the API call (e.g., \code{get\-Declared\-Field})
-and the exceptions that need to be handled (e.g.,
-\code{No\-Such\-Field\-Exception}, \code{Security\-Exception},
-etc.). Without the context, it is even more challenging to decide the
-identities of the APIs via only simple names.
+parseable for fully-qualified name resolution. Thus, this reduces
+effectiveness. Finally, they consider only the associations between an
+API method and an exception type, and discard the surrounding code
+context.
+%in a \code{try-catch} block.
+For example, they compute the association between the names of the API
+call (e.g., \code{get\-Declared\-Field}) and the exceptions to be
+handled (e.g., \code{No\-Such\-Field\-Exception},
+\code{Security\-Exception}, etc.). Without the context, it is
+challenging to decide the identities of the APIs via only simple names
+and the corresponding exceptions to be handled.
 
 
 \input{example2.tex}
