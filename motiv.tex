@@ -78,22 +78,26 @@ have the limitations. First, it is not trivial to pre-define
 a threshold for feature matching for a retrieval, e.g., the threshold
 to determine the associations between an API~call (e.g.,
 \code{get\-Declared\-Field}) and an exception type (e.g.,
-\code{No\-Such\-Field\-Exception}). Second, relying on the lexical
-values of API elements' names, XRank/XHand~\cite{xrank-fse20} suffer
-the issue of ambiguous names of the APIs or exceptions (e.g., the API
-method \code{get} at line 6 of Figure~\ref{fig:example1} occurs in
-multiple libraries) in an incomplete code snippet, which might not be
-parseable for fully-qualified name resolution. Thus, this reduces
-effectiveness. Finally, they consider only the associations between an
-API method and an exception type, and discard the surrounding code
-context.
+\code{No\-Such\-Field\-Exception}). Thus, the pre-defined threshold
+affects much their effectiveness.
+%
+Second, relying on the lexical values of API elements' names, they
+suffer the issue of ambiguous names of the APIs or exceptions in an
+incomplete code snippet (e.g., the API method \code{get} at line 6 of
+Figure~\ref{fig:example1} occurs in multiple libraries), which might
+not be parseable for fully-qualified name resolution. Thus, this
+reduces effectiveness. Finally, they consider only the associations
+between an API method and an exception type, and discard the
+surrounding context.
 %in a \code{try-catch} block.
 For example, they compute the association between the names of the API
 call (e.g., \code{get\-Declared\-Field}) and the exceptions to be
 handled (e.g., \code{No\-Such\-Field\-Exception},
 \code{Security\-Exception}, etc.). Without the context, it is
-challenging to decide the identities of the APIs via only simple names
-and the corresponding exceptions to be handled.
+challenging to decide the identities of the APIs and exceptions via
+only simple names.
+
+%and the exceptions to be handled.
 
 
 \input{example2.tex}
@@ -140,20 +144,28 @@ code corpora. Thus, a model can learn to recommend those exceptions
 for an incomplete code snippet involving \code{get\-Declared\-Field}.
 %======================================================
 
-\begin{Observation} [{\bf Dependencies and Surrounding Context help resolve name ambiguity}]
+%\begin{Observation} [{\bf Dependencies and Surrounding Context help resolve name ambiguity}]
+%\label{ob4}
+%The program dependencies among the API elements and the surrounding
+%code context can help resolve the ambiguity of the names of those
+%elements in incomplete code snippets.
+%\end{Observation}
+
+\begin{Observation} [{\bf Surrounding Context help resolve name ambiguity}]
 \label{ob4}
-The program dependencies among the API elements and the surrounding
-code context can help resolve the ambiguity of the names of those
-elements in incomplete code snippets.
+%The program dependencies among the API elements and
+The surrounding code context can help resolve the ambiguity of the
+names of those elements in incomplete code snippets.
 \end{Observation}
 
 For an incomplete code snippet, as explained earlier, the simple names
 of the API elements (methods, fields, classes) could be ambiguous.
 However, if a model can learn from the complete code the
-fully-qualified names (FQNs) of the API elements, the context
-consisting of those API elements and their program dependencies
-could help a model determine the correct identities of the API
-elements, leading to correct prediction of the handled exceptions.
+fully-qualified names of the API elements, the surrounding
+context consisting of those API elements and their program
+dependencies can help a model decide the correct identities of
+the API elements, leading to correct prediction of the handled
+exceptions.
 
 \input{example4.tex}
 
