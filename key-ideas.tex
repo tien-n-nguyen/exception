@@ -1,32 +1,28 @@
 \subsection{Key Ideas}
 \label{key:sec}
 
-We design {\tool} for Java exception handling recommendation:
-given a code snippet, it will 1) predict if a \code{try-catch} block
-is required ({\xblock}), 2) point out which statements in the code
-snippet need to be placed in a \code{try-catch} block ({\xstate}), and
-3) suggest what exceptions need to be caught in the \code{catch}
-clause ({\xtype}).
-%We refer to those three tasks as {\xblock}, {\xstate} and {\xtype},
-%respectively.
-Following Observations 1-5, we design {\tool} with the following key
-ideas:
+We introduce {\tool} with the following three functionality for
+exception handling recommendation: given a Java code snippet, it will
+1) predict if a \code{try-catch} block is required ({\xblock}), 2)
+point out which statements in the code snippet need to be placed in a
+\code{try-catch} block ({\xstate}), and 3) suggest what exceptions
+need to be caught in the \code{catch} clause ({\xtype}). Following the
+above Observations, we design {\tool} with the following key ideas:
 
 
 
-%\vspace{3pt}
-\subsubsection{{\bf [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation}}
-%\vspace{2pt}
-%\subsubsection*{{\bf [Key Idea 1] Neural Network-Based Approach to Partial Program Dependence Analysis}}
+\subsubsection{{\bf [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation by Learning from Complete Code}}
 Instead of deterministically deriving the exceptions to be handled for
 a given (incomplete) code snippet, following Observation~\ref{ob2}, we
-design a deep learning model (DL) to learn to analyze that snippet to
-recommend if a \code{try-catch} block is needed and the statements to
-be placed within the \code{try-catch} block, and to recommend the
-exception types in the \code{catch} clause.  By learning from the
-\code{try-catch} blocks of the complete code in the open-source
-projects in the training process, our DL model can help the adaptation
-in all three above tasks.
+design a deep learning model (DL) to learn to properly handle the
+exceptions in the three above tasks.
+%to learn to analyze that snippet to recommend if a \code{try-catch}
+%block is needed and the statements to be placed within the
+%\code{try-catch} block, and to recommend the exception types in the
+%\code{catch} clause.
+By learning from the \code{try-catch} blocks of the complete code in
+the open-source projects in the training process, our DL model can
+help the adaptation tasks.
 
 %: 1) deciding what
 %statements in the given code snippet to be placed in a
@@ -38,8 +34,9 @@ in all three above tasks.
 \subsubsection{{\bf [Key Idea 2] Leveraging Context to avoid
 name ambiguity and Learning the Relations between API elements and
 Exception types}} Instead of learning only the associations between an
-API element and exception types as in XRank~\cite{xrank-fse20},
-{\tool} leverages as the context the complete code in the training
+API element and exception types as in IR-based approaches,
+%XRank~\cite{xrank-fse20},
+we leverage as the context the complete code in the training
 corpus, which are parsable and provide the identities (i.e., FQNs) of
 the API elements. In predicting for a code snippet, {\tool} will also
 leverage the context and dependencies among the API elements to learn
@@ -68,19 +65,26 @@ elements in the context and the handled exception types
 %representations for the statements in source code so as to learn the
 %span ...}
 
+\subsubsection{{\bf [Key Idea 3] Leveraging Sequence Chunking with a Large Language Model and Multi-tasking}} 
+Inspired by the sequence chunking techniques in NLP, we formulate our
+problem as identifying one or multiple chunks of consecutive
+statements that need to be placed within \code{try-catch} blocks. We
+leverage and fine-tune the large language model CodeBERT~\cite{tien}
+to learn to the relations among statements with the API elements.  We
+also leverage the multi-tasking framework for all three tasks
+{\xblock}, {\xstate}, and {\xtype} because the learning for one task
+can benefit for another task and vice versa.
 
-\subsubsection{{\bf [Key Idea 3] Leveraging Explainable AI to predict statements in a try-catch block}} To predict which statements in a given code snippet that need to be
-placed in a \code{try-catch} block, we leverage the explainable ML
-model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' why
-  the R-GCN model has arrived at its decision}. Specifically, {\tool}
-takes as input the given code, the trained GCN model along with its
-decision on the classification of the task {\xblock} on the given
-code. GNNExplainer will produce the subgraph of the PDG of the given
-code, which is called the {\em explanation subgraph}, that minimizes
-the prediction scores between using the original PDG and using the
-explanation subgraph. That is, that minimal explanation subgraph
-contains the crucial statements that are most decisive to the
-classification result for {\xblock} on the need of a \code{try-catch}
-block.  Thus, those statements returned from GNNExplainer can be
-considered as the statements that need to placed in that
-block.
+%\subsubsection{{\bf [Key Idea 3] Leveraging Explainable AI to predict statements in a try-catch block}} To predict which statements in a given code snippet that need to be placed in a \code{try-catch} block, we leverage the explainable ML
+%model, GNNExplainer~\cite{GNNExplainer}, that {\em ``explains'' why
+%  the R-GCN model has arrived at its decision}. Specifically, {\tool}
+%takes as input the given code, the trained GCN model along with its
+%decision on the classification of the task {\xblock} on the given
+%code. GNNExplainer will produce the subgraph of the PDG of the given
+%code, which is called the {\em explanation subgraph}, that minimizes
+%the prediction scores between using the original PDG and using the
+%explanation subgraph. That is, that minimal explanation subgraph
+%contains the crucial statements that are most decisive to the
+%classification result for {\xblock} on the need of a \code{try-catch}
+%block.  Thus, those statements returned from GNNExplainer can be
+%considered as the statements that need to placed in that block.
