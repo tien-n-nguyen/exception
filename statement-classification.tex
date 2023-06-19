@@ -1,6 +1,14 @@
 \section{{\xstate}: Try-Catch Statement Detector}
 \label{sec:xstate}
 
+\begin{figure}[t]
+ 	\centering
+ 	\includegraphics[width=3.4in]{xstate.png}
+        \vspace{-20pt}
+ 	\caption{\code{Try-catch} Statement Detector ({\xstate})}
+ 	\label{fig:xstate}	
+\end{figure}
+
 {\xstate} also uses CodeBERT, the same one as in {\xblock}. However, we create a separate figure for each module so that it is easier to follow. 
 
 Each \texttt{[SEP]} token represents the line of code preceding it (Note that semicolon would not be as consistent a line separator as the \texttt{[SEP]} token, since a line of code may not end with a semicolon. And a semicolon often appears inside string literals and inside for-loop conditions. ). We expect that the relationship between lines of code can be learnt through these \texttt{[SEP]} tokens during training, so that at prediction time, the model can determine for each line as to whether it is inside or outside a try-catch block. We devise three tags in the IOB2 format to accomplish this task: \texttt{O} tag means that the statement is outside any try-blocks; \texttt{B-Try} tag means the statement begins a try-block; and \texttt{I-Try} tag means the statement is inside a try-block and is not the first line in that try-block. 
