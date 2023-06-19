@@ -1,71 +1,68 @@
 \section{{\tool} Overview}
 \label{sec:overview}
 
-\begin{figure*}[t]
-\begin{center}
-\includegraphics[width=5.6in]{overview-3.png}
-\vspace{-10pt}
-\caption{{\tool}: Architecture Overview}
-\label{overview}
-\end{center}
-\end{figure*}
+%Goals
+Figure~\ref{overview} displays the overview architecture of
+{\tool}. Generally, it has three main components dedicated to the
+three tasks: for a given (in)complete code snippet, 1) {\xblock} aims
+to check the necessity of \code{try-catch} blocks, 2){\xstate} aims to
+detect which statements need to be in a \code{try-catch} block, and 3)
+{\xtype} aims to detect the exception types need to be caught in the
+\code{catch} clauses. We support the detection of one or multiple
+\code{try-catch} blocks if any.
 
-Figure~\ref{overview} displays the overview architecture of our
-approach, {\tool}. Generally, it has three main components dedicated
-to the three tasks: 1) {\xblock} aims to check the necessity of
-\code{try-catch} blocks for the given (in)complete code snippet,
-2){\xstate} aims to detect which statements need to be in a
-\code{try-catch} block, and 3) {\xtype} aims to detect the exception
-types need to be caught in the \code{catch} clauses. We support the
-detection of one or multiple \code{try-catch} blocks if any.
-     
+%training instances and prediction
 During training, the code snippets with \code{try-catch} blocks are
 used as the positive samples and the ones without them as the negative
-samples. For a positive sample, the \code{try-catch} parts are used as
+samples. For a positive sample, the statements inside the \code{try}
+blocks and the exception types in the \code{catch} clauses are used as
 the labels for training. The negative samples are labeled as not
 needing a \code{try-catch} block. In prediction, {\tool} accepts as
 input any incomplete or complete code snippet without a
-\code{try-catch} block, and predicts the results for those tasks.
+\code{try-catch} block, and predicts the results for those tasks. The
+predicted results from {\xstate} and {\xtype} are considered only when
+{\xblock} predicts {\em Yes}, i.e., a need of a \code{try-catch}
+block for the given code snippet.
 
 The input code is used as the input of a large language model to act
-as the code representation learning (CRL) to produce the vector
+as the code representation learning model to produce the vector
 representations for the (sub)tokens and statements in the source
-code. For CRL, we use CodeBERT~\cite{codebert-emnlp20} as it is
-capable of producing code representations that embed both the
-syntactic and semantic information. 
+code. We use CodeBERT~\cite{codebert-emnlp20} as it is
+capable of producing embeddings that capture both the
+syntactic and semantic information.
 
 The vectors are used as the inputs for three components. The
-prediction is made on those vector representations that are attained
-by composing the individual embedding of each statement. First,
-{\xblock} is modeled as a binary classifier on deciding whether the
-input code needs one or more \code{try-catch} blocks. Second, we model
-the second task, {\xstate}, as learning to tag/label each statement in
-the code snippet with either \code{O} (i.e., the statement is outside
-of a \code{try-catch} block), \code{B-try} (i.e., it is the beginning
-of a block), or \code{I-try} (i.e., it is inside of a \code{try-catch}
-block).
+prediction is made on the vectors that are attained by composing the
+embeddings of individual (sub)tokens into the ones for a statement and
+for a block of statements. First, {\xblock} is modeled as a binary
+classifier on deciding whether the input code needs at least one
+\code{try-catch} block. Second, we model the second task, {\xstate},
+as learning to tag/label each statement in the code snippet with
+either \code{O} (i.e., the statement is outside of a \code{try-catch}
+block), \code{B-try} (i.e., it is the beginning of a \code{try-catch}
+block), or \code{I-try} (i.e., it is inside of such a block).
 %Any consecutive statements from a \code{B-try} to the last respective
 %\code{I-try} are considered to belong to a \code{try-catch} block. The
 %next \code{B-try} statement and its last respective \code{I-try}
 %statement forms a new \code{try-catch} block and so on, if any.
 During training, the statements within or outside of the
 \code{try-catch} blocks enable us to build the tags/labels for them.
-For prediction, the results from {\xstate} and {\xtype} are considered
-only when {\xblock} predicts {\em Yes}, i.e., a need of a
-\code{try-catch} block.
+%For prediction, the results from {\xstate} and {\xtype} are considered
+%only when {\xblock} predicts {\em Yes}, i.e., a need of a
+%\code{try-catch} block.
 
 The last task, {\xtype}, is modeled as a set of binary classifiers,
 each is responsible for deciding whether an exception type of interest
-is needed to be caught in the \code{catch} clause. A {\em Yes} outcome
+needs to be caught in the \code{catch} clause. An {\em Yes} outcome
 indicates the need to catch a specific exception type of interest in
-the set of libraries under consideration. A {\em No} outcome indicates
+the set of libraries under consideration. An {\em No} outcome indicates
 otherwise.  During training, the exception types for each
 \code{try-catch} block in the positive samples are used as
 labels. During prediction, for each predicted block from {\xstate}
 (starting from a statement with \code{B-try} to the last respective
 \code{I-try}), {\xtype} uses the embeddings for those statements to
 predict the corresponding exception types. Finally, from the results
-in all three tasks, {\tool} forms the final output code.
+in all three tasks, {\tool} forms the final output.
 
 %{\bf DELETE LATER}. Given an input code snippet, we first split it by lines and concatenate them using a special token <SEP>. Then, we use the tokenizer from Pre-Trained CodeBERT to tokenize this concatenated string into sub-tokens and get the vector representation for each sub-token, as CodeBERT has been shown to have produced code representations that embed both the syntactic and semantic information. In the training phase, the input is all but the statements related to try-catch in a method body, while in the prediction phase, the input can be any code snippet that is part of a method body.
 
