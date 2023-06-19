@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUN 2023 10:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUN 2023 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1176,14 +1176,17 @@ Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 233
 \c@theorem=\count184
 
 Excluding comment 'screenonly' Include comment 'printonly'
-Excluding comment 'anonsuppress' Excluding comment 'acks'
-No file icse24.aux.
+Excluding comment 'anonsuppress' Excluding comment 'acks' (./icse24.aux
+
+LaTeX Warning: Label `sec:rq1' multiply defined.
+
+)
 \openout1 = `icse24.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 233.
 LaTeX Font Info:    Try loading font information for OML+nxlmi on input line 23
 3.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 233.
@@ -1304,6 +1307,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 233.
 LaTeX Info: Redefining \pageref on input line 233.
 LaTeX Info: Redefining \nameref on input line 233.
+
+(./icse24.out) (./icse24.out)
 \@outlinefile=\write8
 \openout8 = `icse24.out'.
 
@@ -1530,11 +1535,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 107.
-
-
-LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 107.
-
-[1.1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ [1.1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
 
@@ -1570,17 +1571,8 @@ Class acmart Warning: A possible image without description on input line 45.
 
 )
 
-LaTeX Warning: Reference `fig:example1' on page 2 undefined on input line 10.
-
-
 Package natbib Warning: Citation `zhang-icse19' on page 2 undefined on input li
 ne 17.
-
-
-LaTeX Warning: Reference `fig:example2' on page 2 undefined on input line 19.
-
-
-LaTeX Warning: Reference `fig:example2' on page 2 undefined on input line 26.
 
 
 Package natbib Warning: Citation `zhang-icse19' on page 2 undefined on input li
@@ -1596,9 +1588,6 @@ Overfull \hbox (4.29538pt too wide) in paragraph at lines 50--53
 LF/b/n/9 Ex-cep-tion Han-dling Rec-om-men-da-tion)\T1/LinuxLibertineT-TLF/m/sc/
 9 (-20) . []\T1/LinuxLibertineT-TLF/m/it/9 (-20) Au-
  []
-
-
-LaTeX Warning: Reference `sec:intro' on page 2 undefined on input line 57.
 
 
 Package natbib Warning: Citation `xrank-fse20' on page 2 undefined on input lin
@@ -1649,9 +1638,6 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 Package natbib Warning: Citation `xrank-fse20' on page 3 undefined on input lin
 e 76.
 
-
-LaTeX Warning: Reference `fig:example1' on page 3 undefined on input line 87.
-
 (./example2.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 7.0pt on input line 50.
@@ -1665,12 +1651,6 @@ Package microtype Info: Character `textemdash ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-LaTeX Warning: Reference `fig:example1' on page 3 undefined on input line 50.
-
-
-LaTeX Warning: Reference `fig:example1' on page 3 undefined on input line 50.
-
-
 Class acmart Warning: A possible image without description on input line 52.
 
 ) (./example3.tex
@@ -1678,28 +1658,6 @@ Class acmart Warning: A possible image without description on input line 52.
 Class acmart Warning: A possible image without description on input line 36.
 
 )
-
-LaTeX Warning: Reference `fig:example3' on page 3 undefined on input line 108.
-
-
-LaTeX Warning: Reference `fig:example3' on page 3 undefined on input line 110.
-
-
-LaTeX Warning: Reference `fig:example2' on page 3 undefined on input line 111.
-
-
-LaTeX Warning: Reference `fig:example3' on page 3 undefined on input line 112.
-
-
-LaTeX Warning: Reference `fig:example2' on page 3 undefined on input line 113.
-
-
-LaTeX Warning: Reference `fig:example3' on page 3 undefined on input line 118.
-
-
-LaTeX Warning: Reference `fig:example1' on page 3 undefined on input line 119.
-
-
 Overfull \hbox (8.77473pt too wide) in paragraph at lines 138--146
 \T1/zi4/m/it/7 Field \T1/LinuxLibertineT-TLF/m/n/9 (-20) and the ex-cep-tions \
 T1/zi4/m/it/7 No-Such-Field-Exception\T1/LinuxLibertineT-TLF/m/n/9 (-20) , \T1/
@@ -1711,7 +1669,7 @@ t/7 Illegal-
 
 Class acmart Warning: A possible image without description on input line 35.
 
-) <overview-3.png, id=54, 1894.57813pt x 629.85312pt>
+) <overview-3.png, id=145, 1894.57813pt x 629.85312pt>
 File: overview-3.png Graphic file (type png)
  <use overview-3.png>
 Package pdftex.def Info: overview-3.png used on input line 174.
@@ -1722,29 +1680,13 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 
 Class acmart Warning: A possible image without description on input line 179.
 
-
-LaTeX Warning: Reference `fig:example1' on page 3 undefined on input line 181.
-
-[3.3]
-
-LaTeX Warning: Reference `fig:example4' on page 4 undefined on input line 208.
-
-) (./key-ideas.tex
+[3.3]) (./key-ideas.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 13.
 
 
-LaTeX Warning: Reference `ob2' on page 4 undefined on input line 14.
-
-
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 31.
-
-
-LaTeX Warning: Reference `ob4' on page 4 undefined on input line 41.
-
-
-LaTeX Warning: Reference `ob3' on page 4 undefined on input line 44.
 
 
 Package natbib Warning: Citation `sequence-chunking-aaai17' on page 4 undefined
@@ -1759,9 +1701,6 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 (Font)              scaled to size 10.95pt on input line 1.
 
 
-LaTeX Warning: Reference `overview' on page 4 undefined on input line 5.
-
-
 Package natbib Warning: Citation `codebert-emnlp20' on page 4 undefined on inpu
 t line 30.
 
@@ -1773,7 +1712,7 @@ Package natbib Warning: Citation `sequence-chunking-aaai17' on page 4 undefined
 Underfull \vbox (badness 5490) has occurred while \output is active []
 
  [4.4 <./overview-3.png>]) (./block-classification.tex
-<xblock-3.png, id=131, 1163.34625pt x 687.56876pt>
+<xblock-3.png, id=225, 1163.34625pt x 687.56876pt>
 File: xblock-3.png Graphic file (type png)
  <use xblock-3.png>
 Package pdftex.def Info: xblock-3.png used on input line 7.
@@ -1793,16 +1732,10 @@ Package microtype Info: Character `textemdash ' is missing
 (microtype)             in font `T1/zi4/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
 
-LaTeX Warning: Reference `overview' on page 5 undefined on input line 27.
-
-
-LaTeX Warning: Reference `sec:xstate' on page 5 undefined on input line 36.
-
-
 LaTeX Warning: Reference `sec:xtype' on page 5 undefined on input line 36.
 
 ) (./statement-classification.tex
-<xstate.png, id=132, 1209.51875pt x 760.34062pt>
+<xstate.png, id=228, 1209.51875pt x 760.34062pt>
 File: xstate.png Graphic file (type png)
  <use xstate.png>
 Package pdftex.def Info: xstate.png used on input line 6.
@@ -1815,24 +1748,13 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
 
 Class acmart Warning: A possible image without description on input line 10.
 
-) (./type-classification.tex <xtype-3.png, id=133, 1186.93437pt x 517.43312pt>
-File: xtype-3.png Graphic file (type png)
+) (./type-classification.tex) (./eval.tex
 
-<use xtype-3.png>
-Package pdftex.def Info: xtype-3.png used on input line 6.
-(pdftex.def)             Requested size: 216.81pt x 94.51563pt.
-
-
-Class acmart Warning: A possible image without description on input line 11.
-
-
-LaTeX Warning: Reference `overview' on page 5 undefined on input line 19.
-
-
-LaTeX Warning: Reference `fig:feature' on page 5 undefined on input line 23.
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 9.
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 24.
+(Font)              scaled to size 9.0pt on input line 16.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1843,21 +1765,11 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-
-LaTeX Warning: Reference `fig:feature' on page 5 undefined on input line 28.
-
-
-LaTeX Warning: Reference `fig:gcn' on page 5 undefined on input line 29.
-
-) [5.5 <./xblock-3.png> <./xstate.png>] (./eval.tex
-
-Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 9.
-
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 7.3pt on input line 16.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 16.
+
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 25.
@@ -1866,6 +1778,10 @@ surrounding objects on input line 25.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 36.
 
+
+Underfull \vbox (badness 1565) has occurred while \output is active []
+
+ [5.5 <./xblock-3.png> <./xstate.png>]
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 40.
@@ -1903,12 +1819,12 @@ Package natbib Warning: Citation `GNNExplainer' on page 6 undefined on input li
 ne 110.
 
 
-Underfull \vbox (badness 1648) has occurred while \output is active []
+Package natbib Warning: Citation `NNI' on page 6 undefined on input line 145.
 
- [6.6 <./xtype-3.png>]
 
-Package natbib Warning: Citation `NNI' on page 7 undefined on input line 145.
+Underfull \vbox (badness 2073) has occurred while \output is active []
 
+ [6.6]
 
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 207.
@@ -1928,9 +1844,6 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 14.
-
-
-LaTeX Warning: Reference `tab:xblock' on page 7 undefined on input line 29.
 
 
 Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
@@ -1997,11 +1910,7 @@ Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
  [] 
  []
 
-[7.7]) (./rq2-results.tex
-
-LaTeX Warning: Reference `tab:rq2' on page 8 undefined on input line 4.
-
-(./example-experiment.tex
+) (./rq2-results.tex (./example-experiment.tex
 
 Class acmart Warning: A possible image without description on input line 44.
 
@@ -2010,62 +1919,17 @@ Class acmart Warning: A possible image without description on input line 44.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 25.
 
-
-LaTeX Warning: Reference `fig:example-experiment' on page 8 undefined on input 
-line 26.
-
-) (./rq3-results.tex
-
-LaTeX Warning: Reference `tab:recall-3' on page 8 undefined on input line 41.
-
-
-LaTeX Warning: Reference `tab:precision-3' on page 8 undefined on input line 13
-6.
-
-
-LaTeX Warning: Reference `tab:precision-3' on page 8 undefined on input line 13
-9.
-
-
-Overfull \hbox (5.2306pt too wide) in paragraph at lines 136--153
+[7.7]) (./rq3-results.tex
+Overfull \hbox (1.77191pt too wide) in paragraph at lines 136--153
  \T1/LinuxBiolinumT-TLF/m/it/9 (-20) 8.3.2 \T1/LinuxLibertineT-TLF/b/n/9 Pre-ci
 -sion on Ex-cep-tion Type Rec-om-men-da-tion\T1/LinuxBiolinumT-TLF/m/it/9 (-20)
- .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []
+ .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []4[]
  []
 
-[8.8]) (./rq4-results.tex
+) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
-
-
-LaTeX Warning: Reference `tab:sensi-xblock' on page 9 undefined on input line 2
-9.
-
-
-LaTeX Warning: Reference `tab:sensi-xstate' on page 9 undefined on input line 6
-7.
-
-
-LaTeX Warning: Reference `tab:sensi-xblock' on page 9 undefined on input line 6
-8.
-
-
-LaTeX Warning: Reference `tab:sensi-xtype-recall' on page 9 undefined on input 
-line 79.
-
-
-LaTeX Warning: Reference `tab:sensi-xtype-precision' on page 9 undefined on inp
-ut line 80.
-
-
-LaTeX Warning: Reference `tab:sensi-xblock' on page 9 undefined on input line 8
-2.
-
-
-LaTeX Warning: Reference `tab:sensi-xstate' on page 9 undefined on input line 8
-2.
-
-
+ [8.8]
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
  []
@@ -2081,15 +1945,8 @@ Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 14.
 
 
-LaTeX Warning: Reference `tab:bug' on page 9 undefined on input line 29.
-
-
 Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 33.
-
-
-LaTeX Warning: Reference `fig:example-bug' on page 9 undefined on input line 42
-.
 
 (./example-bug.tex
 
@@ -2100,31 +1957,28 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-[9.9])) (./related-work.tex
+)) (./related-work.tex
 
-LaTeX Warning: Reference `sec:intro' on page 10 undefined on input line 5.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 31.
+Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
+e 31.
 
 
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 32.
+Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
+e 32.
 
 
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 34.
+Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
+e 34.
 
 
-Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
+Package natbib Warning: Citation `fse09' on page 9 undefined on input line 45.
 
-
+[9.9]
 
 Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
-) (./conclusion.tex) [10.10]
+) (./conclusion.tex)
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -2132,24 +1986,34 @@ Package natbib Warning: There were undefined citations.
 
 Class acmart Warning: Some images may lack descriptions.
 
+
+Class acmart Warning: ACM keywords are mandatory for papers over two pages.
+
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+
+Class acmart Warning: CCS concepts are mandatory for papers over two pages.
+
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+Package atenddvi Info: Last page = 10.
+[10.10
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 527.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 527.
-(./icse24.aux
-
-Package atenddvi Warning: Rerun LaTeX, last page not yet found.
-
-)
+ (./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 527.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 527.
+Package rerunfilecheck Info: File `icse24.out' has not changed.
+(rerunfilecheck)             Checksum: 43D967470A22C0DDC430324A31C0BDE0;3793.
 
-
-Package rerunfilecheck Warning: File `icse24.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `icse24.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  43D967470A22C0DDC430324A31C0BDE0;3793.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2157,46 +2021,58 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33020 strings out of 493014
- 596499 string characters out of 6133352
- 831931 words of memory out of 5000000
- 35021 multiletter control sequences out of 15000+600000
- 208217 words of font info for 436 fonts, out of 8000000 for 9000
+ 33048 strings out of 493014
+ 596913 string characters out of 6133352
+ 833221 words of memory out of 5000000
+ 35037 multiletter control sequences out of 15000+600000
+ 208513 words of font info for 439 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_jtta5h.enc
-}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_c7kyj5.enc}
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/tex
-live/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{/usr/local/texl
-ive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/local/texli
-ve/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_tlukpt.enc}{/usr/local/texliv
-e/2016/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/local/texlive/2
-016/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/20
-16/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/local/texlive/201
-6/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2016
-/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.
-pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinLiberti
-neT.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinLib
-ertineTB.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/L
-inLibertineTI.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/
-fxlri-5letters.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx
-/fxlri-7letters.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfo
-nts/rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rt
-xr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1377881 bytes).
+pdfTeX warning (dest): name{figure.caption.21} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.20} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.12} has been referenced but does not 
+exist, replaced by a fixed one
+
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{
+/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_c7kyj5.enc}{/
+usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texli
+ve/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{/usr/local/texliv
+e/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/local/texlive
+/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_tlukpt.enc}{/usr/local/texlive/
+2016/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/local/texlive/201
+6/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2016
+/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/local/texlive/2016/
+texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2016/t
+exmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/texlive/2016/te
+xmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinLibertine
+T.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/LinLiber
+tineTB.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/libertine/Lin
+LibertineTI.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/fx
+lri-5letters.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/f
+xlri-7letters.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfont
+s/rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
+Output written on icse24.pdf (10 pages, 1282151 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
- 172 named destinations out of 1000 (max. 500000)
- 60977 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 460 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 61136 words of extra memory for PDF output out of 61914 (max. 10000000)
 
