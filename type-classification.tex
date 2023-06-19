@@ -3,9 +3,12 @@
 
 {\xtype} uses the same CodeBERT that is shared  among other modules. We expect CodeBERT to learn the relation between statements in the same try-block, 
 as well as the relation between the try-block and the corresponding exceptions that need to be caught. 
-We take the vector outputs of \texttt{[SEP]} tokens, from CodeBERT, that correspond to statements in the same try block. Then, we add them together 
-to get a vector representation for the try block and put it 
-into
+
+For each try block, we first take the vector outputs of \texttt{[SEP]} tokens, from CodeBERT, that correspond to statements in the try block. Then, we add them together 
+to get the vector representation of the try block, before feeding it into a linear layer and use a sigmoid function to do binary classification for the most common exceptions
+that are in the library. If we included more libraries for the study, the classification head will likely need to change to a different one.
+
+During training, we know all the tags associated with every line in the input code snippet, so we know how to connect them, while during prediction, the model uses tags predicted in {\xstate} in order to make the connection.
 
 
 
