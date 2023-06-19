@@ -10,12 +10,12 @@
  	\label{fig:xblock}	
 \end{figure}
 
-Given an input code snippet, we first split it into the lines of
-code. Each line is then tokenized into sub-tokens using the CodeBERT
-tokenizer. We use a special separator token \texttt{[SEP]} to
-concatenate the tokenized lines, and add a \texttt{[CLS]} token at the
-beginning. As in CodeBERT, we take the \texttt{[CLS]} token to be the
-representation of the entire code snippet.
+Given an input code snippet, we first split it into the
+statements. Each statement is then tokenized into sub-tokens using the
+CodeBERT tokenizer. We use a special separator token \texttt{[SEP]} to
+concatenate the tokenized statements, and add a \texttt{[CLS]} token
+at the beginning. As in CodeBERT, we take the \texttt{[CLS]} token to
+be the representation of the entire code snippet.
 
 We fine-tune a CodeBERT(MLM) for this problem.  Given the good
 performance of CodeBERT on many code-related downstream tasks
