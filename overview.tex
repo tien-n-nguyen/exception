@@ -36,11 +36,13 @@ prediction is made on the vectors that are attained by composing the
 embeddings of individual (sub)tokens into the ones for a statement and
 for a block of statements. First, {\xblock} is modeled as a binary
 classifier on deciding whether the input code needs at least one
-\code{try-catch} block. Second, we model the second task, {\xstate},
-as learning to tag/label each statement in the code snippet with
-either \code{O} (i.e., the statement is outside of a \code{try-catch}
-block), \code{B-try} (i.e., it is the beginning of a \code{try-catch}
-block), or \code{I-try} (i.e., it is inside of such a block).
+\code{try-catch} block. Second, inspired by the sequence chunking
+techniques~\cite{sequence-chunking-aaai17} in NLP, we model the second
+task, {\xstate}, as learning to tag/label each statement in the code
+snippet with either \code{O} (i.e., the statement is outside of a
+\code{try-catch} block), \code{B-try} (i.e., it is the beginning of a
+\code{try-catch} block), or \code{I-try} (i.e., it is inside of such a
+block).
 %Any consecutive statements from a \code{B-try} to the last respective
 %\code{I-try} are considered to belong to a \code{try-catch} block. The
 %next \code{B-try} statement and its last respective \code{I-try}
