@@ -33,11 +33,12 @@ to avoid name ambiguity and to connect them with the exception types.
 
 
 During training, as we use exactly one CodeBERT, all three modules
-(see also Sections 5 and 6) contribute to the signal for updating the
-CodeBERT parameters. In {\xblock}, we feed the vector representation
-of the \texttt{[CLS]} token to a linear layer (Feed-forward neural
-network - FFNN) and use a softmax function to learn the decision as to
-whether the input code needs to handle any exceptions.
+(Sections~\ref{sec:xstate} and~\ref{sec:xtype}) contribute
+to the signal for updating the CodeBERT parameters. In {\xblock}, we
+feed the vector representation of the \texttt{[CLS]} token to a linear
+layer (Feed-forward neural network - FFNN) and use a softmax function
+to learn the decision as to whether the input code needs to handle any
+exceptions.
 
 % \begin{figure}[t]
 % 	\centering
