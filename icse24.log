@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  19 JUN 2023 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  19 JUN 2023 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1449,11 +1449,8 @@ Class acmart Warning: A possible image without description on input line 11.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 15.
-
-LaTeX Warning: Reference `sec:xtype' on page 5 undefined on input line 36.
-
 ) (statement-classification.tex
-<xstate.png, id=279, 1208.515pt x 760.8425pt>
+<xstate.png, id=280, 1208.515pt x 760.8425pt>
 File: xstate.png Graphic file (type png)
 <use xstate.png>
 Package pdftex.def Info: xstate.png  used on input line 6.
@@ -1466,10 +1463,27 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
 
 Class acmart Warning: A possible image without description on input line 10.
 
-[5.5 <./xblock-3.png> <./xstate.png>]) (type-classification.tex) (eval.tex
+[5.5 <./xblock-3.png> <./xstate.png>]) (type-classification.tex
+<xtype-4.png, id=292, 1159.33125pt x 824.07875pt>
+File: xtype-4.png Graphic file (type png)
+<use xtype-4.png>
+Package pdftex.def Info: xtype-4.png  used on input line 6.
+(pdftex.def)             Requested size: 245.71754pt x 174.65858pt.
+
+Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
+ [] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 11.
+
+) (eval.tex
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 9.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 16.
@@ -1477,6 +1491,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+
 (C:\Program Files\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
@@ -1507,8 +1522,8 @@ surrounding objects on input line 44.
 (empirical-methodology.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6.6]
-Underfull \vbox (badness 2073) has occurred while \output is active []
+ [6.6 <./xtype-4.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (1.55713pt too wide) in paragraph at lines 207--212
@@ -1528,7 +1543,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 14.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 16.
-
+ [7.7]
 Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
@@ -1593,7 +1608,7 @@ Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
  [] 
  []
 
-[7.7]) (rq2-results.tex (example-experiment.tex
+) (rq2-results.tex (example-experiment.tex
 
 Class acmart Warning: A possible image without description on input line 44.
 
@@ -1693,19 +1708,16 @@ Overfull \vbox (1.54099pt too high) has occurred while \output is active []
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: 8305E2E918D28AF85768657DB26103EA;3889.
+(rerunfilecheck)             Checksum: 93D06190015A5A1E49C8221DA59812BB;3889.
  ) 
 Here is how much of TeX's memory you used:
- 37532 strings out of 476374
- 698128 string characters out of 5798669
+ 37540 strings out of 476374
+ 698254 string characters out of 5798669
  2000340 words of memory out of 5000000
- 56091 multiletter control sequences out of 15000+600000
+ 56097 multiletter control sequences out of 15000+600000
  733101 words of font info for 582 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1730,9 +1742,9 @@ fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX/fonts/type1/p
 ublic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1231826 bytes).
+Output written on icse24.pdf (11 pages, 1447268 bytes).
 PDF statistics:
- 553 PDF objects out of 1000 (max. 8388607)
- 192 named destinations out of 1000 (max. 500000)
- 112852 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 557 PDF objects out of 1000 (max. 8388607)
+ 193 named destinations out of 1000 (max. 500000)
+ 112857 words of extra memory for PDF output out of 128383 (max. 10000000)
 
