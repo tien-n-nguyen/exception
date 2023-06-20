@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  19 JUN 2023 23:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  20 JUN 2023 01:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1104,17 +1104,13 @@ Excluding comment 'anonsuppress' Excluding comment 'acks'
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count361
 \l__pdf_internal_box=\box86
-) (icse24.aux
-
-LaTeX Warning: Label `sec:rq1' multiply defined.
-
-)
+) (icse24.aux)
 \openout1 = `icse24.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 233.
 LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line
  233.
- (C:\Program Files\MiKTeX\tex/latex/newtx\omlnxlmi.fd
+(C:\Program Files\MiKTeX\tex/latex/newtx\omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 233.
@@ -1354,10 +1350,6 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
  [1.1{C:/Users/12144/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 ]
-
-Package natbib Warning: Citation `tien' on page 2 undefined on input line 109.
-
-
 Overfull \hbox (10.62022pt too wide) in paragraph at lines 239--243
 \T1/LinuxLibertineT-TLF/b/n/9 (-20) 3. [Em-pir-i-cal Eval-u-a-tion]\T1/LinuxLib
 ertineT-TLF/m/n/9 (-20) . Our ex-ten-sive eval-u-a-tion shows \T1/LinuxLibertin
@@ -1408,7 +1400,7 @@ t/7 Illegal-
 Class acmart Warning: A possible image without description on input line 35.
 
 )
-<overview-3.png, id=191, 1894.57813pt x 629.85312pt>
+<overview-3.png, id=193, 1894.57813pt x 629.85312pt>
 File: overview-3.png Graphic file (type png)
 <use overview-3.png>
 Package pdftex.def Info: overview-3.png  used on input line 174.
@@ -1434,7 +1426,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 Underfull \vbox (badness 5490) has occurred while \output is active []
 
  [4.4 <./overview-3.png>]) (block-classification.tex
-<xblock-3.png, id=276, 1163.34625pt x 687.56876pt>
+<xblock-3.png, id=277, 1163.34625pt x 687.56876pt>
 File: xblock-3.png Graphic file (type png)
 <use xblock-3.png>
 Package pdftex.def Info: xblock-3.png  used on input line 7.
@@ -1450,7 +1442,7 @@ Class acmart Warning: A possible image without description on input line 11.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 15.
 ) (statement-classification.tex
-<xstate.png, id=280, 1208.515pt x 760.8425pt>
+<xstate.png, id=281, 1208.515pt x 760.8425pt>
 File: xstate.png Graphic file (type png)
 <use xstate.png>
 Package pdftex.def Info: xstate.png  used on input line 6.
@@ -1464,7 +1456,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
 Class acmart Warning: A possible image without description on input line 10.
 
 [5.5 <./xblock-3.png> <./xstate.png>]) (type-classification.tex
-<xtype-4.png, id=292, 1159.33125pt x 824.07875pt>
+<xtype-4.png, id=293, 1159.33125pt x 824.07875pt>
 File: xtype-4.png Graphic file (type png)
 <use xtype-4.png>
 Package pdftex.def Info: xtype-4.png  used on input line 6.
@@ -1482,16 +1474,12 @@ Class acmart Warning: A possible image without description on input line 11.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 9.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 16.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
 (C:\Program Files\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
@@ -1519,11 +1507,8 @@ surrounding objects on input line 40.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 44.
 
-(empirical-methodology.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6.6 <./xtype-4.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+(empirical-methodology.tex [6.6 <./xtype-4.png>]
+Underfull \vbox (badness 1648) has occurred while \output is active []
 
 
 Overfull \hbox (1.55713pt too wide) in paragraph at lines 207--212
@@ -1675,9 +1660,6 @@ LaTeX Info: Redefining \tempurl on input line 270.
 LaTeX Info: Redefining \tempurl on input line 287.
 LaTeX Info: Redefining \tempurl on input line 301.
 )
-
-Package natbib Warning: There were undefined citations.
-
 (C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
@@ -1707,16 +1689,13 @@ Overfull \vbox (1.54099pt too high) has occurred while \output is active []
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 93D06190015A5A1E49C8221DA59812BB;3889.
  ) 
 Here is how much of TeX's memory you used:
  37540 strings out of 476374
  698254 string characters out of 5798669
- 2000340 words of memory out of 5000000
+ 2001340 words of memory out of 5000000
  56097 multiletter control sequences out of 15000+600000
  733101 words of font info for 582 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1742,9 +1721,9 @@ fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX/fonts/type1/p
 ublic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1447268 bytes).
+Output written on icse24.pdf (11 pages, 1448572 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
+ 561 PDF objects out of 1000 (max. 8388607)
  193 named destinations out of 1000 (max. 500000)
  112857 words of extra memory for PDF output out of 128383 (max. 10000000)
 

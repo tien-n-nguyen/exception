@@ -4,20 +4,57 @@
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=3.4in]{xtype-4.png}
-\vspace{-10pt}
+\vspace{-20pt}
 \caption{Exception Type Recommendation ({\xtype})}
 \label{fig:xtype}
 \end{center}
 \end{figure}
 
-{\xtype} uses the same CodeBERT that is shared  among other modules. We expect CodeBERT to learn the relation between statements in the same try-block, 
-as well as the relation between the try-block and the corresponding exceptions that need to be caught. 
+The goal of {\xtype} (Figure~\ref{fig:xtype}) is to predict what
+exception types need to be placed in the \code{catch} clause of each
+of the predicted \code{try-catch} block(s) for the given input code
+snippet. We use one single CodeBERT~\cite{codebert-emnlp20} model as
+in {\xblock} to produce the embedding for code (sub)-tokens.
+%
+We expect CodeBERT to learn the connection between the statements in a
+\code{try-catch} block and the corresponding exception types that need
+to be caught. The rationale is from the Key idea 2 in which we expect
+that via context, CodeBERT could learn the identities of the API
+elements, thus, leading to better learning of the exception types to
+be caught.
 
-For each try block, we first take the vector outputs of \texttt{[SEP]} tokens, from CodeBERT, that correspond to statements in the try block. Then, we add them together 
-to get the vector representation of the try block, before feeding it into a linear layer and use a sigmoid function to do binary classification for the most common exceptions
-that are in the library. If we included more libraries for the study, the classification head will likely need to change to a different one.
+During training, we know all the labels of the statements in a code
+snippet. For each \code{try-catch} block, we identify the statements
+at the beginning (with the \code{B-Try} label) and at the end of a
+\code{try-catch} block (with the last respective \code{I-Try} label).
+We consider the embeddings produced by CodeBERT for the {\bf [SEP]}
+tokens corresponding to the statements from the beginning to the end
+of the \code{try-catch} block. We add them together to get the
+embedding for the entire \code{try-catch} block, and then feed it into
+a linear layer. We use a sigmoid function to perform binary
+classifications for the exception types in the libraries of interest.
 
-During training, we know all the tags associated with every line in the input code snippet, so we know how to connect them, while during prediction, the model uses tags predicted in {\xstate} in order to make the connection.
+During prediction, we use the predicted tags for the given statements
+in the code snippet. From the predicted tags, we obtain the the
+statements in a predicted \code{try-catch} block. From there, the
+embeddings computed by CodeBERT are retrieved and used in the same way
+as during training. For example, in Figure~\ref{fig:xtype}, the model
+predicts the \code{try-catch} block from the statement
+\code{out.write} to the statement \code{print(node.getBody(...))}. The
+corresponding embeddings of all the statements in the block are used
+and the output of \code{IOException} is predicted with the highest
+probability.
+
+
+
+%For each try block, we first take the vector outputs of
+%\texttt{[SEP]} tokens, from CodeBERT, that correspond to statements
+%in the try block.  If we included more libraries for the study, the
+%classification head will likely need to change to a different one.
+%During training, we know all the tags associated with every line in
+%the input code snippet, so we know how to connect them, while
+
+
 
 
 
