@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  19 JUN 2023 17:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  19 JUN 2023 23:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1337,95 +1337,15 @@ Package microtype Info: Loading generic protrusion settings for font family
  (intro.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 9.
-
-
-Package natbib Warning: Citation `zhang-icse19' on page 1 undefined on input li
-ne 9.
-
-
-Package natbib Warning: Citation `zhang-icse19' on page 1 undefined on input li
-ne 17.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 25.
-
-
-Package natbib Warning: Citation `kechagia-msr14' on page 1 undefined on input 
-line 28.
-
-
-Package natbib Warning: Citation `barbosa-bsse12' on page 1 undefined on input 
-line 36.
-
-
-Package natbib Warning: Citation `chanchal-scam14' on page 1 undefined on input
- line 36.
-
-
-Package natbib Warning: Citation `barbosa-tse18' on page 1 undefined on input l
-ine 36.
-
-
-Package natbib Warning: Citation `barbosa-tse16' on page 1 undefined on input l
-ine 36.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 36.
-
-
-Package natbib Warning: Citation `throw-ase22' on page 1 undefined on input lin
-e 36.
-
-
-Package natbib Warning: Citation `barbosa-bsse12' on page 1 undefined on input 
-line 40.
-
-
-Package natbib Warning: Citation `barbosa-tse16' on page 1 undefined on input l
-ine 43.
-
-
-Package natbib Warning: Citation `barbosa-saner18' on page 1 undefined on input
- line 43.
-
-
-Package natbib Warning: Citation `chanchal-scam14' on page 1 undefined on input
- line 49.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 62.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 62.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 65.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 1 undefined on input lin
-e 72.
-
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 94.
+
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
 (Font)              using `T1/zi4/m/n' instead on input line 94.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 (Font)              scaled to size 7.0pt on input line 96.
-
-Package natbib Warning: Citation `chanchal-scam14' on page 1 undefined on input
- line 100.
-
-
-Package natbib Warning: Citation `zhong-jss18' on page 1 undefined on input lin
-e 100.
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1438,14 +1358,10 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 Package natbib Warning: Citation `tien' on page 2 undefined on input line 109.
 
 
-Package natbib Warning: Citation `deepex-website' on page 2 undefined on input 
-line 242.
-
-
-Overfull \hbox (10.02931pt too wide) in paragraph at lines 239--243
+Overfull \hbox (10.62022pt too wide) in paragraph at lines 239--243
 \T1/LinuxLibertineT-TLF/b/n/9 (-20) 3. [Em-pir-i-cal Eval-u-a-tion]\T1/LinuxLib
 ertineT-TLF/m/n/9 (-20) . Our ex-ten-sive eval-u-a-tion shows \T1/LinuxLibertin
-eT-TLF/m/sc/9 (-20) DeepEx\T1/LinuxLibertineT-TLF/m/n/9 (-20) 's
+eT-TLF/m/sc/9 (-20) Neurex\T1/LinuxLibertineT-TLF/m/n/9 (-20) 's
  []
 
 ) (motiv.tex (example1.tex
@@ -1462,68 +1378,11 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 Class acmart Warning: A possible image without description on input line 45.
 
 )
-
-Package natbib Warning: Citation `zhang-icse19' on page 2 undefined on input li
-ne 17.
-
-
-Package natbib Warning: Citation `zhang-icse19' on page 2 undefined on input li
-ne 36.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 2 undefined on input lin
-e 40.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 2 undefined on input lin
-e 60.
-
-
-Package natbib Warning: Citation `barbosa-bsse12' on page 2 undefined on input 
-line 60.
-
-
-Package natbib Warning: Citation `chanchal-scam14' on page 2 undefined on input
- line 60.
-
-
-Package natbib Warning: Citation `barbosa-tse18' on page 2 undefined on input l
-ine 60.
-
-
-Package natbib Warning: Citation `barbosa-tse16' on page 2 undefined on input l
-ine 60.
-
-
-Package natbib Warning: Citation `barbosa-bsse12' on page 2 undefined on input 
-line 62.
-
-
-Package natbib Warning: Citation `barbosa-tse16' on page 2 undefined on input l
-ine 64.
-
-
-Package natbib Warning: Citation `barbosa-saner18' on page 2 undefined on input
- line 64.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 2 undefined on input lin
-e 66.
-
-
-Package natbib Warning: Citation `chanchal-scam14' on page 2 undefined on input
- line 68.
-
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 70.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 7.0pt on input line 70.
-[2.2]
-
-Package natbib Warning: Citation `xrank-fse20' on page 3 undefined on input lin
-e 76.
-
-(example2.tex
+ [2.2] (example2.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 7.0pt on input line 50.
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
@@ -1549,7 +1408,7 @@ t/7 Illegal-
 Class acmart Warning: A possible image without description on input line 35.
 
 )
-<overview-3.png, id=143, 1894.57813pt x 629.85312pt>
+<overview-3.png, id=191, 1894.57813pt x 629.85312pt>
 File: overview-3.png Graphic file (type png)
 <use overview-3.png>
 Package pdftex.def Info: overview-3.png  used on input line 174.
@@ -1568,31 +1427,14 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 31.
 
-
-Package natbib Warning: Citation `sequence-chunking-aaai17' on page 4 undefined
- on input line 68.
-
-
-Package natbib Warning: Citation `codebert-emnlp20' on page 4 undefined on inpu
-t line 72.
-
 ) (overview.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 (Font)              scaled to size 10.95pt on input line 1.
 
-
-Package natbib Warning: Citation `codebert-emnlp20' on page 4 undefined on inpu
-t line 30.
-
-
-Package natbib Warning: Citation `sequence-chunking-aaai17' on page 4 undefined
- on input line 40.
-
-
 Underfull \vbox (badness 5490) has occurred while \output is active []
 
  [4.4 <./overview-3.png>]) (block-classification.tex
-<xblock-3.png, id=222, 1163.34625pt x 687.56876pt>
+<xblock-3.png, id=276, 1163.34625pt x 687.56876pt>
 File: xblock-3.png Graphic file (type png)
 <use xblock-3.png>
 Package pdftex.def Info: xblock-3.png  used on input line 7.
@@ -1611,11 +1453,11 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 LaTeX Warning: Reference `sec:xtype' on page 5 undefined on input line 36.
 
 ) (statement-classification.tex
-<xstate.png, id=225, 1209.51875pt x 760.34062pt>
+<xstate.png, id=279, 1208.515pt x 760.8425pt>
 File: xstate.png Graphic file (type png)
 <use xstate.png>
 Package pdftex.def Info: xstate.png  used on input line 6.
-(pdftex.def)             Requested size: 245.71754pt x 154.4554pt.
+(pdftex.def)             Requested size: 245.71754pt x 154.69667pt.
 
 Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
  [][] 
@@ -1624,14 +1466,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
 
 Class acmart Warning: A possible image without description on input line 10.
 
-
-Package natbib Warning: Citation `codebert-emnlp20' on page 5 undefined on inpu
-t line 16.
-
-) (type-classification.tex
-Underfull \vbox (badness 3439) has occurred while \output is active []
-
- [5.5 <./xblock-3.png> <./xstate.png>]) (eval.tex
+[5.5 <./xblock-3.png> <./xstate.png>]) (type-classification.tex) (eval.tex
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 9.
@@ -1670,40 +1505,17 @@ Class acmart Warning: \vspace should only be used to provide space above/below
 surrounding objects on input line 44.
 
 (empirical-methodology.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: Citation `xrank-fse20' on page 6 undefined on input lin
-e 10.
-
-
-Package natbib Warning: Citation `icse18' on page 6 undefined on input line 22.
+ [6.6]
+Underfull \vbox (badness 2073) has occurred while \output is active []
 
 
-
-Package natbib Warning: Citation `liveapi14' on page 6 undefined on input line 
-22.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 6 undefined on input lin
-e 37.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 6 undefined on input lin
-e 53.
-
-
-Package natbib Warning: Citation `NNI' on page 6 undefined on input line 76.
-
-
-Package natbib Warning: Citation `GNNExplainer' on page 6 undefined on input li
-ne 110.
-
-[6.6]
-
-Package natbib Warning: Citation `NNI' on page 7 undefined on input line 145.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
-e 207.
+Overfull \hbox (1.55713pt too wide) in paragraph at lines 207--212
+\T1/LinuxBiolinumT-TLF/m/it/9 (-20) .[] \T1/LinuxLibertineT-TLF/m/it/9 (-20) Ba
+se-lines. \T1/LinuxLibertineT-TLF/m/n/9 (-20) Fuzzy-Catch [[]] lever-ages XRank
+ to de-tect the exception-
+ []
 
 )) (empirical-results.tex (rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1715,20 +1527,15 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 14.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 14.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
-e 14.
-
+(Font)              scaled to size 8.0pt on input line 16.
 
 Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
 
 
-Overfull \hbox (2.36488pt too wide) in paragraph at lines 89--89
- []|\T1/LinuxLibertineT-TLF/m/sc/8 (-20) DeepEx| 
+Overfull \hbox (2.89017pt too wide) in paragraph at lines 89--89
+ []|\T1/LinuxLibertineT-TLF/m/sc/8 (-20) Neurex| 
  []
 
 
@@ -1786,7 +1593,7 @@ Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
  [] 
  []
 
-) (rq2-results.tex [7.7] (example-experiment.tex
+[7.7]) (rq2-results.tex (example-experiment.tex
 
 Class acmart Warning: A possible image without description on input line 44.
 
@@ -1809,15 +1616,11 @@ Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
  []
 
 ) (rq5-results.tex
+Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
+ []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
+ []
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 14.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 33.
-
-(example-bug.tex
+[9.9] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1826,57 +1629,36 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (related-work.tex [9.9]
+)) (related-work.tex) (conclusion.tex) [10.10] (icse24.bbl
+LaTeX Info: Redefining \tempurl on input line 71.
+LaTeX Info: Redefining \tempurl on input line 87.
 
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 31.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 32.
-
-
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 34.
-
-
-Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
-
-
-
-Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
-ne 52.
-
-) (conclusion.tex) (icse24.bbl
-LaTeX Info: Redefining \tempurl on input line 65.
-LaTeX Info: Redefining \tempurl on input line 81.
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 93--98
 
  []
 
-LaTeX Info: Redefining \tempurl on input line 112.
-LaTeX Info: Redefining \tempurl on input line 129.
-LaTeX Info: Redefining \tempurl on input line 144.
+LaTeX Info: Redefining \tempurl on input line 118.
+LaTeX Info: Redefining \tempurl on input line 135.
 LaTeX Info: Redefining \tempurl on input line 161.
-LaTeX Info: Redefining \tempurl on input line 193.
-LaTeX Info: Redefining \tempurl on input line 207.
-LaTeX Info: Redefining \tempurl on input line 223.
+LaTeX Info: Redefining \tempurl on input line 178.
+LaTeX Info: Redefining \tempurl on input line 210.
+LaTeX Info: Redefining \tempurl on input line 224.
+LaTeX Info: Redefining \tempurl on input line 240.
 LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF
- on input line 237.
+ on input line 254.
 (C:\Program Files\MiKTeX\tex/latex/libertine\ts1linuxlibertinet-tlf.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 237.
+(Font)              scaled to size 7.0pt on input line 254.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \tempurl on input line 253.
 LaTeX Info: Redefining \tempurl on input line 270.
-LaTeX Info: Redefining \tempurl on input line 284.
+LaTeX Info: Redefining \tempurl on input line 287.
+LaTeX Info: Redefining \tempurl on input line 301.
 )
 
 Package natbib Warning: There were undefined citations.
@@ -1903,15 +1685,10 @@ Class acmart Warning: ACM reference format is mandatory
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
+Overfull \vbox (1.54099pt too high) has occurred while \output is active []
 
-[10.10] (icse24.aux
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+[11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1921,21 +1698,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `icse24.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `icse24.out':
-(rerunfilecheck)             Before: 83230D931FBA76A422954D76D3B416AF;3813
-(rerunfilecheck)             After:  D4224B2EC4ED9CD625C8D24C89CB328F;3889.
+Package rerunfilecheck Info: File `icse24.out' has not changed.
+(rerunfilecheck)             Checksum: 8305E2E918D28AF85768657DB26103EA;3889.
  ) 
 Here is how much of TeX's memory you used:
- 37558 strings out of 476374
- 698809 string characters out of 5798669
- 1999340 words of memory out of 5000000
- 56090 multiletter control sequences out of 15000+600000
- 736341 words of font info for 602 fonts, out of 8000000 for 9000
+ 37532 strings out of 476374
+ 698128 string characters out of 5798669
+ 2000340 words of memory out of 5000000
+ 56091 multiletter control sequences out of 15000+600000
+ 733101 words of font info for 582 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Progra
@@ -1959,9 +1730,9 @@ fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX/fonts/type1/p
 ublic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (10 pages, 1207042 bytes).
+Output written on icse24.pdf (11 pages, 1231826 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 189 named destinations out of 1000 (max. 500000)
- 112844 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 192 named destinations out of 1000 (max. 500000)
+ 112852 words of extra memory for PDF output out of 128383 (max. 10000000)
 
