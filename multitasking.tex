@@ -1,11 +1,38 @@
 \section{Multi-task Learning}
 \label{sec:multitasking}
 
-The two tasks dealt with by {\xstate} and {\xtype} can benefit each other. With the learning about which statements need to be put into try blocks, the model will learn the important code tokens in the code snippet, which in turn will help to determine which exceptions need to be handled. Also, knowing the exceptions will give strong hint to the way that statements should be grouped into try blocks.
+The learning on the three tasks, {\xblock}, {\xstate}, and {\xtype}
+can benefit to one another. For example, if a model decides the need
+of a \code{try-catch} block, there must be some statements in the code
+snippet that will be placed in such a block. If a model learns the
+statements to be placed in a \code{try-catch} block, it can decide
+that the code snippet needs such a block and make the connections to
+what exception types to be caught. The knowledge on the exception
+types can help a model decide better what important statements need to
+be in a \code{try-catch} block. Therefore, we put the three tasks
+in a multi-task learning fashion.
 
-We calculate the training loss by combining losses from the three modules. $Loss_{{\xblock}}$ is the Binary Cross Entropy loss for the decision as to whether try-catch blocks exist in the input. To calculate $Loss_{{\xstate}}$, we first get the classification loss for each statement ($loss_{Stmt}$) in the input, and sum them together. $loss_{Stmt}$ is the Cross Entropy loss calculated from the distribution for the three tags---\texttt{O}, \texttt{B-Try}, \texttt{I-Try}---and the ground-truth tag. Finally, in \xtype, several try blocks might be present, so $Loss_{{\xtype}}$ comes from the summation of the exception prediction losses from all try blocks. For each try block, the $loss_{try-block}$ is calculated by adding the Binary Cross Entropy loss for the prediction of each exception that we considered. 
+%The two tasks dealt with by {\xstate} and {\xtype} can benefit each other. With the learning about which statements need to be put into try blocks, the model will learn the important code tokens in the code snippet, which in turn will help to determine which exceptions need to be handled. Also, knowing the exceptions will give strong hint to the way that statements should be grouped into try blocks.
 
-The overall training loss is calculated as following: if the input does not contain any try-catch block, the loss will just be the $Loss_{{\xblock}}$. On the other hand, if the input contain any try-catch block, then the overall loss will be the summation of the losses from all three tasks (\ref{eqn:loss}). 
+We calculate the training loss by combining the losses from the three
+modules. $Loss_{{\xblock}}$ is the Binary Cross Entropy loss for the
+decision as to whether try-catch blocks exist in the input. To
+calculate $Loss_{{\xstate}}$, we first get the classification loss for
+each statement ($loss_{Stmt}$) in the input, and sum them
+together. $loss_{Stmt}$ is the Cross Entropy loss calculated from the
+distribution for the three tags -- \code{O}, \code{B-Try},
+\code{I-Try} -- and the ground-truth tag. Finally, in \xtype, several
+\code{try-catch} blocks might be present, so $Loss_{{\xtype}}$ comes
+from the summation of the exception prediction losses from all the
+\code{try-catch} blocks. For each \code{try-catch} block, the
+$loss_{try-block}$ is calculated by adding the Binary Cross Entropy
+loss for the prediction of each exception that we considered.
+
+The overall training loss is calculated as follows. If the input does
+not contain any \code{try-catch} block, the loss will be only the
+$Loss_{{\xblock}}$. If the input contains a \code{try-catch} block,
+the overall loss will be the summation of the losses from all
+three tasks (\ref{eqn:loss}).
 
 \begin{equation}
 \label{eqn:loss}
