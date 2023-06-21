@@ -1,0 +1,11 @@
+\section{{\xtype}: Multitask Learning}
+\label{sec:multitasking}
+
+{\xstate} and {\xtype} are two tasks that benefit each other. The learning about which statements need to be put into try blocks is important in that it will also learn 
+the important code tokens in the code snippet, which in turn will help to determine which exceptions need
+to be handled. Also, knowing which exceptions need to be handled will help to determine which statements need to be in that try block.
+
+During training, we combine losses from the three modules.  
+
+
+ 
