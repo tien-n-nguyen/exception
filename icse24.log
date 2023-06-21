@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  21 JUN 2023 02:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  21 JUN 2023 02:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2038,11 +2038,20 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 529.
  (./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
-Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: DFB2265B1FDC418C96823C0022DC6346;3992.
 
+
+Package rerunfilecheck Warning: File `icse24.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `icse24.out':
+(rerunfilecheck)             Before: DFB2265B1FDC418C96823C0022DC6346;3992
+(rerunfilecheck)             After:  DD7007C3C005C3EE898B6F663749AE6A;3954.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -2080,7 +2089,7 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 1519479 bytes).
+Output written on icse24.pdf (11 pages, 1519471 bytes).
 PDF statistics:
  484 PDF objects out of 1000 (max. 8388607)
  420 compressed objects within 5 object streams
