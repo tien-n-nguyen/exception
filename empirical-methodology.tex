@@ -77,11 +77,13 @@ snippets for training, tuning, and testing. Meanwhile, we make sure that each pa
 %the trained model from the DeepEx dataset and test it on the
 %FuzzyCatch dataset for both the baseline and {\tool}.
 
-{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the
-following key hyper-parameters to have the best performance: (1) Epoch
-size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
-(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
-output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
+{\em Tuning.} We trained {\tool} for 15 epochs with the following key hyper-parameters: (1) Batch size is set to 32; (2) Learning rate is set to 0.000006 (3) Weight_decay is set to 0.01. The best model is selected through the overall loss. 
+
+%We tuned {\tool} with autoML~\cite{NNI} for the
+%following key hyper-parameters to have the best performance: (1) Epoch
+%size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
+%(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
+%output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
 
 {\em Metrics.} We use \textbf{Recall, Precision}, and {\bf F-score} to
 evaluate the performance of the approaches. They are calculated as
