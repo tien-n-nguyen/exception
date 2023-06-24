@@ -20,25 +20,27 @@ the following libraries: jodatime, JDK, Android, xtream, GWT, and
 Hibernate. These are the well-established libraries that have been used
 in several prior research on the topics related to
 APIs~\cite{icse18,liveapi14}. We then selected the methods with at
-least one \code{try-catch} block. If there is one \code{try-catch}
-block, we take the body of the method as the code
-snippet. If there are multiple \code{try-catch} blocks in a method, we
-split the method into multiple code snippets by checking the above and
-below statements, one by one, starting from the closest one for each
-\code{try-catch} block, to verify if the statement is included in the
-other block. If not, we put it in the current code snippet. If yes, we
-finish the current one. In total, we have
-19,379 code snippets containing one
-\code{try-catch} block as positive samples. We also randomly selected
+least one \code{try-catch} block. 
+%If there is one \code{try-catch}
+%block, we take the body of the method as the code
+%snippet. If there are multiple \code{try-catch} blocks in a method, we
+%split the method into multiple code snippets by checking the above and
+%below statements, one by one, starting from the closest one for each
+%\code{try-catch} block, to verify if the statement is included in the
+%other block. If not, we put it in the current code snippet. If yes, we
+%finish the current one. 
+In total, we have
+153823 code snippets containing
+\code{try-catch} blocks as positive samples. We also randomly selected
 from the same Github projects the same amount of code snippets that do
 not have any \code{try-catch} block as the negative samples.
 
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
-authors of XRank/XHand~\cite{xrank-fse20}, which contains 608 samples
+authors of XRank/XHand~\cite{xrank-fse20}, which contains 750 samples
 of methods with exception-related bugs (missing \code{try-catch}
-blocks or missing catching some exceptions).  We also randomly
-selected from the projects in FuzzyCatch dataset the same amount of
-code snippets with no exception-related bugs as the negative samples.
+blocks or missing catching some exceptions).  
+
+%We also randomly selected from the projects in FuzzyCatch dataset the same amount of code snippets with no exception-related bugs as the negative samples.
 
 %We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 
