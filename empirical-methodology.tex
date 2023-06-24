@@ -51,12 +51,14 @@ blocks or missing catching some exceptions).
 
 \subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking\\}
 
-\indent {\em Baselines.} We compared {\xblock} against
-XRank~\cite{xrank-fse20} (XRank is part of FuzzyCatch tool). XRank
-computed the exception risk score for each API call.
-%(i.e., the potential need of \code{try-catch} block).
-If one score of a call in the snippet is higher than a threshold,
-it is considered as needing a \code{try-catch} block.
+\indent {\em Baselines.} We compared {\xblock} against the pre-trained CodeBERT without any fine-tuning steps. In the pre-trained CodeBERT, We add a randomly-initialized linear layer on top of the output vector of the \texttt{[CLS]} token, and use a softmax function to learn the decision.
+
+% We compared {\xblock} against
+%XRank~\cite{xrank-fse20} (XRank is part of FuzzyCatch tool). XRank
+%computed the exception risk score for each API call.
+%%(i.e., the potential need of \code{try-catch} block).
+%If one score of a call in the snippet is higher than a threshold,
+%it is considered as needing a \code{try-catch} block.
 
 {\em Procedure.} We used the Github dataset and randomly split both
 the positive and negative sets into 80\%, 10\%, and 10\% of the code
