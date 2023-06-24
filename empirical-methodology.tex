@@ -62,7 +62,7 @@ blocks or missing catching some exceptions).
 
 {\em Procedure.} We used the Github dataset and randomly split both
 the positive and negative sets into 80\%, 10\%, and 10\% of the code
-snippets for training, tuning, and testing.
+snippets for training, tuning, and testing. Meanwhile, we make sure that each partition contains the equal amount of positive samples and negative samples; and the training and tuning partitions do not contain any duplicates.
 
 %We took all the code snippets from DeepEX and FuzzyCatch datasets. On
 %the DeepEx dataset, we randomly split both the positive and negative
