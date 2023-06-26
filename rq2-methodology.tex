@@ -10,15 +10,13 @@ CodeBERT model without any fine-tuning step as in RQ1.
 {\em Metrics.} We used the same metrics as in RQ1. However, we
 computed Recall, Precision, and F-score in two ways. First, we
 evaluated {\xstate} in connection with {\xblock}. That is, we consider
-a correct case if {\xblock} gives a correct prediction on whether a
-\code{try-catch} block is needed, {\em and} {\xstate} predicts
-correctly on whether a statement needs to be in such a block. Second,
+a correct case if {\xblock} gives a correct prediction on whether
+\code{try-catch} blocks are needed, {\em and} {\xstate} produces correct tags for all the statements when there exists a \code{try-catch} block. Second,
 we evaluated {\xstate} as individual. That is, we assumed that
-{\xblock} predicts correctly whether a code snippet needs a
-\code{try-catch} block or not. Thus, we used the code snippets that
-need such a block in the oracle and used {\xstate} to predict if the
-statements in those snippets need to be inside a \code{try-catch}
-block or not.
+{\xblock} predicts correctly whether a code snippet needs
+\code{try-catch} blocks or not. Thus, we put the code snippets that
+need such blocks in the oracle and used {\xstate} to predict the groupings of
+statements for the blocks in those snippets.
 
 %For a snippet that needs \code{try-catch}, but was predicted as
 %not, we consider it as incorrect because the resulting statements
