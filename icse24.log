@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  25 JUN 2023 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  26 JUN 2023 00:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1516,11 +1516,12 @@ surrounding objects on input line 40.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 44.
 
-[6.6 <./xtype-4.png>] (empirical-methodology.tex
+[6.6 <./xtype-4.png>] (empirical-methodology.tex (rq2-methodology.tex)
+(rq3-methodology.tex)
 Underfull \vbox (badness 2073) has occurred while \output is active []
 
  [7.7]
-Overfull \hbox (1.55713pt too wide) in paragraph at lines 214--219
+Overfull \hbox (1.55713pt too wide) in paragraph at lines 145--150
 \T1/LinuxBiolinumT-TLF/m/it/9 (-20) .[] \T1/LinuxLibertineT-TLF/m/it/9 (-20) Ba
 se-lines. \T1/LinuxLibertineT-TLF/m/n/9 (-20) Fuzzy-Catch [[]] lever-ages XRank
  to de-tect the exception-
@@ -1614,9 +1615,6 @@ surrounding objects on input line 25.
 [8.8]) (rq3-results.tex) (rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
-
-Underfull \vbox (badness 1859) has occurred while \output is active []
-
  [9.9]
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
@@ -1641,7 +1639,7 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (related-work.tex [10.10]) (conclusion.tex) (icse24.bbl
+)) (related-work.tex) (conclusion.tex) [10.10] (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1656,23 +1654,10 @@ LaTeX Info: Redefining \tempurl on input line 178.
 LaTeX Info: Redefining \tempurl on input line 210.
 LaTeX Info: Redefining \tempurl on input line 224.
 LaTeX Info: Redefining \tempurl on input line 240.
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF
- on input line 254.
-(C:\Program Files\MiKTeX\tex/latex/libertine\ts1linuxlibertinet-tlf.fd
-File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
-LinuxLibertineT-TLF.
-)
-LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 254.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \tempurl on input line 270.
-LaTeX Info: Redefining \tempurl on input line 287.
-LaTeX Info: Redefining \tempurl on input line 301.
-)
-(C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
+LaTeX Info: Redefining \tempurl on input line 255.
+LaTeX Info: Redefining \tempurl on input line 272.
+LaTeX Info: Redefining \tempurl on input line 286.
+) (C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (C:\Program Files\MiKTeX\tex/generic/stringenc\se-utf8.def
@@ -1705,38 +1690,37 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 77A3F82495BBE0A4DCA00AC095CBD913;4050.
  ) 
 Here is how much of TeX's memory you used:
- 37589 strings out of 476374
- 699469 string characters out of 5798669
+ 37544 strings out of 476374
+ 698253 string characters out of 5798669
  2001340 words of memory out of 5000000
- 56111 multiletter control sequences out of 15000+600000
- 753030 words of font info for 601 fonts, out of 8000000 for 9000
+ 56084 multiletter control sequences out of 15000+600000
+ 751399 words of font info for 589 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Progra
-m Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Program Files/MiKT
-eX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Program Files/MiKTeX/fonts/enc
-/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/liber
-tine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_tl
-ukpt.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{C:/P
-rogram Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Program Files
-/MiKTeX/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{C:/Program Files/MiKTeX/font
-s/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/
-libertine/lbtn_76gpa5.enc}<C:/Program Files/MiKTeX/fonts/type1/public/inconsola
-ta/Inconsolata-zi4b.pfb><C:/Program Files/MiKTeX/fonts/type1/public/inconsolata
-/Inconsolata-zi4r.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/Liberti
-neMathMI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/LibertineMathMI5
-.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/LibertineMathMI7.pfb><C:
-/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumT.pfb><C:/Program
- Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTB.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/libertine/LinBiolinumTI.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX/fonts/type1/p
-ublic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
-newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C
-:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1457006 bytes).
+{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Progra
+m Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Program Files/MiKT
+eX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKTeX/fonts/enc
+/dvips/libertine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/liber
+tine/lbtn_tlukpt.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1
+-4.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/P
+rogram Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{C:/Program Files
+/MiKTeX/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/MiKTeX/font
+s/enc/dvips/libertine/lbtn_76gpa5.enc}<C:/Program Files/MiKTeX/fonts/type1/publ
+ic/inconsolata/Inconsolata-zi4b.pfb><C:/Program Files/MiKTeX/fonts/type1/public
+/inconsolata/Inconsolata-zi4r.pfb><C:/Program Files/MiKTeX/fonts/type1/public/n
+ewtx/LibertineMathMI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/Libe
+rtineMathMI5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/LibertineMat
+hMI7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumT.pfb
+><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTB.pfb><C:/Pr
+ogram Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTI.pfb><C:/Program F
+iles/MiKTeX/fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX/f
+onts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX/fonts/t
+ype1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/t
+xmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
+Output written on icse24.pdf (11 pages, 1454163 bytes).
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
- 195 named destinations out of 1000 (max. 500000)
- 123105 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 194 named destinations out of 1000 (max. 500000)
+ 119009 words of extra memory for PDF output out of 128383 (max. 10000000)
 

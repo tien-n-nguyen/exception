@@ -92,110 +92,41 @@ $Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F$-score
 $=$ $\frac{2*Recall*Precision}{Recall+Precision}$. $TP$: true
 positive, $FN$: false negative, and $FP$: false positive.
 
-\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection\\}
+\input{rq2-methodology}
 
-\indent {\em Baselines.} None. FuzzyCatch (XRank/XHand) does not have
-this.
+\input{rq3-methodology}
 
-{\em Procedure.} We processed the Github dataset for this experiment
-as follows. For the snippets that need \code{try-catch}, but were
-predicted as not, we consider them as incorrect because the resulting
-statements predicted from {\xstate} do not make sense for incorrect
-{\xblock}'s detection. The snippets that do not need \code{try-catch},
-but were predicted as yes, we also consider them as incorrect for the
-same reason. Thus, for the evaluation of {\xstate}, we used the set of
-code snippets that {\xblock} predicted correctly as needing a
-\code{try-catch} block. We used the same data splitting scheme with
-80\%, 10\%, and 10\% for training, tuning, and testing as in RQ1. Each code
-snippet in the testing set and the trained R-GCN model in {\xblock}
-are the input of the GNNExplainer model in {\xstate} in this
-experiment.
+%\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection\\}
 
-%In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that are predicted as needing a try-catch block, the \tool will run the try-catch statement detection on them. To fully use the dataset and evaluate \tool on more data, here we estimate the accuracy of RQ1 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 to train, validate and test the model performance.
+%\indent {\em Baselines.} None. FuzzyCatch (XRank/XHand) does not have this.
 
-{\em Tuning.} We used the same parameters as in
-GNNExplainer~\cite{GNNExplainer}. It also has a parameter on the limit
-of the number $N$ of the nodes in the explanation sub-graph. We
-varied $N$ from 1 to 10. The average number of statements in a
-\code{try-catch} block in Github dataset is 5.9.
+%{\em Procedure.} We processed the Github dataset for this experiment
+%as follows. For the snippets that need \code{try-catch}, but were
+%predicted as not, we consider them as incorrect because the resulting
+%statements predicted from {\xstate} do not make sense for incorrect
+%{\xblock}'s detection. The snippets that do not need \code{try-catch},
+%but were predicted as yes, we also consider them as incorrect for the
+%same reason. Thus, for the evaluation of {\xstate}, we used the set of
+%code snippets that {\xblock} predicted correctly as needing a
+%\code{try-catch} block. We used the same data splitting scheme with
+%80\%, 10\%, and 10\% for training, tuning, and testing as in RQ1. Each code
+%snippet in the testing set and the trained R-GCN model in {\xblock}
+%are the input of the GNNExplainer model in {\xstate} in this
+%experiment.
 
-%We tuned {\tool} in this RQ by testing different node number limits for generated sub-graph. The range of the node number limit we tested is from $1$ to $10$ nodes.
+%{\em Tuning.} We used the same parameters as in
+%GNNExplainer~\cite{GNNExplainer}. It also has a parameter on the limit
+%of the number $N$ of the nodes in the explanation sub-graph. We
+%varied $N$ from 1 to 10. The average number of statements in a
+%\code{try-catch} block in Github dataset is 5.9.
 
-{\em Metrics.} If {\xstate} predicts for a statement correctly if it
-is in a \code{try-catch} block or not, we count it as a correct case.
-Otherwise, it is an incorrect one. \textbf{Accuracy} is
-defined as the ratio between the number of correct statements over the
-total number of statements.
-
-%For each statement in the try-catch block, if
-%\tool included it in the generated sub-graph, we think the prediction
-%on it is correct. Otherwise, it is incorrect. The Accuracy is
-%calculated as $Accuracy = \frac{Correct}{Correct + Incorrect}$.
-
-\subsubsection{RQ3. Effectiveness on Exception Type Recommendation\\}
-
-{\em Baselines.} None. XRank/Xhand do not support this feature.
-
-%We compared {\tool} against the state-of-the-art exception type recommendation approach XRank~\cite{nguyen2020code}.
-
-{\em Procedure.} We processed the Github dataset for this experiment
-in the same manner as in RQ2 because the result of {\xtype} (i.e.,
-what exception types need to be in the \code{catch} clause) makes
-sense only when one knows that the given code snippet needs to have a
-\code{try-catch} block. Thus, for the evaluation of {\xtype}, we used
-the set of code snippets that {\xblock} predicted correctly as needing
-a try-catch block. We used the same splitting as RQ2. The exception
-types in the \code{catch} clauses are used as the labels.
-
-%In this RQ, \tool is evaluated on the DeepEx dataset. Because only the data points that \tool can successfully predict all statements in the try-catch block successfully, the \tool will run the exception type prediction on them. Similarly, as RQ2, to fully use the dataset and evaluate \tool on more data, here we estimate the Accuracy of RQ2 prediction is 100\% which means that we use all positive data in DeepEx dataset as the data we use in this RQ. We do the same data split as RQ1 and RQ2 to train, validate and test the model performance.
-
-{\em Tuning.} We tuned {\tool} with autoML~\cite{NNI} for the
-key hyper-parameters to have the best performance as in RQ1 including
-epoch size, batch size, learning rate, vector length, and R-GCN layers.
-%(1) Epoch size (50, 100, 150); (2) Batch size (32, 64, 128); (3)
-%Learning rate (0.001, 0.003, 0.005); (4) Vector length of feature
-%embeddings and its output (64, 128, 256); (5) Number of R-GCN layers
-%(4, 6, 8).
-
-{\em Metrics.} Let us use $E$ and $P$ to denote the set of the
-exception types in the oracle and the set of predicted
-ones for one code snippet in the testing set. We aim to measure 1) how
-precise {\tool} predicts the exception types ({\bf Precision}), i.e.,
-how accurate the predicted types in $P$, and 2) how much {\tool} can
-cover in its prediction with respect to the oracle ({\bf Recall}),
-i.e., how much of $E$ that the predicted set $P$ can cover. Toward
-measuring Precision and Recall, we define {\bf Hit-$n$} as the number
-of the cases in which the predicted set $P$ contains
-{\em at least} $n$ correct exception types, i.e., $P$ and $E$ overlaps
-{\em at least} $n$ exception types regardless of the sizes of both
-sets.
-
-In Github dataset, more than 98.1\% of the code snippets have 1--3
-exception types in a \code{catch} clause. Thus, we compute Hit-$n$,
-Precision, and Recall for the size of $E$ (|$E$|) from 1--3 and 3+,
-and for the size of $P$ (|$P$|) from 1--3 and 3+.
-%
-When computing Recall, we use the set $E$ as the basis. Recall at a
-size $N_E$ of $E$ is computed as the ratio between Hit-$n$ at that
-size and the total number of cases with that size $N_E$. We compute
-Recall for all $N_E$ = 1--3, and 3+, and $n$=1--$N_E$. We also define
-{\bf \code{Hit-All}$_{Rec}$} as \code{Hit}-$n$ when the number $n$ of
-overlapping exception types is equal to |$E$|, i.e., all exception
-types in the oracle set for a code snippet are covered.
-%
-When computing Precision, we use the set $P$ as the basis. Precision
-at a size $N_P$ of $P$ is computed as the ratio between Hit-$n$ at
-that size and the total number of cases with that size $N_P$. We
-compute Precision for all $N_P$ = 1--3, and $n$=1--$N_P$. We also
-define {\bf \code{Hit-All}$_{Prec}$} as \code{Hit}-$n$ when the number $n$
-of overlapping exception types is equal to |$P$|, i.e., all predicted
-types in the predicted set $P$ for a snippet are
-correct.
+%{\em Metrics.} If {\xstate} predicts for a statement correctly if it
+%is in a \code{try-catch} block or not, we count it as a correct case.
+%Otherwise, it is an incorrect one. \textbf{Accuracy} is
+%defined as the ratio between the number of correct statements over the
+%total number of statements.
 
 
-%In this RQ, we use \textbf{Hit-n} as the evaluation metrics. Hit-n
-%here means within the true labeled statement set, there are at least
-%\textbf{n} statements predicted correctly by \tool.
 
 \subsubsection{RQ4. Ablation Study}
 
