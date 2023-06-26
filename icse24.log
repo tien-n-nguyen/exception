@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1834,16 +1834,9 @@ e 39.
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 58.
 
-(./rq2-methodology.tex) (./rq3-methodology.tex
+(./rq2-methodology.tex) (./rq3-methodology.tex)
 
-Package natbib Warning: Citation `NNI' on page 7 undefined on input line 18.
-
-)
-Underfull \vbox (badness 2073) has occurred while \output is active []
-
- [7.7]
-
-Package natbib Warning: Citation `xrank-fse20' on page 8 undefined on input lin
+Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 145.
 
 )) (./empirical-results.tex (./rq1-results.tex
@@ -1859,10 +1852,13 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 14.
 
 
-Package natbib Warning: Citation `xrank-fse20' on page 8 undefined on input lin
+Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 14.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7.7]
 Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
@@ -1927,7 +1923,11 @@ Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
  [] 
  []
 
-) (./rq2-results.tex (./example-experiment.tex
+) (./rq2-results.tex
+Underfull \vbox (badness 5161) has occurred while \output is active []
+
+
+(./example-experiment.tex
 
 Class acmart Warning: A possible image without description on input line 44.
 
@@ -1936,7 +1936,7 @@ Class acmart Warning: A possible image without description on input line 44.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 25.
 
-[8.8]) (./rq3-results.tex
+) (./rq3-results.tex [8.8]
 Overfull \hbox (1.77191pt too wide) in paragraph at lines 136--153
  \T1/LinuxBiolinumT-TLF/m/it/9 (-20) 9.3.2 \T1/LinuxLibertineT-TLF/b/n/9 Pre-ci
 -sion on Ex-cep-tion Type Rec-om-men-da-tion\T1/LinuxBiolinumT-TLF/m/it/9 (-20)
@@ -1991,12 +1991,13 @@ ne 34.
 Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
 
 
-[10.10]
 
-Package natbib Warning: Citation `throw-ase22' on page 11 undefined on input li
+Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
 ) (./conclusion.tex)
+Package atenddvi Info: Last page = 10.
+ [10.10]
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -2016,17 +2017,9 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-Package atenddvi Info: Last page = 11.
-[11.11
-
-]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 529.
- (./icse24.aux)
+(./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
 Package rerunfilecheck Info: File `icse24.out' has not changed.
@@ -2035,13 +2028,16 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 33065 strings out of 493014
- 597149 string characters out of 6133352
- 833275 words of memory out of 5000000
- 35049 multiletter control sequences out of 15000+600000
- 225532 words of font info for 439 fonts, out of 8000000 for 9000
+ 33054 strings out of 493014
+ 596897 string characters out of 6133352
+ 833273 words of memory out of 5000000
+ 35048 multiletter control sequences out of 15000+600000
+ 224653 words of font info for 433 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_jtta5h.enc
@@ -2071,10 +2067,10 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 1519374 bytes).
+Output written on icse24.pdf (10 pages, 1514893 bytes).
 PDF statistics:
- 484 PDF objects out of 1000 (max. 8388607)
- 420 compressed objects within 5 object streams
- 175 named destinations out of 1000 (max. 500000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 416 compressed objects within 5 object streams
+ 174 named destinations out of 1000 (max. 500000)
  63197 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -11,40 +11,51 @@ CodeBERT model without any fine-tuning step as in RQ1.
 
 {\em Tuning.} We used the same tuning as in RQ1.
 
-{\em Metrics.} Let us use $E$ and $P$ to denote the set of the
-exception types in the oracle and the set of predicted
-ones for one code snippet in the testing set. We aim to measure 1) how
-precise {\tool} predicts the exception types ({\bf Precision}), i.e.,
-how accurate the predicted types in $P$, and 2) how much {\tool} can
-cover in its prediction with respect to the oracle ({\bf Recall}),
-i.e., how much of $E$ that the predicted set $P$ can cover. Toward
-measuring Precision and Recall, we define {\bf Hit-$n$} as the number
-of the cases in which the predicted set $P$ contains
-{\em at least} $n$ correct exception types, i.e., $P$ and $E$ overlaps
-{\em at least} $n$ exception types regardless of the sizes of both
-sets.
+{\em Metrics.} We used the same metrics as in RQ1. However, we
+computed Recall, Precision, and F-score in two ways. First, we evaluate {\xtype}
+in connection with {\xblock} and {\xstate}. That is, we consider a correct case if {xblock} 
+gives a correct prediction on whether \code{try-catch} blocks are needed, {\xstate} produces 
+correct tags for all the statements, and {\xtype} 
+predicted correctly on the exceptions that need to be caught for all \code{try-catch} blocks. 
+Second, we evaluate {\xtype} as individual. That is, we assumed that both {\xblock} and {\xstate}
+have given 100\% correct prediction results for their own tasks. Thus, we put the code snippets that
+need \code{try-catch} blocks and also have statements all labelled correctly in the oracle and used
+{\xtype} to predict exceptions to be caught.
 
-In Github dataset, more than 98.1\% of the code snippets have 1--3
-exception types in a \code{catch} clause. Thus, we compute Hit-$n$,
-Precision, and Recall for the size of $E$ (|$E$|) from 1--3 and 3+,
-and for the size of $P$ (|$P$|) from 1--3 and 3+.
+%Let us use $E$ and $P$ to denote the set of the
+%exception types in the oracle and the set of predicted
+%ones for one code snippet in the testing set. We aim to measure 1) how
+%precise {\tool} predicts the exception types ({\bf Precision}), i.e.,
+%how accurate the predicted types in $P$, and 2) how much {\tool} can
+%cover in its prediction with respect to the oracle ({\bf Recall}),
+%i.e., how much of $E$ that the predicted set $P$ can cover. Toward
+%measuring Precision and Recall, we define {\bf Hit-$n$} as the number
+%of the cases in which the predicted set $P$ contains
+%{\em at least} $n$ correct exception types, i.e., $P$ and $E$ overlaps
+%{\em at least} $n$ exception types regardless of the sizes of both
+%sets.
 %
-When computing Recall, we use the set $E$ as the basis. Recall at a
-size $N_E$ of $E$ is computed as the ratio between Hit-$n$ at that
-size and the total number of cases with that size $N_E$. We compute
-Recall for all $N_E$ = 1--3, and 3+, and $n$=1--$N_E$. We also define
-{\bf \code{Hit-All}$_{Rec}$} as \code{Hit}-$n$ when the number $n$ of
-overlapping exception types is equal to |$E$|, i.e., all exception
-types in the oracle set for a code snippet are covered.
-%
-When computing Precision, we use the set $P$ as the basis. Precision
-at a size $N_P$ of $P$ is computed as the ratio between Hit-$n$ at
-that size and the total number of cases with that size $N_P$. We
-compute Precision for all $N_P$ = 1--3, and $n$=1--$N_P$. We also
-define {\bf \code{Hit-All}$_{Prec}$} as \code{Hit}-$n$ when the number $n$
-of overlapping exception types is equal to |$P$|, i.e., all predicted
-types in the predicted set $P$ for a snippet are
-correct.
+%In Github dataset, more than 98.1\% of the code snippets have 1--3
+%exception types in a \code{catch} clause. Thus, we compute Hit-$n$,
+%Precision, and Recall for the size of $E$ (|$E$|) from 1--3 and 3+,
+%and for the size of $P$ (|$P$|) from 1--3 and 3+.
+%%
+%When computing Recall, we use the set $E$ as the basis. Recall at a
+%size $N_E$ of $E$ is computed as the ratio between Hit-$n$ at that
+%size and the total number of cases with that size $N_E$. We compute
+%Recall for all $N_E$ = 1--3, and 3+, and $n$=1--$N_E$. We also define
+%{\bf \code{Hit-All}$_{Rec}$} as \code{Hit}-$n$ when the number $n$ of
+%overlapping exception types is equal to |$E$|, i.e., all exception
+%types in the oracle set for a code snippet are covered.
+%%
+%When computing Precision, we use the set $P$ as the basis. Precision
+%at a size $N_P$ of $P$ is computed as the ratio between Hit-$n$ at
+%that size and the total number of cases with that size $N_P$. We
+%compute Precision for all $N_P$ = 1--3, and $n$=1--$N_P$. We also
+%define {\bf \code{Hit-All}$_{Prec}$} as \code{Hit}-$n$ when the number $n$
+%of overlapping exception types is equal to |$P$|, i.e., all predicted
+%types in the predicted set $P$ for a snippet are
+%correct.
 
 
 %In this RQ, we use \textbf{Hit-n} as the evaluation metrics. Hit-n
