@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1855,10 +1855,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 14.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7.7]
+[7.7]
 Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
@@ -1923,11 +1920,7 @@ Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
  [] 
  []
 
-) (./rq2-results.tex
-Underfull \vbox (badness 5161) has occurred while \output is active []
-
-
-(./example-experiment.tex
+) (./rq2-results.tex (./example-experiment.tex
 
 Class acmart Warning: A possible image without description on input line 44.
 
@@ -1946,7 +1939,7 @@ Overfull \hbox (1.77191pt too wide) in paragraph at lines 136--153
 ) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
- [9.9]
+
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
  []
@@ -1958,9 +1951,10 @@ Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
 
 ) (./rq5-results.tex
 
-Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
-ne 14.
+Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
+e 14.
 
+[9.9]
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 33.
@@ -2028,16 +2022,13 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 33054 strings out of 493014
- 596897 string characters out of 6133352
- 833273 words of memory out of 5000000
+ 33057 strings out of 493014
+ 596978 string characters out of 6133352
+ 833274 words of memory out of 5000000
  35048 multiletter control sequences out of 15000+600000
- 224653 words of font info for 433 fonts, out of 8000000 for 9000
+ 224907 words of font info for 435 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_jtta5h.enc
@@ -2067,7 +2058,7 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1514893 bytes).
+Output written on icse24.pdf (10 pages, 1515043 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  416 compressed objects within 5 object streams
