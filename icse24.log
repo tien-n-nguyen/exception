@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 02:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  26 JUN 2023 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2039,7 +2039,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  33065 strings out of 493014
  597149 string characters out of 6133352
- 833274 words of memory out of 5000000
+ 833275 words of memory out of 5000000
  35049 multiletter control sequences out of 15000+600000
  225532 words of font info for 439 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
