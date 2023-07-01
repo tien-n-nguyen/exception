@@ -7,15 +7,17 @@
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{|p{1.75cm}<{\centering}|p{1.80cm}<{\centering}|p{1.80cm}<{\centering}|}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{0.90cm}<{\centering} | p{0.90cm}<{\centering}| p{0.90cm}<{\centering}|}
 		  \hline
-			\multirow{2}{*}{} & \multicolumn{2}{c|}{Github Dataset} \\
-			\cline{2-3}
-			  & \tool  & CodeBERT (w/o fine-tuning) \\
+			\multirow{2}{*}{} & \multicolumn{3}{c|}{Github Dataset} \\
+			\cline{2-4}
+			  & Recall  & Precision & F-score \\
 			\hline
-			Recall    & 0.9842 & \textbf{0.9944}\\
-			Precision & \textbf{0.9805} & 0.5010\\
-			F-score   & \textbf{0.9824} & 0.6663\\
+			CodeBERT w/o fine-tuning &  \textbf{0.9944} & 0.5010  & 0.6663\\
+			\hline
+			XRank &  &  & \\
+			\hline
+			\tool   & 0.9842  &  \textbf{0.9805} & \textbf{0.9824}\\
 			\hline
 		\end{tabular}
 		\label{tab:xblock}

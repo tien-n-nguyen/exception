@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  29 JUN 2023 02:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  30 JUN 2023 23:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1846,72 +1846,77 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.2pt on input line 10.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 14.
+
+Overfull \hbox (3.9101pt too wide) in paragraph at lines 14--14
+ []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
+ []
+
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 16.
- [7.7]
-Overfull \hbox (1.39043pt too wide) in paragraph at lines 87--88
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 8.0pt on input line 20.
+[7.7]
+Overfull \hbox (1.39043pt too wide) in paragraph at lines 89--90
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
 
 
-Overfull \hbox (2.89017pt too wide) in paragraph at lines 89--89
+Overfull \hbox (2.89017pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/sc/8 (-20) Neurex| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.42| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.47| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.59| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.66| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.71| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.74| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.76| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.77| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--89
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.78| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 89--90
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--92
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.79| 
  []
 
 
-Overfull \hbox (9.42393pt too wide) in paragraph at lines 83--95
+Overfull \hbox (9.42393pt too wide) in paragraph at lines 85--97
  [] 
  []
 
@@ -2020,7 +2025,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  33054 strings out of 493014
  596903 string characters out of 6133352
- 833272 words of memory out of 5000000
+ 833273 words of memory out of 5000000
  35048 multiletter control sequences out of 15000+600000
  224509 words of font info for 433 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -2052,7 +2057,7 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1514169 bytes).
+Output written on icse24.pdf (10 pages, 1514234 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  416 compressed objects within 5 object streams
