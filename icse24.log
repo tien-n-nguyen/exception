@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  30 JUN 2023 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  1 JUL 2023 01:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1856,67 +1856,67 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 20.
 [7.7]
-Overfull \hbox (1.39043pt too wide) in paragraph at lines 89--90
+Overfull \hbox (1.39043pt too wide) in paragraph at lines 92--93
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) N10| 
  []
 
 
-Overfull \hbox (2.89017pt too wide) in paragraph at lines 91--91
+Overfull \hbox (2.89017pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/sc/8 (-20) Neurex| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.42| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.47| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.59| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.66| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.71| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.74| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.76| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.77| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--91
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--94
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.78| 
  []
 
 
-Overfull \hbox (1.28067pt too wide) in paragraph at lines 91--92
+Overfull \hbox (1.28067pt too wide) in paragraph at lines 94--95
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) 0.79| 
  []
 
 
-Overfull \hbox (9.42393pt too wide) in paragraph at lines 85--97
+Overfull \hbox (9.42393pt too wide) in paragraph at lines 88--100
  [] 
  []
 
@@ -1929,14 +1929,14 @@ Class acmart Warning: A possible image without description on input line 44.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 25.
 
-) (./rq3-results.tex [8.8]
+) (./rq3-results.tex
 Overfull \hbox (1.77191pt too wide) in paragraph at lines 136--153
  \T1/LinuxBiolinumT-TLF/m/it/9 (-20) 9.3.2 \T1/LinuxLibertineT-TLF/b/n/9 Pre-ci
 -sion on Ex-cep-tion Type Rec-om-men-da-tion\T1/LinuxBiolinumT-TLF/m/it/9 (-20)
  .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []4[]
  []
 
-) (./rq4-results.tex
+[8.8]) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
 
@@ -2021,13 +2021,16 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 33054 strings out of 493014
- 596903 string characters out of 6133352
- 833273 words of memory out of 5000000
+ 33045 strings out of 493014
+ 596660 string characters out of 6133352
+ 833272 words of memory out of 5000000
  35048 multiletter control sequences out of 15000+600000
- 224509 words of font info for 433 fonts, out of 8000000 for 9000
+ 223630 words of font info for 427 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/lbtn_jtta5h.enc
@@ -2057,7 +2060,7 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1514234 bytes).
+Output written on icse24.pdf (10 pages, 1510954 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  416 compressed objects within 5 object streams

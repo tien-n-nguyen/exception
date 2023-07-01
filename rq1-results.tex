@@ -28,17 +28,20 @@
 
 %Table~\ref{tab:xblock} displays the comparison result.
 
-As seen in Table~\ref{tab:xblock}, {\tool} achieves high performance
-across two datasets. With a Precision of 68\%, it can decide correctly
-2 out of 3 cases if a code snippet needs a \code{try-catch}
-block or not. With a Recall of 79\%, {\tool} covers 4 out of
-5 cases that needs to be placed in a \code{try-catch} block. Users
-just need to find 1 out of 5 cases. As a result, it achieves a high
-F-score of 0.73.
+As seen in Table~\ref{tab:xblock}, {\tool} achieves very high Precision, Recall and F-score
+on the Github Dataset---all above 98\%. In comparison, the CodeBERT baseline model has a much lower Precision, tantamount to a random classifier. 
+However, it achieves a higher Recall. After examining the result, we find that 
+the model overwhelmingly predicts that the input code snippet contains a try-catch block: 
+In our balanced test dataset that contains 30764 samples, only 236 samples receives the negative label from the CodeBert baseline model. 
+
+%With a Precision of 68\%, it can decide correctly
+%2 out of 3 cases if a code snippet needs a \code{try-catch}
+%block or not. With a Recall of 79\%, {\tool} covers 4 out of
+%5 cases that needs to be placed in a \code{try-catch} block. Users
+%just need to find 1 out of 5 cases. As a result, it achieves a high
+%F-score of 0.73.
 %In FuzzyCatch dataset, {\tool} also achieves a high level of
 %performance with XX\% precision, YY\% recall, and ZZ\% F-score.
-In comparison, {\tool} improves relatively over XRank 28.3\% in
-Precision and 12.3\% in F-score.
 
 %the state-of-the-art approach, XRank, {\bf -7.1\%} in Recall, {\bf
 %  28.3\%} in Precision, and {\bf 12.3\%} in F-score.
@@ -49,31 +52,31 @@ Precision and 12.3\% in F-score.
 %We examined closely the cases that {\tool} performed better than
 %XRank.
 
-Examining the result, we reported the following. First, if the
-association score of {\em only one API method} in the snippet and {\em one
-exception} is higher than a threshold, XRank decides that a
-\code{try-catch} block is needed.  Thus, it often tends to output
-  ``Yes''. {\em Its recall is slightly
-  better, but precision is just marginally better than a coin toss
-  (0.53) in our balanced dataset. That leads to lower F-score than {\tool}}.
-%
-Second,
-%XRank relies on the association scores between the presence of
-%API method calls and the presence of a \code{try-catch} block.
-the decisions on the necessity of a \code{try-catch} block or the
-exception types depend on the pre-defined thresholds in XRank on those
-association scores. Thus, those pre-defined thresholds might not be
-suitable across the libraries. Third, for the incomplete code
-snippets in which the names of the API methods in different packages
-or libraries are the same (e.g., \code{toString} or \code{getText} in
-various JDK packages), XRank cannot distinguish them and use one entry
-in the dictionary for them due to its IR approach. In contrast, unlike
-XRank which considers only the API method calls in a \code{try-catch}
-block, {\tool} considers the code in the block as the context to learn
-the program dependencies/relations among the names of those API
-elements. That is, it leverages the relations among the names of API
-elements to learn their identities, thus, deciding better the need of
-\code{try-catch} blocks and the corresponding exception types.
+%Examining the result, we reported the following. First, if the
+%association score of {\em only one API method} in the snippet and {\em one
+%exception} is higher than a threshold, XRank decides that a
+%\code{try-catch} block is needed.  Thus, it often tends to output
+%  ``Yes''. {\em Its recall is slightly
+%  better, but precision is just marginally better than a coin toss
+%  (0.53) in our balanced dataset. That leads to lower F-score than {\tool}}.
+%%
+%Second,
+%%XRank relies on the association scores between the presence of
+%%API method calls and the presence of a \code{try-catch} block.
+%the decisions on the necessity of a \code{try-catch} block or the
+%exception types depend on the pre-defined thresholds in XRank on those
+%association scores. Thus, those pre-defined thresholds might not be
+%suitable across the libraries. Third, for the incomplete code
+%snippets in which the names of the API methods in different packages
+%or libraries are the same (e.g., \code{toString} or \code{getText} in
+%various JDK packages), XRank cannot distinguish them and use one entry
+%in the dictionary for them due to its IR approach. In contrast, unlike
+%XRank which considers only the API method calls in a \code{try-catch}
+%block, {\tool} considers the code in the block as the context to learn
+%the program dependencies/relations among the names of those API
+%elements. That is, it leverages the relations among the names of API
+%elements to learn their identities, thus, deciding better the need of
+%\code{try-catch} blocks and the corresponding exception types.
 
 %Tien:RQ2 Table
 \begin{table}[t]
@@ -98,35 +101,35 @@ elements to learn their identities, thus, deciding better the need of
 \end{table}
 
 
-Take as an example a code snippet (not shown) in our dataset with the
-presence of \code{getText}. This name is popular with a very large number
-of API method candidates.
-%For example, in a code snippet, \code{getText} has a very large number
+%Take as an example a code snippet (not shown) in our dataset with the
+%presence of \code{getText}. This name is popular with a very large number
 %of API method candidates.
-However, considering the relation between \code{css} and
-\code{getText} in the code \code{`...css()\-.getText()'},~the number
-of candidates for \code{getText} is only 4. Finally, considering~the
-return value of \code{getText} as an argument of
-\code{setInnerText(...)} in the code
-\code{`setInnerText(...css()\-.getText())'}, only one candidate is
-remained:
-\code{com\-.google\-.gwt\-.resources\-.client\-.CssResource\-.getText()}.
-Thus, those relations actually help identify the API elements,
-leading to better decision in {\tool} on the \code{try-catch} block
-and exception types.
-%
-Because it has not seen any \code{try-catch} block involving
-\code{com\-.....getText()} and those related ones, {\tool} decides
-that the code snippet does not need a \code{try-catch} block. In
-contrast, XRank considers only the {\em pairwise} associate scores
-between an {\em individual API method call} and the exception types
-in a \code{catch} clause. It disregards those above
-relations/dependencies among the API names. Thus, it might
-misunderstand that \code{getText} needs a \code{try-catch} due to the
-co-occurrences of other API elements that need one. That is, without
-the dependencies, XRank might make incorrect identification of the API
-elements via their names, leading to incorrect exception
-recommendation.
+%%For example, in a code snippet, \code{getText} has a very large number
+%%of API method candidates.
+%However, considering the relation between \code{css} and
+%\code{getText} in the code \code{`...css()\-.getText()'},~the number
+%of candidates for \code{getText} is only 4. Finally, considering~the
+%return value of \code{getText} as an argument of
+%\code{setInnerText(...)} in the code
+%\code{`setInnerText(...css()\-.getText())'}, only one candidate is
+%remained:
+%\code{com\-.google\-.gwt\-.resources\-.client\-.CssResource\-.getText()}.
+%Thus, those relations actually help identify the API elements,
+%leading to better decision in {\tool} on the \code{try-catch} block
+%and exception types.
+%%
+%Because it has not seen any \code{try-catch} block involving
+%\code{com\-.....getText()} and those related ones, {\tool} decides
+%that the code snippet does not need a \code{try-catch} block. In
+%contrast, XRank considers only the {\em pairwise} associate scores
+%between an {\em individual API method call} and the exception types
+%in a \code{catch} clause. It disregards those above
+%relations/dependencies among the API names. Thus, it might
+%misunderstand that \code{getText} needs a \code{try-catch} due to the
+%co-occurrences of other API elements that need one. That is, without
+%the dependencies, XRank might make incorrect identification of the API
+%elements via their names, leading to incorrect exception
+%recommendation.
 
 %considering Groum but only to get better API ...
 
