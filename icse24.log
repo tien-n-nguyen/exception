@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  2 JUL 2023 01:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  2 JUL 2023 02:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1913,11 +1913,12 @@ Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
 Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 14.
 
+[9.9]
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 33.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 33.
 
-[9.9] (./example-bug.tex
+(./example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1983,14 +1984,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  33052 strings out of 493014
  596790 string characters out of 6133352
- 833259 words of memory out of 5000000
+ 833238 words of memory out of 5000000
  35053 multiletter control sequences out of 15000+600000
  223524 words of font info for 426 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -2022,10 +2020,10 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1613884 bytes).
+Output written on icse24.pdf (10 pages, 1614475 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 416 compressed objects within 5 object streams
+ 482 PDF objects out of 1000 (max. 8388607)
+ 417 compressed objects within 5 object streams
  174 named destinations out of 1000 (max. 500000)
  63202 words of extra memory for PDF output out of 74296 (max. 10000000)
 
