@@ -24,6 +24,9 @@
 	\end{center}
 \end{table}
 
+
+
+
 %{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
 
 %Table~\ref{tab:xblock} displays the comparison result.
@@ -34,6 +37,7 @@ However, it achieves a higher Recall. After examining the result, we find that
 the model overwhelmingly predicts that the input code snippet contains a try-catch block: 
 In our balanced test dataset that contains 30764 samples, only 236 samples receives the negative label from the CodeBert baseline model. 
 
+\input{rq1-case-study}
 %With a Precision of 68\%, it can decide correctly
 %2 out of 3 cases if a code snippet needs a \code{try-catch}
 %block or not. With a Recall of 79\%, {\tool} covers 4 out of
@@ -79,26 +83,26 @@ In our balanced test dataset that contains 30764 samples, only 236 samples recei
 %\code{try-catch} blocks and the corresponding exception types.
 
 %Tien:RQ2 Table
-\begin{table}[t]
-  \caption{Try-Catch Statement Detection Effectiveness (RQ2)}
-  \vspace{-12pt}
-	\begin{center}
-		\small
-		\renewcommand{\arraystretch}{1} 
-		\begin{tabular}{p{0.8cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}}
-			\hline
-			 	&  \multicolumn{10}{c}{Accuracy} \\
-			\cline{2-11}
-			     	&  N1  & N2   &  N3  & N4   &N5    & N6   &N7    & N8   &N9    & N10 \\
-			\hline
-			\tool     & 0.42 & 0.47 & 0.59 & 0.66 & 0.71 & 0.74 & 0.76 & 0.77 & 0.78  & 0.79  \\
-			\hline
-		\end{tabular}
-		Nx is number of nodes in the explanation
-                sub-graph (\code{try-catch} block)
-		\label{tab:rq2}
-	\end{center}
-\end{table}
+%\begin{table}[t]
+%  \caption{Try-Catch Statement Detection Effectiveness (RQ2)}
+%  \vspace{-12pt}
+%	\begin{center}
+%		\small
+%		\renewcommand{\arraystretch}{1} 
+%		\begin{tabular}{p{0.8cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}|p{0.4cm}<{\centering}}
+%			\hline
+%			 	&  \multicolumn{10}{c}{Accuracy} \\
+%			\cline{2-11}
+%			     	&  N1  & N2   &  N3  & N4   &N5    & N6   &N7    & N8   &N9    & N10 \\
+%			\hline
+%			\tool     & 0.42 & 0.47 & 0.59 & 0.66 & 0.71 & 0.74 & 0.76 & 0.77 & 0.78  & 0.79  \\
+%			\hline
+%		\end{tabular}
+%		Nx is number of nodes in the explanation
+%                sub-graph (\code{try-catch} block)
+%		\label{tab:rq2}
+%	\end{center}
+%\end{table}
 
 
 %Take as an example a code snippet (not shown) in our dataset with the
