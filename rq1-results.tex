@@ -7,7 +7,7 @@
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.05cm}<{\centering} | p{0.90cm}<{\centering} | p{0.90cm}<{\centering}| p{0.90cm}<{\centering}|}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{0.90cm}<{\centering} | p{0.95cm}<{\centering}| p{0.90cm}<{\centering}|}
 		  \hline
 			\multirow{2}{*}{} & \multicolumn{3}{c|}{Github Dataset} \\
 			\cline{2-4}
@@ -31,11 +31,15 @@
 
 %Table~\ref{tab:xblock} displays the comparison result.
 
-As seen in Table~\ref{tab:xblock}, {\tool} achieves very high Precision, Recall and F-score
-on the Github Dataset---all above 98\%. In comparison, the CodeBERT baseline model has a much lower Precision, tantamount to a random classifier. 
-However, it achieves a higher Recall. After examining the result, we find that 
-the model overwhelmingly predicts that the input code snippet contains a try-catch block: 
-In our balanced test dataset that contains 30764 samples, only 236 samples receives the negative label from the CodeBert baseline model. 
+As seen in Table~\ref{tab:xblock}, {\tool} achieves very high
+Precision, Recall and F-score on the Github Dataset---all above
+98\%. In comparison, the CodeBERT baseline model has a much lower
+Precision, tantamount to a random classifier.  However, it achieves a
+higher Recall. After examining the result, we find that the model
+overwhelmingly predicts that the input code snippet contains a
+\code{try-catch} block: In our balanced test dataset that contains
+30,764 samples, only 236 samples receives the negative label from 
+CodeBert.
 
 \input{rq1-case-study}
 %With a Precision of 68\%, it can decide correctly
