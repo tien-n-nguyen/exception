@@ -42,6 +42,34 @@ overwhelmingly predicts that the input code snippet contains a
 CodeBert.
 
 \input{rq1-case-study}
+
+\begin{table}[t]%[htpb]
+  \caption{Try-Catch Necessity Checking Evaluated On Test Partitions by The Number Of Try-Catch Blocks (RQ1) }
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{1.0cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering}| p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | }
+		  \hline
+			\multirow{2}{*}{} & \multicolumn{6}{c|}{Number of Try-Catch Blocks (Github Dataset)} \\
+			\cline{2-7}
+			  & Zero  & One & Two & Three & Four & Five\\
+			\hline
+			Precision & 0.0 &  1.0 & 1.0 & 1.0 & 1.0 & 1.0\\
+			\hline
+			Recall   & 0.0 &  0.9829 & 0.9988 & 1.0 & 0.9861 & 1.0\\
+			\hline
+			F1   & 0.0  &  0.9914 & 0.9994 & 1.0 & 0.9930 & 1.0\\
+			\hline
+		\end{tabular}
+		\label{tab:rq1-detailed-result}
+	\end{center}
+\end{table}
+
+In addition, we partition the test dataset according to the number of try-catch blocks, and evaluate {\xblock} on each partition. As can be seen in Table~\ref{tab:rq1-detailed-result}, {\xblock}
+gives 100\% correct prediction on the partitions with zero, three and five try-catch blocks. Furthermore, it achieves 100\% precision and above 0.99 F1 score across all the partitions, which shows
+that the prediction ability of {\xblock} remains strong regardless of the number of try-catch blocks in a code snippet.
+
 %With a Precision of 68\%, it can decide correctly
 %2 out of 3 cases if a code snippet needs a \code{try-catch}
 %block or not. With a Recall of 79\%, {\tool} covers 4 out of
