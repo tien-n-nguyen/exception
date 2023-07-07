@@ -34,12 +34,13 @@
 As seen in Table~\ref{tab:xblock}, {\tool} achieves very high
 Precision, Recall and F-score on the Github Dataset---all above
 98\%. In comparison, the CodeBERT baseline model has a much lower
-Precision, tantamount to a random classifier.  However, it achieves a
-higher Recall. After examining the result, we find that the model
-overwhelmingly predicts that the input code snippet contains a
-\code{try-catch} block: In our balanced test dataset that contains
-30,764 samples, only 236 samples receives the negative label from 
-CodeBert.
+Precision, around 50\%.
+%, tantamount to a random classifier.
+However, it achieves a slightly higher Recall. After examining the
+result, we find that the model overwhelmingly predicts that the input
+code snippet contains a \code{try-catch} block: In our balanced test
+dataset that contains 30,764 samples, only 236 samples receives the
+negative label (i.e., no \code{try-catch}) from CodeBert.
 
 \input{rq1-case-study}
 
@@ -66,9 +67,14 @@ CodeBert.
 	\end{center}
 \end{table}
 
-In addition, we partition the test dataset according to the number of try-catch blocks, and evaluate {\xblock} on each partition. As can be seen in Table~\ref{tab:rq1-detailed-result}, {\xblock}
-gives 100\% correct prediction on the partitions with zero, three and five try-catch blocks. Furthermore, it achieves 100\% precision and above 0.99 F1 score across all the partitions, which shows
-that the prediction ability of {\xblock} remains strong regardless of the number of try-catch blocks in a code snippet.
+In addition, we partitioned the test dataset according to the number
+of \code{try-catch} blocks, and evaluated {\xblock} on each
+partition. As seen in Table~\ref{tab:rq1-detailed-result}, {\xblock}
+gives 100\% correct prediction on the partitions with zero, three and
+five \code{try-catch} blocks. Moreover, it achieves 100\% precision
+and above 0.99 F1-score across all the partitions, showing that
+{\xblock}'s prediction ability remains strong regardless of the number
+of \code{try-catch} blocks in a code snippet.
 
 %With a Precision of 68\%, it can decide correctly
 %2 out of 3 cases if a code snippet needs a \code{try-catch}
