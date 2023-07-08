@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  8 JUL 2023 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  8 JUL 2023 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1846,16 +1846,11 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.2pt on input line 10.
-
-Overfull \hbox (2.48737pt too wide) in paragraph at lines 14--14
- []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
- []
-
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 16.
+(Font)              scaled to size 8.0pt on input line 14.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 20.
-[7.7] (./rq1-case-study.tex
+(Font)              scaled to size 8.0pt on input line 18.
+ [7.7] (./rq1-case-study.tex
 <rq1-case-study.png, id=277, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 
@@ -1871,36 +1866,18 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 59--59
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 57--57
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
-) (./rq2-results.tex
-
-LaTeX Warning: Reference `tab:rq2' on page 8 undefined on input line 4.
-
-(./example-experiment.tex
-Underfull \hbox (badness 5726) in paragraph at lines 42--42
-[]\T1/LinuxLibertineT-TLF/b/n/9 Figure 10: |Cor-rect Ex-cep-tion Han-dling Sug-
-ges-tion by
- []
-
-
-Class acmart Warning: A possible image without description on input line 44.
-
-)
-
-Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 25.
-
-) (./rq3-results.tex [8.8 <./rq1-case-study.png>]
-Overfull \hbox (1.77191pt too wide) in paragraph at lines 136--153
+) (./rq2-results.tex) (./rq3-results.tex
+Overfull \hbox (1.97891pt too wide) in paragraph at lines 136--153
  \T1/LinuxBiolinumT-TLF/m/it/9 (-20) 9.3.2 \T1/LinuxLibertineT-TLF/b/n/9 Pre-ci
 -sion on Ex-cep-tion Type Rec-om-men-da-tion\T1/LinuxBiolinumT-TLF/m/it/9 (-20)
- .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []4[]
+ .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []5[]
  []
 
-) (./rq4-results.tex
+[8.8 <./rq1-case-study.png>]) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
 
@@ -1922,7 +1899,7 @@ e 14.
 Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 33.
 
-[9.9] (./example-bug.tex
+(./example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1931,7 +1908,7 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (./related-work.tex
+[9.9])) (./related-work.tex
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 31.
@@ -1953,8 +1930,6 @@ Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
 ) (./conclusion.tex)
-Package atenddvi Info: Last page = 10.
- [10.10]
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -1974,9 +1949,17 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+Package atenddvi Info: Last page = 10.
+[10.10
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 529.
-(./icse24.aux)
+ (./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
 Package rerunfilecheck Info: File `icse24.out' has not changed.
@@ -1986,14 +1969,14 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 33057 strings out of 493014
- 596915 string characters out of 6133352
- 833369 words of memory out of 5000000
- 35054 multiletter control sequences out of 15000+600000
+ 33009 strings out of 493014
+ 596253 string characters out of 6133352
+ 833406 words of memory out of 5000000
+ 35026 multiletter control sequences out of 15000+600000
  223778 words of font info for 428 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2024,10 +2007,10 @@ rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1616126 bytes).
+Output written on icse24.pdf (10 pages, 1611120 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
- 175 named destinations out of 1000 (max. 500000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
+ 158 named destinations out of 1000 (max. 500000)
  63202 words of extra memory for PDF output out of 74296 (max. 10000000)
 

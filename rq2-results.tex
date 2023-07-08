@@ -1,51 +1,72 @@
 \subsection{Try-Catch Statement Detection (RQ2)}
 \label{sec:rq2}
 
-Table~\ref{tab:rq2} displays the result on detecting the statements
-that need to be placed in a \code{try-catch} block. $N_x$ is a parameter
-in GNNExplainer that defines the number of nodes in the explanation
-graph $\mathcal{G}_C$, i.e., the number of statements to be placed in the
-\code{try-catch} block.
+\begin{table}[t]%[htpb]
+\caption{Try-Catch Statement Detecting Comparison (Assume {\xblock} achieved 100\% accuracy) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+			  & Precision  & Recall & F-score \\
+			\hline
+			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
+			\hline
+			\tool   & \textbf{1.0}  &  \textbf{0.6198} & \textbf{0.7652}\\
+			\hline
+		\end{tabular}
+		\label{tab:xstate}
+	\end{center}
+\end{table}
+
+Table~\ref{tab:xstate} 
+
+%Table~\ref{tab:rq2} displays the result on detecting the statements
+%that need to be placed in a \code{try-catch} block. $N_x$ is a parameter
+%in GNNExplainer that defines the number of nodes in the explanation
+%graph $\mathcal{G}_C$, i.e., the number of statements to be placed in the
+%\code{try-catch} block.
+%%
+%As the number of nodes (statements) in $\mathcal{G}_C$ increases, the
+%number of correct statements covered also increases, thus, accuracy
+%increases. However, as the number of statements increases higher than
+%5, accuracy increases more slowly. In our dataset, the average size of
+%a \code{try-catch} block is 5.9 statements. As seen, the accuracy as
+%$N_x$=6 is 74\%. That is, by pointing out 6 statements on average,
+%{\tool} can correctly suggest 74\% of the total number of statements
+%in the dataset that need to be placed in \code{try-catch}
+%blocks. That is, it points out correctly 4.5 out of 6 statements to be
+%in a \code{try-catch} block. For the statements that do not need to be
+%placed in a \code{try-catch} block, {\tool} predicts correctly with
+%63\% accuracy (not shown).
 %
-As the number of nodes (statements) in $\mathcal{G}_C$ increases, the
-number of correct statements covered also increases, thus, accuracy
-increases. However, as the number of statements increases higher than
-5, accuracy increases more slowly. In our dataset, the average size of
-a \code{try-catch} block is 5.9 statements. As seen, the accuracy as
-$N_x$=6 is 74\%. That is, by pointing out 6 statements on average,
-{\tool} can correctly suggest 74\% of the total number of statements
-in the dataset that need to be placed in \code{try-catch}
-blocks. That is, it points out correctly 4.5 out of 6 statements to be
-in a \code{try-catch} block. For the statements that do not need to be
-placed in a \code{try-catch} block, {\tool} predicts correctly with
-63\% accuracy (not shown).
-
-\input{example-experiment}
-
-\vspace{2pt}
-\noindent {\bf Example.} Figure~\ref{fig:example-experiment} displays
-an example that {\tool} made correct suggestions. {\bf First}, it made
-a correct suggestion on the need of a \code{try-catch} block for the
-code at lines 1--8, 16.  {\bf Second}, GNNExplainer pointed out that
-{\xblock} used all the statements at lines 3--8 for such correct
-prediction. As a consequence, {\tool} correctly suggests to place
-lines 3--8 into a \code{try-catch} block. Note that, it also correctly
-pointed out that lines 1 and 16 do not need to be inside the
-\code{try-catch} block.  {\bf Third}, GNNExplainer gives three
-statements at lines 3, 6, and 8 highest scores. We can see that those
-lines contain three crucial API method calls: 1)
-\code{FileInputStream}, 2) \code{read}, and 3) \code{close}. {\bf
-  Fourth}, those three lines have data and control dependencies, which
-could help the model learn the identities of the API elements via
-their names \code{FileInputStream}, \code{read}, and \code{close},
-despite that the code snippet does not have the fully-qualified names
-for those API elements. This confirms the need of integrating {\em program
-  dependencies} in our solution. {\bf Finally}, {\tool} was also able
-to learn from the training corpus that those names refer to those API
-elements, which often correspond to the following exception types: 1)
-\code{FileInputStream} with \code{FileNotFoundException}, and 2)
-\code{FileInputStream.read} and \code{FileInputStream.close} with
-\code{IOException}.
+%\input{example-experiment}
+%
+%\vspace{2pt}
+%\noindent {\bf Example.} Figure~\ref{fig:example-experiment} displays
+%an example that {\tool} made correct suggestions. {\bf First}, it made
+%a correct suggestion on the need of a \code{try-catch} block for the
+%code at lines 1--8, 16.  {\bf Second}, GNNExplainer pointed out that
+%{\xblock} used all the statements at lines 3--8 for such correct
+%prediction. As a consequence, {\tool} correctly suggests to place
+%lines 3--8 into a \code{try-catch} block. Note that, it also correctly
+%pointed out that lines 1 and 16 do not need to be inside the
+%\code{try-catch} block.  {\bf Third}, GNNExplainer gives three
+%statements at lines 3, 6, and 8 highest scores. We can see that those
+%lines contain three crucial API method calls: 1)
+%\code{FileInputStream}, 2) \code{read}, and 3) \code{close}. {\bf
+%  Fourth}, those three lines have data and control dependencies, which
+%could help the model learn the identities of the API elements via
+%their names \code{FileInputStream}, \code{read}, and \code{close},
+%despite that the code snippet does not have the fully-qualified names
+%for those API elements. This confirms the need of integrating {\em program
+%  dependencies} in our solution. {\bf Finally}, {\tool} was also able
+%to learn from the training corpus that those names refer to those API
+%elements, which often correspond to the following exception types: 1)
+%\code{FileInputStream} with \code{FileNotFoundException}, and 2)
+%\code{FileInputStream.read} and \code{FileInputStream.close} with
+%\code{IOException}.
 
 
 %Note that {\tool} via {\xstate} predicts the statements to be placed
