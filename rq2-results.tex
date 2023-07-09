@@ -2,7 +2,26 @@
 \label{sec:rq2}
 
 \begin{table}[t]%[htpb]
-\caption{Try-Catch Statement Detecting Comparison (Assume {\xblock} achieved 100\% accuracy) (RQ2)}
+\caption{Try-Catch Statement Detecting Comparison (Evaluated {\xstate} in Connection with {\xblock}) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+			  & Precision  & Recall & F-score \\
+			\hline
+			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
+			\hline
+			\tool   & \textbf{0.9688}  &  \textbf{0.6072} & \textbf{0.7465}\\
+			\hline
+		\end{tabular}
+		\label{tab:xstate}
+	\end{center}
+\end{table}
+
+\begin{table}[t]%[htpb]
+\caption{Try-Catch Statement Detecting Comparison (Evaluated {\xstate} as Individual) (RQ2)}
   \vspace{-12pt}
   \small
 	\begin{center}

@@ -1,39 +1,39 @@
 \subsection{Exception Type Recommendation (RQ3)}
 \label{sec:rq3}
 
-\begin{table}[t]
-  \caption{Detailed Results on Different Numbers of Exception Types in a
-    \code{catch} clause in Oracle Set (RQ3) (Recall)}
-  \vspace{-12pt}
-	{\small
-	  \begin{center}
-            \tabcolsep 3.5pt
-			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{4.5cm}<{\centering}|p{1.3cm}<{\centering}|p{1.5cm}<{\centering}}
-				\hline
-				\# Ex. Types in \code{catch} clause in Oracle Set & Metrics &  Accuracy\\
-				\hline
-				\multirow{1}{*}{1 (1,385 instances)}   & Hit-1  & 918 (66\%) \\
-				\hline
-				\multirow{2}{*}{2 (98 instances)}  & Hit-1   & 75 (77\%) \\
-				& Hit-2         &  41 (42\%) \\
-				\hline
-				\multirow{3}{*}{3 (18 instances)}  & Hit-1    & 12 (67\%) \\
-				& Hit-2     & 5 (28\%)\\
-				& Hit-3     & 3 (17\%) \\
-				\hline
-				\multirow{4}{*}{3+ (30 instances)}  & Hit-1   & 18 (60\%) \\
-				& Hit-2     & 10 (33\%) \\
-				& Hit-3     & 4 (13\%)\\
-                                \hline
-                                & Hit-All$_{Rec}$ & 962 (63\%)\\
-				\hline
-			\end{tabular}
-	                The sum of the percentages in each row section is not 100\% because Hit-1 contains Hit-2, which contains Hit-3, and so on. Hit-$n$: number of overlap between the predicted set and the oracle set is at least $n$ exception types.
-			\label{tab:recall-3}
-		\end{center}
-	}
-\end{table}
+%\begin{table}[t]
+%\caption{Detailed Results on Different Numbers of Exception Types in a
+%\code{catch} clause in Oracle Set (RQ3) (Recall)}
+%\vspace{-12pt}
+%	{\small
+%	  \begin{center}
+%        \tabcolsep 3.5pt
+%			\renewcommand{\arraystretch}{1}
+%			\begin{tabular}{p{4.5cm}<{\centering}|p{1.3cm}<{\centering}|p{1.5cm}<{\centering}}
+%				\hline
+%				\# Ex. Types in \code{catch} clause in Oracle Set & Metrics &  Accuracy\\
+%				\hline
+%				\multirow{1}{*}{1 (1,385 instances)}   & Hit-1  & 918 (66\%) \\
+%				\hline
+%				\multirow{2}{*}{2 (98 instances)}  & Hit-1   & 75 (77\%) \\
+%				& Hit-2         &  41 (42\%) \\
+%				\hline
+%				\multirow{3}{*}{3 (18 instances)}  & Hit-1    & 12 (67\%) \\
+%				& Hit-2     & 5 (28\%)\\
+%				& Hit-3     & 3 (17\%) \\
+%				\hline
+%				\multirow{4}{*}{3+ (30 instances)}  & Hit-1   & 18 (60\%) \\
+%				& Hit-2     & 10 (33\%) \\
+%				& Hit-3     & 4 (13\%)\\
+%                            \hline
+%                            & Hit-All$_{Rec}$ & 962 (63\%)\\
+%				\hline
+%			\end{tabular}
+%	                The sum of the percentages in each row section is not 100\% because Hit-1 contains Hit-2, which contains Hit-3, and so on. Hit-$n$: number of overlap between the predicted set and the oracle set is at least $n$ exception types.
+%			\label{tab:recall-3}
+%		\end{center}
+%	}
+%\end{table}
 
 \subsubsection{{\bf Recall on Exception Type Recommendation}}
 \label{sec:req3-recall}
@@ -100,38 +100,38 @@ the cases. Thus, it achieves high \code{Hit-All}$_{Rec}$ in 98.1\% of
 \label{sec:req3-precision}
 
 
-\begin{table}[t]
-  \caption{Detailed Results on Different Numbers of Exception Types in a \code{catch} clause in Predicted Set (RQ3) (Precision)}
-	\vspace{-12pt}
-	{\small
-	  \begin{center}
-            \tabcolsep 2pt
-			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{p{5cm}<{\centering}|p{1.4cm}<{\centering}|p{1.6cm}<{\centering}}
-				\hline
-				\# Ex. Types in \code{catch} clause in Predicted Set & Metrics & Accuracy \\
-				\hline
-				\multirow{1}{*}{1 (1,154 instances)}   & Hit-1  & 442 (38\%) \\
-				\hline
-				\multirow{2}{*}{2 (294 instances)}  & Hit-1   & 90 (31\%) \\
-				& Hit-2       						& 61 (21\%) \\
-				\hline
-				\multirow{3}{*}{3 (83 instances)}  & Hit-1    & 27 (33\%) \\
-				& Hit-2         					& 23 (28\%)\\
-				& Hit-3         				  	& 6 (7\%) \\
-                                \hline
-%                                \multirow{4}{*}{3+ (XXX instances)}  & Hit-1   & XXX (XX\%) \\
-%				& Hit-2     & XXX (XX\%) \\
-%				& Hit-3     & XX (XX\%)\\
+%\begin{table}[t]
+%  \caption{Detailed Results on Different Numbers of Exception Types in a \code{catch} clause in Predicted Set (RQ3) (Precision)}
+%	\vspace{-12pt}
+%	{\small
+%	  \begin{center}
+%            \tabcolsep 2pt
+%			\renewcommand{\arraystretch}{1}
+%			\begin{tabular}{p{5cm}<{\centering}|p{1.4cm}<{\centering}|p{1.6cm}<{\centering}}
+%				\hline
+%				\# Ex. Types in \code{catch} clause in Predicted Set & Metrics & Accuracy \\
+%				\hline
+%				\multirow{1}{*}{1 (1,154 instances)}   & Hit-1  & 442 (38\%) \\
+%				\hline
+%				\multirow{2}{*}{2 (294 instances)}  & Hit-1   & 90 (31\%) \\
+%				& Hit-2       						& 61 (21\%) \\
+%				\hline
+%				\multirow{3}{*}{3 (83 instances)}  & Hit-1    & 27 (33\%) \\
+%				& Hit-2         					& 23 (28\%)\\
+%				& Hit-3         				  	& 6 (7\%) \\
 %                                \hline
-                                & Hit-All$_{Prec}$ & 509 (33\%)\\
-				\hline
-			\end{tabular}
-                        The sum of the percentages in each row section is not 100\% because Hit-1 contains Hit-2, which contains Hit-3, and so on. Hit-$n$: number of overlap between the predicted set and the oracle set is at least $n$ exception types.
-			\label{tab:precision-3}
-		\end{center}
-	}
-\end{table}
+%%                                \multirow{4}{*}{3+ (XXX instances)}  & Hit-1   & XXX (XX\%) \\
+%%				& Hit-2     & XXX (XX\%) \\
+%%				& Hit-3     & XX (XX\%)\\
+%%                                \hline
+%                                & Hit-All$_{Prec}$ & 509 (33\%)\\
+%				\hline
+%			\end{tabular}
+%                        The sum of the percentages in each row section is not 100\% because Hit-1 contains Hit-2, which contains Hit-3, and so on. Hit-$n$: number of overlap between the predicted set and the oracle set is at least $n$ exception types.
+%			\label{tab:precision-3}
+%		\end{center}
+%	}
+%\end{table}
 
 Table~\ref{tab:precision-3} shows the {\em Precision} result, which is
 shown with respect to different numbers $K$ of {\em predicted
