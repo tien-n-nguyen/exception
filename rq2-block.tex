@@ -10,9 +10,13 @@
 			\hline
 			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
 			\hline
-			\tool   & \textbf{0.4}  &  \textbf{0.6369} & \textbf{0.4914}\\
+			{\xstate}  & \textbf{0.4}  &  \textbf{0.6369} & \textbf{0.4914}\\
 			\hline
 		\end{tabular}
-		\label{tab:xstate-2}
+		\label{tab:xstate-block}
 	\end{center}
 \end{table}
+
+We also evaluate {\xstate} as individual at the try-catch block level (see Figure~\ref{tab:xstate-block}). The Codebert baseline still produce no correct prediction, while {\xstate} achieves 40\% of precision and about 63\% of recall. 
+
+\input{rq2-confusion-matrix}
