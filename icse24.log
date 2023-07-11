@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  11 JUL 2023 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  11 JUL 2023 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1528,11 +1528,19 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.2pt on input line 10.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 14.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 18.
- [7.7] (rq1-case-study.tex
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 8.0pt on input line 18.
+
+
+LaTeX Warning: Reference `tab:xblock' on page 7 undefined on input line 49.
+
+
+Underfull \vbox (badness 2591) has occurred while \output is active []
+
+ [7.7]
+(rq1-case-study.tex
 <rq1-case-study.png, id=336, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
@@ -1547,7 +1555,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 57--57
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 74--74
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
@@ -1569,11 +1577,10 @@ Package pdftex.def Info: rq2_cm_codebert.png  used on input line 11.
 
 Class acmart Warning: A possible image without description on input line 15.
 
-))) (rq3-results.tex
+)) [8.8 <./rq1-case-study.png> <./rq2_cm_neurex.png>]) (rq3-results.tex
 
-LaTeX Warning: Reference `tab:recall-3' on page 8 undefined on input line 41.
+LaTeX Warning: Reference `tab:recall-3' on page 9 undefined on input line 41.
 
-[8.8 <./rq1-case-study.png> <./rq2_cm_neurex.png>]
 
 LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 6.
@@ -1659,14 +1666,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: 217F126A8D16B4E90C7AE5BBE7059B9B;4050.
+(rerunfilecheck)             Checksum: AC9D5515B5FEFF2268948BF08A7DBC83;4050.
  ) 
 Here is how much of TeX's memory you used:
- 37549 strings out of 476374
- 698965 string characters out of 5798669
+ 37551 strings out of 476374
+ 698986 string characters out of 5798669
  2000340 words of memory out of 5000000
- 56086 multiletter control sequences out of 15000+600000
- 750262 words of font info for 591 fonts, out of 8000000 for 9000
+ 56088 multiletter control sequences out of 15000+600000
+ 749942 words of font info for 590 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Progra
@@ -1689,9 +1696,9 @@ Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
 /fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1571003 bytes).
+Output written on icse24.pdf (11 pages, 1571294 bytes).
 PDF statistics:
  548 PDF objects out of 1000 (max. 8388607)
- 179 named destinations out of 1000 (max. 500000)
+ 180 named destinations out of 1000 (max. 500000)
  119024 words of extra memory for PDF output out of 128383 (max. 10000000)
 
