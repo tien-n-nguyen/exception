@@ -49,48 +49,7 @@ code snippets with no exception-related bugs as the negative samples.
 %Following the steps mentioned above, we have XXX code snippets containing one try-catch block as positive data. Then, we randomly create the same amount of code snippets that do not contain a try-catch block as negative data from the Java projects we collected. So, in total, the DeepEx dataset includes XXX code snippets. As for the FuzzyCatch dataset, it includes 1,000 data, and all of them are positive data.
 
 
-\subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking\\}
-
-\indent {\em Baselines.} We compared {\xblock} against the pre-trained
-CodeBERT without any fine-tuning steps. In the pre-trained CodeBERT,
-We add a randomly-initialized linear layer on top of the output vector
-of the \texttt{[CLS]} token, and use a softmax function to learn the
-decision.  We also compared {\xblock} against XRank~\cite{xrank-fse20}
-(XRank is part of FuzzyCatch tool). XRank computed the exception risk
-score for each API call. If one score of a call in the snippet is
-higher than a threshold, it is considered as needing a
-\code{try-catch} block.
-
-{\em Procedure.} We used the Github dataset and randomly split both
-the positive and negative sets into 80\%, 10\%, and 10\% of the code
-snippets for training, tuning, and testing. Meanwhile, we make sure that each partition contains the equal amount of positive samples and negative samples; and the training and tuning partitions do not contain any duplicates.
-
-%We took all the code snippets from DeepEX and FuzzyCatch datasets. On
-%the DeepEx dataset, we randomly split both the positive and negative
-%data points into 80\%, 10\%, 10\%, in which 80\% of the code snippets
-%as the training dataset, 10\% of the code snippets as the tuning
-%dataset, and 10\% of the code snippets as the testing dataset for the
-%baseline and {\tool}.
-
-%THIS PART FOR RQ5
-%----------------
-%And on the FuzzyCatch dataset, we directly use
-%the trained model from the DeepEx dataset and test it on the
-%FuzzyCatch dataset for both the baseline and {\tool}.
-
-{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall loss. 
-
-%We tuned {\tool} with autoML~\cite{NNI} for the
-%following key hyper-parameters to have the best performance: (1) Epoch
-%size (50, 100, 150); (2) Batch size (32, 64, 128); (3) Learning rate
-%(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
-%output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
-
-{\em Metrics.} We use \textbf{Recall, Precision}, and {\bf F-score} to
-evaluate the performance of the approaches. They are calculated as
-$Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F$-score
-$=$ $\frac{2*Recall*Precision}{Recall+Precision}$. $TP$: true
-positive, $FN$: false negative, and $FP$: false positive.
+\input{rq1-methodology}
 
 \input{rq2-methodology}
 
