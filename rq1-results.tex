@@ -46,16 +46,50 @@
 
 %Table~\ref{tab:xblock} displays the comparison result.
 
-As seen in Table~\ref{tab:xblock}, {\tool} achieves very high
+As seen in Table~\ref{tab:xblock-1}, {\tool} achieves very high
 Precision, Recall and F-score on the Github Dataset---all above
-98\%. In comparison, the CodeBERT baseline model has a much lower
-Precision, around 50\%.
-%, tantamount to a random classifier.
-However, it achieves a slightly higher Recall. After examining the
-result, we find that the model overwhelmingly predicts that the input
-code snippet contains a \code{try-catch} block: In our balanced test
-dataset that contains 30,764 samples, only 236 samples receives the
-negative label (i.e., no \code{try-catch}) from CodeBert.
+98\%.
+%In comparison, the CodeBERT baseline model has a much lower
+%Precision, around 50\%. However, it achieves a slightly higher
+%Recall. After examining the result, we find that the model
+%overwhelmingly predicts that the input
+%code snippet contains a \code{try-catch} block: In our balanced test
+%dataset that contains 30,764 samples, only 236 samples receives the
+%negative label (i.e., no \code{try-catch}) from CodeBert.
+In comparison, {\tool} relatively improves over XRank 21\%, 85.7\%,
+and 55.9\% in Precision, Recall, and F1-score, respectively.
+
+Examining the result, we reported the following. First, if the
+association score of {\em only one API method} in the snippet and {\em one
+exception} is higher than a threshold, XRank decides that a
+\code{try-catch} block is needed.  Thus, it often tends to output
+  ``Yes''. Precision is just marginally better than a coin toss
+(0.53) in our balanced dataset.
+%That leads to lower F-score than {\tool}.
+Second,
+%XRank relies on the association scores between the presence of
+%API method calls and the presence of a \code{try-catch} block.
+the decisions on the necessity of a \code{try-catch} block or the
+exception types depend on the pre-defined thresholds in XRank on those
+association scores. Thus, those pre-defined thresholds might not be
+suitable across the libraries. Third, for the incomplete code snippets
+in which the names of the API methods in different packages or
+libraries are the same (e.g., \code{toString} or \code{getText} in
+various JDK packages), XRank cannot distinguish them and use one entry
+in the dictionary for them due to its IR approach. In contrast, unlike
+XRank which considers only the API method calls in a \code{try-catch}
+block, {\tool} considers the code in the block as the context to learn
+the relations among the names of those API elements,
+%That is, it leverages the relations among the names of API elements to
+%learn their identities,
+thus, deciding better the need of \code{try-catch} blocks.
+%and the corresponding exception types.
+
+%ChatGPT results ==== ?
+
+As seen in Table~\ref{tab:xblock-2}, {\tool} relatively
+improves over GPT-3 {\bf XX\%, 85.7\%, and 55.9\%} in Precision,
+Recall, and F1-score, respectively. ... {\bf Tien}
 
 \input{rq1-case-study}
 
