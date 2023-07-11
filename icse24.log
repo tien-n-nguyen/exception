@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  11 JUL 2023 01:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  11 JUL 2023 02:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1176,14 +1176,17 @@ Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 233
 \c@theorem=\count184
 
 Excluding comment 'screenonly' Include comment 'printonly'
-Excluding comment 'anonsuppress' Excluding comment 'acks' (./icse24.aux)
+Excluding comment 'anonsuppress' Excluding comment 'acks' (./icse24.aux
+
+LaTeX Warning: Label `tab:xstate-2' multiply defined.
+
+)
 \openout1 = `icse24.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 233.
 LaTeX Font Info:    Try loading font information for OML+nxlmi on input line 23
 3.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 233.
@@ -1870,7 +1873,7 @@ Overfull \hbox (1.06465pt too wide) in paragraph at lines 57--57
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
-) (./rq2-results.tex (./rq2-confusion-matrix.tex
+) (./rq2-results.tex (./rq2-block.tex) (./rq2-confusion-matrix.tex
 <rq2_cm_neurex.png, id=284, 393.8715pt x 395.3169pt>
 File: rq2_cm_neurex.png Graphic file (type png)
  <use rq2_cm_neurex.png>
@@ -1894,7 +1897,7 @@ Class acmart Warning: A possible image without description on input line 15.
 
 LaTeX Warning: Reference `tab:recall-3' on page 8 undefined on input line 41.
 
-[8.8 <./rq1-case-study.png> <./rq2_cm_neurex.png> <./rq2_cm_codebert.png>]
+[8.8 <./rq1-case-study.png> <./rq2_cm_neurex.png>]
 
 LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 6.
@@ -1914,7 +1917,7 @@ Overfull \hbox (5.2306pt too wide) in paragraph at lines 136--153
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
 
-Underfull \vbox (badness 5077) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
@@ -1935,7 +1938,7 @@ e 14.
 Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 33.
 
-[9.9] (./example-bug.tex
+[9.9 <./rq2_cm_codebert.png>] (./example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -2002,13 +2005,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33017 strings out of 493014
- 596561 string characters out of 6133352
- 833428 words of memory out of 5000000
+ 33021 strings out of 493014
+ 596614 string characters out of 6133352
+ 833515 words of memory out of 5000000
  35037 multiletter control sequences out of 15000+600000
  221537 words of font info for 418 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -2039,10 +2042,10 @@ txmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1565398 bytes).
+Output written on icse24.pdf (10 pages, 1566242 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 397 compressed objects within 4 object streams
- 159 named destinations out of 1000 (max. 500000)
+ 464 PDF objects out of 1000 (max. 8388607)
+ 398 compressed objects within 4 object streams
+ 160 named destinations out of 1000 (max. 500000)
  63212 words of extra memory for PDF output out of 74296 (max. 10000000)
 
