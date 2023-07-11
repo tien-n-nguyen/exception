@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  8 JUL 2023 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  11 JUL 2023 01:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1870,16 +1870,37 @@ Overfull \hbox (1.06465pt too wide) in paragraph at lines 57--57
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
-) (./rq2-results.tex) (./rq3-results.tex
+) (./rq2-results.tex (./rq2-confusion-matrix.tex
+<rq2_cm_neurex.png, id=284, 393.8715pt x 395.3169pt>
+File: rq2_cm_neurex.png Graphic file (type png)
+ <use rq2_cm_neurex.png>
+Package pdftex.def Info: rq2_cm_neurex.png used on input line 3.
+(pdftex.def)             Requested size: 173.44756pt x 174.08473pt.
+
+
+Class acmart Warning: A possible image without description on input line 7.
+
+<rq2_cm_codebert.png, id=285, 393.8715pt x 395.3169pt>
+File: rq2_cm_codebert.png Graphic file (type png)
+
+<use rq2_cm_codebert.png>
+Package pdftex.def Info: rq2_cm_codebert.png used on input line 11.
+(pdftex.def)             Requested size: 173.44756pt x 174.08473pt.
+
+
+Class acmart Warning: A possible image without description on input line 15.
+
+)) (./rq3-results.tex
 
 LaTeX Warning: Reference `tab:recall-3' on page 8 undefined on input line 41.
 
+[8.8 <./rq1-case-study.png> <./rq2_cm_neurex.png> <./rq2_cm_codebert.png>]
 
-LaTeX Warning: Reference `tab:precision-3' on page 8 undefined on input line 13
+LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 6.
 
 
-LaTeX Warning: Reference `tab:precision-3' on page 8 undefined on input line 13
+LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 9.
 
 
@@ -1889,9 +1910,12 @@ Overfull \hbox (5.2306pt too wide) in paragraph at lines 136--153
  .[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Ta-ble []
  []
 
-[8.8 <./rq1-case-study.png>]) (./rq4-results.tex
+) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
+
+Underfull \vbox (badness 5077) has occurred while \output is active []
+
 
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
@@ -1911,7 +1935,7 @@ e 14.
 Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
 e 33.
 
-(./example-bug.tex
+[9.9] (./example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1922,26 +1946,28 @@ surrounding objects on input line 1.
 
 )) (./related-work.tex
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 31.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 31.
 
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 32.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 32.
 
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 34.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 34.
 
 
-Package natbib Warning: Citation `fse09' on page 9 undefined on input line 45.
+Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
 
-[9.9]
+
 
 Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
 ) (./conclusion.tex)
+Package atenddvi Info: Last page = 10.
+ [10.10]
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -1961,17 +1987,9 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-Package atenddvi Info: Last page = 10.
-[10.10
-
-]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 529.
- (./icse24.aux)
+(./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
 Package rerunfilecheck Info: File `icse24.out' has not changed.
@@ -1983,12 +2001,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 33000 strings out of 493014
- 596199 string characters out of 6133352
- 833229 words of memory out of 5000000
- 35027 multiletter control sequences out of 15000+600000
+ 33017 strings out of 493014
+ 596561 string characters out of 6133352
+ 833428 words of memory out of 5000000
+ 35037 multiletter control sequences out of 15000+600000
  221537 words of font info for 418 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,17n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2018,10 +2039,10 @@ txmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1532829 bytes).
+Output written on icse24.pdf (10 pages, 1565398 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 395 compressed objects within 4 object streams
- 157 named destinations out of 1000 (max. 500000)
- 63202 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 463 PDF objects out of 1000 (max. 8388607)
+ 397 compressed objects within 4 object streams
+ 159 named destinations out of 1000 (max. 500000)
+ 63212 words of extra memory for PDF output out of 74296 (max. 10000000)
 
