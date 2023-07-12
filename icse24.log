@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  11 JUL 2023 22:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  12 JUL 2023 00:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1555,27 +1555,28 @@ Overfull \hbox (1.06465pt too wide) in paragraph at lines 114--114
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
-) (rq2-results.tex (rq2-block.tex (rq2-confusion-matrix.tex
-<rq2_cm_neurex.png, id=346, 393.8715pt x 395.3169pt>
-File: rq2_cm_neurex.png Graphic file (type png)
-<use rq2_cm_neurex.png>
-Package pdftex.def Info: rq2_cm_neurex.png  used on input line 3.
-(pdftex.def)             Requested size: 173.44756pt x 174.08473pt.
+) (rq2-results.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 4: |Try-Catch State-ment De-tect-in
+g Com-par-i-son
+ []
 
 
-Class acmart Warning: A possible image without description on input line 7.
+Overfull \hbox (2.17384pt too wide) in paragraph at lines 56--63
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) those for \T1/LinuxLibertineT-TLF/m/sc/9 (-
+20) XBlock\T1/LinuxLibertineT-TLF/m/n/9 (-20) +\T1/LinuxLibertineT-TLF/m/sc/9 (
+-20) XState \T1/LinuxLibertineT-TLF/m/n/9 (-20) be-cause there is no im-pact fr
+om \T1/LinuxLibertineT-TLF/m/sc/9 (-20) XBlock\T1/LinuxLibertineT-TLF/m/n/9 (-2
+0) 's
+ []
 
-[8.8 <./rq1-case-study.png>]
-<rq2_cm_codebert.png, id=357, 393.8715pt x 395.3169pt>
-File: rq2_cm_codebert.png Graphic file (type png)
-<use rq2_cm_codebert.png>
-Package pdftex.def Info: rq2_cm_codebert.png  used on input line 11.
-(pdftex.def)             Requested size: 173.44756pt x 174.08473pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 6: |Try-Catch State-ment De-tect-in
+g Com-par-i-son
+ []
 
-Class acmart Warning: A possible image without description on input line 15.
-
-))) (rq3-results.tex
+[8.8 <./rq1-case-study.png>]) (rq3-results.tex
 
 LaTeX Warning: Reference `tab:recall-3' on page 9 undefined on input line 41.
 
@@ -1590,7 +1591,7 @@ LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 ) (rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
- [9.9 <./rq2_cm_neurex.png> <./rq2_cm_codebert.png>]
+
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
  []
@@ -1600,7 +1601,7 @@ Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
  []|[]| 
  []
 
-) (rq5-results.tex (example-bug.tex
+) (rq5-results.tex [9.9] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1653,8 +1654,8 @@ Class acmart Warning: ACM reference format is mandatory
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
+Overfull \vbox (1.54099pt too high) has occurred while \output is active []
+
 
 [11.11] (icse24.aux)
 
@@ -1664,14 +1665,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: AC9D5515B5FEFF2268948BF08A7DBC83;4050.
+(rerunfilecheck)             Checksum: 217F126A8D16B4E90C7AE5BBE7059B9B;4050.
  ) 
 Here is how much of TeX's memory you used:
- 37550 strings out of 476374
- 698974 string characters out of 5798669
+ 37511 strings out of 476374
+ 698015 string characters out of 5798669
  2000340 words of memory out of 5000000
- 56087 multiletter control sequences out of 15000+600000
- 749942 words of font info for 590 fonts, out of 8000000 for 9000
+ 56068 multiletter control sequences out of 15000+600000
+ 749004 words of font info for 583 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Progra
@@ -1694,9 +1695,9 @@ Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
 /fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1573119 bytes).
+Output written on icse24.pdf (11 pages, 1541166 bytes).
 PDF statistics:
- 550 PDF objects out of 1000 (max. 8388607)
- 180 named destinations out of 1000 (max. 500000)
- 119024 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 544 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
+ 119014 words of extra memory for PDF output out of 128383 (max. 10000000)
 

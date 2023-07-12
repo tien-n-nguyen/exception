@@ -2,18 +2,20 @@
 \label{sec:rq2}
 
 \begin{table}[t]%[htpb]
-\caption{Try-Catch Statement Detecting Comparison (Evaluate {\xstate} in Connection with {\xblock} --- Instance Level) (RQ2)}
+  \caption{Try-Catch Statement Detecting Comparison ({\xblock}+{\xstate}, Instance Level) (RQ2)}
+%  \caption{Try-Catch Statement Detecting Comparison (Evaluate {\xstate} in Connection with {\xblock} --- Instance Level) (RQ2)}
   \vspace{-12pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
 		  \hline
-			  & Precision  & Recall & F1-score \\
+		Instance Level	  & Precision  & Recall & F1-score \\
 			\hline
-			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
+                        %			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
+                        GPT-3 & {\bf 0.XX} & {\bf 0.YY} & {\bf 0.ZZ} \\
 			\hline
-			\xstate   & \textbf{0.9688}  &  \textbf{0.6072} & \textbf{0.7465}\\
+			\xblock + \xstate   & \textbf{0.9688}  &  \textbf{0.6072} & \textbf{0.7465}\\
 			\hline
 		\end{tabular}
 		\label{tab:xstate-1}
@@ -21,16 +23,16 @@
 \end{table}
 
 \begin{table}[t]%[htpb]
-\caption{Try-Catch Statement Detecting Comparison (Evaluate {\xstate} as Individual --- Instance Level) (RQ2)}
+\caption{Try-Catch Statement Detecting Result ({\xstate} as Individual, Instance Level) (RQ2)}
   \vspace{-12pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
 		  \hline
-			  & Precision  & Recall & F1-score \\
+		Instance Level	  & Precision  & Recall & F1-score \\
 			\hline
-			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
+%			GPT-3 &   &   & \\
 			\hline
 			\xstate  & \textbf{1.0}  &  \textbf{0.6198} & \textbf{0.7652}\\
 			\hline
@@ -39,15 +41,87 @@
 	\end{center}
 \end{table}
 
-As Table~\ref{tab:xstate-1} shows, when evaluating {\xstate} in connection with {\xblock}, 
-{\xstate} achieves high precision score and is able to recover statements in try-catch blocks for about 60\% of the positive code samples, 
-while the codebert baseline model fails the task completely.
-Furthermore, we present results of evaluating {\xstate} as individual in Table~\ref{tab:xstate-2}. As can be seen, the codebert baseline still cannot give any correct predictions. In comparison, {\xstate} manages to achieve a 100\% precision, showing that {\xstate} is capable of giving correct predictions for those false negatives from {\xblock}. 
+Table~\ref{tab:xstate-1} shows the result when we evaluated {\xstate}
+in connection with {\xblock}. That is, both individual results from
+{\xblock} and {\xstate} must be correct for the instance to be
+considered correct. {\tool} achieves a very high precision (96.88\%)
+and predicts correctly all the statements in \code{try-catch} blocks
+for about 60\% of the positive code instances. As seen, {\tool}
+improves relatively over GPT-3 {\bf XX.X\%}, {\bf YY.Y\%}, and {\bf
+  ZZ.Z\%} in Precision, Recall, and F1-score. Examining the results,
+we found that GPT-3 did not work well for the \code{try-catch} blocks
+with several statements in which some statements are left outside of
+the blocks.
 
-\input{rq2-block}
+Table~\ref{tab:xstate-2} displays the result when we evaluated
+{\xstate} individually (i.e., assuming {\xblock} correctly predicts
+the presence of \code{try-catch} blocks). As seen, the numbers are
+slightly higher than those for {\xblock}+{\xstate} because there is no
+impact from {\xblock}'s result. In other words, {\xstate} manages to
+achieve a 100\% precision, showing that {\xstate} is capable of giving
+correct predictions for those false negatives from {\xblock}.
 
+%As Table~\ref{tab:xstate-1} shows, when evaluating {\xstate} in
+%connection with {\xblock}, {\xstate} achieves high precision score and
+%is able to recover statements in try-catch blocks for about 60\% of
+%the positive code samples, while the codebert baseline model fails the
+%task completely.  Furthermore, we present results of evaluating
+%{\xstate} as individual in Table~\ref{tab:xstate-2}. As can be seen,
+%the codebert baseline still cannot give any correct predictions. In
+%comparison, {\xstate} manages to achieve a 100\% precision, showing
+%that {\xstate} is capable of giving correct predictions for those
+%false negatives from {\xblock}.
 
+%\input{rq2-block}
+%------------------------
 
+\begin{table}[t]%[htpb]
+  \caption{Try-Catch Statement Detecting Comparison ({\xblock}+{\xstate}, Statement Level) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+		Statement Level	  & Precision  & Recall & F1-score \\
+			\hline
+                        GPT-3 & {\bf 0.XX} & {\bf 0.YY} & {\bf 0.ZZ} \\
+			\hline
+			\xblock + \xstate   & \textbf{0.XX}  &  \textbf{0.YY} & \textbf{0.ZZ}\\
+			\hline
+		\end{tabular}
+		\label{tab:xstate-3}
+	\end{center}
+\end{table}
+
+\begin{table}[t]%[htpb]
+\caption{Try-Catch Statement Detecting Result ({\xstate} as Individual, Statement Level) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+		Statement Level	  & Precision  & Recall & F1-score \\
+			\hline
+%			GPT-3 &   &   & \\
+			\hline
+			\xstate  & \textbf{0.XX}  &  \textbf{0.YY} & \textbf{0.ZZ}\\
+			\hline
+		\end{tabular}
+		\label{tab:xstate-4}
+	\end{center}
+\end{table}
+
+Table~\ref{tab:xstate-3} displays the result at the statement level
+(i.e., whether a statement needs to be inside a \code{try-catch} block
+or not). As seen, {\xblock}+{\xstate} improves relatively over GPT-3
+{\bf XX.X\%}, {\bf YY.Y\%}, and {\bf ZZ.Z\%} in Precision, Recall, and
+F1-score, respectively in prediction at the statement level. As seen
+in Table~\ref{tab:xstate-4}, {\tool} also achieves high numbers in
+prediction at the statement level as individual.
+
+%--------------------------
 %Table~\ref{tab:rq2} displays the result on detecting the statements
 %that need to be placed in a \code{try-catch} block. $N_x$ is a parameter
 %in GNNExplainer that defines the number of nodes in the explanation
