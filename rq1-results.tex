@@ -87,9 +87,15 @@ thus, deciding better the need of \code{try-catch} blocks.
 
 %ChatGPT results ==== ?
 
-As seen in Table~\ref{tab:xblock-2}, {\tool} relatively
-improves over GPT-3 {\bf XX\%, 85.7\%, and 55.9\%} in Precision,
-Recall, and F1-score, respectively. ... {\bf Tien}
+As seen in Table~\ref{tab:xblock-2}, {\tool} relatively improves over
+GPT-3 {\bf XX\%, 85.7\%, and 55.9\%} in Precision, Recall, and
+F1-score, respectively. Examining GPT-3's results, we found that it
+detected well only the popular APIs and corresponding exception types
+because it was not trained specifically for the exception handling
+task. Moreover, for the un-popular API names, GPT-3 often
+resorted to another API with similar name, and predicts that the given
+code snippet needs a \code{try-catch} block because that API requires
+such a block.
 
 \input{rq1-case-study}
 

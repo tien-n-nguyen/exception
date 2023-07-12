@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  11 JUL 2023 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  11 JUL 2023 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1551,7 +1551,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 108--108
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 114--114
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
@@ -1565,15 +1565,17 @@ Package pdftex.def Info: rq2_cm_neurex.png  used on input line 3.
 
 Class acmart Warning: A possible image without description on input line 7.
 
-<rq2_cm_codebert.png, id=347, 393.8715pt x 395.3169pt>
+[8.8 <./rq1-case-study.png>]
+<rq2_cm_codebert.png, id=357, 393.8715pt x 395.3169pt>
 File: rq2_cm_codebert.png Graphic file (type png)
 <use rq2_cm_codebert.png>
 Package pdftex.def Info: rq2_cm_codebert.png  used on input line 11.
 (pdftex.def)             Requested size: 173.44756pt x 174.08473pt.
 
+
 Class acmart Warning: A possible image without description on input line 15.
 
-)) [8.8 <./rq1-case-study.png>]) (rq3-results.tex
+))) (rq3-results.tex
 
 LaTeX Warning: Reference `tab:recall-3' on page 9 undefined on input line 41.
 
@@ -1692,7 +1694,7 @@ Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
 /fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1572834 bytes).
+Output written on icse24.pdf (11 pages, 1573119 bytes).
 PDF statistics:
  550 PDF objects out of 1000 (max. 8388607)
  180 named destinations out of 1000 (max. 500000)
