@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUL 2023 02:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUL 2023 17:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2022,7 +2022,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  33022 strings out of 493014
  596651 string characters out of 6133352
- 833513 words of memory out of 5000000
+ 833514 words of memory out of 5000000
  35031 multiletter control sequences out of 15000+600000
  222523 words of font info for 425 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -2053,7 +2053,7 @@ txmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 1539870 bytes).
+Output written on icse24.pdf (11 pages, 1539939 bytes).
 PDF statistics:
  468 PDF objects out of 1000 (max. 8388607)
  404 compressed objects within 5 object streams
