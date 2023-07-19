@@ -1,12 +1,12 @@
 \subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
 
 \indent {\em Baselines.} We compared {\xblock} with
-GPT-3~\cite{tien}. Due to cost of using GPT-3 on OpenAI, we performed
-sampling on the Github dataset of 153,823 snippets. To obtain the
+GPT-3.5~\cite{tien}. Due to cost of using GPT-3.5 on OpenAI, we performed
+sampling on the Github dataset of 30,764 snippets. To obtain the
 confidence level of 95\%, we randomly selected 380 code snippets in
 which 190 are negative samples (no \code{try-catch} block), and 190
 are positive samples (at least one \code{try-catch} block). We
-compared with GPT-3 on this sampled dataset.
+compared with GPT-3.5 on this sampled dataset.
 %the pre-trained CodeBERT without any fine-tuning steps. In the
 %pre-trained CodeBERT, We add a randomly-initialized linear layer on
 %top of the output vector of the \texttt{[CLS]} token, and use a
@@ -22,7 +22,7 @@ in the corresponding dataset into 80\%, 10\%, and 10\% of the code
 snippets for training, tuning, and testing. Meanwhile, we make sure
 that each partition contains the equal amount of positive samples and
 negative samples; and the training and tuning partitions do not
-contain any duplicates.
+contain any duplicates. 
 
 %We took all the code snippets from DeepEX and FuzzyCatch datasets. On
 %the DeepEx dataset, we randomly split both the positive and negative
