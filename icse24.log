@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  18 JUL 2023 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUL 2023 02:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1836,14 +1836,24 @@ Package natbib Warning: Citation `tien' on page 7 undefined on input line 4.
 
 
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
-e 14.
+e 15.
+
+
+Overfull \hbox (3.96169pt too wide) in paragraph at lines 28--35
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Com-ple-tions API (https://platform.openai.
+com/docs/guides/gpt/chat-
+ []
 
 ) (./rq2-methodology.tex) (./rq3-methodology.tex)
 
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 105.
 
-)) (./empirical-results.tex (./rq1-results.tex
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7.7]))
+(./empirical-results.tex (./rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 7.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1854,11 +1864,8 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
-
-Underfull \vbox (badness 2591) has occurred while \output is active []
-
- [7.7]
-(./rq1-case-study.tex <rq1-case-study.png, id=279, 1791.69376pt x 887.315pt>
+ (./rq1-case-study.tex
+<rq1-case-study.png, id=276, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 
 <use rq1-case-study.png>
@@ -1883,7 +1890,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--5
 par-i-son
  []
 
-
+[8.8 <./rq1-case-study.png>]
 Overfull \hbox (2.17384pt too wide) in paragraph at lines 56--63
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) those for \T1/LinuxLibertineT-TLF/m/sc/9 (-
 20) XBlock\T1/LinuxLibertineT-TLF/m/n/9 (-20) +\T1/LinuxLibertineT-TLF/m/sc/9 (
@@ -1898,7 +1905,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--79
 par-i-son
  []
 
-[8.8 <./rq1-case-study.png>]) (./rq3-results.tex
+) (./rq3-results.tex
 
 LaTeX Warning: Reference `tab:recall-3' on page 9 undefined on input line 41.
 
@@ -1920,7 +1927,7 @@ Overfull \hbox (5.2306pt too wide) in paragraph at lines 136--153
 ) (./rq4-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
 (Font)              scaled to size 9.0pt on input line 29.
-
+ [9.9]
 Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
  []|[]| 
  []
@@ -1932,10 +1939,9 @@ Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
 
 ) (./rq5-results.tex
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 14.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 14.
 
-[9.9]
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 33.
@@ -1970,9 +1976,7 @@ Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
 Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
-) (./conclusion.tex)
-Package atenddvi Info: Last page = 10.
- [10.10]
+) (./conclusion.tex) [10.10]
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -1992,9 +1996,17 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+Package atenddvi Info: Last page = 11.
+[11.11
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 529.
-(./icse24.aux)
+ (./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
 Package rerunfilecheck Info: File `icse24.out' has not changed.
@@ -2008,8 +2020,8 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 33021 strings out of 493014
- 596644 string characters out of 6133352
+ 33022 strings out of 493014
+ 596651 string characters out of 6133352
  833513 words of memory out of 5000000
  35031 multiletter control sequences out of 15000+600000
  222523 words of font info for 425 fonts, out of 8000000 for 9000
@@ -2041,10 +2053,10 @@ txmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 1536927 bytes).
+Output written on icse24.pdf (11 pages, 1539845 bytes).
 PDF statistics:
- 464 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
+ 161 named destinations out of 1000 (max. 500000)
  63202 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -1,12 +1,13 @@
 \subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}
 
 \indent {\em Baselines.} We compared {\xblock} with
-GPT-3.5~\cite{tien}. Due to cost of using GPT-3.5 on OpenAI, we performed
+ChatGPT~\cite{tien}. Due to cost of using ChatGPT-3.5 on OpenAI, we performed
 sampling on the Github dataset of 30,764 snippets. To obtain the
 confidence level of 95\%, we randomly selected 380 code snippets in
 which 190 are negative samples (no \code{try-catch} block), and 190
 are positive samples (at least one \code{try-catch} block). We
-compared with GPT-3.5 on this sampled dataset.
+compared with ChatGPT on this sampled dataset. 
+
 %the pre-trained CodeBERT without any fine-tuning steps. In the
 %pre-trained CodeBERT, We add a randomly-initialized linear layer on
 %top of the output vector of the \texttt{[CLS]} token, and use a
@@ -23,6 +24,14 @@ snippets for training, tuning, and testing. Meanwhile, we make sure
 that each partition contains the equal amount of positive samples and
 negative samples; and the training and tuning partitions do not
 contain any duplicates. 
+
+To request responses from ChatGPT, we construct prompt with the format "question + code", where the question we pose is "Does the code below need to catch any exceptions?\textbackslash n\textbackslash n". 
+Considering that the answers ChatGPT produces for the same prompt may vary, for each code snippet, we send the prompt three times through the Chat Completions API
+(https://platform.openai.com/docs/guides/gpt/chat-completions-api). Labelling the responses has three steps. Firstly, we check whether the first word in 
+each response is Yes or No. If it is Yes, we assign a positive label; If it is No, we assign a negative label. Secondly, for the responses that do not start with Yes or No, we read each response and manually assign labels to them. 
+However, there are some cases that we cannot, based on the response, easily determine whether or not the code needs any try-catch blocks. The common reasons are (1) the response is not informative enough in that it only relays some general advice about exception handling,
+(2) In the text, it submits that it is uncertain about the case, or (3) the decision depends on background knowledge about either the project structure or certain method specifications. 
+Therefore, in evaluating the performance of ChatGPT, for each metrics, we calculate the lower and upper bound. In the upper bound, all such uncertain cases receive the ground truth labels, while in the lower bound, all such cases receive the opposite labels to their ground truths. Lastly, we assign the label for each instance from the majority vote.
 
 %We took all the code snippets from DeepEX and FuzzyCatch datasets. On
 %the DeepEx dataset, we randomly split both the positive and negative
