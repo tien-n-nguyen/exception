@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUL 2023 02:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  19 JUL 2023 02:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1850,7 +1850,7 @@ Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
 e 105.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1783) has occurred while \output is active []
 
  [7.7]))
 (./empirical-results.tex (./rq1-results.tex
@@ -2053,7 +2053,7 @@ txmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 1539845 bytes).
+Output written on icse24.pdf (11 pages, 1539870 bytes).
 PDF statistics:
  468 PDF objects out of 1000 (max. 8388607)
  404 compressed objects within 5 object streams
