@@ -5,8 +5,8 @@ OpenAI, we performed sampling on the Github dataset of 30,764
 snippets. To obtain the confidence level of 95\%, we randomly selected
 380 code snippets in which 190 are negative samples
 (no \code{try-catch} block), and 190 are positive samples (at least
-one \code{try-catch} block). We compared with GPT-3.5 on this sampled
-dataset.
+one \code{try-catch} block). We trained on Github dataset and
+compared with GPT-3.5 on this sampled test set.
 
 %the pre-trained CodeBERT without any fine-tuning steps. In the
 %pre-trained CodeBERT, We add a randomly-initialized linear layer on

@@ -23,7 +23,7 @@
 \end{table}
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Block Comparison with GPT-3 (RQ1)}
+  \caption{Try-Catch Block Comparison with GPT-3.5 (RQ1)}
   \vspace{-12pt}
   \small
 	\begin{center}
@@ -32,7 +32,7 @@
 		  \hline
 			  & Precision  &  Recall & F1-score \\
 			\hline
-			GPT-3  & 0.666 \text{-} 0.804  & 0.726 \text{-} 0.778   & 0.695 \text{-} 0.791\\
+			GPT-3.5  & 0.666--0.804  & 0.726--0.778   & 0.695--0.791\\
 			\hline
 			\tool   &  \textbf{0.994} &  {\bf 1.0} & \textbf{0.997}\\
 			\hline
@@ -47,7 +47,7 @@
 %Table~\ref{tab:xblock} displays the comparison result.
 
 As seen in Table~\ref{tab:xblock-1}, {\tool} achieves very high
-Precision, Recall and F-score on the Github Dataset---all above
+Precision, Recall and F-score on the Github dataset---all above
 98\%.
 %In comparison, the CodeBERT baseline model has a much lower
 %Precision, around 50\%. However, it achieves a slightly higher
@@ -56,58 +56,61 @@ Precision, Recall and F-score on the Github Dataset---all above
 %code snippet contains a \code{try-catch} block: In our balanced test
 %dataset that contains 30,764 samples, only 236 samples receives the
 %negative label (i.e., no \code{try-catch}) from CodeBert.
-In comparison, {\tool} relatively improves over XRank 21\%, 85.7\%,
-and 55.9\% in Precision, Recall, and F1-score, respectively.
+In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
+and 55.9\%} in Precision, Recall, and F1-score, respectively.
 
-Examining the result, we reported the following. First, if the
-association score of {\em only one API method} in the snippet and {\em one
-exception} is higher than a threshold, XRank decides that a
-\code{try-catch} block is needed.  Thus, it often tends to output
-  ``Yes''. Precision is just marginally better than a coin toss
-(0.53) in our balanced dataset.
-%That leads to lower F-score than {\tool}.
-Second,
-%XRank relies on the association scores between the presence of
-%API method calls and the presence of a \code{try-catch} block.
-the decisions on the necessity of a \code{try-catch} block or the
-exception types depend on the pre-defined thresholds in XRank on those
-association scores. Thus, those pre-defined thresholds might not be
-suitable across the libraries. Third, for the incomplete code snippets
-in which the names of the API methods in different packages or
-libraries are the same (e.g., \code{toString} or \code{getText} in
+Examining the result, we reported the following. First, precision is
+just marginally better than a coin toss (0.53) in our balanced
+dataset. In XRank, if the association score of {\em only one API
+  method} in the snippet and {\em one exception} is higher than a
+threshold, it decides that a \code{try-catch} block is needed.
+%
+Second, the decisions on the necessity of a \code{try-catch} block or
+the exception types depend on the pre-defined thresholds in XRank on
+those association scores. Thus, those pre-defined thresholds might not
+be suitable across the libraries. Third, for the incomplete code
+snippets in which the names of the API methods in different packages
+or libraries are the same (e.g., \code{toString} or \code{getText} in
 various JDK packages), XRank cannot distinguish them and use one entry
-in the dictionary for them due to its IR approach. In contrast, unlike
-XRank which considers only the API method calls in a \code{try-catch}
-block, {\tool} considers the code in the block as the context to learn
-the relations among the names of those API elements,
+in the dictionary for them due to its IR approach, leading to
+mistakenly considering them the same. Unlike XRank, which
+considers only the API method calls in a \code{try-catch} block,
+{\tool} considers the code in the block as the context to learn the
+relations among the names of those API elements,
 %That is, it leverages the relations among the names of API elements to
 %learn their identities,
-thus, deciding better the need of \code{try-catch} blocks.
+thus, better deciding the need of \code{try-catch} blocks.
 %and the corresponding exception types.
 
 %ChatGPT results ==== ?
 
 As seen in Table~\ref{tab:xblock-2}, {\tool} relatively improves over
-GPT-3 Upper Bounds {\bf 80.4\%, 77.8\%, and 79.1\%} in Precision, Recall, and
-F1-score, respectively. Examining GPT-3's results, we found that it
-detected well only the popular APIs and corresponding exception types
-because it was not trained specifically for the exception handling
-task. Moreover, for the un-popular API names, GPT-3 often
-resorted to another API with similar name, and predicts that the given
-code snippet needs a \code{try-catch} block because that API requires
-such a block.
+GPT-3.5 from {\bf 23.6\%--49.3\%}, {\bf 28.5\%--37.7\%}, and {\bf
+  26\%--43.5\%}, in Precision, Recall, and F1-score,
+respectively. Examining GPT-3.5's results, we found that it detected
+well only the popular APIs and corresponding exception types because
+it was not trained specifically for the exception handling
+task. Moreover, for the un-popular API names, GPT-3.5 often resorted
+to another API with similar name, and predicts that the given code
+snippet needs a \code{try-catch} block because that API requires such
+a block. For example, in an instance containing a method call to
+\code{parseVals}, which is specific to a project, GPT-3.5 incorrectly
+considered it to have a \code{try-catch} block. GPT-3.5 explained that
+\code{parseVals} is similar to \code{parse} in a compiler project,
+which needs to handle \code{InvalidInputException}. Thus, it
+incorrectly considers \code{parseVals} needs to handle that exception.
 
 \input{rq1-case-study}
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Necessity Checking Evaluated On Test Partitions by The Number Of Try-Catch Blocks (RQ1) }
+  \caption{Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) }
   \vspace{-12pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{| p{1.0cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering}| p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | p{0.7cm}<{\centering} | }
 		  \hline
-			\multirow{2}{*}{} & \multicolumn{6}{c|}{Number of Try-Catch Blocks (Github Dataset)} \\
+			\multirow{2}{*}{} & \multicolumn{6}{c|}{Number of Try-Catch Blocks (Github dataset)} \\
 			\cline{2-7}
 			  & Zero  & One & Two & Three & Four & Five\\
 			\hline

@@ -2,14 +2,14 @@
 \label{sec:multitasking}
 
 The learning on the three tasks, {\xblock}, {\xstate}, and {\xtype}
-can benefit to one another. For example, if a model decides the need
+can benefit to one another. If a model decides the need
 of a \code{try-catch} block, there must be some statements in the code
 snippet that will be placed in such a block. If a model learns the
 statements to be placed in a \code{try-catch} block, it can decide
 that the code snippet needs such a block and make the connections to
 what exception types to be caught. The knowledge on the exception
 types can help a model decide better what important statements need to
-be in a \code{try-catch} block. Therefore, we put the three tasks
+be in a \code{try-catch} block. Thus, we put the three tasks
 in a multi-task learning fashion.
 
 %The two tasks dealt with by {\xstate} and {\xtype} can benefit each other. With the learning about which statements need to be put into try blocks, the model will learn the important code tokens in the code snippet, which in turn will help to determine which exceptions need to be handled. Also, knowing the exceptions will give strong hint to the way that statements should be grouped into try blocks.
@@ -33,7 +33,6 @@ not contain any \code{try-catch} block, the loss will be only the
 $Loss_{{\xblock}}$. If the input contains a \code{try-catch} block,
 the overall loss will be the summation of the losses from all
 three tasks (\ref{eqn:loss}).
-
 \begin{equation}
 \label{eqn:loss}
 Loss_{overall} =

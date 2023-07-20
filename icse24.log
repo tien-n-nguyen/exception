@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  20 JUL 2023 01:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  20 JUL 2023 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1446,11 +1446,7 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 File: xstate.png Graphic file (type png)
 <use xstate.png>
 Package pdftex.def Info: xstate.png  used on input line 6.
-(pdftex.def)             Requested size: 245.71754pt x 154.69667pt.
-
-Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
- [][] 
- []
+(pdftex.def)             Requested size: 231.26378pt x 145.59482pt.
 
 
 Class acmart Warning: A possible image without description on input line 10.
@@ -1460,14 +1456,17 @@ Class acmart Warning: A possible image without description on input line 10.
 File: xtype-4.png Graphic file (type png)
 <use xtype-4.png>
 Package pdftex.def Info: xtype-4.png  used on input line 6.
-(pdftex.def)             Requested size: 245.71754pt x 174.65858pt.
-
-Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
- [] 
- []
+(pdftex.def)             Requested size: 231.26378pt x 164.3853pt.
 
 
 Class acmart Warning: A possible image without description on input line 11.
+
+
+Overfull \hbox (3.87761pt too wide) in paragraph at lines 36--46
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) from the state-ment \T1/zi4/m/it/7 out.writ
+e \T1/LinuxLibertineT-TLF/m/n/9 (-20) to the state-ment \T1/zi4/m/it/7 print(no
+de.getBody(...))\T1/LinuxLibertineT-TLF/m/n/9 (-20) .
+ []
 
 ) (multitasking.tex
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1487,7 +1486,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 5.5pt on input line 18.
 
-Overfull \hbox (4.68266pt too wide) detected at line 44
+Overfull \hbox (4.68266pt too wide) detected at line 43
 [][][]\OML/nxlmi/m/it/9 Loss[] \U/ntxmia/m/it/9 = []
  []
 
@@ -1516,14 +1515,14 @@ surrounding objects on input line 40.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 44.
 
-[6.6 <./xtype-4.png>] (empirical-methodology.tex (rq1-methodology.tex
+(empirical-methodology.tex [6.6 <./xtype-4.png>] (rq1-methodology.tex
 Overfull \hbox (3.96169pt too wide) in paragraph at lines 28--54
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) Com-ple-tions API (https://platform.openai.
 com/docs/guides/gpt/chat-
  []
 
 
-Underfull \vbox (badness 4279) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
 (rq2-methodology.tex) (rq3-methodology.tex)
@@ -1533,11 +1532,7 @@ se-lines. \T1/LinuxLibertineT-TLF/m/n/9 (-20) Fuzzy-Catch [[]] lever-ages XRank
  to de-tect the exception-
  []
 
-
-Underfull \vbox (badness 1783) has occurred while \output is active []
-
- [7.7]))
-(empirical-results.tex (rq1-results.tex
+)) (empirical-results.tex (rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 7.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1548,8 +1543,12 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
- (rq1-case-study.tex
-<rq1-case-study.png, id=337, 1791.69376pt x 887.315pt>
+
+Underfull \vbox (badness 1852) has occurred while \output is active []
+
+ [7.7]
+(rq1-case-study.tex
+<rq1-case-study.png, id=338, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1563,7 +1562,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 114--114
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 117--117
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
@@ -1666,10 +1665,6 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
 [11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1677,8 +1672,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: 217F126A8D16B4E90C7AE5BBE7059B9B;4050.
+(rerunfilecheck)             Checksum: C23E33BBDAF00DE242A6366546C88E0F;4030.
  ) 
 Here is how much of TeX's memory you used:
  37512 strings out of 476374
@@ -1708,7 +1706,7 @@ Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
 /fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1543377 bytes).
+Output written on icse24.pdf (11 pages, 1544090 bytes).
 PDF statistics:
  546 PDF objects out of 1000 (max. 8388607)
  180 named destinations out of 1000 (max. 500000)
