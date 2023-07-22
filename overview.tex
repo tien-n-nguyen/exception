@@ -12,19 +12,19 @@ detect which statements need to be in a \code{try-catch} block, and 3)
 \code{try-catch} blocks if any.
 
 %training instances and prediction
-During training, the code snippets with \code{try-catch} blocks are
-used as the positive samples and the ones without them as the negative
-samples. For a positive sample, the statements inside the \code{try}
-blocks and the exception types in the \code{catch} clauses are used as
-the labels for training. The negative samples are labeled as not
-needing a \code{try-catch} block. In prediction, {\tool} accepts as
-input any incomplete or complete code snippet without a
-\code{try-catch} block, and predicts the results for those tasks. The
-predicted results from {\xstate} and {\xtype} are considered only when
-{\xblock} predicts {\em Yes}, i.e., a need of a \code{try-catch}
-block for the given code snippet.
+During training, the code snippets with \code{try-catch} blocks in
+complete code are used as the positive samples and the ones without
+them as the negative ones. For a positive sample, the statements
+inside the \code{try-catch} blocks and the exception types in the
+\code{catch} clauses are used as the labels for training. The negative
+samples are labeled as not needing a \code{try-catch} block. In
+prediction, {\tool} accepts as input any (in)complete code
+snippet without a \code{try-catch} block, and predicts the results for
+those tasks. The predicted results from {\xstate} and {\xtype} are
+considered only when {\xblock} predicts {\em Yes}, i.e., a need of a
+\code{try-catch} block for the given code snippet.
 
-The input code is used as the input of a large language model to act
+The input code is used as the input of a language model to act
 as the code representation learning model to produce the vector
 representations for the (sub)tokens and statements in the source
 code. We use CodeBERT~\cite{codebert-emnlp20} as it is
@@ -49,15 +49,15 @@ block).
 %statement forms a new \code{try-catch} block and so on, if any.
 During training, the statements within or outside of the
 \code{try-catch} blocks enable us to build the tags/labels for them.
-%For prediction, the results from {\xstate} and {\xtype} are considered
-%only when {\xblock} predicts {\em Yes}, i.e., a need of a
-%\code{try-catch} block.
+%For prediction, the results from {\xstate} and {\xtype}
+%are considered only when {\xblock} predicts {\em Yes}, i.e., a need
+%of a \code{try-catch} block.
 
 The last task, {\xtype}, is modeled as a set of binary classifiers,
 each is responsible for deciding whether an exception type of interest
-needs to be caught in the \code{catch} clause. An {\em Yes} outcome
+needs to be caught in the \code{catch} clause. A {\em Yes} outcome
 indicates the need to catch a specific exception type of interest in
-the set of libraries under consideration. An {\em No} outcome indicates
+the set of libraries under consideration. A {\em No} outcome indicates
 otherwise.  During training, the exception types for each
 \code{try-catch} block in the positive samples are used as
 labels. During prediction, for each predicted block from {\xstate}

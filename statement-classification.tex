@@ -3,7 +3,7 @@
 
 \begin{figure}[t]
  	\centering
- 	\includegraphics[width=3.2in]{xstate.png}
+ 	\includegraphics[width=3.2in]{xstate-2.png}
         \vspace{-12pt}
  	\caption{\code{Try-catch} Statement Detector ({\xstate})}
  	\label{fig:xstate}	
@@ -30,24 +30,25 @@ thus, making the connections between the APIs and the presence of
 could be determined to belong to \code{OutputStream} in JDK. Thus,
 that leads to better learning to place that statement inside a
 \code{try-catch} block. Second, we expect that CodeBERT would learn
-     {\em the data and control dependencies among the consecutive
-       statements} separated by the special tokens {\bf [SEP]}. Those
-     dependencies would help the model better decide whether some
-     consecutive statements need to be placed together in a
-     \code{try-catch} block. For example, in Figure~\ref{overview},
-     the statements at lines 2--5 have data dependencies, thus, they
-     should be in the same \code{try-catch} block.
+     {\em the dependencies among the consecutive statements} separated
+     by the special tokens {\bf [SEP]} (see Section~\ref{sec:rq4} for our
+     experiment on this). Those dependencies would help the model better
+     decide whether some consecutive statements need to be placed
+     together in a \code{try-catch} block. For example, in
+     Figure~\ref{overview}, the statements at lines 2--5 have data
+     dependencies, thus, they should be in the same \code{try-catch}
+     block.
 
 %encoding
 We take the embedding produced by CodeBERT for each {\bf [SEP]} token
 as the statement embedding and feed it to a layer with
 Feed-forward neural network (FFNN). We then use a softmax function to
 learn to label each corresponding statement with one of three tags:
-\code{O} tag means that the statement is outside of any
+{\em \code{O} tag means that the statement is outside of any
 \code{try-catch} blocks; \code{B-Try} tag means that the statement
 begins a \code{try-catch} block; and \code{I-Try} tag means that the
 statement is inside a \code{try-catch} block and is not the first line
-of that block. For example, in Figure~\ref{fig:xstate}, the embedding
+of that block}. For example, in Figure~\ref{fig:xstate}, the embedding
 computed by CodeBERT for the first {\bf [SEP]}, which represents the
 statement \code{out.write(...)}, is classified by the first
 \code{FFNN+Softmax} layer into the \code{B-Try} category/label because

@@ -17,19 +17,20 @@ concatenate the tokenized statements, and add a \texttt{[CLS]} token
 at the beginning. As in CodeBERT, we take the \texttt{[CLS]} token to
 be the representation of the entire code snippet.
 
-We fine-tune a CodeBERT(MLM) for this problem.  Given the good
-performance of CodeBERT on many code-related downstream tasks
-(https://github.com/microsoft/CodeXGLUE), we expect it to be able to
-learn the correlation between important code tokens that would signal
-the need of exception handling. Importantly, by providing the code
-snippet, we expect to leverage the code context in which the API
-elements are used with regard to one another. For example, in
-Figure~\ref{overview}, CodeBERT is expected to learn that the APIs
-\code{newBufferedReader} of the class \code{Files} and \code{readLine}
-of the class \code{BufferedReader} are used often together in API
-usages and they require \code{IOException}. For the input incomplete
-code snippet, CodeBERT is expected to learn such relations/connections
-to avoid name ambiguity and to connect them with the exception types.
+We fine-tune a CodeBERT(MLM)~\cite{codebertMLM} for this problem.
+%Given the good performance of CodeBERT on many code-related downstream
+%tasks,
+We expect it to be able to learn the dependencies among statements
+with API elements that would signal the need of exception
+handling. Importantly, by providing the code snippet, we expect to
+leverage the code context in which the API elements are used with
+regard to one another. For example, in Figure~\ref{overview}, CodeBERT
+is expected to learn that the APIs \code{newBufferedReader} of the
+class \code{Files} and \code{readLine} of the class
+\code{BufferedReader} are used often together in API usages and they
+require \code{IOException}. For the input incomplete code snippet,
+CodeBERT is expected to learn such relations/connections to avoid name
+ambiguity and to connect them with the exception types.
 
 
 During training, as we use exactly one CodeBERT, all three modules
