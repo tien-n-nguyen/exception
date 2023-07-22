@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 01:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 02:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1599,25 +1599,12 @@ LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
 9.
 
-) (rq4-results.tex
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/scit' will be
-(Font)              scaled to size 9.0pt on input line 29.
- [9.9]
-Overfull \hbox (2.48647pt too wide) in paragraph at lines 105--105
- []|[]| 
- []
-
-
-Overfull \hbox (2.48647pt too wide) in paragraph at lines 136--136
- []|[]| 
- []
-
-) (rq5-results.tex
+) (rq4-new-results.tex) (rq5-results.tex
 Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
 
-(example-bug.tex
+[9.9] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1626,11 +1613,7 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (related-work.tex) (conclusion.tex)
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
- [10.10]
-(icse24.bbl
+)) (related-work.tex) (conclusion.tex) [10.10] (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1669,10 +1652,6 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
 [11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1680,40 +1659,61 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: C23E33BBDAF00DE242A6366546C88E0F;4030.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `icse24.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `icse24.out':
+(rerunfilecheck)             Before: C23E33BBDAF00DE242A6366546C88E0F;4030
+(rerunfilecheck)             After:  5AB458EEFE1969BD54B2E8E850E90E23;4050.
  ) 
 Here is how much of TeX's memory you used:
- 37530 strings out of 476374
- 698471 string characters out of 5798669
+ 37499 strings out of 476374
+ 697697 string characters out of 5798669
  2001340 words of memory out of 5000000
- 56071 multiletter control sequences out of 15000+600000
- 750411 words of font info for 593 fonts, out of 8000000 for 9000
+ 56068 multiletter control sequences out of 15000+600000
+ 744104 words of font info for 578 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Progra
-m Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Program Files/MiKT
-eX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKTeX/fonts/enc
-/dvips/libertine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/liber
-tine/lbtn_tlukpt.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1
--4.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/P
-rogram Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{C:/Program Files
-/MiKTeX/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/MiKTeX/font
-s/enc/dvips/libertine/lbtn_76gpa5.enc}<C:/Program Files/MiKTeX/fonts/type1/publ
-ic/inconsolata/Inconsolata-zi4b.pfb><C:/Program Files/MiKTeX/fonts/type1/public
-/inconsolata/Inconsolata-zi4r.pfb><C:/Program Files/MiKTeX/fonts/type1/public/n
-ewtx/LibertineMathMI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/Libe
-rtineMathMI7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBioli
-numT.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTB.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTI.pfb><C:/P
-rogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineT.pfb><C:/Program 
-Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
-/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
-/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1544298 bytes).
+
+pdfTeX warning (dest): name{figure.caption.24} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.23} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section*.26} has been referenced but does not exist
+, replaced by a fixed one
+
+{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Program 
+Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKTeX
+/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc/d
+vips/libertine/lbtn_tlukpt.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/inconso
+lata/i4-t1-4.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_7grukw
+.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{C:/Pro
+gram Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/M
+iKTeX/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}<C:/Program Files/MiKTeX/fonts/
+type1/public/inconsolata/Inconsolata-zi4b.pfb><C:/Program Files/MiKTeX/fonts/ty
+pe1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/newtx/LibertineMathMI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+newtx/LibertineMathMI7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertin
+e/LinBiolinumT.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBio
+linumTB.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinBiolinumTI
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/libertine/LinLibertineT.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Fi
+les/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/ty
+pe1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/t
+xsys.pfb>
+Output written on icse24.pdf (11 pages, 1523494 bytes).
 PDF statistics:
- 546 PDF objects out of 1000 (max. 8388607)
- 180 named destinations out of 1000 (max. 500000)
- 119014 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 500000)
+ 114918 words of extra memory for PDF output out of 128383 (max. 10000000)
 
