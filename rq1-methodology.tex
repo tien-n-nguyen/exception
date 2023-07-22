@@ -13,13 +13,13 @@ compared with GPT-3.5 on this sampled test set.
 %top of the output vector of the \texttt{[CLS]} token, and use a
 %softmax function to learn the decision.
 We also compared {\xblock} with XRank~\cite{xrank-fse20} (XRank is
-part of FuzzyCatch tool) on the entire Github dataset. XRank computed
+part of FuzzyCatch) on the Github dataset. XRank computed
 the exception risk score for each API call. If a score of a call in
 the snippet is higher than a threshold, we consider it as needing a
 \code{try-catch} block.
 
 {\em Procedure.} We randomly split both the positive and negative sets
-in the corresponding dataset into 80\%, 10\%, and 10\% of the code
+in a dataset into 80\%, 10\%, and 10\% of the code
 snippets for training, tuning, and testing. Meanwhile, we make sure
 that each partition contains the equal amount of positive samples and
 negative samples; and the training and tuning partitions do not
@@ -30,21 +30,21 @@ To request responses from ChatGPT, we construct prompt with the format
 need to catch any exceptions?\textbackslash n\textbackslash n".
 Considering that the answers from ChatGPT for the same prompt may
 vary, for each code snippet, we send the prompt three times through
-the Chat Completions API
-(https://platform.openai.com/docs/guides/gpt/chat-completions-api). Labelling
-the responses has three steps. Firstly, we check whether the first
-word in each response is Yes or No. If it is Yes, we assign a positive
-label; If it is No, we assign a negative label. Secondly, for the
-responses that do not start with Yes or No, we read each response and
-manually assign labels to them.  However, there are some cases that we
-cannot, based on the response, easily determine whether or not the
-code needs any try-catch blocks. The common reasons are (1) the
+the Chat Completions API.
+%(https://platform.openai.com/docs/guides/gpt/chat-completions-api).
+Labeling the responses has three steps. First, we check whether the
+first word in each response is Yes or No. If it is a Yes, we assign a
+positive label; If it is a No, we assign a negative label. Second, for
+the responses that do not start with Yes or No, we read each response
+and manually assign labels to them.  However, there are some cases
+that we cannot, based on the response, easily determine whether or not
+the code needs any try-catch blocks. The common reasons are (1) the
 response is not informative enough in that it only relays some general
-advice about exception handling, (2) In the text, it states that it
-is uncertain about the case, or (3) the decision depends on background
+advice about exception handling, (2) In the text, it states that it is
+uncertain about the case, or (3) the decision depends on background
 knowledge about either the project structure or certain method
-specifications.  Therefore, in evaluating the performance of ChatGPT,
-for each metrics, we calculate the lower and upper bound. In the upper
+specifications. Thus, in evaluating the performance of ChatGPT,
+for each metric, we calculate the lower and upper bound. In the upper
 bound, all such uncertain cases are considered as correct,
 %receive the ground truth labels, while
 in the lower bound, all such cases are considered as incorrect.

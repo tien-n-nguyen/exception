@@ -30,17 +30,20 @@ a later version.
 %\code{try-catch} block, to verify if the statement is included in the
 %other block. If not, we put it in the current code snippet. If yes, we
 %finish the current one. 
-In total, we have 153,823 code snippets containing \code{try-catch}
-blocks as positive samples. We also randomly selected from the same
-Github projects the same amount of code snippets that do not have any
-\code{try-catch} block as the negative samples.
+In total, we have
+%153,823
+15,382 code snippets containing \code{try-catch} blocks as positive
+samples. We also randomly selected from the same Github projects the
+same amount of code snippets that do not have any \code{try-catch}
+block as the negative samples. In total, we have 30,764 instanaces.
 
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
-authors of XRank/XHand~\cite{xrank-fse20}, which contains 750 samples
-of methods with exception-related bugs (missing \code{try-catch}
-blocks or missing catching some exceptions). We also randomly
-selected from the projects in FuzzyCatch dataset the same amount of
-code snippets with no exception-related bugs as the negative samples.
+authors of XRank/XHand~\cite{xrank-fse20}, which contains 750
+StackOverflow code snippets with exception-related bugs (missing
+\code{try-catch} blocks or missing catching some excxeptions). We also
+randomly selected from the projects in FuzzyCatch dataset the same
+amount of snippets with no exception-related bugs as the negative
+samples.
 
 %We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 
