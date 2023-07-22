@@ -1,3 +1,35 @@
-\subsection{Ablation Study: Impact of Fine-Tuning}
+\subsection{Impact of Fine-Tuning (RQ6)}
 \label{sec:rq6}
 
+\begin{table}[h]%[htpb]
+  \caption{Impact of Fine-Tuning in {\tool} (RQ6)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.15cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+			Github dataset (XBlock)  & Precision  &  Recall & F1-score \\
+			\hline
+			CodeBERT w/o fine-tuning & 0.497  & \textbf{0.972}   & 0.657\\
+%			\hline
+%			XRank & 0.810 & 0.530 & 0.630\\
+			\hline
+			\tool   &  \textbf{0.981} &  {\bf 0.984} & \textbf{0.982}\\
+			\hline
+		\end{tabular}
+		\label{tab:codebert}
+	\end{center}
+\end{table}
+
+As seen in Table~\ref{tab:codebert}, fine-tuning contributes much to
+{\tool} in much improving Precision (almost twice) and slightly
+improving in Recall (1\%), and much improving in F1-score (relatively
+49.5\%). Without fine-tuning, the model 
+%In comparison, the CodeBERT baseline model has a much lower Precision,
+%around 50\%. However, it achieves a slightly higher Recall. After
+%examining the result, we find that the model
+overwhelmingly predicts that the input code snippet contains a
+\code{try-catch} block: in our balanced test dataset that contains
+30,764 samples, only 236 samples receives the negative label (i.e., no
+\code{try-catch}) from CodeBert.
