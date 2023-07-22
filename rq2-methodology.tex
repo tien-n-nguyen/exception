@@ -17,12 +17,13 @@ a correct prediction on whether
 \code{try-catch} blocks are needed, {\em and} {\xstate} produces
 correct tags for all the statements when there exists
 a \code{try-catch} block. Second, we evaluated {\xstate} as
-individual. That is, we assumed that {\xblock} predicts correctly
-whether a code snippet needs \code{try-catch} block(s). We
-used {\xstate} to predict the groupings of statements for the blocks
-in those snippets and compared against the statements in the blocks in
-the oracle. We also computed the accuracy at the statement level on
-whether a statement needs a \code{try-catch} block or not.
+individual. We assumed that {\xblock} predicts correctly whether a
+code snippet needs \code{try-catch} block(s). We used {\xstate} to
+predict the groupings of statements for the blocks in those snippets
+and compared against the statements in the blocks in the oracle (via
+the encoded vector [O, B-Try, I-Try]). We also computed the accuracy
+at the statement level on whether a statement needs a \code{try-catch}
+block or not.
 
 %For a snippet that needs \code{try-catch}, but was predicted as
 %not, we consider it as incorrect because the resulting statements
