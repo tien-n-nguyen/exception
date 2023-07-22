@@ -20,10 +20,10 @@ a \code{try-catch} block. Second, we evaluated {\xstate} as
 individual. We assumed that {\xblock} predicts correctly whether a
 code snippet needs \code{try-catch} block(s). We used {\xstate} to
 predict the groupings of statements for the blocks in those snippets
-and compared against the statements in the blocks in the oracle (via
+and compared against the statements in one or multiple blocks in the oracle (via
 the encoded vector [O, B-Try, I-Try]). We also computed the accuracy
-at the statement level on whether a statement needs a \code{try-catch}
-block or not.
+at the statement level on if a statement needs a \code{try-catch}
+block.
 
 %For a snippet that needs \code{try-catch}, but was predicted as
 %not, we consider it as incorrect because the resulting statements
