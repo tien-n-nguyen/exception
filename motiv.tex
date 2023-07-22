@@ -154,17 +154,18 @@ for an incomplete code snippet involving \code{get\-Declared\-Field}.
 \label{ob4}
 %The program dependencies among the API elements and
 The surrounding code context can help resolve the ambiguity of the
-names of those elements in incomplete code snippets.
+names of those elements in incomplete code snippets, leading to
+better prediction of the handled exceptions.
 \end{Observation}
 
 For an incomplete code snippet, as explained earlier, the simple names
 of the API elements (methods, fields, classes) could be ambiguous.
 However, if a model can learn from the complete code the
-fully-qualified names of the API elements, the surrounding
-context consisting of those API elements and their program
-dependencies can help a model decide the correct identities of
-the API elements, leading to correct prediction of the handled
-exceptions.
+fully-qualified names of the API elements, the surrounding context
+consisting of those API elements and their program dependencies can
+help a model decide the correct identities of the API elements.
+
+%, leading to correct prediction of the handled exceptions.
 
 \input{example4.tex}
 

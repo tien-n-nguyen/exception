@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 15:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1402,13 +1402,13 @@ Class acmart Warning: A possible image without description on input line 35.
 <overview-3.png, id=195, 1894.57813pt x 629.85312pt>
 File: overview-3.png Graphic file (type png)
 <use overview-3.png>
-Package pdftex.def Info: overview-3.png  used on input line 173.
+Package pdftex.def Info: overview-3.png  used on input line 174.
 (pdftex.def)             Requested size: 404.71243pt x 134.5412pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
-(Font)              scaled to size 9.0pt on input line 175.
+(Font)              scaled to size 9.0pt on input line 176.
 
 
-Class acmart Warning: A possible image without description on input line 178.
+Class acmart Warning: A possible image without description on input line 179.
 
 [3.3]) (key-ideas.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
@@ -1679,7 +1679,7 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (10 pages, 1518129 bytes).
+Output written on icse24.pdf (10 pages, 1518150 bytes).
 PDF statistics:
  522 PDF objects out of 1000 (max. 8388607)
  173 named destinations out of 1000 (max. 500000)
