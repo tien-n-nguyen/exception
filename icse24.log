@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 02:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 12:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1400,7 +1400,7 @@ t/7 Illegal-
 Class acmart Warning: A possible image without description on input line 35.
 
 )
-<overview-3.png, id=197, 1894.57813pt x 629.85312pt>
+<overview-3.png, id=201, 1894.57813pt x 629.85312pt>
 File: overview-3.png Graphic file (type png)
 <use overview-3.png>
 Package pdftex.def Info: overview-3.png  used on input line 174.
@@ -1426,7 +1426,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 Underfull \vbox (badness 5490) has occurred while \output is active []
 
  [4.4 <./overview-3.png>]) (block-classification.tex
-<xblock-3.png, id=281, 1163.34625pt x 687.56876pt>
+<xblock-3.png, id=285, 1163.34625pt x 687.56876pt>
 File: xblock-3.png Graphic file (type png)
 <use xblock-3.png>
 Package pdftex.def Info: xblock-3.png  used on input line 7.
@@ -1442,7 +1442,7 @@ Class acmart Warning: A possible image without description on input line 11.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 15.
 ) (statement-classification.tex
-<xstate.png, id=285, 1208.515pt x 760.8425pt>
+<xstate.png, id=289, 1208.515pt x 760.8425pt>
 File: xstate.png Graphic file (type png)
 <use xstate.png>
 Package pdftex.def Info: xstate.png  used on input line 6.
@@ -1452,7 +1452,7 @@ Package pdftex.def Info: xstate.png  used on input line 6.
 Class acmart Warning: A possible image without description on input line 10.
 
 [5.5 <./xblock-3.png> <./xstate.png>]) (type-classification.tex
-<xtype-4.png, id=297, 1159.33125pt x 824.07875pt>
+<xtype-4.png, id=301, 1159.33125pt x 824.07875pt>
 File: xtype-4.png Graphic file (type png)
 <use xtype-4.png>
 Package pdftex.def Info: xtype-4.png  used on input line 6.
@@ -1515,25 +1515,24 @@ surrounding objects on input line 40.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 44.
 
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 49.
+
 (empirical-methodology.tex [6.6 <./xtype-4.png>] (rq1-methodology.tex
 Overfull \hbox (3.96169pt too wide) in paragraph at lines 28--54
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) Com-ple-tions API (https://platform.openai.
 com/docs/guides/gpt/chat-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-)
-(rq2-methodology.tex) (rq3-methodology.tex)
-Overfull \hbox (1.55713pt too wide) in paragraph at lines 105--110
-\T1/LinuxBiolinumT-TLF/m/it/9 (-20) .[] \T1/LinuxLibertineT-TLF/m/it/9 (-20) Ba
-se-lines. \T1/LinuxLibertineT-TLF/m/n/9 (-20) Fuzzy-Catch [[]] lever-ages XRank
- to de-tect the exception-
+) (rq2-methodology.tex) (rq3-methodology.tex)
+Overfull \hbox (6.11673pt too wide) in paragraph at lines 106--112
+[]\T1/LinuxLibertineT-TLF/m/it/9 (-20) Baselines. \T1/LinuxLibertineT-TLF/m/n/9
+ (-20) Fuzzy-Catch [[]] lever-ages XRank to de-tect the exception-
  []
 
 
-Underfull \vbox (badness 1852) has occurred while \output is active []
+Underfull \vbox (badness 1281) has occurred while \output is active []
 
  [7.7]))
 (empirical-results.tex (rq1-results.tex
@@ -1548,7 +1547,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
  (rq1-case-study.tex
-<rq1-case-study.png, id=338, 1791.69376pt x 887.315pt>
+<rq1-case-study.png, id=342, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1587,33 +1586,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--104
 g Com-par-i-son
  []
 
-) (rq3-results.tex
-
-LaTeX Warning: Reference `tab:recall-3' on page 9 undefined on input line 41.
-
-
-LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
-6.
-
-
-LaTeX Warning: Reference `tab:precision-3' on page 9 undefined on input line 13
-9.
-
-) (rq4-new-results.tex) (rq5-results.tex
+) (rq3-new-results.tex) (rq4-new-results.tex) (rq5-results.tex
 Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
 
-[9.9] (example-bug.tex
+(example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
-)) (limitations.tex
+)) (rq6-results.tex) (limitations.tex
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (related-work.tex) (conclusion.tex) [10.10] (icse24.bbl
+)) (related-work.tex [9.9]) (conclusion.tex) (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1652,12 +1639,13 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-[11.11] (icse24.aux)
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[10.10] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1668,28 +1656,20 @@ Package rerunfilecheck Warning: File `icse24.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `icse24.out':
-(rerunfilecheck)             Before: C23E33BBDAF00DE242A6366546C88E0F;4030
-(rerunfilecheck)             After:  5AB458EEFE1969BD54B2E8E850E90E23;4050.
+(rerunfilecheck)             Before: 389DF7AD6C47D42FB90D407D1B72391C;4310
+(rerunfilecheck)             After:  85AD592D620F078C07266D5E96A91500;4328.
  ) 
 Here is how much of TeX's memory you used:
- 37499 strings out of 476374
- 697697 string characters out of 5798669
+ 37466 strings out of 476374
+ 696899 string characters out of 5798669
  2001340 words of memory out of 5000000
- 56068 multiletter control sequences out of 15000+600000
- 744104 words of font info for 578 fonts, out of 8000000 for 9000
+ 56065 multiletter control sequences out of 15000+600000
+ 740736 words of font info for 558 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{figure.caption.24} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{table.caption.23} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.26} has been referenced but does not exist
-, replaced by a fixed one
+pdfTeX warning (dest): name{section.12} has been referenced but does not exist,
+ replaced by a fixed one
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Program 
 Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKTeX
@@ -1711,9 +1691,9 @@ ram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/ty
 pe1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/t
 xsys.pfb>
-Output written on icse24.pdf (11 pages, 1523494 bytes).
+Output written on icse24.pdf (10 pages, 1518827 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
- 114918 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
+ 114926 words of extra memory for PDF output out of 128383 (max. 10000000)
 

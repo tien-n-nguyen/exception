@@ -99,9 +99,11 @@ code snippets with no exception-related bugs as the negative samples.
 
 %{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
 
-\subsubsection{RQ5. Extrinsic Evaluation on Exception-related Bug Detection\\}
 
 
+
+
+\subsubsection{RQ5. Extrinsic Evaluation on Exception-related Bug Detection}~\\
 \indent {\em Baselines.} FuzzyCatch~\cite{xrank-fse20} leverages XRank
 to detect the exception-related bugs, which are the code snippets that
 were supposed to handle exceptions, but missed
@@ -118,3 +120,7 @@ dataset. If {\xblock} correctly detects a buggy snippet (missing a
 \code{try-catch} block or exceptions), we consider it as correct.
 Otherwise, it is a miss. We use {\bf Recall}, {\bf Precision}, and
 {\bf F-score} as in RQ1.
+
+\subsubsection{RQ6. Ablation Study}~\\
+We aim to evaluate the contribution of fine-tuning in {\tool}. We
+compared {\tool} against CodeBERT without fine-tuning.
