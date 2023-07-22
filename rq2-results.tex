@@ -13,9 +13,9 @@
 		Instance Level	  & Precision  & Recall & F1-score \\
 			\hline
                         %			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
-                        GPT-3 & {\bf 0.XX} & {\bf 0.YY} & {\bf 0.ZZ} \\
+                        GPT-3.5 & 0.550 & 0.232 & 0.326 \\
 			\hline
-			\xblock + \xstate   & \textbf{0.9688}  &  \textbf{0.6072} & \textbf{0.7465}\\
+			\xblock + \xstate   & \textbf{0.969}  &  \textbf{0.607} & \textbf{0.747}\\
 			\hline
 		\end{tabular}
 		\label{tab:xstate-1}
@@ -32,7 +32,7 @@
 		  \hline
 		Instance Level	  & Precision  & Recall & F1-score \\
 			\hline
-%			GPT-3 &   &   & \\
+%			GPT-3.5 &   &   & \\
 			\hline
 			\xstate  & \textbf{1.0}  &  \textbf{0.6198} & \textbf{0.7652}\\
 			\hline
@@ -47,11 +47,17 @@ in connection with {\xblock}. That is, both individual results from
 considered correct. {\tool} achieves a very high precision (96.88\%)
 and predicts correctly all the statements in \code{try-catch} blocks
 for about 60\% of the positive code instances. As seen, {\tool}
-improves relatively over GPT-3 {\bf XX.X\%}, {\bf YY.Y\%}, and {\bf
-  ZZ.Z\%} in Precision, Recall, and F1-score. Examining the results,
-we found that GPT-3 did not work well for the \code{try-catch} blocks
-with several statements in which some statements are left outside of
-the blocks.
+improves relatively over GPT-3.5 {\bf 76.1\%}, {\bf 161.7\%}, and {\bf
+  128.7\%} in Precision, Recall, and F1-score. Examining the results,
+we found that GPT-3.5 did not work well for the code snippets that
+have more than one \code{try-catch} blocks. It also does not recognize
+well multiple statements with dependencies that need to be placed in
+the same block. {\tool} recognizes well the dependencies among
+statements (see RQ4), thus, better grouping them into a
+\code{try-catch} block.
+
+%several statements in which some statements are left outside of the
+%blocks.
 
 Table~\ref{tab:xstate-2} displays the result when we evaluated
 {\xstate} individually (i.e., assuming {\xblock} correctly predicts
@@ -85,7 +91,7 @@ correct predictions for those false negatives from {\xblock}.
 		  \hline
 		Statement Level	  & Precision  & Recall & F1-score \\
 			\hline
-                        GPT-3 & {\bf 0.XX} & {\bf 0.YY} & {\bf 0.ZZ} \\
+                        GPT-3.5 & {\bf 0.XX} & {\bf 0.YY} & {\bf 0.ZZ} \\
 			\hline
 			\xblock + \xstate   & \textbf{0.XX}  &  \textbf{0.YY} & \textbf{0.ZZ}\\
 			\hline
@@ -104,7 +110,7 @@ correct predictions for those false negatives from {\xblock}.
 		  \hline
 		Statement Level	  & Precision  & Recall & F1-score \\
 			\hline
-%			GPT-3 &   &   & \\
+%			GPT-3.5 &   &   & \\
 			\hline
 			\xstate  & \textbf{0.XX}  &  \textbf{0.YY} & \textbf{0.ZZ}\\
 			\hline
@@ -115,7 +121,7 @@ correct predictions for those false negatives from {\xblock}.
 
 Table~\ref{tab:xstate-3} displays the result at the statement level
 (i.e., whether a statement needs to be inside a \code{try-catch} block
-or not). As seen, {\xblock}+{\xstate} improves relatively over GPT-3
+or not). As seen, {\xblock}+{\xstate} improves relatively over GPT-3.5
 {\bf XX.X\%}, {\bf YY.Y\%}, and {\bf ZZ.Z\%} in Precision, Recall, and
 F1-score, respectively in prediction at the statement level. As seen
 in Table~\ref{tab:xstate-4}, {\tool} also achieves high numbers in

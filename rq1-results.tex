@@ -96,7 +96,7 @@ snippet needs a \code{try-catch} block because that API requires such
 a block. For example, in an instance containing a method call to
 \code{parseVals}, which is specific to a project, GPT-3.5 incorrectly
 considered it to have a \code{try-catch} block. GPT-3.5 explained that
-\code{parseVals} is similar to \code{parse} in a compiler project,
+\code{parseAgent} is similar to \code{parse} in a compiler project,
 which needs to handle \code{InvalidInputException}. Thus, it
 incorrectly considers \code{parseVals} needs to handle that exception.
 
