@@ -35,19 +35,20 @@ There exist several approaches to automatic recommendation of
 exception
 handling~\cite{barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16,xrank-fse20,throw-ase22}. They
 can be classified into four categories. The first category of
-approaches relies on a few {\em heuristics} on exception types, API
-calls, and variable types to recommend exception handling
-code~\cite{barbosa-bsse12}. These heuristic-based approaches do not
-always work in all cases. The second category of approaches
-utilized {\em exception handling policies}, which are enforced in all
+approaches relies on a few {\em program analysis heuristics} on
+exception types, API calls, and variable types to recommend exception
+handling code~\cite{barbosa-bsse12}. These heuristic-based approaches
+do not always work in all cases due to incomplete code. The second
+category utilized {\em exception handling policies},
+which are enforced in all
 cases~\cite{barbosa-tse16,barbosa-saner18}. However, the policies need
-to be pre-defined and encoded within the recommending tools.  This is not
-an ideal solution considering the fast evolution of software
+to be pre-defined and encoded within the recommending tools.  This is
+not an ideal solution considering the fast evolution of software
 libraries. To enable more flexibility than policy enforcement, the
-third category leverages {\em mining algorithms} that derive
-similar exception handling for two similar code
-fragments~\cite{chanchal-scam14}. While avoiding hard-coding of
-the rules, these mining approaches suffer the issue of how much similar
+third category leverages {\em mining algorithms} that derive similar
+exception handling for two similar code
+fragments~\cite{chanchal-scam14}. While avoiding hard-coding of the
+rules, these mining approaches suffer the issue of how much similar
 for two fragments to be considered as having similar exception
 handling. For the mining approaches, deterministically setting a
 threshold for frequent occurrences is also challenging.
@@ -106,17 +107,18 @@ code corpus, and derive the above exception handling suggestions for
 the {\em (partial) code snippet} under study.
 
 We leverage and fine-tune the large language model
-CodeBert~\cite{codebert-emnlp20} to capture the surrounding context with the
-dependencies among the API elements. Capturing such contextual
-information and the dependencies enable {\tool} to realize the idea
-{\em ``Tell Me Your Friends, I'll Tell You Who You Are''} to learn the
-identities of the API elements in a given (in)complete code, leading
-to better learning in {\xblock}, {\xstate} and {\xtype}. Inspired by
-sequence chunking in natural language processing (NLP), we formulate
-our problem as detecting one or multiple chunks of consecutive
-statements that need \code{try-catch} blocks.
+CodeBERT~\cite{codebert-emnlp20} to capture the surrounding {\bf context}
+with the dependencies among the API elements. Capturing such
+contextual information and the dependencies enable {\tool} to realize
+the idea {\em ``Tell Me Your Friends, I'll Tell You Who You Are''} to
+learn the {\em {\bf dependencies} among statments with APIs} in a given
+(in)complete code, leading to better learning in {\xblock}, {\xstate}
+and {\xtype}. Inspired by sequence chunking in natural language
+processing (NLP), we formulate our problem as detecting one or
+multiple chunks of consecutive statements that need \code{try-catch}
+blocks.
 %Tien
-{\tool} also has the three tasks in a {\em multi-tasking} mechanism
+{\tool} also has the three tasks in a {\bf multi-tasking} mechanism
 to enable the mutual impact among the learning, leading to
 better performance in all three tasks.
 
@@ -187,20 +189,38 @@ API elements and the corresponding exception types.
 %consider them as the statements to be placed in a
 %\code{try-catch}~block.
 
+%=================================================
 We have conducted several experiments to evaluate {\tool}. We have
-collected a large dataset of 5,726 projects from Github, with 19,379
-code snippets that contain \code{try-catch} blocks. The result shows
-that {\tool} achieves a high accuracy of {\bf 98.3\%} and improves
-relatively by {\bf 56\%} over the state-of-the-art approach in
-\code{try-catch} block necessity checking. Moreover, it can correctly
-decide both the need of \code{try-catch} block(s) and the statements
-to be placed in such blocks in {\bf 79.4\%} of the cases, an
-improvement of {\bf 62X} over the baseline. Importantly, with an
-accuracy of {\bf 71.5\%} (an improvement of {\bf 146X} over the
-baseline), {\tool} correctly recommend exception handling in all three
-tasks. Our extrinsic evaluation also shows that with its
-recommendations, {\tool} improves by {\bf YY.Y\%} in F-score over the
-existing approach in detecting exception-related bugs.
+collected a large dataset of 5,726 projects from Github
+%, with 19,379
+with 307,646 code snippets (half of them have \code{try-catch}
+blocks). Our empirical evaluation shows that {\tool} correctly
+performs all three exception handling recommendation tasks with an
+F1-score of {\color{red}{\bf XX.X\%}} (an relative improvement of up
+to {\color{red}{\bf XX.X\%}} over the baselines). It achieves high
+F1-score from 98.2\%--99.7\% in \code{try-catch} block necessity
+checking (an relative improvement of up to 55.9\% over the
+baselines). Moreover, it can correctly decide both the need of
+\code{try-catch} block(s) and the statements to be placed in such
+blocks with the accuracies of 74.7\% and 87.1\% at the instance and
+statement levels, an improvement of 128.7\% and 44.9\% over the
+baseline, respectively. Our extrinsic evaluation also shows that
+{\tool} relatively improves over the baseline by {\color{red}{\bf
+    9.6\%}} in F-score in detecting exception-related bugs in
+incomplete StackOverflow code snippets.
+
+%The result shows that {\tool} achieves a high accuracy of {\bf 98.3\%}
+%and improves relatively by {\bf 56\%} over the state-of-the-art
+%approach in \code{try-catch} block necessity checking. Moreover, it
+%can correctly decide both the need of \code{try-catch} block(s) and
+%the statements to be placed in such blocks in {\bf 79.4\%} of the
+%cases, an improvement of {\bf 62X} over the baseline. Importantly,
+%with an accuracy of {\bf 71.5\%} (an improvement of {\bf 146X} over
+%the baseline), {\tool} correctly recommend exception handling in all
+%three tasks. Our extrinsic evaluation also shows that with its
+%recommendations, {\tool} improves by {\bf YY.Y\%} in F-score over the
+%existing approach in detecting exception-related bugs.
+%====================================================
 
 %Our empirical evaluation shows that {\tool} relatively
 %improves 12.3\% in F-score over the state-of-the-art approach,
@@ -225,7 +245,7 @@ In brief, this paper makes the following major contributions:
 \noindent {\bf 1. [Neural Network-based Automated Exception Handling
     Recommendation]}. {\tool} is the first neural network approach to
 automated exception handling recommendation in three above tasks.
-{\tool} works for either complete or incomplete code.
+{\tool} works for either complete or {\em incomplete} code.
 
 \noindent {\bf 2. [Multi-tasking among three Exception Handling
     Recommendations]} We formulate the problem as sequence chunking
@@ -236,7 +256,7 @@ with a multi-tasking mechanism to learn for three above tasks.
 %  dependencies among API elements and exceptions and leverage XAI
 %  to derive the statements to be placed in a \code{try-catch} block.
 
-  \noindent {\bf 3. [Empirical Evaluation]}. Our extensive evaluation
+  \noindent {\bf 3. [Empirical Evaluation]}. Our evaluation
   shows {\tool}'s high accuracy in exception handling recommendation
   as well as in exception-related bug detection. Data and code is
   available at~\cite{deepex-website}.

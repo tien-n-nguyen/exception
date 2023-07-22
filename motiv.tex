@@ -35,14 +35,16 @@ The manual adaptation on exception handling by inserting a
 \code{try-catch} block is quite popular, yet not automated by any
 tools~\cite{zhang-icse19}. Such manual adaptation for a code snippet
 could lead to exception-related bugs, which could cause serious issues
-including crashes or unstable states. It is not trivial for developers
-to memorize what API methods could cause exceptions and what
-exceptions need to be handled~\cite{xrank-fse20}. Thus, it is
-desirable to have an automated tool to recommend proper exception
-handling in order to adapt the incomplete code snippets.  Such a tool
-could recommend if a \code{try-catch} block is needed for the snippet,
-what lines need to be included in that block, and what exception types need
-to be handled.
+including crashes or unstable states.
+%It is not trivial for developers to memorize what API methods could
+%cause exceptions and what exceptions need to be
+%handled~\cite{xrank-fse20}.
+Thus, it is desirable to have an automated tool to recommend proper
+exception handling for such adaptation.
+%in order to adapt the incomplete code snippets.
+%Such a tool could recommend if a \code{try-catch} block is needed for
+%the snippet, what lines need to be included in that block, and what
+%exception types need to be handled.
 
 
 \begin{Observation} [{\bf Exception Handling Recommendation}]
@@ -57,29 +59,25 @@ codebases.
 As explained in Section~\ref{sec:intro},  four
 categories of automated approaches have been proposed to recommend
 exception
-handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}. While
-early approaches were not effective in all cases due to their {\em
-  heuristics}~\cite{barbosa-bsse12}, the {\em exception policies} are
-too strict in enforcing them, yet requires the rules to be encoded in
-the tools~\cite{barbosa-tse16,barbosa-saner18}. The state-of-the-art
-{\em information retrieval}-based approaches (e.g.,
-XRank/Xhand~\cite{xrank-fse20}) have been shown to outperform the
-existing approaches including the {\em mining
-  approaches}~\cite{chanchal-scam14} (which suffers the issue of setting a
-threshold for frequent occurrences).
-
-%XRank~\cite{xrank-fse20} and XHand~\cite{xrank-fse20} have shown that
-%information retrieval (IR) techniques such as fuzzy sets could perform
-%better than the mining approaches~\cite{chanchal-scam14}, which
-%suffers the issue of setting a threshold for frequent occurrences.
-
-However, the state-of-the-art, IR-based approaches~\cite{xrank-fse20}
-have the limitations. First, it is not trivial to pre-define
-a threshold for feature matching for a retrieval, e.g., the threshold
-to determine the associations between an API~call (e.g.,
-\code{get\-Declared\-Field}) and an exception type (e.g.,
-\code{No\-Such\-Field\-Exception}). Thus, the pre-defined threshold
-affects much their effectiveness.
+handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}.
+%--------------- Tien ---
+%While early approaches were not effective in all cases due to their
+%{\em heuristics}~\cite{barbosa-bsse12}, the {\em exception policies}
+%are too strict in enforcing them, yet requires the rules to be encoded
+%in the tools~\cite{barbosa-tse16,barbosa-saner18}. The
+%state-of-the-art {\em information retrieval}-based approaches (e.g.,
+%XRank/Xhand~\cite{xrank-fse20}) have been shown to outperform the
+%existing approaches including the {\em mining
+%  approaches}~\cite{chanchal-scam14} (which suffers the issue of
+%setting a threshold for frequent occurrences).
+%-----------------
+However, the state-of-the-art, IR-based approaches~\cite{xrank-fse20},
+which have been shown to outperform others, still have the
+limitations. First, it is not trivial to pre-define a threshold for
+feature matching for a retrieval, e.g., the threshold to determine the
+associations between an API~call (e.g., \code{get\-Declared\-Field})
+and an exception type (e.g., \code{No\-Such\-Field\-Exception}). Thus,
+the pre-defined threshold affects much their effectiveness.
 %
 Second, relying on the lexical values of API elements' names, they
 suffer the issue of ambiguous names of the APIs or exceptions in an
@@ -94,7 +92,7 @@ For example, they compute the association between the names of the API
 call (e.g., \code{get\-Declared\-Field}) and the exceptions to be
 handled (e.g., \code{No\-Such\-Field\-Exception},
 \code{Security\-Exception}, etc.). Without the context, it is
-challenging to decide the identities of the APIs and exceptions via
+challenging to decide the identities of the APIs and their exceptions via
 only simple names.
 
 %and the exceptions to be handled.
@@ -116,14 +114,15 @@ the designers of the JDK library have the intent for developers to use
 the API method \code{get\-Declared\-Field} within a \code{try-catch}
 block and to handle the list of exceptions as in line 8 of
 Figure~\ref{fig:example3}. Thus, to adapt the incomplete code snippet
-in Figure~\ref{fig:example1}, one could learn from the public code
-repositories to properly handle the exceptions.
+in Figure~\ref{fig:example1}, a model could learn from the public 
+repositories with complete code to suggest proper exception handling.
 
 \begin{Observation} [{\bf Regularity of Exception Handling}]
 \label{ob2}
 Finding the patterns from complete code in existing code corpora could
-be a good strategy to {\bf learn to properly handle the exceptions} in
-adapting an (incomplete) code snippet into a codebase.
+be a good strategy for a model to {\bf learn to properly handle the
+  exceptions} in adapting an (incomplete) code snippet into a
+codebase.
 \end{Observation}
 
 %=======================================================
