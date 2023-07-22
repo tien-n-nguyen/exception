@@ -12,19 +12,22 @@
 
 {\em Tuning.} We used the same tuning as in RQ1.
 
-{\em Metrics.} We used the same metrics as in RQ1. However, we
-computed Recall, Precision, and F-score in two ways. First, we
-evaluate {\xtype} in connection with {\xblock} and {\xstate}. That is,
-we consider a correct case if {\xblock} gives a correct prediction on
-whether \code{try-catch} blocks are needed, {\xstate} produces correct
-tags for all the statements, and {\xtype} predicted correctly on the
-exceptions that need to be caught for all the \code{try-catch} blocks.
-Second, we evaluate {\xtype} as individual. That is, we assumed that
-both {\xblock} and {\xstate} have given 100\% correct prediction
-results for their own tasks. To do so, we put the code snippets that
-need \code{try-catch} blocks with statements correctly labelled in the
-oracle and used {\xtype} to predict the exception types for all such
-blocks.
+{\em Metrics.} We used 1) Precision (defined as the ratio between the
+size of the overlapping set between the predicted and oracle sets over
+the size of the predicted one), 2) Recall (defined as the ratio
+between the size of the overlapping set and the size of the oracle
+set), and 3) F-score (a harmonious mean). We computed those metrics in
+two ways. First, we evaluate {\xtype} in connection with {\xblock} and
+{\xstate}. We consider a correct case if {\xblock} gives a correct
+prediction on whether \code{try-catch} blocks are needed, {\xstate}
+produces correct tags for all the statements, and {\xtype} predicted
+correctly on the exceptions that need to be caught for all
+the \code{try-catch} blocks.  Second, we evaluate {\xtype} as
+individual: we assumed that both {\xblock} and {\xstate} have given
+100\% correct predictions for their own tasks. To do so, we put the
+code snippets that need \code{try-catch} blocks with statements
+correctly labeled in the oracle and used {\xtype} to predict the
+exception types for all such blocks.
 
 %Let us use $E$ and $P$ to denote the set of the
 %exception types in the oracle and the set of predicted

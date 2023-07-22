@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  21 JUL 2023 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  21 JUL 2023 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1532,7 +1532,11 @@ se-lines. \T1/LinuxLibertineT-TLF/m/n/9 (-20) Fuzzy-Catch [[]] lever-ages XRank
  to de-tect the exception-
  []
 
-)) (empirical-results.tex (rq1-results.tex
+
+Underfull \vbox (badness 1852) has occurred while \output is active []
+
+ [7.7]))
+(empirical-results.tex (rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 7.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1543,11 +1547,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
-
-Underfull \vbox (badness 1852) has occurred while \output is active []
-
- [7.7]
-(rq1-case-study.tex
+ (rq1-case-study.tex
 <rq1-case-study.png, id=338, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
@@ -1626,7 +1626,11 @@ Class acmart Warning: A possible image without description on input line 38.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 1.
 
-)) (related-work.tex) (conclusion.tex) [10.10] (icse24.bbl
+)) (related-work.tex) (conclusion.tex)
+Underfull \vbox (badness 3547) has occurred while \output is active []
+
+ [10.10]
+(icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1665,6 +1669,10 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
 [11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1676,11 +1684,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: C23E33BBDAF00DE242A6366546C88E0F;4030.
  ) 
 Here is how much of TeX's memory you used:
- 37524 strings out of 476374
- 698306 string characters out of 5798669
+ 37527 strings out of 476374
+ 698390 string characters out of 5798669
  2001340 words of memory out of 5000000
  56071 multiletter control sequences out of 15000+600000
- 749903 words of font info for 589 fonts, out of 8000000 for 9000
+ 750157 words of font info for 591 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_jtta5h.enc}{C:/Progra
@@ -1703,7 +1711,7 @@ Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX
 /fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on icse24.pdf (11 pages, 1543519 bytes).
+Output written on icse24.pdf (11 pages, 1544178 bytes).
 PDF statistics:
  546 PDF objects out of 1000 (max. 8388607)
  180 named destinations out of 1000 (max. 500000)

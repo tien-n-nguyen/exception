@@ -7,10 +7,13 @@
 
 {\em Tuning.} We used the same tuning as in RQ1.
 
-{\em Metrics.} We used the same metrics as in RQ1. However, we
-computed Recall, Precision, and F-score in two ways. First, we
-evaluated {\xstate} in connection with {\xblock}. That is, we consider
-a correct case if {\xblock} gives a correct prediction on whether
+{\em Metrics.} We used the same metrics as in RQ1 at the instance (snippet)
+level.  At the statement level, we use {\em Accuracy}, which is the
+ratio between the number of correct tagging of statements over the
+total number of statements. We computed Recall, Precision,
+and F-score in two ways. First, we evaluated {\xstate} in connection
+with {\xblock}. That is, we consider a correct case if {\xblock} gives
+a correct prediction on whether
 \code{try-catch} blocks are needed, {\em and} {\xstate} produces
 correct tags for all the statements when there exists
 a \code{try-catch} block. Second, we evaluated {\xstate} as
