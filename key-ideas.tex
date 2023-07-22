@@ -1,25 +1,31 @@
 \subsection{Key Ideas}
 \label{key:sec}
 
-We introduce {\tool} with the following three functionality for
-exception handling recommendation: given a Java code snippet, it will
-1) predict if a \code{try-catch} block is required ({\xblock}), 2)
-point out which statements in the code snippet need to be placed in a
-\code{try-catch} block ({\xstate}), and 3) suggest what exceptions
-need to be caught in the \code{catch} clause ({\xtype}). Following the
-above Observations, we design {\tool} with the following key ideas:
+We introduce {\tool} with three functionalities for exception handling
+recommendation: given a Java code snippet, it will
+
+1) predict if a \code{try-catch} block is required ({\xblock}),
+
+2) point out which statements in the code snippet need to be placed in
+a \code{try-catch} block ({\xstate}), and
+
+3) suggest the exception types to be in the \code{catch}
+clause ({\xtype}).
+
+From Observations, we design {\tool} with the following
+ideas:
 
 \subsubsection{{\bf [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation by Learning from Complete Code}}
 Instead of deterministically deriving the exceptions to be handled for
 a given (incomplete) code snippet, following Observation~\ref{ob2}, we
-design a deep learning model (DL) to learn to properly handle the
+follow a learning-based approach to learn to properly handle the
 exceptions in the three above tasks.
 %to learn to analyze that snippet to recommend if a \code{try-catch}
 %block is needed and the statements to be placed within the
 %\code{try-catch} block, and to recommend the exception types in the
 %\code{catch} clause.
 By learning from the \code{try-catch} blocks of the complete code in
-the open-source projects in the training process, our DL model can
+the open-source projects in the training process, our model can
 help the adaptation tasks.
 
 %: 1) deciding what
@@ -29,19 +35,18 @@ help the adaptation tasks.
 
 
 \vspace{2pt}
-\subsubsection{{\bf [Key Idea 2] Leveraging Context to avoid
+\subsubsection{{\bf [Key Idea 2] Leveraging Language Model to learn Context to avoid
 name ambiguity and Learning the Relations between API elements and
 Exception types}} Instead of learning only the associations between an
 API element and exception types as in IR-based approaches,
 %XRank~\cite{xrank-fse20},
-we leverage as the context the complete code in the training
-corpus, which are parsable and provide the identities (i.e., FQNs) of
-the API elements. In predicting for a code snippet, {\tool} will also
-leverage the context and dependencies among the API elements to learn
-their identities (see Observation~\ref{ob4}). Importantly,
-that leads to the learning of the relations between the key API
-elements in the context and the handled exception types
-(Observation~\ref{ob3}).
+we leverage as the context the complete code in the training corpus,
+which are parsable and provide the identities (i.e., FQNs) of the API
+elements. In predicting for a code snippet, {\tool} will also leverage
+the context and dependencies among the API elements to learn their
+identities implicitly (see Observation~\ref{ob4}). Importantly, that
+leads to the learning of the relations between the key API elements in
+the context and the handled exception types (Observation~\ref{ob3}).
 
 %\subsubsection{{\bf [Key Idea 3] Dual-Task Learning between {\xstate} and {\xtype}}} The learning of deciding what statements to be in a \code{try-catch}
 %block could benefit much on the learning of deciding what exception
@@ -63,12 +68,12 @@ elements in the context and the handled exception types
 %representations for the statements in source code so as to learn the
 %span ...}
 
-\subsubsection{{\bf [Key Idea 3] Leveraging Sequence Chunking with a Large Language Model and Multi-tasking}} 
+\subsubsection{{\bf [Key Idea 3] Leveraging Sequence Chunking with a Language Model and Multi-tasking}} 
 Inspired by the sequence chunking
 techniques~\cite{sequence-chunking-aaai17} in NLP, we formulate our
 problem as identifying one or multiple chunks of consecutive
 statements that need to be placed within \code{try-catch} blocks. We
-leverage and fine-tune the large language model
+leverage and fine-tune the language model
 CodeBERT~\cite{codebert-emnlp20} to learn to the relations among
 statements with the API elements.  We also leverage the multi-tasking
 framework for all three tasks {\xblock}, {\xstate}, and {\xtype}

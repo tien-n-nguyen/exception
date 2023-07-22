@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  22 JUL 2023 15:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1412,17 +1412,17 @@ Class acmart Warning: A possible image without description on input line 179.
 
 [3.3]) (key-ideas.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 13.
+(Font)              scaled to size 9.0pt on input line 19.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 31.
+surrounding objects on input line 37.
 
 ) (overview.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 (Font)              scaled to size 10.95pt on input line 1.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5490) has occurred while \output is active []
 
  [4.4 <./overview-3.png>]) (block-classification.tex
 <xblock-3.png, id=279, 1163.34625pt x 687.56876pt>
@@ -1652,11 +1652,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 623AF4FAE5CA789A65D5C1F568535F8E;4281.
  ) 
 Here is how much of TeX's memory you used:
- 37470 strings out of 476374
- 697022 string characters out of 5798669
+ 37476 strings out of 476374
+ 697166 string characters out of 5798669
  1999340 words of memory out of 5000000
  56066 multiletter control sequences out of 15000+600000
- 740968 words of font info for 560 fonts, out of 8000000 for 9000
+ 741764 words of font info for 564 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1679,7 +1679,7 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (10 pages, 1518150 bytes).
+Output written on icse24.pdf (10 pages, 1518166 bytes).
 PDF statistics:
  522 PDF objects out of 1000 (max. 8388607)
  173 named destinations out of 1000 (max. 500000)
