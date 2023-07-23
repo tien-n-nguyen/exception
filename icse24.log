@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  23 JUL 2023 03:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  23 JUL 2023 10:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1581,24 +1581,15 @@ g Com-par-i-son
  []
 
 ) (rq3-new-results.tex (rq3-table1.tex
-Overfull \hbox (2.76938pt too wide) in paragraph at lines 7--21
- [] 
+Overfull \hbox (1.74399pt too wide) in paragraph at lines 11--11
+ []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Three| 
  []
 
-) (rq3-table2.tex
-Underfull \hbox (badness 1231) in paragraph at lines 2--2
-[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 9: |Ex-cep-tion Type Rec-om-men-da-
-tion Com-par-i-son
- []
-
-) (rq3-table3.tex) (rq3-table4.tex)) (rq4-new-results.tex) (rq5-results.tex
+) (rq3-table3.tex) (rq3-table4.tex) (rq3-table2.tex)) (rq4-new-results.tex)
+(rq5-results.tex
 Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
-
-
-Underfull \vbox (badness 1769) has occurred while \output is active []
-
 
 (example-bug.tex
 
@@ -1608,7 +1599,8 @@ Class acmart Warning: A possible image without description on input line 38.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (limitations.tex [9.9])) (related-work.tex) (conclusion.tex) (icse24.bbl
+) (limitations.tex [9.9])) (related-work.tex) (conclusion.tex) [10.10]
+(icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1647,11 +1639,7 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-[10.10] (icse24.aux)
+[11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1659,13 +1647,13 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 1285598513E864DC597E790AC03604E7;4281.
  ) 
 Here is how much of TeX's memory you used:
- 37567 strings out of 476374
- 699343 string characters out of 5798669
+ 37563 strings out of 476374
+ 699221 string characters out of 5798669
  1999340 words of memory out of 5000000
  56088 multiletter control sequences out of 15000+600000
- 746486 words of font info for 596 fonts, out of 8000000 for 9000
+ 746076 words of font info for 593 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
 m Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKT
 eX/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc
@@ -1686,9 +1674,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (10 pages, 1560698 bytes).
+Output written on icse24.pdf (11 pages, 1563810 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
- 178 named destinations out of 1000 (max. 500000)
+ 537 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
  114926 words of extra memory for PDF output out of 128383 (max. 10000000)
 

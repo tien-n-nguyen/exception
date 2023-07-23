@@ -1,22 +1,28 @@
 \begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Evaluated by The Number Of Exceptions Being Caught (\xtype as Individual, Github Dataset) (RQ3)}
+  \caption{Exception Type Recommendation (\xtype as Individual, Github Dataset) (RQ3)}
   \vspace{-12pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{1.2cm}<{\centering} | p{0.8cm}<{\centering} | p{0.8cm}<{\centering}| p{0.8cm}<{\centering} | p{0.8cm}<{\centering} | p{0.8cm}<{\centering} | p{0.8cm}<{\centering} |}
+		\begin{tabular}{| p{1.2cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering}| p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} |}
 		  \hline
-			\multirow{2}{*}{} & \multicolumn{6}{c|}{Number of Exceptions Being Caught} \\
-			\cline{2-7}
-			  & One & Two & Three & Four & Five & Six\\
+			\multirow{2}{*}{{\xtype}} & \multicolumn{7}{c|}{Number of Exceptions} \\
+			\cline{2-8}
+			(Github) & One & Two & Three & Four & Five & Six & All\\
 			\hline
-			Precision &  0.7347 & 0.7785 & 0.9779 & 0.9375 & 0.75 & 1.0\\
+			Precision &  0.973 & 0.977 & 0.978 & 0.938 & 0.975 & 1.0 & 0.974\\
 			\hline
-			Recall &  0.7389 & 0.4839 & 0.4681 & 0.4687 & 0.275 & 0.5\\
+			Recall &  0.739 & 0.484 & 0.468 & 0.469 & 0.75 & 0.5 & 0.569\\
 			\hline
-			F1-score &  0.7360 & 0.5811 & 0.6083 & 0.5964 & 0.3839 & 0.6666\\
+			F1-score &  0.840 & 0.648 & 0.633 & 0.625 & 0.848 & 0.666 & 0.718\\
 			\hline
 		\end{tabular}
-		\label{tab:r3-xtype-1}
+		\label{tab:xtype-1}
 	\end{center}
 \end{table}
+
+As seen in Table~\ref{tab:xtype-1}, as individual, {\xtype}
+achieves 97.4\%, 56.9\%, and 71.8\% in Precision, Recall, and
+F1-score, respectively on the Github dataset. While it performs better
+for the case of single exception type, the results for the other cases
+with two or more exceptions to be caught are consistent.
