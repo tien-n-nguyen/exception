@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  23 JUL 2023 03:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  23 JUL 2023 03:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1525,17 +1525,7 @@ ated bugs (miss-ing \T1/zi4/m/it/7 try-catch
  []
 
 (rq1-methodology.tex) (rq2-methodology.tex) (rq3-methodology.tex)
-(rq4-methodology.tex)
-Overfull \hbox (6.11673pt too wide) in paragraph at lines 106--112
-[]\T1/LinuxLibertineT-TLF/m/it/9 (-20) Baselines. \T1/LinuxLibertineT-TLF/m/n/9
- (-20) Fuzzy-Catch [[]] lever-ages XRank to de-tect the exception-
- []
-
-)) (empirical-results.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7.7]
-(rq1-results.tex
+(rq4-methodology.tex))) (empirical-results.tex (rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 7.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1546,8 +1536,12 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
- (rq1-case-study.tex
-<rq1-case-study.png, id=338, 1791.69376pt x 887.315pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7.7]
+(rq1-case-study.tex
+<rq1-case-study.png, id=339, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1603,7 +1597,7 @@ Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []
 
 
-Underfull \vbox (badness 2469) has occurred while \output is active []
+Underfull \vbox (badness 1769) has occurred while \output is active []
 
 
 (example-bug.tex
@@ -1614,8 +1608,7 @@ Class acmart Warning: A possible image without description on input line 38.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (limitations.tex)) (related-work.tex [9.9]) (conclusion.tex) [10.10]
-(icse24.bbl
+) (limitations.tex [9.9])) (related-work.tex) (conclusion.tex) (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 
@@ -1654,7 +1647,11 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-[11.11] (icse24.aux)
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[10.10] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1662,11 +1659,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 1285598513E864DC597E790AC03604E7;4281.
  ) 
 Here is how much of TeX's memory you used:
- 37565 strings out of 476374
- 699275 string characters out of 5798669
+ 37567 strings out of 476374
+ 699343 string characters out of 5798669
  1999340 words of memory out of 5000000
  56088 multiletter control sequences out of 15000+600000
- 746088 words of font info for 594 fonts, out of 8000000 for 9000
+ 746486 words of font info for 596 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1689,9 +1686,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 1562056 bytes).
+Output written on icse24.pdf (10 pages, 1560680 bytes).
 PDF statistics:
- 533 PDF objects out of 1000 (max. 8388607)
- 179 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
  114926 words of extra memory for PDF output out of 128383 (max. 10000000)
 
