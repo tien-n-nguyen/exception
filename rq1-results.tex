@@ -59,10 +59,10 @@ Precision, Recall and F-score on the Github dataset---all above
 In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
 and 55.9\%} in Precision, Recall, and F1-score, respectively.
 
-Examining the result, we reported the following. First, precision is
-just marginally better than a coin toss (0.53) in our balanced
-dataset. In XRank, if the association score of {\em only one API
-  method} in the snippet and {\em one exception} is higher than a
+Examining the result, we reported the following on XRank. First,
+its precision is marginally better than a coin toss (0.53) in our
+balanced dataset. In XRank, if the association score of {\em only one
+  API method} in the snippet and {\em one exception} is higher than a
 threshold, it decides that a \code{try-catch} block is needed.
 %
 Second, the decisions on the necessity of a \code{try-catch} block or
@@ -74,12 +74,12 @@ or libraries are the same (e.g., \code{toString} or \code{getText} in
 various JDK packages), XRank cannot distinguish them and use one entry
 in the dictionary for them due to its IR approach, leading to
 mistakenly considering them the same. Unlike XRank, which
-considers only the API method calls in a \code{try-catch} block,
-{\tool} considers the code in the block as the context to learn the
-relations among the names of those API elements,
-%That is, it leverages the relations among the names of API elements to
-%learn their identities,
+considers only the API calls in a \code{try-catch} block,
+{\tool} considers the code in the block as the context to learn better
+the identities of APIs and dependencies with exceptions,
+%relations among the names of those API elements,
 thus, better deciding the need of \code{try-catch} blocks.
+
 %and the corresponding exception types.
 
 %ChatGPT results ==== ?
@@ -91,13 +91,13 @@ respectively. Examining GPT-3.5's results, we found that it detected
 well only the popular APIs and corresponding exception types because
 it was not trained specifically for the exception handling
 task. Moreover, for the un-popular API names, GPT-3.5 often resorted
-to another API with similar name, and predicts that the given code
+to another API with similar name, and predicted that the given code
 snippet needs a \code{try-catch} block because that API requires such
 a block. For example, in an instance containing a method call to
 \code{interval.parseWithOffset}, which is specific to a project,
-GPT-3.5 incorrectly considered it to have a \code{try-catch}
+GPT-3.5 incorrectly considered it as to have a \code{try-catch}
 block. GPT-3.5 explained that it is similar to \code{parse}
-in a compiler project, which needs to handle
+in a compiler, which needs to handle
 \code{InvalidInputException}. Thus, it incorrectly considers
 \code{parseVals} needs to handle that exception.
 
