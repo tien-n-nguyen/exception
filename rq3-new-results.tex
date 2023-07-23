@@ -1,77 +1,13 @@
 \subsection{Exception Type Recommendation (RQ3)}
 \label{sec:rq3}
 
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Evaluated by The Number Of Exceptions Being Caught (\xtype as Individual) (RQ3)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{2.3cm}<{\centering} | p{0.8cm}<{\centering} | p{0.8cm}<{\centering}| p{0.8cm}<{\centering} | p{0.8cm}<{\centering} | p{0.8cm}<{\centering} |}
-		  \hline
-			\multirow{2}{*}{} & \multicolumn{5}{c|}{Number of Exceptions Being Caught} \\
-			\cline{2-6}
-			 Github dataset & One & Two & Three & Four & Five\\
-			\hline
-			Accuracy (\xtype) &  \textbf{XX.X} & \textbf{XX.X} & \textbf{XX.X} & \textbf{XX.X} & \textbf{XX.X}\\
-			\hline
-		\end{tabular}
-		\label{tab:r3-xtype-1}
-	\end{center}
-\end{table}
+\input{rq3-table1}
+\input{rq3-table2}
+\input{rq3-table3}
+\input{rq3-table4}
 
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Comparison (\xblock+\xstate+\xtype) (RQ3)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.10cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
-		  \hline
-			Small dataset  & Precision  & Recall & F1-score \\
-			\hline
-                        %			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
-                        GPT-3.5 & 0.5389 & 0.5439 & 0.5413 \\
-			\hline
-			\xblock + \xstate  + \xtype  & \textbf{XX.X}  &  \textbf{XX.X} & \textbf{XX.X}\\
-			\hline
-		\end{tabular}
-		\label{tab:xtype-2}
-	\end{center}
 
-\end{table}
 
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Result ({\xtype} as Individual) (RQ3)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering}|}
-		  \hline
-			Github dataset  & Accuracy \\
-			\hline
-			\xtype   & \textbf{73.29\%} \\
-			\hline
-		\end{tabular}
-		\label{tab:xtype-3}
-	\end{center}
-\end{table}
 
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Result (\xblock+\xstate+\xtype) (RQ3)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.10cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
-		  \hline
-			Github dataset  & Precision  & Recall & F1-score \\
-			\hline
-			\xblock + \xstate  + \xtype  & \textbf{XX.X}  &  \textbf{XX.X} & \textbf{XX.X}\\
-			\hline
-		\end{tabular}
-		\label{tab:xtype-4}
-	\end{center}
 
-\end{table}
+
