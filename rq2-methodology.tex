@@ -3,27 +3,52 @@
 
 %the pre-trained CodeBERT model without any fine-tuning step as in RQ1.
 
-{\em Procedure.} We used the same procedure as in RQ1.
+%{\em Procedure.} We used the same procedure as in RQ1.
 
 {\em Tuning.} We used the same tuning as in RQ1.
 
-{\em Metrics.} We used the same metrics as in RQ1 at the instance (snippet)
-level.  At the statement level, we use {\em Accuracy}, which is the
-ratio between the number of correct tagging of statements over the
-total number of statements. We computed Recall, Precision,
-and F-score in two ways. First, we evaluated {\xstate} in connection
-with {\xblock}. That is, we consider a correct case if {\xblock} gives
-a correct prediction on whether
-\code{try-catch} blocks are needed, {\em and} {\xstate} produces
-correct tags for all the statements when there exists
-a \code{try-catch} block. Second, we evaluated {\xstate} as
-individual. We assumed that {\xblock} predicts correctly whether a
-code snippet needs \code{try-catch} block(s). We used {\xstate} to
-predict the groupings of statements for the blocks in those snippets
-and compared against the statements in one or multiple blocks in the oracle (via
-the encoded vector [O, B-Try, I-Try]). We also computed the accuracy
-at the statement level on if a statement needs a \code{try-catch}
-block.
+{\em Procedure and Metrics.} We evaluated the models at both the
+instance level and the statement level. At the instance level, a
+prediction for a code snippet is considered as correct if all the
+statements inside or outside of all the predicted (zero or
+multiple) \code{try-catch} blocks must match with the grouping of the
+corresponding statements in the corresponding (zero or
+multiple) \code{try-catch} blocks in the oracle. To do so, we match
+the encoded vector [O, B-Try, I-Try] of the prediction against the
+vector for a snippet in the oracle. Because we have both
+positive/negative instances, we used the same metrics Precision,
+Recall, and F1-score as in RQ1. At the statement level, we evaluated
+if a model predicts correctly whether a statement needs to be inside
+a \code{try-catch} block, regardless of the blocks themselves. Thus,
+we use {\em Accuracy} for the statement-level evaluation, which is
+defined as the ratio between the number of correct taggings of
+statements over the total number of statements.  Importantly, we also
+evaluated {\tool} in two ways. First, we evaluated {\xstate} in
+connection with {\xblock}. That is, we consider a case as correct if
+both {\xblock} and {\xstate} give correct predictions (correct on the
+need of a \code{try-catch} block and correct on statement
+tagging). Second, we also evaluated {\xstate} as individual. We assume
+that {\xblock} predicted correctly on the positive instances. We
+evaluated {\xstate} individually at both instance and statement levels
+as explained.
+
+%We used the same metrics as in RQ1 at the instance (snippet) level.
+%At the statement level, we use {\em Accuracy}, which is the ratio
+%between the number of correct tagging of statements over the total
+%number of statements. We computed Recall, Precision, and F-score in
+%two ways. First, we evaluated {\xstate} in connection with
+%{\xblock}. That is, we consider a correct case if {\xblock} gives a
+%correct prediction on whether
+%\code{try-catch} blocks are needed, {\em and} {\xstate} produces
+%correct tags for all the statements when there exists
+%a \code{try-catch} block. Second, we evaluated {\xstate} as
+%individual. We assumed that {\xblock} predicts correctly whether a
+%code snippet needs \code{try-catch} block(s). We used {\xstate} to
+%predict the groupings of statements for the blocks in those snippets
+%and compared against the statements in one or multiple blocks in the oracle (vian encoded vector [O, B-Try, I-Try]). We also computed the accuracy
+%at the statement level on if a statement needs a \code{try-catch}
+%block.
+%----------------------------------------
 
 %For a snippet that needs \code{try-catch}, but was predicted as
 %not, we consider it as incorrect because the resulting statements
