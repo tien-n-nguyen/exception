@@ -9,12 +9,31 @@
 			Small dataset  & Precision  & Recall & F1-score \\
 			\hline
                         %			CodeBERT w/o fine-tuning &  0.0 & 0.0  & 0.0\\
-                        GPT-3.5 & 0.5389 & 0.5439 & 0.5413 \\
+                        % GPT-3.5 & 0.539 & 0.544 & 0.541 \\
+                        GPT-3.5 & 0.492 & 0.181 & 0.264 \\
 			\hline
-			\xblock + \xstate  + \xtype  & \textbf{0.7242}  &  \textbf{0.6822} & \textbf{0.6938}\\
+			\xblock + \xstate  + \xtype  & \textbf{0.724}  &  \textbf{0.682} & \textbf{0.702}\\
 			\hline
 		\end{tabular}
 		\label{tab:xtype-2}
 	\end{center}
 
 \end{table}
+
+Finally, in comparison with GPT-3.5, as seen in
+Table~\ref{tab:xtype-2}, {\tool} as evaluated as three components,
+achieves relatively higher in Precision, Recall, and F1-score with
+{\bf 47.1\%, 278\%, and 166\%, respectively}. In 190 positive
+instances, {\tool} predicted correctly all three tasks in {\bf 100}
+instances (52.6\%). In 380 all instances, it predicted correctly all
+three tasks in 274 instances {\bf 72.1\%}.
+
+Examining the result from GPT-3.5, we reported that for popular APIs,
+it works well, e.g., \code{ClassNotFoundException},
+\code{IllegalArgumentException}, \code{IOException},
+\code{IndexOutOfBoundException}, \code{RuntimeException}, etc. For
+unpopular API calls, it resorted to using the general exception
+\code{Exception} or \code{APIException} as an answer. For the cases of
+multiple \code{try-catch} blocks, the common errors are the use of
+\code{Exception} for all blocks.
+

@@ -4,10 +4,10 @@
 First, {\tool} can not handle the code with multiple \code{try-catch}
 blocks. Second, it cannot generate new exception types that were not
 in the training corpus. Third, it does not support the generation of
-exception handling code inside the body of \code{catch}. Finally,
+exception handling code inside the body of \code{catch}. Fourth,
 {\tool} needs training data, thus, does not work for a new library
-without any API usage~yet.
-
-Our solution is specifically for Java. Our collected data might not be
-representative. However, we use well-established open-source projects with
-well-known libraries.
+without any API usage~yet. Our solution is specifically for Java. Our
+collected data might not be representative. However, we use
+well-established projects with well-known
+libraries. FuzzyCatch~\cite{xrank-fse20} does not suggest statements
+and exception types. Thus, we compared only with XRank.

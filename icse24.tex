@@ -387,18 +387,20 @@ learning the identities of the APIs, and the relations between the
 statements and the corresponding exception types needed to be handled.
 
 Our empirical evaluation shows that {\tool} correctly performs all
-three exception handling recommendation tasks with an F1-score of
-{\color{red}{\bf XX.X\%}} (an relative improvement of up to
-{\color{red}{\bf XX.X\%}} over the baselines). It achieves high
-F1-score from 98.2\%--99.7\% in \code{try-catch} block necessity
-checking (an relative improvement of up to 55.9\% over the
-baselines). Moreover, it can correctly decide both the need of
+three exception handling recommendation tasks in 71.5\% of the cases
+with an F1-score of 70.2\%. It improves relatively 166\% over the
+baseline.
+%with an F1-score of {\color{red}{\bf XX.X\%}} (an relative
+%improvement of up to {\color{red}{\bf XX.X\%}} over the baselines).
+It achieves high F1-score from 98.2\%--99.7\% in \code{try-catch}
+block necessity checking (an relative improvement of up to 55.9\% over
+the baselines). It also correctly decides both the need of
 \code{try-catch} block(s) and the statements to be placed in such
 blocks with the accuracies of 74.7\% and 87.1\% at the instance and
 statement levels, an improvement of 128.7\% and 44.9\% over the
-baseline, respectively. Our extrinsic evaluation also shows that
+baseline, respectively. Our extrinsic evaluation shows that
 {\tool} relatively improves over the baseline by {\color{red}{\bf
-    9.6\%}} in F-score in detecting exception-related bugs in
+    9.6\%}} in F1-score in detecting exception-related bugs in
 incomplete StackOverflow code snippets.
 
 %Our empirical evaluation on a real-world dataset shows that {\tool}
