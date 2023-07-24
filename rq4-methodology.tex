@@ -1,11 +1,25 @@
 \subsubsection{RQ4. Dependency Probing}~\\
-In this research question, we examine whether {\tool} puts more attention weights for statements inside try blocks. The evaluation is done on the correctly predicted portion of the Github dataset. For each input code snippet, we feed it through the Transformer body of {\tool}, and extract the attention weight matrix from the last layer. We sum up the attention weights between statements inside try blocks, and sum up the attention weights from statements inside to statements outside try blocks (recall that statements are represented by [SEP] tokens). Therefore, for all instances, we have a list of attention scores for inside statements (see Formula~\ref{E:ins}), and a list of attention scores for inside to outside statements (see Formula~\ref{E:out}). Through two sample t\text{-}test, we analyze whether means of the two lists ($\overline{X}_{in}$ and $\overline{Y}_{in\rightarrow out}$) are different and report the p-value. If $p\text{-}value < 0.05$, we reject the Null Hypothesis---there is no difference between the means.
+In this question, we aim to evaluate whether {\tool} could learn the
+connections/dependencies among the statements to be placed inside the
+same \code{try-catch} block. To do so, we selected the instances that
+{\tool} predicted correctly in all three tasks. For a \code{try-catch}
+block in an instance, we randomly selected a statement $S_1$ and
+another statement $S_2$ inside the block. We then randomly selected
+another statement $T$ outside of the block. We measured the distance
+$d_1(S_1,S_2)$ and $d_2(S_1,T)$ for the embeddings. We repeated the
+process to get {\bf XXX} triples of $(S_1,S_2,T)$. Based on the
+population in our dataset, that size gives the confidence level of
+95\% and the confidence interval of 5\%. We used statistical $p$-value
+evaluate our hypothesis $H_1$: $d_1 \geq d_2$. The null-hypothesis
+$H_0$ is $d_1 > d_2$.
 
-\begin{equation}\label{E:ins}
-X_{in} = [ S^{1}_{attn, in}, S^{2}_{attn, in}, ... , S^{n}_{attn, in} ]
-\end{equation}
+%In this research question, we examine whether {\tool} puts more attention weights for statements inside try blocks. The evaluation is done on the correctly predicted portion of the Github dataset. For each input code snippet, we feed it through the Transformer body of {\tool}, and extract the attention weight matrix from the last layer. We sum up the attention weights between statements inside try blocks, and sum up the attention weights from statements inside to statements outside try blocks (recall that statements are represented by [SEP] tokens). Therefore, for all instances, we have a list of attention scores for inside statements (see Formula~\ref{E:ins}), and a list of attention scores for inside to outside statements (see Formula~\ref{E:out}). Through two sample t\text{-}test, we analyze whether means of the two lists ($\overline{X}_{in}$ and $\overline{Y}_{in\rightarrow out}$) are different and report the p-value. If $p\text{-}value < 0.05$, we reject the Null Hypothesis---there is no difference between the means.
 
-\begin{equation}\label{E:out}
-Y_{in\rightarrow out} = [ S^{1}_{attn, in\rightarrow out}, S^{2}_{attn, in\rightarrow out}, ... , S^{n}_{attn, in\rightarrow out} ]
-\end{equation}
+%\begin{equation}\label{E:ins}
+%X_{in} = [ S^{1}_{attn, in}, S^{2}_{attn, in}, ... , S^{n}_{attn, in} ]
+%\end{equation}
+
+%\begin{equation}\label{E:out}
+%Y_{in\rightarrow out} = [ S^{1}_{attn, in\rightarrow out}, S^{2}_{attn, in\righ%tarrow out}, ... , S^{n}_{attn, in\rightarrow out} ]
+%\end{equation}
  
