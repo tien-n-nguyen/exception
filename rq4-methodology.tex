@@ -1,15 +1,21 @@
-\subsubsection{RQ4. Dependency Probing}~\\
-In this question, we aim to evaluate whether {\tool} could learn the
-connections/dependencies among the statements to be placed inside the
-same \code{try-catch} block. To do so, we selected the instances that
-{\tool} predicted correctly in all three tasks. For a \code{try-catch}
-block in an instance, we randomly selected a statement $S_1$ and
-another statement $S_2$ inside the block. We then randomly selected
-another statement $T$ outside of the block. We measured the cosine distance
-$d_1(S_1,S_2)$ and $d_2(S_1,T)$ for the embeddings. We repeated the
-process for all triples of $(S_1,S_2,T)$ in the Github Dataset, and get the cosine distances for the group of 
-inside statement pairs and the group of inside-to-outside statement pairs. Then, for each group, we construct confidence intervals at 
-95\% confidence via bootstrapping for the mean of the distances.
+\subsubsection{RQ4. Statement Dependency Probing}~\\
+%In this question,
+We aim to evaluate if {\tool} could learn the
+connections/dependencies among the statements
+%to be placed
+inside the same \code{try-catch} block. We selected the
+instances that {\tool} predicted correctly in all three tasks. For
+a \code{try-catch} block in an instance, we randomly selected a
+statement $S_1$ and another statement $S_2$ inside the block. We then
+randomly selected another statement $T$ outside of the block. We
+measured the cosine distance $d_1(S_1,S_2)$ and $d_2(S_1,T)$ for the
+statement embeddings. We repeated the process for all triples of
+$(S_1,S_2,T)$ in the Github dataset, and computed the cosine distances
+for the group of inside statement pairs and the group of
+inside-to-outside statement pairs. For each group, we constructed
+confidence intervals at 95\% confidence via bootstrapping for the mean
+of the distances.
+
 %Based on the population in our dataset, that size gives the confidence level of
 %95\% and the confidence interval of 5\%. 
 %We used statistical $p$-value evaluate our hypothesis $H_1$: $d_1 \geq d_2$. The null-hypothesis $H_0$ is $d_1 > d_2$.
