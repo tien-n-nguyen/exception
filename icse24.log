@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  25 JUL 2023 00:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  25 JUL 2023 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1929,7 +1929,7 @@ tances bro-ken
 
 Class acmart Warning: A possible image without description on input line 10.
 
-) (./rq5-results.tex [9.9]
+[9.9]) (./rq5-results.tex
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 14.
@@ -1972,7 +1972,7 @@ Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
 Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
-) (./conclusion.tex) [10.10 <./rq4-density.png>]
+[10.10 <./rq4-density.png>]) (./conclusion.tex)
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -2046,7 +2046,7 @@ fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 2132696 bytes).
+Output written on icse24.pdf (11 pages, 2132854 bytes).
 PDF statistics:
  473 PDF objects out of 1000 (max. 8388607)
  406 compressed objects within 5 object streams
