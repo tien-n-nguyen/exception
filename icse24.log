@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  24 JUL 2023 23:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  25 JUL 2023 00:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1921,6 +1921,12 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 6--8
  []
 
 
+Underfull \hbox (badness 1033) in paragraph at lines 8--8
+[]\T1/LinuxLibertineT-TLF/b/n/9 Figure 10: |The Dis-tri-bu-tion of Co-sine Dis-
+tances bro-ken
+ []
+
+
 Class acmart Warning: A possible image without description on input line 10.
 
 ) (./rq5-results.tex [9.9]
@@ -1936,7 +1942,11 @@ ne 33.
 
 Class acmart Warning: A possible image without description on input line 38.
 
-)) (./rq6-results.tex) (./limitations.tex
+)) (./rq6-results.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./limitations.tex
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 12.
@@ -2001,14 +2011,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  33037 strings out of 493014
  596770 string characters out of 6133352
- 833037 words of memory out of 5000000
+ 833053 words of memory out of 5000000
  35034 multiletter control sequences out of 15000+600000
  217439 words of font info for 421 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -2039,7 +2046,7 @@ fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (11 pages, 2132272 bytes).
+Output written on icse24.pdf (11 pages, 2132696 bytes).
 PDF statistics:
  473 PDF objects out of 1000 (max. 8388607)
  406 compressed objects within 5 object streams
