@@ -32,7 +32,8 @@
 		  \hline
 		Small dataset	  & Precision  &  Recall & F1-score \\
 			\hline
-			GPT-3.5  & 0.666--0.804  & 0.726--0.778   & 0.695--0.791\\
+%			GPT-3.5  & 0.666--0.804  & 0.726--0.778   & 0.695--0.791\\
+                        GPT-3.5  & 0.804  & 0.778   & 0.791\\
 			\hline
 			\tool   &  \textbf{0.994} &  {\bf 1.0} & \textbf{0.997}\\
 			\hline
@@ -85,21 +86,22 @@ thus, better deciding the need of \code{try-catch} blocks.
 %ChatGPT results ==== ?
 
 As seen in Table~\ref{tab:xblock-2}, {\tool} relatively improves over
-GPT-3.5 from {\bf 23.6\%--49.3\%}, {\bf 28.5\%--37.7\%}, and {\bf
-  26\%--43.5\%}, in Precision, Recall, and F1-score,
-respectively. Examining GPT-3.5's results, we found that it detected
-well only the popular APIs and corresponding exception types because
-it was not trained specifically for the exception handling
-task. Moreover, for the un-popular API names, GPT-3.5 often resorted
-to another API with similar name, and predicted that the given code
-snippet needs a \code{try-catch} block because that API requires such
-a block. For example, in an instance containing a method call to
+GPT-3.5 {\bf 23.6\%}, {\bf 28.5\%}, and {\bf 26\%}, in
+Precision, Recall, and F1-score, respectively.
+%{\bf 23.6\%--49.3\%}, {\bf 28.5\%--37.7\%}, and {\bf 26\%--43.5\%}, in
+%Precision, Recall, and F1-score, respectively.
+Examining GPT-3.5's results, we found that it detected well only the
+popular APIs and corresponding exception types because it was not
+trained specifically for the exception handling task. Moreover, for
+the un-popular API names, GPT-3.5 often resorted to another API with
+similar name, and predicted that the given code snippet needs a
+\code{try-catch} block because that API requires such a block. For
+example, in an instance containing a method call to
 \code{interval.parseWithOffset}, which is specific to a project,
 GPT-3.5 incorrectly considered it as to have a \code{try-catch}
-block. GPT-3.5 explained that it is similar to \code{parse}
-in a compiler, which needs to handle
-\code{InvalidInputException}. Thus, it incorrectly considers
-\code{parseVals} needs to handle that exception.
+block. GPT-3.5 explained that it is similar to \code{parse} in a
+compiler, which needs to handle \code{InvalidInputException}. Thus, it
+incorrectly considers \code{parseVals} needs to handle that exception.
 
 \input{rq1-case-study}
 
