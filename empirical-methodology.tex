@@ -40,10 +40,10 @@ block as the negative samples. In total, we have 30,764 instanaces.
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
 authors of XRank/XHand~\cite{xrank-fse20}, which contains 750
 StackOverflow code snippets with exception-related bugs (missing
-\code{try-catch} blocks or missing catching some excxeptions). We also
-randomly selected from the projects in FuzzyCatch dataset the same
-amount of snippets with no exception-related bugs as the negative
-samples.
+\code{try-catch} blocks or exceptions). Finally, we used 635 snippets
+because other repos no longer exist. We also randomly selected from
+the projects in FuzzyCatch dataset the same amount of snippets with no
+exception-related bugs as the negative samples.
 
 %We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 

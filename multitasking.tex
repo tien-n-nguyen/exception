@@ -16,7 +16,7 @@ in a multi-task learning fashion.
 
 We calculate the training loss by combining the losses from the three
 modules. $Loss_{{\xblock}}$ is the Binary Cross Entropy loss for the
-decision as to whether \code{try-catch} blocks exist in the input. To
+decision as to if \code{try-catch} block(s) is needed. To
 calculate $Loss_{{\xstate}}$, we first get the classification loss for
 each statement ($loss_{Stmt}$) in the input, and add them
 together. $loss_{Stmt}$ is the Cross Entropy loss calculated from the
@@ -26,7 +26,7 @@ distribution for the three tags -- \code{O}, \code{B-Try},
 from the summation of the exception prediction losses from all the
 \code{try-catch} blocks. For each \code{try-catch} block, the
 $loss_{try-block}$ is calculated by adding the Binary Cross Entropy
-loss for the prediction of each exception that we considered.
+loss for the prediction of each exception of interest.
 
 The overall training loss is calculated as follows. If the input does
 not contain any \code{try-catch} block, the loss will be only 

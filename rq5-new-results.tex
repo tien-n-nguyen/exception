@@ -15,7 +15,7 @@
 			\hline
 			Recall    & \textbf{0.95}& 0.76\\
 			Precision & \textbf{1.0} & 0.54\\
-			F-score   & \textbf{0.97} & 0.62\\
+			F1-score   & \textbf{0.97} & 0.62\\
 			\hline
 		\end{tabular}
 		\label{tab:bug}
@@ -30,19 +30,21 @@ As seen in Table~\ref{tab:bug}, {\tool} can be used to detect well
 real-world exception-related bugs in which a code snippet needs but
 did not have a \code{try-catch} block or miss some exceptions. In
 comparison, {\tool} improves relatively over
-FuzzyCatch~\cite{xrank-fse20} 14.8\% in Precision and
-9.8\% in F-score.
+FuzzyCatch~\cite{xrank-fse20} 85.2\% in Precision, 25\% in Recall, and
+56.5\% in F-score.
 %The reason for a higher recall from FuzzyCatch is the same as in
 %RQ1. That is,
-While the recall values between two models are almost the same,
-FuzzyCatch has lower precision. It tends to predict ``Yes'' (buggy)
-for all code snippets. That is because if there is an association
-score between {\em only} one API method call in the code snippet and
-one exception type higher than the threshold, it will decide that the
-snippet is buggy. Figure~\ref{fig:example-bug} shows a bug detected by
-{\tool}, and its fix (adding a \code{try-catch} block). All buggy code
-and fixes are available in FuzzyCatch's repository:
-ebrand.ly/ExDataset.
+%While the recall values between two models are almost the same,
+%FuzzyCatch has lower precision.
+%It tends to predict ``Yes'' (buggy) for all code snippets. That is
+Because if there is an association score between {\em only} one API
+method call in the code snippet and one exception type higher than the
+threshold, FuzzyCatch will decide that the snippet is buggy. Its
+result is more on the ``Yes'' (buggy) side. Thus, its precision is
+54\%, a slightly better than the probability of a coin
+toss. Figure~\ref{fig:example-bug} shows a bug detected by {\tool},
+and its fix (adding a \code{try-catch} block). All buggy code and
+fixes are available in FuzzyCatch's repository: ebrand.ly/ExDataset.
 
 \input{example-bug.tex}
 
