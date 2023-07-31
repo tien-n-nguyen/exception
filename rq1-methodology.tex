@@ -1,11 +1,11 @@
 \subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}~\\
 \indent {\em Baselines.} We compared {\xblock} with
 GPT-3.5 in ChatGPT~\cite{ChatGPT}. Due to cost of using ChatGPT-3.5 on
-OpenAI, we performed sampling on the Github dataset of 30,764
+OpenAI, we performed sampling on the GitHub dataset of 30,764
 snippets. To obtain the confidence level of 95\%, we randomly selected
 380 code snippets in which 190 are negative samples
 (no \code{try-catch} block), and 190 are positive samples (at least
-one \code{try-catch} block). We trained on Github dataset and
+one \code{try-catch} block). We trained on GitHub dataset and
 compared with GPT-3.5 on this sampled test set.
 
 %the pre-trained CodeBERT without any fine-tuning steps. In the
@@ -13,7 +13,7 @@ compared with GPT-3.5 on this sampled test set.
 %top of the output vector of the \texttt{[CLS]} token, and use a
 %softmax function to learn the decision.
 We also compared {\xblock} with XRank~\cite{xrank-fse20} (XRank is
-part of FuzzyCatch) on the Github dataset. XRank computed
+part of FuzzyCatch) on the GitHub dataset. XRank computed
 the exception risk score for each API call. If a score of a call in
 the snippet is higher than a threshold, we consider it as needing a
 \code{try-catch} block.
@@ -23,7 +23,7 @@ in a dataset into 80\%, 10\%, and 10\% of the code
 snippets for training, tuning, and testing. Meanwhile, we make sure
 that each partition contains the equal amount of positive samples and
 negative samples; and the training and tuning partitions do not
-contain any duplicates. 
+contain any duplicates.
 
 To request responses from ChatGPT, we construct prompt with the format
 "question + code", where the question we pose is "Does the code below
@@ -65,7 +65,7 @@ vote from three tries.
 %the trained model from the DeepEx dataset and test it on the
 %FuzzyCatch dataset for both the baseline and {\tool}.
 
-{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall loss. 
+{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall loss.
 
 %We tuned {\tool} with autoML~\cite{NNI} for the
 %following key hyper-parameters to have the best performance: (1) Epoch

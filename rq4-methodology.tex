@@ -7,14 +7,14 @@ selected a statement $S_1$ and another statement $S_2$ inside the
 block. We then randomly selected another statement $T$ outside of the
 block. We measured the cosine distances $d_1(S_1,S_2)$ and $d_2(S_1,T)$
 for the statement embeddings. We repeated that for all triples
-of $(S_1,S_2,T)$ in the Github dataset, and computed the cosine
+of $(S_1,S_2,T)$ in the GitHub dataset, and computed the cosine
 distances for the group of inside statement pairs and the group of
 inside-to-outside statement pairs. For each group, we constructed
 confidence intervals at 95\% confidence via bootstrapping for the mean
-of the distances (the number of resamples is 1,000).
+of the distances (the number of re-samples is 1,000).
 
 %Based on the population in our dataset, that size gives the confidence level of
-%95\% and the confidence interval of 5\%. 
+%95\% and the confidence interval of 5\%.
 %We used statistical $p$-value evaluate our hypothesis $H_1$: $d_1 \geq d_2$. The null-hypothesis $H_0$ is $d_1 > d_2$.
 
 %In this research question, we examine whether {\tool} puts more attention weights for statements inside try blocks. The evaluation is done on the correctly predicted portion of the Github dataset. For each input code snippet, we feed it through the Transformer body of {\tool}, and extract the attention weight matrix from the last layer. We sum up the attention weights between statements inside try blocks, and sum up the attention weights from statements inside to statements outside try blocks (recall that statements are represented by [SEP] tokens). Therefore, for all instances, we have a list of attention scores for inside statements (see Formula~\ref{E:ins}), and a list of attention scores for inside to outside statements (see Formula~\ref{E:out}). Through two sample t\text{-}test, we analyze whether means of the two lists ($\overline{X}_{in}$ and $\overline{Y}_{in\rightarrow out}$) are different and report the p-value. If $p\text{-}value < 0.05$, we reject the Null Hypothesis---there is no difference between the means.
@@ -26,4 +26,4 @@ of the distances (the number of resamples is 1,000).
 %\begin{equation}\label{E:out}
 %Y_{in\rightarrow out} = [ S^{1}_{attn, in\rightarrow out}, S^{2}_{attn, in\righ%tarrow out}, ... , S^{n}_{attn, in\rightarrow out} ]
 %\end{equation}
- 
+
