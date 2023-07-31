@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  30 JUL 2023 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  30 JUL 2023 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1442,19 +1442,19 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 7--9
 Class acmart Warning: A possible image without description on input line 11.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 15.
+(Font)              scaled to size 9.0pt on input line 16.
 ) (statement-classification.tex
-<xstate-2.png, id=286, 1202.4925pt x 778.40813pt>
-File: xstate-2.png Graphic file (type png)
-<use xstate-2.png>
-Package pdftex.def Info: xstate-2.png  used on input line 6.
-(pdftex.def)             Requested size: 231.26378pt x 149.69258pt.
+<xstate-3.png, id=287, 1203.49625pt x 777.40437pt>
+File: xstate-3.png Graphic file (type png)
+<use xstate-3.png>
+Package pdftex.def Info: xstate-3.png  used on input line 6.
+(pdftex.def)             Requested size: 231.26378pt x 149.38094pt.
 
 
 Class acmart Warning: A possible image without description on input line 10.
 
 ) (type-classification.tex
-<xtype-5.png, id=293, 1154.81438pt x 822.07124pt>
+<xtype-5.png, id=294, 1154.81438pt x 822.07124pt>
 File: xtype-5.png Graphic file (type png)
 <use xtype-5.png>
 Package pdftex.def Info: xtype-5.png  used on input line 6.
@@ -1463,7 +1463,7 @@ Package pdftex.def Info: xtype-5.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 11.
 
-[5.5 <./xblock-4.png> <./xstate-2.png>]
+[5.5 <./xblock-4.png> <./xstate-3.png>]
 Overfull \hbox (3.87761pt too wide) in paragraph at lines 36--46
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) from the state-ment \T1/zi4/m/it/7 out.writ
 e \T1/LinuxLibertineT-TLF/m/n/9 (-20) to the state-ment \T1/zi4/m/it/7 print(no
@@ -1535,7 +1535,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
  (rq1-case-study.tex
-<rq1-case-study.png, id=339, 1791.69376pt x 887.315pt>
+<rq1-case-study.png, id=340, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1587,7 +1587,7 @@ alArgumentException\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
 )) (rq4-new-results.tex
-<rq4-density-v2.png, id=364, 505.89pt x 289.08pt>
+<rq4-density-v2.png, id=365, 505.89pt x 289.08pt>
 File: rq4-density-v2.png Graphic file (type png)
 <use rq4-density-v2.png>
 Package pdftex.def Info: rq4-density-v2.png  used on input line 6.
@@ -1676,9 +1676,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2109385 bytes).
+Output written on icse24.pdf (11 pages, 2108764 bytes).
 PDF statistics:
- 544 PDF objects out of 1000 (max. 8388607)
+ 545 PDF objects out of 1000 (max. 8388607)
  180 named destinations out of 1000 (max. 500000)
  114931 words of extra memory for PDF output out of 128383 (max. 10000000)
 
