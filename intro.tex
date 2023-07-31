@@ -98,16 +98,18 @@ recommender, which accepts a given Java code snippet and recommends 1)
 data-driven, learning-based approach from the previous studies
 reporting that exception handling for the API elements is frequently
 repeated across different
-projects~\cite{chanchal-scam14,zhong-jss18}. The rationale is that the
-designers of a software library have the intents for users to use
-certain API elements with corresponding exception types.  Thus, we
-design {\tool} to learn from the statements in \code{try-catch} blocks
-and the exception types retrieved from {\em complete source code} in a large
-code corpus, and derive the above exception handling suggestions for
-the {\em (partial) code snippet} under study.
+projects~\cite{chanchal-scam14,zhong-jss18}. The reason for such
+repetitions is that the designers of a software library have the
+intents for users to use certain API elements with corresponding
+exception types. Thus, we design {\tool} to learn from the statements
+in \code{try-catch} blocks and exception types retrieved from {\em
+  complete source code} in a large code corpus, and derive suggestions
+for given {\em (in)complete~code}.
+%the above exception handling suggestions for the {\em (partial) code
+%  snippet} under study.
 
 We leverage and fine-tune the large language model
-CodeBERT~\cite{codebert-emnlp20} to capture the surrounding {\bf context}
+CodeBERT~\cite{codebert-emnlp20} to capture the surrounding code {\bf context}
 with the dependencies among the API elements. Capturing such
 contextual information and the dependencies enable {\tool} to realize
 the idea {\em ``Tell Me Your Friends, I'll Tell You Who You Are''} to
@@ -126,21 +128,40 @@ better performance in all three tasks.
 %with the corresponding exception types.
 %that need to be caught in the \code{catch} clauses.
 
-Our aforementioned idea gives {\tool} three advantages over the
-state-of-the-art IR approach. First, with the learning-based approach,
-{\tool} does not rely on a pre-defined threshold for explicit feature
-matching for the retrieval of the API elements or exception types.
-Second, instead of learning only the associations between the API
-elements and corresponding exception types, {\tool} has advantages in
-both predicting and training. During predicting, for a given
-incomplete code, the context enables {\tool} to {\em learn the
-  identities of the API elements via the dependencies/relations} among
-them in the context, thus, avoiding the name ambiguity. Let us call it
-{\em dependency context}. During training, the complete code enables
-the identifications (i.e., the fully-qualified names) of the API
-elements. Third, the context of surrounding code also helps the
-model implicitly learn the important features to connect between the
-API elements and the corresponding exception types.
+Our above idea gives {\tool} advantages over the state-of-the-art IR
+approach. First,
+%with the learning-based approach,
+via learning, {\tool} does not rely on a pre-defined threshold for
+explicit feature matching to retrieve API elements or
+exceptions. Second,
+going beyond the associations between an API and an exception type,
+%instead of learning only the associations between an API element and
+%an exception type,
+{\tool} relies on dependencies and contexts
+%has advantages
+in both predicting and training. During training, the complete code
+provides the context for {\tool} to learn the dependencies among the
+API elements and the exception types. During predicting, for a given
+(in)complete code, {\tool} can implicitly match the current context
+with such knowledge to avoid the name ambiguity and to derive the
+exception handling suggestions.
+%During predicting, for a given incomplete code, the surrounding code
+%enables {\tool} to {\em learn the identities of the API elements via
+%  the dependencies/relations} among them in the context, thus,
+%avoiding the name ambiguity. Let us call it {\em dependency
+%  context}. During training, the complete code enables the
+%identifications (i.e., the fully-qualified names) of the API
+%elements.
+%
+For example, encoutering the program dependencies among the API
+elements and exceptions in JDK such as \code{getDeclaredField} in
+\code{java.lang.Class}, \code{get} in \code{java.lang.Class.Field},
+and \code{NoSuchFieldException} in the training data will enable
+{\tool} learn to match the context in the given code for
+exception handling suggestions.
+%Third, the context of surrounding code also helps the model implicitly
+%learn the important features to connect between the API elements and
+%the corresponding exception types.
 
 %{\tool} is designed to capture the basic insights to overcome key
 %limitations of the state-of-the-art approaches. First, with the
@@ -190,24 +211,24 @@ API elements and the corresponding exception types.
 %\code{try-catch}~block.
 
 %=================================================
-We have conducted several experiments to evaluate {\tool}. We have
-collected a large dataset of 5,726 projects from Github
-%, with 19,379
-%with 307,646
-with 30,764 code snippets (half of them have \code{try-catch}
-blocks). Our empirical evaluation shows that {\tool} correctly
-performs all three exception handling recommendation tasks in 71.5\%
-of the cases with an F1-score of 70.2\%. It has an relative
-improvement of 166\% over the baselines. It achieves high F1-score
-from 98.2\%--99.7\% in \code{try-catch} block necessity checking (an
-relative improvement of up to 55.9\% over the baselines). It also
-correctly decides both the need of \code{try-catch} block(s) and the
-statements to be placed in such blocks with the accuracies of 74.7\%
-and 87.1\% at the instance and statement levels, an improvement of
-128.7\% and 44.9\% over the baseline, respectively. Our extrinsic
-evaluation shows that {\tool} relatively improves over the baseline by
-56.5\% in F1-score in exception-related bug detection in incomplete
-StackOverflow code snippets.
+We conducted several experiments to evaluate {\tool} with
+a large dataset of 5,726 projects from GitHub
+having 246,118 code snippets for training, 30,764 for validation,
+and 30,764 for testing.
+%30,764 code snippets (half of them have \code{try-catch} blocks).
+Our empirical evaluation shows that {\tool} correctly performs all
+three exception handling recommendation tasks in 71.5\% of the cases
+with an F1-score of 70.2\%. It has an relative improvement of 166\%
+over the baseline. It achieves high F1-score from 98.2\%--99.7\% in
+\code{try-catch} block necessity checking (an relative improvement of
+up to 55.9\% over the baselines). It also correctly decides both the
+need of \code{try-catch} block(s) and the statements to be placed in
+such blocks with the F1-scores of 74.7\% and 87.1\% at the instance
+and statement levels, an improvement of 127.3\% and 44.9\% over the
+baseline, respectively. Our extrinsic evaluation shows that {\tool}
+relatively improves over the baseline by 56.5\% in F1-score in
+exception-related bug detection in {\em incomplete} Android code
+snippets.
 
 %The result shows that {\tool} achieves a high accuracy of {\bf 98.3\%}
 %and improves relatively by {\bf 56\%} over the state-of-the-art
