@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  30 JUL 2023 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  30 JUL 2023 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1386,29 +1386,21 @@ Class acmart Warning: A possible image without description on input line 52.
 
 Class acmart Warning: A possible image without description on input line 36.
 
-)
-Overfull \hbox (8.77473pt too wide) in paragraph at lines 137--145
-\T1/zi4/m/it/7 Field \T1/LinuxLibertineT-TLF/m/n/9 (-20) and the ex-cep-tions \
-T1/zi4/m/it/7 No-Such-Field-Exception\T1/LinuxLibertineT-TLF/m/n/9 (-20) , \T1/
-zi4/m/it/7 Secur-ity-Exception\T1/LinuxLibertineT-TLF/m/n/9 (-20) , \T1/zi4/m/i
-t/7 Illegal-
- []
-
-(example4.tex
+) (example4.tex
 
 Class acmart Warning: A possible image without description on input line 35.
 
 )
-<overview-4.png, id=195, 1912.64563pt x 628.84938pt>
-File: overview-4.png Graphic file (type png)
-<use overview-4.png>
-Package pdftex.def Info: overview-4.png  used on input line 174.
-(pdftex.def)             Requested size: 404.71243pt x 133.06018pt.
+<overview-5.png, id=195, 1908.12875pt x 628.84938pt>
+File: overview-5.png Graphic file (type png)
+<use overview-5.png>
+Package pdftex.def Info: overview-5.png  used on input line 164.
+(pdftex.def)             Requested size: 408.32506pt x 134.56668pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
-(Font)              scaled to size 9.0pt on input line 176.
+(Font)              scaled to size 9.0pt on input line 166.
 
 
-Class acmart Warning: A possible image without description on input line 179.
+Class acmart Warning: A possible image without description on input line 169.
 
 [3.3]) (key-ideas.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
@@ -1418,18 +1410,29 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 37.
 
-) (overview.tex
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 46.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+(C:\Program Files\MiKTeX\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(C:\Program Files\MiKTeX\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)) (overview.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/sc' will be
 (Font)              scaled to size 10.95pt on input line 1.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4.4 <./overview-4.png>]) (block-classification.tex
-<xblock-3.png, id=279, 1157.32375pt x 693.08937pt>
-File: xblock-3.png Graphic file (type png)
-<use xblock-3.png>
-Package pdftex.def Info: xblock-3.png  used on input line 7.
-(pdftex.def)             Requested size: 245.71754pt x 147.14998pt.
+ [4.4 <./overview-5.png>]) (block-classification.tex
+<xblock-4.png, id=281, 1156.32pt x 694.595pt>
+File: xblock-4.png Graphic file (type png)
+<use xblock-4.png>
+Package pdftex.def Info: xblock-4.png  used on input line 7.
+(pdftex.def)             Requested size: 245.71754pt x 147.59683pt.
 
 Overfull \hbox (4.57005pt too wide) in paragraph at lines 7--9
  [][] 
@@ -1441,7 +1444,7 @@ Class acmart Warning: A possible image without description on input line 11.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 15.
 ) (statement-classification.tex
-<xstate-2.png, id=284, 1202.4925pt x 778.40813pt>
+<xstate-2.png, id=286, 1202.4925pt x 778.40813pt>
 File: xstate-2.png Graphic file (type png)
 <use xstate-2.png>
 Package pdftex.def Info: xstate-2.png  used on input line 6.
@@ -1450,8 +1453,8 @@ Package pdftex.def Info: xstate-2.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 10.
 
-[5.5 <./xblock-3.png> <./xstate-2.png>]) (type-classification.tex
-<xtype-5.png, id=298, 1154.81438pt x 822.07124pt>
+) (type-classification.tex
+<xtype-5.png, id=293, 1154.81438pt x 822.07124pt>
 File: xtype-5.png Graphic file (type png)
 <use xtype-5.png>
 Package pdftex.def Info: xtype-5.png  used on input line 6.
@@ -1460,7 +1463,7 @@ Package pdftex.def Info: xtype-5.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 11.
 
-
+[5.5 <./xblock-4.png> <./xstate-2.png>]
 Overfull \hbox (3.87761pt too wide) in paragraph at lines 36--46
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) from the state-ment \T1/zi4/m/it/7 out.writ
 e \T1/LinuxLibertineT-TLF/m/n/9 (-20) to the state-ment \T1/zi4/m/it/7 print(no
@@ -1468,18 +1471,6 @@ de.getBody(...))\T1/LinuxLibertineT-TLF/m/n/9 (-20) .
  []
 
 ) (multitasking.tex
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (C:\Program Files\MiKTeX\tex/latex/microtype\mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-(C:\Program Files\MiKTeX\tex/latex/microtype\mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1518,14 +1509,17 @@ surrounding objects on input line 44.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 49.
 
-(empirical-methodology.tex [6.6 <./xtype-5.png>]
+(empirical-methodology.tex
 Overfull \hbox (7.57756pt too wide) in paragraph at lines 40--47
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) Over-flow code snip-pets with exception-rel
 ated bugs (miss-ing \T1/zi4/m/it/7 try-catch
  []
 
-(rq1-methodology.tex) (rq2-methodology.tex) (rq3-methodology.tex)
-(rq4-methodology.tex)
+[6.6 <./xtype-5.png>] (rq1-methodology.tex) (rq2-methodology.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+)
+(rq3-methodology.tex) (rq4-methodology.tex)
 Underfull \vbox (badness 2073) has occurred while \output is active []
 
  [7.7]))
@@ -1541,7 +1535,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 18.
  (rq1-case-study.tex
-<rq1-case-study.png, id=338, 1791.69376pt x 887.315pt>
+<rq1-case-study.png, id=339, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1593,7 +1587,7 @@ alArgumentException\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
 )) (rq4-new-results.tex
-<rq4-density-v2.png, id=363, 505.89pt x 289.08pt>
+<rq4-density-v2.png, id=364, 505.89pt x 289.08pt>
 File: rq4-density-v2.png Graphic file (type png)
 <use rq4-density-v2.png>
 Package pdftex.def Info: rq4-density-v2.png  used on input line 6.
@@ -1602,39 +1596,31 @@ Package pdftex.def Info: rq4-density-v2.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 10.
 
-[9.9]) (rq5-new-results.tex
+) (rq5-new-results.tex
 Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
 
-(example-bug.tex
+[9.9] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
-)) (rq6-results.tex
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (limitations.tex)) (related-work.tex) (conclusion.tex) [10.10 <./rq4-density-
-v2.png>] (icse24.bbl
+)) (rq6-results.tex) (limitations.tex)) (related-work.tex) (conclusion.tex)
+[10.10 <./rq4-density-v2.png>] (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--114
-
- []
-
-LaTeX Info: Redefining \tempurl on input line 134.
-LaTeX Info: Redefining \tempurl on input line 151.
-LaTeX Info: Redefining \tempurl on input line 166.
-LaTeX Info: Redefining \tempurl on input line 183.
-LaTeX Info: Redefining \tempurl on input line 215.
-LaTeX Info: Redefining \tempurl on input line 229.
-LaTeX Info: Redefining \tempurl on input line 245.
-LaTeX Info: Redefining \tempurl on input line 260.
-LaTeX Info: Redefining \tempurl on input line 277.
-LaTeX Info: Redefining \tempurl on input line 291.
-) (C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
+LaTeX Info: Redefining \tempurl on input line 125.
+LaTeX Info: Redefining \tempurl on input line 142.
+LaTeX Info: Redefining \tempurl on input line 157.
+LaTeX Info: Redefining \tempurl on input line 182.
+LaTeX Info: Redefining \tempurl on input line 214.
+LaTeX Info: Redefining \tempurl on input line 228.
+LaTeX Info: Redefining \tempurl on input line 244.
+LaTeX Info: Redefining \tempurl on input line 259.
+LaTeX Info: Redefining \tempurl on input line 276.
+LaTeX Info: Redefining \tempurl on input line 290.
+)
+(C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (C:\Program Files\MiKTeX\tex/generic/stringenc\se-utf8.def
@@ -1663,11 +1649,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 1709BADE7A0C3A0127E435711F7133AD;4281.
  ) 
 Here is how much of TeX's memory you used:
- 37560 strings out of 476374
- 699100 string characters out of 5798669
+ 37581 strings out of 476374
+ 699640 string characters out of 5798669
  1999340 words of memory out of 5000000
  56095 multiletter control sequences out of 15000+600000
- 745062 words of font info for 585 fonts, out of 8000000 for 9000
+ 747243 words of font info for 599 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1690,9 +1676,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2108540 bytes).
+Output written on icse24.pdf (11 pages, 2109385 bytes).
 PDF statistics:
- 543 PDF objects out of 1000 (max. 8388607)
+ 544 PDF objects out of 1000 (max. 8388607)
  180 named destinations out of 1000 (max. 500000)
  114931 words of extra memory for PDF output out of 128383 (max. 10000000)
 

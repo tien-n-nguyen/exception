@@ -24,24 +24,37 @@ those tasks. The predicted results from {\xstate} and {\xtype} are
 considered only when {\xblock} predicts {\em Yes}, i.e., a need of a
 \code{try-catch} block for the given code snippet.
 
-The input code is used as the input of a language model to act
-as the code representation learning model to produce the vector
-representations for the (sub)tokens and statements in the source
-code. We use CodeBERT~\cite{codebert-emnlp20} as it is
-capable of producing embeddings that capture both the
-syntactic and semantic information.
+The code is input to a large language model. We use
+CodeBERT~\cite{codebert-emnlp20} as the code representation learning
+model to produce vector representations for the (sub)tokens and
+statements in the source code, as CodeBERT is capable of producing
+embeddings that capture both the syntactic and semantic information.
 
-The vectors are used as the inputs for three components. The
-prediction is made on the vectors that are attained by composing the
-embeddings of individual (sub)tokens into the ones for a statement and
-for a block of statements. First, {\xblock} is modeled as a binary
-classifier on deciding whether the input code needs at least one
-\code{try-catch} block. Second, inspired by the sequence chunking
+%The input code is used as the input of a language model to act
+%as the code representation learning model to produce the vector
+%representations for the (sub)tokens and statements in the source
+%code. We use CodeBERT~\cite{codebert-emnlp20} as it is
+%capable of producing embeddings that capture both the
+%syntactic and semantic information.
+
+%The vectors are used as the inputs for three components. The
+%prediction is made on the vectors that are attained by composing the
+%embeddings of individual (sub)tokens into the ones for a statement and
+%for a block of statements.
+
+The vectors are used as the inputs for three components. The vectors
+for the [SEP] tokens are used to represent the corresponding
+statements, while the composition of those vectors for [SEP] tokens at
+the output layer is used for a block.
+%
+First, {\xblock} is modeled as a binary classifier on deciding whether
+the input code needs at least one \code{try-catch} block. Second,
+inspired by the sequence chunking
 techniques~\cite{sequence-chunking-aaai17} in NLP, we model the second
 task, {\xstate}, as learning to tag/label each statement in the code
 snippet with either \code{O} (i.e., the statement is outside of a
-\code{try-catch} block), \code{B-try} (i.e., it is the beginning of a
-\code{try-catch} block), or \code{I-try} (i.e., it is inside of such a
+\code{try-catch} block), \code{B-Try} (i.e., it is the beginning of a
+\code{try-catch} block), or \code{I-Try} (i.e., it is inside of such a
 block).
 %Any consecutive statements from a \code{B-try} to the last respective
 %\code{I-try} are considered to belong to a \code{try-catch} block. The
@@ -57,14 +70,14 @@ The last task, {\xtype}, is modeled as a set of binary classifiers,
 each is responsible for deciding whether an exception type of interest
 needs to be caught in the \code{catch} clause. A {\em Yes} outcome
 indicates the need to catch a specific exception type of interest in
-the set of libraries under consideration. A {\em No} outcome indicates
-otherwise.  During training, the exception types for each
-\code{try-catch} block in the positive samples are used as
-labels. During prediction, for each predicted block from {\xstate}
-(starting from a statement with \code{B-try} to the last respective
-\code{I-try}), {\xtype} uses the embeddings for those statements to
-predict the corresponding exception types. Finally, from the results
-in all three tasks, {\tool} forms the final output.
+the set of libraries. A {\em No} outcome indicates otherwise.  During
+training, the exception types for each \code{try-catch} block in the
+positive samples are used as labels. During prediction, for each
+predicted block from {\xstate} (starting from a statement with
+\code{B-try} to the last respective \code{I-try}), {\xtype} uses the
+embeddings for those statements to predict the corresponding exception
+types. Finally, from the results in all three tasks, {\tool} forms the
+final output.
 
 %{\bf DELETE LATER}. Given an input code snippet, we first split it by lines and concatenate them using a special token <SEP>. Then, we use the tokenizer from Pre-Trained CodeBERT to tokenize this concatenated string into sub-tokens and get the vector representation for each sub-token, as CodeBERT has been shown to have produced code representations that embed both the syntactic and semantic information. In the training phase, the input is all but the statements related to try-catch in a method body, while in the prediction phase, the input can be any code snippet that is part of a method body.
 

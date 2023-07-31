@@ -133,11 +133,11 @@ approach. First,
 %with the learning-based approach,
 via learning, {\tool} does not rely on a pre-defined threshold for
 explicit feature matching to retrieve API elements or
-exceptions. Second,
-going beyond the associations between an API and an exception type,
+exceptions. Second, instead of using {\em the associations between 
+  pairs of an API and an exception type as in XRank},
 %instead of learning only the associations between an API element and
 %an exception type,
-{\tool} relies on dependencies and contexts
+{\tool} relies on {\bf dependencies} and {\bf contexts}
 %has advantages
 in both predicting and training. During training, the complete code
 provides the context for {\tool} to learn the dependencies among the
@@ -154,11 +154,13 @@ exception handling suggestions.
 %elements.
 %
 For example, encoutering the program dependencies among the API
-elements and exceptions in JDK such as \code{getDeclaredField} in
-\code{java.lang.Class}, \code{get} in \code{java.lang.Class.Field},
-and \code{NoSuchFieldException} in the training data will enable
-{\tool} learn to match the context in the given code for
-exception handling suggestions.
+elements and exceptions in JDK, e.g., \code{get\-Declared\-Field} in
+\code{java.\-lang.\-Class}, \code{get} in
+\code{java.\-lang.\-Class.\-Field}, and
+\code{No\-Such\-Field\-Exception} in the training data will help
+     {\tool} learn to match the context in a given code to suggest
+     \code{NoSuchFieldException}.
+     
 %Third, the context of surrounding code also helps the model implicitly
 %learn the important features to connect between the API elements and
 %the corresponding exception types.
@@ -280,7 +282,7 @@ with a multi-tasking mechanism to learn for three above tasks.
   \noindent {\bf 3. [Empirical Evaluation]}. Our evaluation
   shows {\tool}'s high accuracy in exception handling recommendation
   as well as in exception-related bug detection. Data and code is
-  available at~\cite{deepex-website}.
+  available at~\cite{neurex-website}.
             
 
 %for exception blocks, statements, and types.

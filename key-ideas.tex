@@ -15,18 +15,18 @@ clause ({\xtype}).
 From Observations, we design {\tool} with the following
 ideas:
 
-\subsubsection{{\bf [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation by Learning from Complete Code}}
+\subsubsection{{\bf [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation}}
 Instead of deterministically deriving the exceptions to be handled for
-a given (incomplete) code snippet, following Observation~\ref{ob2}, we
-follow a learning-based approach to learn to properly handle the
+a given (incomplete) code snippet, from Observation~\ref{ob2}, we
+use a learning-based approach to learn to properly handle the
 exceptions in the three above tasks.
 %to learn to analyze that snippet to recommend if a \code{try-catch}
 %block is needed and the statements to be placed within the
 %\code{try-catch} block, and to recommend the exception types in the
 %\code{catch} clause.
-By learning from the \code{try-catch} blocks of the complete code in
-the open-source projects in the training process, our model can
-help the adaptation tasks.
+By learning from the \code{try-catch} blocks of complete code in
+the open-source projects in training, {\tool} can
+suggest exception handling.
 
 %: 1) deciding what
 %statements in the given code snippet to be placed in a
@@ -35,18 +35,38 @@ help the adaptation tasks.
 
 
 \vspace{2pt}
-\subsubsection{{\bf [Key Idea 2] Leveraging Language Model to learn Context to avoid
-name ambiguity and Learning the Relations between API elements and
-Exception types}} Instead of learning only the associations between an
-API element and exception types as in IR-based approaches,
-%XRank~\cite{xrank-fse20},
-we leverage as the context the complete code in the training corpus,
-which are parsable and provide the identities (i.e., FQNs) of the API
-elements. In predicting for a code snippet, {\tool} will also leverage
-the context and dependencies among the API elements to learn their
-identities implicitly (see Observation~\ref{ob4}). Importantly, that
-leads to the learning of the relations between the key API elements in
-the context and the handled exception types (Observation~\ref{ob3}).
+\subsubsection{\bf [Key Idea 2] Leveraging Language Model to learn Context with Dependencies among API Elements and Relations with Exceptions.}
+  
+Instead of learning only the association for the pairs between API
+elements and exception types as in IR-based approaches, we leverage as
+the context the complete code in the training corpus, to fine-tune the
+language model (LM) to learn the dependencies among API elements and their
+relations with the corresponding exception types.
+%
+In predicting for a code snippet $C$, {\tool} will use LM to learn the
+context with the dependencies among API elements in $C$ to suggest
+exception handling in three above tasks (Observation~\ref{ob4}). The
+relations between API elements and the exceptions also help the model
+suggest the exception types.
+
+%context and dependencies among the API elements to learn their
+%identities implicitly (see Observation~\ref{ob4}). Importantly, that
+%leads to the learning of the relations between the key API elements in
+%the context and the handled exception types (Observation~\ref{ob3}).
+
+%==========================
+%\vspace{2pt}
+%\subsubsection{{\bf [Key Idea 2] Leveraging Language Model to learn Context to avoid name ambiguity and Learning the Relations between API elements and Exception types}}
+%Instead of learning only the associations between an API element and
+%exception types as in IR-based approaches, we leverage as the context
+%the complete code in the training corpus, which are parsable and
+%provide the identities (i.e., FQNs) of the API elements. In predicting
+%for a code snippet, {\tool} will also leverage the context and
+%dependencies among the API elements to learn their identities
+%implicitly (see Observation~\ref{ob4}). Importantly, that leads to the
+%learning of the relations between the key API elements in the context
+%and the handled exception types (Observation~\ref{ob3}).
+%==========================
 
 %\subsubsection{{\bf [Key Idea 3] Dual-Task Learning between {\xstate} and {\xtype}}} The learning of deciding what statements to be in a \code{try-catch}
 %block could benefit much on the learning of deciding what exception
@@ -78,6 +98,7 @@ CodeBERT~\cite{codebert-emnlp20} to learn to the relations among
 statements with the API elements.  We also leverage the multi-tasking
 framework for all three tasks {\xblock}, {\xstate}, and {\xtype}
 because the learning for one task can benefit for another.
+
 %task and vice versa.
 
 %\subsubsection{{\bf [Key Idea 3] Leveraging Explainable AI to predict statements in a try-catch block}} To predict which statements in a given code snippet that need to be placed in a \code{try-catch} block, we leverage the explainable ML

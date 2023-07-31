@@ -30,7 +30,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \citation{codebert-emnlp20}
-\citation{deepex-website}
+\citation{neurex-website}
 \citation{zhang-icse19}
 \citation{zhang-icse19}
 \citation{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16}
@@ -50,8 +50,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Using {\Small  \texttt  {newBufferedReader}} to read from a file\relax }}{3}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:example4}{{4}{3}{Using \code {newBufferedReader} to read from a file\relax }{figure.caption.6}{}}
 \newlabel{ob2}{{2}{3}{\bf Regularity of Exception Handling}{Observation.2}{}}
-\newlabel{ob3}{{3}{3}{\bf Relations between API methods and Exceptions}{Observation.3}{}}
-\newlabel{ob4}{{4}{3}{\bf Surrounding Context help resolve name ambiguity}{Observation.4}{}}
+\newlabel{ob3}{{3}{3}{\bf Relations between API Elements and Exceptions}{Observation.3}{}}
+\newlabel{ob4}{{4}{3}{\bf Surrounding Code Context with Dependencies among API Elements}{Observation.4}{}}
 \citation{sequence-chunking-aaai17}
 \citation{codebert-emnlp20}
 \citation{codebert-emnlp20}
@@ -61,8 +61,8 @@
 \newlabel{ob5}{{5}{4}{\bf Learn to decide what statements to be in a Try-Catch block}{Observation.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Key Ideas}{4}{subsection.2.2}\protected@file@percent }
 \newlabel{key:sec}{{2.2}{4}{Key Ideas}{subsection.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}{\bf  [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation by Learning from Complete Code}}{4}{subsubsection.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}{\bf  [Key Idea 2] Leveraging Language Model to learn Context to avoid name ambiguity and Learning the Relations between API elements and Exception types}}{4}{subsubsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}{\bf  [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation}}{4}{subsubsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}\bf  [Key Idea 2] Leveraging Language Model to learn Context with Dependencies among API Elements and Relations with Exceptions.}{4}{subsubsection.2.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}{\bf  [Key Idea 3] Leveraging Sequence Chunking with a Language Model and Multi-tasking}}{4}{subsubsection.2.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}{\textsc  {Neurex}\xspace  } Overview}{4}{section.3}\protected@file@percent }
 \newlabel{sec:overview}{{3}{4}{{\tool } Overview}{section.3}{}}
@@ -79,6 +79,7 @@
 \citation{codebert-emnlp20}
 \citation{xrank-fse20}
 \citation{icse18,liveapi14}
+\citation{xrank-fse20}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Exception Type Recommendation ({\textsc  {XType}\xspace  })\relax }}{6}{figure.caption.10}\protected@file@percent }
 \newlabel{fig:xtype}{{8}{6}{Exception Type Recommendation ({\xtype })\relax }{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}{\textsc  {XType}\xspace  }: Exception Type Recommender}{6}{section.6}\protected@file@percent }
@@ -91,7 +92,6 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Research Questions}{6}{subsection.8.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Empirical Methodology}{6}{subsection.8.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}Datasets}{6}{subsubsection.8.2.1}\protected@file@percent }
-\citation{xrank-fse20}
 \citation{ChatGPT}
 \citation{xrank-fse20}
 \citation{xrank-fse20}
@@ -112,20 +112,21 @@
 \newlabel{fig:rq1-case}{{9}{8}{{\xblock } Puts Attention on the Right Tokens\relax }{figure.caption.13}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) \relax }}{8}{table.caption.14}\protected@file@percent }
 \newlabel{tab:rq1-detailed-result}{{3}{8}{Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) \relax }{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Try-Catch Statement Detecting Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Instance Level) (RQ2)\relax }}{8}{table.caption.15}\protected@file@percent }
+\newlabel{tab:xstate-1}{{4}{8}{Try-Catch Statement Detecting Comparison ({\xblock }+{\xstate }, Instance Level) (RQ2)\relax }{table.caption.15}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Try-Catch Statement Detection (RQ2)}{8}{subsection.9.2}\protected@file@percent }
 \newlabel{sec:rq2}{{9.2}{8}{Try-Catch Statement Detection (RQ2)}{subsection.9.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Try-Catch Statement Detecting Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Instance Level) (RQ2)\relax }}{9}{table.caption.15}\protected@file@percent }
-\newlabel{tab:xstate-1}{{4}{9}{Try-Catch Statement Detecting Comparison ({\xblock }+{\xstate }, Instance Level) (RQ2)\relax }{table.caption.15}{}}
+\citation{xrank-fse20}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Try-Catch Statement Detecting Result ({\textsc  {XState}\xspace  } as Individual, Instance Level) (RQ2)\relax }}{9}{table.caption.16}\protected@file@percent }
 \newlabel{tab:xstate-2}{{5}{9}{Try-Catch Statement Detecting Result ({\xstate } as Individual, Instance Level) (RQ2)\relax }{table.caption.16}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Try-Catch Statement Detecting Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Statement Level, Small Dataset) (RQ2)\relax }}{9}{table.caption.17}\protected@file@percent }
 \newlabel{tab:xstate-3}{{6}{9}{Try-Catch Statement Detecting Comparison ({\xblock }+{\xstate }, Statement Level, Small Dataset) (RQ2)\relax }{table.caption.17}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Try-Catch Statement Detecting Result ({\textsc  {XState}\xspace  } as Individual, Statement Level, Github Dataset) (RQ2)\relax }}{9}{table.caption.18}\protected@file@percent }
 \newlabel{tab:xstate-4}{{7}{9}{Try-Catch Statement Detecting Result ({\xstate } as Individual, Statement Level, Github Dataset) (RQ2)\relax }{table.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Exception Type Recommendation (RQ3)}{9}{subsection.9.3}\protected@file@percent }
-\newlabel{sec:rq3}{{9.3}{9}{Exception Type Recommendation (RQ3)}{subsection.9.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Exception Type Recommendation (\textsc  {XType}\xspace  as Individual, Github Dataset) (RQ3)\relax }}{9}{table.caption.19}\protected@file@percent }
 \newlabel{tab:xtype-1}{{8}{9}{Exception Type Recommendation (\xtype as Individual, Github Dataset) (RQ3)\relax }{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Exception Type Recommendation (RQ3)}{9}{subsection.9.3}\protected@file@percent }
+\newlabel{sec:rq3}{{9.3}{9}{Exception Type Recommendation (RQ3)}{subsection.9.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Exception Type Recommendation Result ({\textsc  {XType}\xspace  } as Individual) (RQ3)\relax }}{9}{table.caption.20}\protected@file@percent }
 \newlabel{tab:xtype-3}{{9}{9}{Exception Type Recommendation Result ({\xtype } as Individual) (RQ3)\relax }{table.caption.20}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Exception Type Recommendation Result (\textsc  {XBlock}\xspace  +\textsc  {XState}\xspace  +\textsc  {XType}\xspace  ) (RQ3)\relax }}{9}{table.caption.21}\protected@file@percent }
@@ -134,7 +135,6 @@
 \newlabel{tab:xtype-2}{{11}{9}{Exception Type Recommendation Comparison (\xblock +\xstate +\xtype ) (RQ3)\relax }{table.caption.22}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Dependency Probing (RQ4)}{9}{subsection.9.4}\protected@file@percent }
 \newlabel{sec:rq4}{{9.4}{9}{Dependency Probing (RQ4)}{subsection.9.4}{}}
-\citation{xrank-fse20}
 \citation{xrank-fse20}
 \citation{xrank-fse20}
 \citation{xrank-fse20}
@@ -165,10 +165,10 @@
 \bibcite{barbosa-tse16}{{4}{2016}{{Barbosa et~al\mbox  {.}}}{{}}}
 \bibcite{ChatGPT}{{5}{[n.\,d.]}{{ChatGPT}}{{}}}
 \bibcite{codebertMLM}{{6}{[n.\,d.]}{{codeBERT}}{{}}}
-\bibcite{deepex-website}{{7}{[n.\,d.]}{{DeepEx}}{{}}}
-\bibcite{codebert-emnlp20}{{8}{2020}{{Feng et~al\mbox  {.}}}{{}}}
-\bibcite{kechagia-msr14}{{9}{2014}{{Kechagia and Spinellis}}{{}}}
-\bibcite{barbosa-saner18}{{10}{2018}{{Montenegro et~al\mbox  {.}}}{{}}}
+\bibcite{codebert-emnlp20}{{7}{2020}{{Feng et~al\mbox  {.}}}{{}}}
+\bibcite{kechagia-msr14}{{8}{2014}{{Kechagia and Spinellis}}{{}}}
+\bibcite{barbosa-saner18}{{9}{2018}{{Montenegro et~al\mbox  {.}}}{{}}}
+\bibcite{neurex-website}{{10}{[n.\,d.]}{{Neurex}}{{}}}
 \bibcite{xrank-fse20}{{11}{2020}{{Nguyen et~al\mbox  {.}}}{{}}}
 \bibcite{fse09}{{12}{2009}{{Nguyen et~al\mbox  {.}}}{{}}}
 \bibcite{icse18}{{13}{2018}{{Phan et~al\mbox  {.}}}{{}}}
