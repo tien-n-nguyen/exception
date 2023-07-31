@@ -1,3 +1,4 @@
+\vspace{-6pt}
 \subsection{Empirical Methodology}
 
 \subsubsection{Datasets}
@@ -30,17 +31,19 @@ a later version.
 %\code{try-catch} block, to verify if the statement is included in the
 %other block. If not, we put it in the current code snippet. If yes, we
 %finish the current one. 
-In total, we have
+In total, we have 246,118 code snippets for training, and 30,764 for
+validation.
 %153,823
-15,382 code snippets containing \code{try-catch} blocks as positive
-samples. We also randomly selected from the same Github projects the
-same amount of code snippets that do not have any \code{try-catch}
-block as the negative samples. In total, we have 30,764 instanaces.
+%15,382 code snippets containing \code{try-catch} blocks as positive
+%samples.
+We also randomly selected from the same Github projects the same
+amount of code snippets that do not have any \code{try-catch} block as
+the negative samples. In total, we have 30,764 instances for testing.
 
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
 authors of XRank/XHand~\cite{xrank-fse20}, which contains 750
 StackOverflow code snippets with exception-related bugs (missing
-\code{try-catch} blocks or exceptions). Finally, we used 553 snippets
+\code{try- catch} blocks or exceptions). Finally, we used 553 snippets
 because other repos no longer exist. We also randomly selected from
 the projects in FuzzyCatch dataset the same amount of snippets with no
 exception-related bugs as the negative samples.
@@ -102,7 +105,7 @@ exception-related bugs as the negative samples.
 
 %{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
 
-
+%\vspace{-8pt}
 \subsubsection{RQ5. Extrinsic Evaluation on Exception-related Bug Detection}
 \indent {\em Baselines.} We compared with
 FuzzyCatch~\cite{xrank-fse20} in exception-related
@@ -121,12 +124,8 @@ the one suggested by {\tool}, we consider it as a correct detection.
 
 %To make the FuzzyCatch dataset a balanced dataset for a fair comparison, we randomly select the same number of non-buggy code snippets comparing the bugs as the negative samples from the methods in the FuzzyCatch dataset.
 
-{\em Metrics.}
-%We compared the result against the oracle in FuzzyCatch
-%dataset. If {\xblock} correctly detects a buggy snippet (missing a
-%\code{try-catch} block or exceptions), we consider it as correct.
-%Otherwise, it is a miss.
-We use {\bf Recall}, {\bf Precision}, and {\bf F1-score} as in RQ1.
+%{\em Metrics.}
+%We use {\bf Recall}, {\bf Precision}, and {\bf F1-score} as in RQ1.
 
 \subsubsection{RQ6. Ablation Study}~\\
 We aim to evaluate the contribution of fine-tuning in {\tool}. We

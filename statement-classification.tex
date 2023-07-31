@@ -11,24 +11,26 @@
 
 %goal and model
 The goal of {\xstate} (Figure~\ref{fig:xstate}) is to decide if a
-statement in the given code snippet needs to be in a \code{try-catch}
-block or not. For code representation learning, we use one single
+statement in the given code snippet needs to be in a \code{try}
+block. For code representation learning, we use one single
 CodeBERT~\cite{codebert-emnlp20} model as in {\xblock} (see
 Figure~\ref{fig:xblock}) to produce the embedding for code
-(sub)-tokens. For the input code, each \texttt{[SEP]} token represents
-the statement preceding it. Note that semicolon would not be as
-consistent as our explicit separator, because some statements might not
-end with a semicolon. A semicolon also could appear inside string
-literals and for-loop conditions.
+(sub)-tokens. For the input code, a \texttt{[SEP]} token represents
+the statement preceding~it.
+%Note that semicolon would not be as consistent as our explicit
+%separator, because some statements might not end with a semicolon. A
+%semicolon also could appear inside string literals and for-loop
+%conditions.
 
 %rationale on why the model works
 The advantage in using CodeBERT on the entire code snippet has two
 folds. First, as in Key idea 2, the context of the entire code
-facilitates our model to learn the identities of the API elements,
-thus, making the connections between the APIs and the presence of
-\code{try-catch} blocks.  For example, \code{write} in the statement 1
-could be determined to belong to \code{OutputStream} in JDK. Thus,
-that leads to better learning to place that statement inside a
+facilitates {\tool} to learn the relations of an API and its exception,
+thus, making the connection between the API and the presence of
+\code{try-catch} block.  For example, \code{write} in the statement 1
+could be determined as having a relation with \code{IOException},
+%belong to \code{OutputStream} in JDK. Thus,
+leading to better learning to place that statement inside a
 \code{try-catch} block. Second, we expect that CodeBERT would learn
      {\em the dependencies among the consecutive statements} separated
      by the special tokens {\bf [SEP]} (see Section~\ref{sec:rq4} for our
@@ -36,31 +38,31 @@ that leads to better learning to place that statement inside a
      decide whether some consecutive statements need to be placed
      together in a \code{try-catch} block. For example, in
      Figure~\ref{overview}, the statements at lines 2--5 have data
-     dependencies, thus, they should be in the same \code{try-catch}
+     dependencies, thus, they might be in the same \code{try}
      block.
 
 %encoding
 We take the embedding produced by CodeBERT for each {\bf [SEP]} token
-as the statement embedding and feed it to a layer with
-Feed-forward neural network (FFNN). We then use a softmax function to
-learn to label each corresponding statement with one of three tags:
-{\em \code{O} tag means that the statement is outside of any
-\code{try-catch} blocks; \code{B-Try} tag means that the statement
-begins a \code{try-catch} block; and \code{I-Try} tag means that the
-statement is inside a \code{try-catch} block and is not the first line
-of that block}. For example, in Figure~\ref{fig:xstate}, the embedding
-computed by CodeBERT for the first {\bf [SEP]}, which represents the
-statement \code{out.write(...)}, is classified by the first
-\code{FFNN+Softmax} layer into the \code{B-Try} category/label because
-it is the first statement of a \code{try-catch} block. However, the
-embedding for the second {\bf [SEP]}, representing
+as the statement embedding and feed it to a layer with Feed-forward
+neural network (FFNN). We then use a softmax function to learn to
+label each corresponding statement with one of three tags: {\em
+  \code{O} tag means that the statement is outside of any
+  \code{try-catch} blocks; \code{B-Try} tag means that the statement
+  begins a \code{try-catch} block; and \code{I-Try} tag means that the
+  statement is inside a \code{try-catch} block and is not the first
+  line of that block}. For example, in Figure~\ref{fig:xstate}, the
+embedding computed by CodeBERT for the first {\bf [SEP]}, which
+represents the statement \code{out.write(...)}, is classified by the
+first \code{FFNN+Softmax} layer into the \code{B-Try} category/label
+because it is the first statement of a \code{try-catch}
+block. However, the embedding for the second {\bf [SEP]}, representing
 \code{print(node.getBody(...))}, is labeled as \code{I-Try} because it
 is the second statement of the \code{try-catch} block. Finally, the
 embedding of the third {\bf [SEP]}, is labeled as \code{O} because the
 statement \code{return null;} does not need to be in the
-\code{try-catch} block. With this tag encoding, we can support
-multiple \code{try-catch} blocks in which the statement with the
-\code{B-Try} tag is the start of a \code{try-catch} block and the
+\code{try-catch} block. With this IOB2 encoding~\cite{iob2}, we can
+support multiple \code{try-catch} blocks in which the statement with
+the \code{B-Try} tag is the start of a \code{try-catch} block and the
 statement with the last respective \code{I-Try} tag is the end of that
 block. A new block will be formed with another statement having a
 \code{B-Try} tag.
@@ -69,10 +71,13 @@ block. A new block will be formed with another statement having a
 
 
 %training/predicting
-During training, the labels for all the statements are known from the
-code.  During prediction, our model will assign the labels to the
-statements, from which we can derive the \code{try-catch} blocks and
-what statements belonging to each block.
+In training, the labels for all statements are known from the
+code. In  prediction, {\tool} will assign IOB2 labels to the
+statements.
+
+%, from which we can derive the \code{try-catch} blocks and
+%what statements belonging to each block.
+
 
 %of all the lines are known from the code. During prediction, the model will be able to assign tags to all the lines in the code snippet. From these tags, we get to know how many try-blocks should be added, and which lines of code belong to which try-block.
 

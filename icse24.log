@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  30 JUL 2023 23:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  31 JUL 2023 01:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1454,17 +1454,17 @@ Package pdftex.def Info: xstate-3.png  used on input line 6.
 Class acmart Warning: A possible image without description on input line 10.
 
 ) (type-classification.tex
-<xtype-5.png, id=294, 1154.81438pt x 822.07124pt>
-File: xtype-5.png Graphic file (type png)
-<use xtype-5.png>
-Package pdftex.def Info: xtype-5.png  used on input line 6.
-(pdftex.def)             Requested size: 231.26378pt x 164.62457pt.
+<xtype-6.png, id=295, 1153.81062pt x 823.075pt>
+File: xtype-6.png Graphic file (type png)
+<use xtype-6.png>
+Package pdftex.def Info: xtype-6.png  used on input line 6.
+(pdftex.def)             Requested size: 231.26378pt x 164.96373pt.
 
 
 Class acmart Warning: A possible image without description on input line 11.
 
 [5.5 <./xblock-4.png> <./xstate-3.png>]
-Overfull \hbox (3.87761pt too wide) in paragraph at lines 36--46
+Overfull \hbox (3.87761pt too wide) in paragraph at lines 38--48
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) from the state-ment \T1/zi4/m/it/7 out.writ
 e \T1/LinuxLibertineT-TLF/m/n/9 (-20) to the state-ment \T1/zi4/m/it/7 print(no
 de.getBody(...))\T1/LinuxLibertineT-TLF/m/n/9 (-20) .
@@ -1476,66 +1476,70 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 5.5pt on input line 18.
 
-Overfull \hbox (4.68266pt too wide) detected at line 43
+Overfull \hbox (4.68266pt too wide) detected at line 51
 [][][]\OML/nxlmi/m/it/9 Loss[] \U/ntxmia/m/it/9 = []
  []
 
 ) (eval.tex
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 9.
+surrounding objects on input line 1.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 10.
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 7.3pt on input line 16.
+(Font)              scaled to size 7.3pt on input line 17.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/scit' will be
-(Font)              scaled to size 9.0pt on input line 16.
+(Font)              scaled to size 9.0pt on input line 17.
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 25.
-
-
-Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 36.
+surrounding objects on input line 26.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 40.
+surrounding objects on input line 37.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 44.
+surrounding objects on input line 41.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 49.
+surrounding objects on input line 45.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 50.
 
 (empirical-methodology.tex
-Overfull \hbox (7.57756pt too wide) in paragraph at lines 40--47
-\T1/LinuxLibertineT-TLF/m/n/9 (-20) Over-flow code snip-pets with exception-rel
-ated bugs (miss-ing \T1/zi4/m/it/7 try-catch
- []
 
-[6.6 <./xtype-5.png>] (rq1-methodology.tex) (rq2-methodology.tex
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 1.
+
+(rq1-methodology.tex [6.6 <./xtype-6.png>]) (rq2-methodology.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(rq3-methodology.tex) (rq4-methodology.tex)
-Underfull \vbox (badness 2073) has occurred while \output is active []
-
- [7.7]))
-(empirical-results.tex (rq1-results.tex
+(rq3-methodology.tex) (rq4-methodology.tex))) (empirical-results.tex
+(rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 7.
+(Font)              scaled to size 8.0pt on input line 8.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 10.
+(Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 10.
+(Font)              scaled to size 6.2pt on input line 11.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 18.
+(Font)              scaled to size 8.0pt on input line 19.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 18.
- (rq1-case-study.tex
-<rq1-case-study.png, id=340, 1791.69376pt x 887.315pt>
+(Font)              scaled to size 8.0pt on input line 19.
+
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [7.7]
+(rq1-case-study.tex
+<rq1-case-study.png, id=344, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1549,14 +1553,14 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 120--120
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 121--121
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
 ) (rq2-results.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 4: |Try-Catch State-ment De-tect-in
-g Com-par-i-son
+Underfull \hbox (badness 8038) in paragraph at lines 5--5
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 4: |Try-Catch State-ment De-tec-tio
+n Com-par-i-son
  []
 
 [8.8 <./rq1-case-study.png>]
@@ -1569,9 +1573,9 @@ om \T1/LinuxLibertineT-TLF/m/sc/9 (-20) XBlock\T1/LinuxLibertineT-TLF/m/n/9 (-2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
-[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 6: |Try-Catch State-ment De-tect-in
-g Com-par-i-son
+Underfull \hbox (badness 8038) in paragraph at lines 104--104
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 6: |Try-Catch State-ment De-tec-tio
+n Com-par-i-son
  []
 
 ) (rq3-new-results.tex (rq3-table1.tex
@@ -1587,7 +1591,7 @@ alArgumentException\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
 )) (rq4-new-results.tex
-<rq4-density-v2.png, id=365, 505.89pt x 289.08pt>
+<rq4-density-v2.png, id=368, 505.89pt x 289.08pt>
 File: rq4-density-v2.png Graphic file (type png)
 <use rq4-density-v2.png>
 Package pdftex.def Info: rq4-density-v2.png  used on input line 6.
@@ -1601,24 +1605,24 @@ Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
 
-[9.9] (example-bug.tex
+[9.9 <./rq4-density-v2.png>] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
 )) (rq6-results.tex) (limitations.tex)) (related-work.tex) (conclusion.tex)
-[10.10 <./rq4-density-v2.png>] (icse24.bbl
+[10.10] (icse24.bbl
 LaTeX Info: Redefining \tempurl on input line 71.
 LaTeX Info: Redefining \tempurl on input line 87.
 LaTeX Info: Redefining \tempurl on input line 125.
-LaTeX Info: Redefining \tempurl on input line 142.
-LaTeX Info: Redefining \tempurl on input line 157.
-LaTeX Info: Redefining \tempurl on input line 182.
-LaTeX Info: Redefining \tempurl on input line 214.
-LaTeX Info: Redefining \tempurl on input line 228.
-LaTeX Info: Redefining \tempurl on input line 244.
-LaTeX Info: Redefining \tempurl on input line 259.
-LaTeX Info: Redefining \tempurl on input line 276.
-LaTeX Info: Redefining \tempurl on input line 290.
+LaTeX Info: Redefining \tempurl on input line 151.
+LaTeX Info: Redefining \tempurl on input line 166.
+LaTeX Info: Redefining \tempurl on input line 191.
+LaTeX Info: Redefining \tempurl on input line 223.
+LaTeX Info: Redefining \tempurl on input line 237.
+LaTeX Info: Redefining \tempurl on input line 253.
+LaTeX Info: Redefining \tempurl on input line 268.
+LaTeX Info: Redefining \tempurl on input line 285.
+LaTeX Info: Redefining \tempurl on input line 299.
 )
 (C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
@@ -1641,21 +1645,25 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-[11.11] (icse24.aux)
+
+Overfull \vbox (1.527pt too high) has occurred while \output is active []
+
+ [11.11]
+(icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: 1709BADE7A0C3A0127E435711F7133AD;4281.
+(rerunfilecheck)             Checksum: 8F695CCD19BB4DDD7723C62B07CA830C;4149.
  ) 
 Here is how much of TeX's memory you used:
- 37581 strings out of 476374
- 699640 string characters out of 5798669
+ 37582 strings out of 476374
+ 699604 string characters out of 5798669
  1999340 words of memory out of 5000000
- 56095 multiletter control sequences out of 15000+600000
- 747243 words of font info for 599 fonts, out of 8000000 for 9000
+ 56098 multiletter control sequences out of 15000+600000
+ 746989 words of font info for 597 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,17n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
 m Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_iqbcqn.enc}{C:/Program Files/MiKT
 eX/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{C:/Program Files/MiKTeX/fonts/enc
@@ -1676,9 +1684,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2108764 bytes).
+Output written on icse24.pdf (11 pages, 2108688 bytes).
 PDF statistics:
- 545 PDF objects out of 1000 (max. 8388607)
- 180 named destinations out of 1000 (max. 500000)
+ 549 PDF objects out of 1000 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
  114931 words of extra memory for PDF output out of 128383 (max. 10000000)
 

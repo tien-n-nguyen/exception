@@ -15,23 +15,31 @@ in a multi-task learning fashion.
 %The two tasks dealt with by {\xstate} and {\xtype} can benefit each other. With the learning about which statements need to be put into try blocks, the model will learn the important code tokens in the code snippet, which in turn will help to determine which exceptions need to be handled. Also, knowing the exceptions will give strong hint to the way that statements should be grouped into try blocks.
 
 We calculate the training loss by combining the losses from the three
-modules. $Loss_{{\xblock}}$ is the Binary Cross Entropy loss for the
-decision as to if \code{try-catch} block(s) is needed. To
-calculate $Loss_{{\xstate}}$, we first get the classification loss for
-each statement ($loss_{Stmt}$) in the input, and add them
-together. $loss_{Stmt}$ is the Cross Entropy loss calculated from the
-distribution for the three tags -- \code{O}, \code{B-Try},
-\code{I-Try} -- and the ground-truth tag. Finally, in \xtype, several
-\code{try-catch} blocks might be present, so $Loss_{{\xtype}}$ comes
-from the summation of the exception prediction losses from all the
-\code{try-catch} blocks. For each \code{try-catch} block, the
-$loss_{try-block}$ is calculated by adding the Binary Cross Entropy
-loss for the prediction of each exception of interest.
+tasks. $Loss_{{\xblock}}$ is the Binary Cross Entropy loss for the
+decision as to if \code{try-catch} block(s) is needed.
+%
+To calculate $Loss_{{\xstate}}$, we add the classification losses for
+all statements in the input, where a statement loss ($loss_{Stmt}$) is
+the Cross Entropy loss calculated from the distribution of the three
+tags (\code{O}, \code{B-Try}, \code{I-Try}) and the ground-truth tag.
+%
+%To calculate $Loss_{{\xstate}}$, we first get the classification loss
+%for each statement ($loss_{Stmt}$) in the input, and add them
+%together. $loss_{Stmt}$ is the Cross Entropy loss calculated from the
+%distribution for the three tags -- \code{O}, \code{B-Try},
+%\code{I-Try} -- and the ground-truth tag.
+%
+Finally, in \xtype, since several \code{try-catch} blocks might be
+present, $Loss_{{\xtype}}$ comes from the summation of the exception
+prediction losses from all the \code{try-catch} blocks. For each
+\code{try-catch} block, the $loss_{try-block}$ is calculated by adding
+the Binary Cross Entropy loss for the prediction of each exception of
+interest.
 
 The overall training loss is calculated as follows. If the input does
-not contain any \code{try-catch} block, the loss will be only 
+not contain any \code{try-catch} block, the overall loss will be the 
 $Loss_{{\xblock}}$. If the input contains a \code{try-catch} block,
-the overall loss will be the summation of the losses from all
+the overall loss will be the summation of losses from all
 three tasks:
 \begin{equation}
 \label{eqn:loss}
