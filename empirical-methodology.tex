@@ -5,7 +5,7 @@
 
 %jodatime, jdk, Android, xstream, gwt, hibernate
 
-We conducted experiments on two datasets: 1) {\em Github dataset}
+We conducted experiments on two datasets: 1) {\em GitHub dataset}
 for intrinsic evaluation on exception handling recommendation tasks
 ({\xblock}, {\xstate}, {\xtype}), and 2) {\em FuzzyCatch}
 dataset~\cite{xrank-fse20} for extrinsic evaluation on
@@ -15,30 +15,29 @@ exception-related bug detection.
 %XRank/XHand~\cite{xrank-fse20}. We used FuzzyCatch dataset for our
 %extrinsic evaluation.
 %
-We collected the Github dataset as follows. We first chose in Github
+We collected the GitHub dataset as follows. We first chose in GitHub
 5,726 Java projects with the highest ratings that use
-the following libraries: jodatime, JDK, Android, xtream, GWT, and
-Hibernate. These are the well-established libraries that have been used
-in several prior research on the topics related to
-APIs~\cite{icse18,liveapi14}. We then selected the methods with at
-least one \code{try-catch} block, which was not part of any fix in
-a later version.
-%If there is one \code{try-catch}
-%block, we take the body of the method as the code
-%snippet. If there are multiple \code{try-catch} blocks in a method, we
-%split the method into multiple code snippets by checking the above and
-%below statements, one by one, starting from the closest one for each
-%\code{try-catch} block, to verify if the statement is included in the
-%other block. If not, we put it in the current code snippet. If yes, we
-%finish the current one. 
-In total, we have 246,118 code snippets for training, and 30,764 for
-validation.
-%153,823
-%15,382 code snippets containing \code{try-catch} blocks as positive
-%samples.
-We also randomly selected from the same Github projects the same
-amount of code snippets that do not have any \code{try-catch} block as
-the negative samples. In total, we have 30,764 instances for testing.
+JDK and Android libraries.
+%: jodatime, JDK, Android, xtream, GWT, and Hibernate.
+These are the well-established libraries that have been used in
+several prior research on the topics related to
+APIs~\cite{icse18,liveapi14}.
+%
+We then selected the methods with at least one \code{try-catch} block
+as positive samples, and we also randomly selected from the same
+GitHub projects the same amount of code snippets that do not have any
+\code{try-catch} block as the negative samples. In total, we have 246,118
+code snippets for training, 30,764 for validation, and 30,764 for
+testing. There are the equal number of positive/negative samples in
+30,764 testing ones.
+
+%We then selected the methods with at least one \code{try-catch} block,
+%which was not part of any fix in a later version. In total, we have
+%246,118 code snippets for training, and 30,764 for validation.  We
+%also randomly selected from the same GitHub projects the same amount
+%of code snippets that do not have any \code{try-catch} block as the
+%negative samples. In total, we have 30,764 instances for testing.
+
 
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
 authors of XRank/XHand~\cite{xrank-fse20}, which contains 750
@@ -65,7 +64,7 @@ exception-related bugs as the negative samples.
 
 %\indent {\em Baselines.} None. FuzzyCatch (XRank/XHand) does not have this.
 
-%{\em Procedure.} We processed the Github dataset for this experiment
+%{\em Procedure.} We processed the GitHub dataset for this experiment
 %as follows. For the snippets that need \code{try-catch}, but were
 %predicted as not, we consider them as incorrect because the resulting
 %statements predicted from {\xstate} do not make sense for incorrect
@@ -83,7 +82,7 @@ exception-related bugs as the negative samples.
 %GNNExplainer~\cite{GNNExplainer}. It also has a parameter on the limit
 %of the number $N$ of the nodes in the explanation sub-graph. We
 %varied $N$ from 1 to 10. The average number of statements in a
-%\code{try-catch} block in Github dataset is 5.9.
+%\code{try-catch} block in GitHub dataset is 5.9.
 
 %{\em Metrics.} If {\xstate} predicts for a statement correctly if it
 %is in a \code{try-catch} block or not, we count it as a correct case.
@@ -117,7 +116,7 @@ bug detection, i.e., missing \code{try-catch} blocks and/or exceptions.
 
 %We used {\tool} to detect such bugs and compare with FuzzyCatch.
 
-{\em Procedure.} We trained {\tool} on the Github dataset and detected
+{\em Procedure.} We trained {\tool} on the GitHub dataset and detected
 the exception-related bugs in FuzzyCatch dataset of StackOverflow
 code snippets. If the exception handling in a snippet matches with
 the one suggested by {\tool}, we consider it as a correct detection.
