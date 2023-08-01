@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  1 AUG 2023 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  1 AUG 2023 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,17 +1587,17 @@ alArgumentException\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
 )) (rq4-new-results.tex
-<sec9-fig1.png, id=376, 437.635pt x 302.12875pt>
+<sec9-fig1.png, id=378, 437.635pt x 302.12875pt>
 File: sec9-fig1.png Graphic file (type png)
 <use sec9-fig1.png>
 Package pdftex.def Info: sec9-fig1.png  used on input line 29.
 (pdftex.def)             Requested size: 75.94115pt x 52.42613pt.
-<sec9-fig2.png, id=377, 437.635pt x 302.12875pt>
+<sec9-fig2.png, id=379, 437.635pt x 302.12875pt>
 File: sec9-fig2.png Graphic file (type png)
 <use sec9-fig2.png>
 Package pdftex.def Info: sec9-fig2.png  used on input line 37.
 (pdftex.def)             Requested size: 75.94115pt x 52.42613pt.
-<sec9-fig3.png, id=378, 437.635pt x 302.12875pt>
+<sec9-fig3.png, id=380, 437.635pt x 302.12875pt>
 File: sec9-fig3.png Graphic file (type png)
 <use sec9-fig3.png>
 Package pdftex.def Info: sec9-fig3.png  used on input line 45.
@@ -1607,7 +1607,7 @@ Package pdftex.def Info: sec9-fig3.png  used on input line 45.
 Class acmart Warning: A possible image without description on input line 53.
 
 [9.9 <./sec9-fig1.png> <./sec9-fig2.png> <./sec9-fig3.png>]
-<rq4-density-v2.png, id=399, 505.89pt x 289.08pt>
+<rq4-density-v2.png, id=401, 505.89pt x 289.08pt>
 File: rq4-density-v2.png Graphic file (type png)
 <use rq4-density-v2.png>
 Package pdftex.def Info: rq4-density-v2.png  used on input line 70.
@@ -1627,20 +1627,25 @@ Class acmart Warning: A possible image without description on input line 37.
 
 )) (limitations.tex)) (related-work.tex) (conclusion.tex) [10.10 <./rq4-density
 -v2.png>] (icse24.bbl
-LaTeX Info: Redefining \tempurl on input line 71.
-LaTeX Info: Redefining \tempurl on input line 87.
-LaTeX Info: Redefining \tempurl on input line 133.
-LaTeX Info: Redefining \tempurl on input line 167.
-LaTeX Info: Redefining \tempurl on input line 182.
-LaTeX Info: Redefining \tempurl on input line 207.
-LaTeX Info: Redefining \tempurl on input line 239.
-LaTeX Info: Redefining \tempurl on input line 253.
-LaTeX Info: Redefining \tempurl on input line 269.
-LaTeX Info: Redefining \tempurl on input line 284.
-LaTeX Info: Redefining \tempurl on input line 301.
-LaTeX Info: Redefining \tempurl on input line 315.
-)
-(C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
+LaTeX Info: Redefining \tempurl on input line 65.
+LaTeX Info: Redefining \tempurl on input line 81.
+LaTeX Info: Redefining \tempurl on input line 127.
+LaTeX Info: Redefining \tempurl on input line 161.
+LaTeX Info: Redefining \tempurl on input line 176.
+LaTeX Info: Redefining \tempurl on input line 201.
+LaTeX Info: Redefining \tempurl on input line 233.
+LaTeX Info: Redefining \tempurl on input line 247.
+LaTeX Info: Redefining \tempurl on input line 263.
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--274
+[]\T1/LinuxLibertineT-TLF/m/n/7 (+20) Transformers In-ter-pret [n.d.].  Trans-f
+orm-ers In-ter-pret.
+ []
+
+LaTeX Info: Redefining \tempurl on input line 300.
+LaTeX Info: Redefining \tempurl on input line 317.
+LaTeX Info: Redefining \tempurl on input line 331.
+) (C:\Program Files\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (C:\Program Files\MiKTeX\tex/generic/stringenc\se-utf8.def
@@ -1661,11 +1666,7 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
-
-Overfull \vbox (1.527pt too high) has occurred while \output is active []
-
- [11.11]
-(icse24.aux)
+[11.11] (icse24.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1673,11 +1674,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 0F47427C93F5A9CC2212CD7C619953E8;4149.
  ) 
 Here is how much of TeX's memory you used:
- 37625 strings out of 476374
- 700334 string characters out of 5798669
+ 37629 strings out of 476374
+ 700448 string characters out of 5798669
  1999340 words of memory out of 5000000
- 56136 multiletter control sequences out of 15000+600000
- 746591 words of font info for 595 fonts, out of 8000000 for 9000
+ 56139 multiletter control sequences out of 15000+600000
+ 746493 words of font info for 595 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1700,9 +1701,9 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2196276 bytes).
+Output written on icse24.pdf (11 pages, 2196783 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 186 named destinations out of 1000 (max. 500000)
+ 572 PDF objects out of 1000 (max. 8388607)
+ 187 named destinations out of 1000 (max. 500000)
  114946 words of extra memory for PDF output out of 128383 (max. 10000000)
 
