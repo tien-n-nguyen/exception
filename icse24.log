@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  1 AUG 2023 03:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  1 AUG 2023 12:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1833,7 +1833,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (./rq3-methodology.tex) (./rq4-methodology.tex)
 
 Package natbib Warning: Citation `xrank-fse20' on page 7 undefined on input lin
-e 115.
+e 112.
 
 )) (./empirical-results.tex (./rq1-results.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1847,7 +1847,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 19.
 
-Underfull \vbox (badness 1442) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7.7]
 (./rq1-case-study.tex <rq1-case-study.png, id=286, 1791.69376pt x 887.315pt>
@@ -1908,43 +1908,48 @@ lassNotFoundException\T1/LinuxLibertineT-TLF/m/n/9 (-20) , \T1/zi4/m/it/7 Illeg
 alArgumentException\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
-)) (./rq4-new-results.tex <sec9-fig1.png, id=310, 437.635pt x 302.12875pt>
+)) (./rq4-new-results.tex
+Overfull \hbox (8.78569pt too wide) in paragraph at lines 8--9
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) ten-tion weight on it-self (Fig-ure []10a[]
+). State-ment 8 in-vokes \T1/zi4/m/it/7 readAllBytes()
+ []
+
+<sec9-fig1.png, id=315, 437.635pt x 302.12875pt>
 File: sec9-fig1.png Graphic file (type png)
-
-<use sec9-fig1.png>
-Package pdftex.def Info: sec9-fig1.png used on input line 21.
+ <use sec9-fig1.png>
+Package pdftex.def Info: sec9-fig1.png used on input line 14.
 (pdftex.def)             Requested size: 75.94115pt x 52.42613pt.
- <sec9-fig2.png, id=311, 437.635pt x 302.12875pt>
+
+<sec9-fig2.png, id=316, 437.635pt x 302.12875pt>
 File: sec9-fig2.png Graphic file (type png)
-
-<use sec9-fig2.png>
-Package pdftex.def Info: sec9-fig2.png used on input line 28.
+ <use sec9-fig2.png>
+Package pdftex.def Info: sec9-fig2.png used on input line 21.
 (pdftex.def)             Requested size: 75.94115pt x 52.42613pt.
- <sec9-fig3.png, id=312, 437.635pt x 302.12875pt>
+
+<sec9-fig3.png, id=317, 437.635pt x 302.12875pt>
 File: sec9-fig3.png Graphic file (type png)
-
-<use sec9-fig3.png>
-Package pdftex.def Info: sec9-fig3.png used on input line 35.
+ <use sec9-fig3.png>
+Package pdftex.def Info: sec9-fig3.png used on input line 28.
 (pdftex.def)             Requested size: 75.94115pt x 52.42613pt.
 
 
-Class acmart Warning: A possible image without description on input line 41.
+Class acmart Warning: A possible image without description on input line 34.
 
-<rq4-density-v2.png, id=314, 505.89pt x 289.08pt>
+[9.9 <./sec9-fig1.png> <./sec9-fig2.png> <./sec9-fig3.png>]
+<rq4-density-v2.png, id=335, 505.89pt x 289.08pt>
 File: rq4-density-v2.png Graphic file (type png)
  <use rq4-density-v2.png>
-Package pdftex.def Info: rq4-density-v2.png used on input line 50.
+Package pdftex.def Info: rq4-density-v2.png used on input line 51.
 (pdftex.def)             Requested size: 202.35622pt x 115.63435pt.
 
 
-Class acmart Warning: A possible image without description on input line 54.
+Class acmart Warning: A possible image without description on input line 55.
 
 ) (./rq5-new-results.tex
 
-Package natbib Warning: Citation `xrank-fse20' on page 9 undefined on input lin
-e 14.
+Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
+ne 14.
 
-[9.9 <./sec9-fig1.png> <./sec9-fig2.png> <./sec9-fig3.png>]
 
 Package natbib Warning: Citation `xrank-fse20' on page 10 undefined on input li
 ne 33.
@@ -1979,9 +1984,7 @@ Package natbib Warning: Citation `fse09' on page 10 undefined on input line 45.
 Package natbib Warning: Citation `throw-ase22' on page 10 undefined on input li
 ne 52.
 
-) (./conclusion.tex)
-Package atenddvi Info: Last page = 10.
- [10.10 <./rq4-density-v2.png>]
+) (./conclusion.tex) [10.10 <./rq4-density-v2.png>]
 No file icse24.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -2001,9 +2004,17 @@ Class acmart Warning: ACM reference format is mandatory
 
 Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+Package atenddvi Info: Last page = 11.
+[11.11
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 546.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 546.
-(./icse24.aux)
+ (./icse24.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 546.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 546.
 Package rerunfilecheck Info: File `icse24.out' has not changed.
@@ -2012,16 +2023,13 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 33075 strings out of 493014
- 597429 string characters out of 6133352
- 833384 words of memory out of 5000000
- 35066 multiletter control sequences out of 15000+600000
- 217790 words of font info for 421 fonts, out of 8000000 for 9000
+ 33064 strings out of 493014
+ 597174 string characters out of 6133352
+ 833404 words of memory out of 5000000
+ 35060 multiletter control sequences out of 15000+600000
+ 216994 words of font info for 417 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,16n,94p,1312b,1326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
@@ -2050,10 +2058,10 @@ fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/txex-bar.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on icse24.pdf (10 pages, 2232165 bytes).
+Output written on icse24.pdf (11 pages, 2233951 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 418 compressed objects within 5 object streams
+ 164 named destinations out of 1000 (max. 500000)
  59134 words of extra memory for PDF output out of 61914 (max. 10000000)
 
