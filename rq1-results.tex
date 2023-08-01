@@ -2,6 +2,53 @@
 \subsection{Comparison on \code{Try-catch} Block Checking}
 %\label{sec:rq1}
 
+
+
+
+%{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
+
+%Table~\ref{tab:xblock} displays the comparison result.
+
+As seen in Table~\ref{tab:xblock-1}, {\tool} achieves very high
+Precision, Recall and F-score on the GitHub dataset---all above
+98\%.
+%In comparison, the CodeBERT baseline model has a much lower
+%Precision, around 50\%. However, it achieves a slightly higher
+%Recall. After examining the result, we find that the model
+%overwhelmingly predicts that the input
+%code snippet contains a \code{try-catch} block: In our balanced test
+%dataset that contains 30,764 samples, only 236 samples receives the
+%negative label (i.e., no \code{try-catch}) from CodeBert.
+In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
+and 55.9\%} in Precision, Recall, and F1-score, respectively.
+%
+Examining the result, we reported the following in comparison with the
+baseline.
+%
+First, XRank's recall is around 0.53 in our balanced dataset. In
+XRank, if the association score of {\em only one API call} in the
+snippet and {\em one exception} is higher than a threshold, it decides
+that a \code{try-catch} block is needed.
+%
+Second, the decisions on the necessity of a \code{try-catch} block or
+the exception types depend on the pre-defined thresholds in XRank on
+those association scores. Thus, those pre-defined thresholds might not
+be suitable across all the API method calls in all the
+libraries. Third, for the incomplete code snippets in which the names
+of the API methods in different packages or libraries are the same
+(e.g., \code{toString} or \code{getText} in various JDK packages),
+XRank
+%cannot distinguish them and
+uses one entry in the dictionary for them due to its IR approach,
+leading to mistakenly considering them the same.
+%
+Unlike XRank, which considers only the association
+between an API call and an exception type,
+{\tool} considers the code in the block as the context to learn the
+dependencies among API elements and the relations between the API
+calls and the exceptions, leading to better {\xblock}.
+
+
 \begin{table}[t]%[htpb]
   \caption{Try-Catch Block Comparison with XRank (RQ1)}
   \vspace{-12pt}
@@ -43,48 +90,6 @@
 	\end{center}
 \end{table}
 
-
-%{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
-
-%Table~\ref{tab:xblock} displays the comparison result.
-
-As seen in Table~\ref{tab:xblock-1}, {\tool} achieves very high
-Precision, Recall and F-score on the GitHub dataset---all above
-98\%.
-%In comparison, the CodeBERT baseline model has a much lower
-%Precision, around 50\%. However, it achieves a slightly higher
-%Recall. After examining the result, we find that the model
-%overwhelmingly predicts that the input
-%code snippet contains a \code{try-catch} block: In our balanced test
-%dataset that contains 30,764 samples, only 236 samples receives the
-%negative label (i.e., no \code{try-catch}) from CodeBert.
-In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
-and 55.9\%} in Precision, Recall, and F1-score, respectively.
-
-Examining the result, we reported the following in comparison with the
-baseline. First, XRank's recall is around 0.53 in our balanced dataset. In
-XRank, if the association score of {\em only one API call} in the
-snippet and {\em one exception} is higher than a threshold, it decides
-that a \code{try-catch} block is needed.
-%
-Second, the decisions on the necessity of a \code{try-catch} block or
-the exception types depend on the pre-defined thresholds in XRank on
-those association scores. Thus, those pre-defined thresholds might not
-be suitable across all the API method calls in all the
-libraries. Third, for the incomplete code snippets in which the names
-of the API methods in different packages or libraries are the same
-(e.g., \code{toString} or \code{getText} in various JDK packages),
-XRank
-%cannot distinguish them and
-uses one entry in the dictionary for them due to its IR approach,
-leading to mistakenly considering them the same.
-%
-Unlike XRank, which considers only the aforementioned association
-between an API call and an exception type,
-{\tool} considers the code in the block as the context to learn the
-dependencies among the API elements and the relations between the API
-calls and the exceptions, leading to better {\xblock}.
-
 %Unlike XRank, which considers only the API calls in a \code{try-catch}
 %block, {\tool} considers the code in the block as the context to learn
 %better the identities of APIs and dependencies with exceptions, thus,
@@ -104,13 +109,17 @@ popular APIs and corresponding exception types because it was not
 trained specifically for the exception handling task. Moreover, for
 the un-popular API names, GPT-3.5 often resorted to another API with
 similar name, and predicted that the given code snippet needs a
-\code{try-catch} block because that API requires such a block. For
+\code{try-catch} block since that API requires such a block. For
 example, in an instance containing a method call to
 \code{interval.parseWithOffset}, which is specific to a project,
 GPT-3.5 incorrectly considered it as to have a \code{try-catch}
 block. GPT-3.5 explained that it is similar to \code{parse} in a
-compiler, which needs to handle \code{InvalidInputException}. Thus, it
-incorrectly considers \code{parseVals} needs to handle that exception.
+compiler, which needs to handle
+\code{In\-valid\-Input\-Exception}. Thus, it incorrectly makes
+prediction.
+%for \code{parseVals}.
+
+%considers \code{parseVals} needs to handle that exception.
 
 \input{rq1-case-study}
 

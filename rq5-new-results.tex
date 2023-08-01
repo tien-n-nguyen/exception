@@ -1,26 +1,7 @@
 \subsection{Exception-Related Bug Detection (RQ5)}
 \label{sec:rq1}
 
-\begin{table}[t]%[htpb]
-  \caption {Exception-Related Bug Detection (RQ5)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|}
-		  \hline
-			\multirow{2}{*}{} & \multicolumn{2}{c|}{FuzzyCatch Dataset} \\
-			\cline{2-3}
-			  & \tool  & FuzzyCatch~\cite{xrank-fse20} \\
-			\hline
-			Recall    & \textbf{0.95}& 0.76\\
-			Precision & \textbf{1.0} & 0.54\\
-			F1-score   & \textbf{0.97} & 0.62\\
-			\hline
-		\end{tabular}
-		\label{tab:bug}
-	\end{center}
-\end{table}
+
 
 %{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
 
@@ -43,9 +24,32 @@ threshold, FuzzyCatch will decide that the snippet is buggy. Its
 result is more on the ``Yes'' (buggy) side. Thus, its precision is
 54\%, a slightly better than the probability of a coin
 toss. Figure~\ref{fig:example-bug} shows a bug detected by {\tool},
-and its fix (adding a \code{try-catch} block). All buggy code and
-fixes are available in FuzzyCatch's repository: ebrand.ly/ExDataset.
+and the correctly suggested fix (adding a \code{try-catch} block).
 
-\input{example-bug.tex}
+%All buggy code and fixes are available in FuzzyCatch's repository:
+%ebrand.ly/ExDataset.
+
+\begin{table}[t]%[htpb]
+  \caption {Exception-Related Bug Detection (RQ5)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|p{1.75cm}<{\centering}|}
+		  \hline
+			\multirow{2}{*}{} & \multicolumn{2}{c|}{FuzzyCatch Dataset} \\
+			\cline{2-3}
+			  & \tool  & FuzzyCatch~\cite{xrank-fse20} \\
+			\hline
+			Recall    & \textbf{0.95}& 0.76\\
+			Precision & \textbf{1.0} & 0.54\\
+			F1-score   & \textbf{0.97} & 0.62\\
+			\hline
+		\end{tabular}
+		\label{tab:bug}
+	\end{center}
+\end{table}
+
+%\input{example-bug.tex}
 
 
