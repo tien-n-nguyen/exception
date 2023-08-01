@@ -1,12 +1,11 @@
 \subsubsection{RQ1. Effectiveness on Try-Catch Necessity Checking}~\\
 \indent {\em Baselines.} We compared {\xblock} with
-GPT-3.5 in ChatGPT~\cite{ChatGPT}. Due to cost of using ChatGPT-3.5 on
-OpenAI, we performed sampling on the GitHub dataset of 30,764
-snippets. To obtain the confidence level of 95\%, we randomly selected
-380 code snippets in which 190 are negative samples
-(no \code{try-catch} block), and 190 are positive samples (at least
-one \code{try-catch} block). We trained on GitHub dataset and
-compared with GPT-3.5 on this sampled test set.
+GPT-3.5~\cite{ChatGPT}. Due to cost of using GPT-3.5 on OpenAI, we
+performed sampling on the GitHub dataset of 30,764 snippets. To obtain
+the confidence level of 95\%, we randomly selected 380 code snippets
+in which 190 are negative samples (no \code{try-catch} block), and 190
+are positive samples (at least one \code{try-catch} block). We trained
+on GitHub dataset and compared with GPT-3.5 on this sampled test set.
 
 %the pre-trained CodeBERT without any fine-tuning steps. In the
 %pre-trained CodeBERT, We add a randomly-initialized linear layer on
@@ -36,21 +35,21 @@ Labeling the responses has three steps. First, we check whether the
 first word in each response is Yes or No. If it is a Yes, we assign a
 positive label; If it is a No, we assign a negative label. Second, for
 the responses that do not start with Yes or No, we read each response
-and manually assign labels to them.  However, there are some cases
-that we cannot, based on the response, easily determine whether or not
-the code needs any try-catch blocks. The common reasons are (1) the
-response is not informative enough in that it only relays some general
-advice about exception handling, (2) In the text, it states that it is
-uncertain about the case, or (3) the decision depends on background
-knowledge about either the project structure or certain method
-specifications. Thus, in evaluating the performance of ChatGPT,
-for each metric, we calculate the lower and upper bound. In the upper
-bound, all such uncertain cases are considered as correct,
-%receive the ground truth labels, while
-in the lower bound, all such cases are considered as incorrect.
-%receive the opposite labels to their ground truths.
-Lastly, we assign the final label for each instance from the majority
-vote from three tries.
+and manually assign labels to them.  However, there are some cases in
+which it is hard to make the decision on whether or not the code needs
+any try-catch blocks. The common scenarios are (1) the response is not
+informative enough, as it only relays a general advice about exception
+handling, (2) the response states that it is uncertain whether a
+try-catch block is needed, or (3) the decision making depends on the
+background knowledge on either the project structure or certain method
+specifications. Thus, in evaluating GPT-3.5's performance, for
+these responses, given the benefit of doubts, we assign correct
+prediction labels to them, assuming the best performance of GPT-3.5.
+%for each metric, we calculate the lower and upper bound. In the upper
+%bound, all such uncertain cases are considered as correct,
+%in the lower bound, all such cases are considered as incorrect.
+We assign the final label for each instance from the majority
+vote of the three attempts.
 
 %We took all the code snippets from DeepEX and FuzzyCatch datasets. On
 %the DeepEx dataset, we randomly split both the positive and negative
@@ -65,7 +64,7 @@ vote from three tries.
 %the trained model from the DeepEx dataset and test it on the
 %FuzzyCatch dataset for both the baseline and {\tool}.
 
-{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall loss.
+{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall validation loss.
 
 %We tuned {\tool} with autoML~\cite{NNI} for the
 %following key hyper-parameters to have the best performance: (1) Epoch
@@ -73,8 +72,8 @@ vote from three tries.
 %(0.001, 0.003, 0.005); (4) Vector length of feature embeddings and its
 %output (64, 128, 256); (5) Number of R-GCN layers (4, 6, 8).
 
-{\em Metrics.} We use \textbf{Recall, Precision}, and {\bf F-score} to
+{\em Metrics.} We use \textbf{Precision, Recall}, and {\bf F1-score} to
 evaluate the performance of the approaches. They are calculated as follows.
-$Recall = \frac{TP}{TP+FN}$, $Precision = \frac{TP}{TP+FP}$, $F$-score
+$Precision = \frac{TP}{TP+FP}$, $Recall = \frac{TP}{TP+FN}$, $F1$-score
 $=$ $\frac{2*Recall*Precision}{Recall+Precision}$. $TP$: true
 positive, $FN$: false negative, and $FP$: false positive.

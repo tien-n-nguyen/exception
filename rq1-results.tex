@@ -61,26 +61,34 @@ Precision, Recall and F-score on the GitHub dataset---all above
 In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
 and 55.9\%} in Precision, Recall, and F1-score, respectively.
 
-Examining the result, we reported the following on XRank. First,
-its precision is marginally better than a coin toss (0.53) in our
-balanced dataset. In XRank, if the association score of {\em only one
-  API method} in the snippet and {\em one exception} is higher than a
-threshold, it decides that a \code{try-catch} block is needed.
+Examining the result, we reported the following in comparison with the
+baseline. First, XRank's recall is around 0.53 in our balanced dataset. In
+XRank, if the association score of {\em only one API call} in the
+snippet and {\em one exception} is higher than a threshold, it decides
+that a \code{try-catch} block is needed.
 %
 Second, the decisions on the necessity of a \code{try-catch} block or
 the exception types depend on the pre-defined thresholds in XRank on
 those association scores. Thus, those pre-defined thresholds might not
-be suitable across the libraries. Third, for the incomplete code
-snippets in which the names of the API methods in different packages
-or libraries are the same (e.g., \code{toString} or \code{getText} in
-various JDK packages), XRank cannot distinguish them and use one entry
-in the dictionary for them due to its IR approach, leading to
-mistakenly considering them the same. Unlike XRank, which
-considers only the API calls in a \code{try-catch} block,
-{\tool} considers the code in the block as the context to learn better
-the identities of APIs and dependencies with exceptions,
-%relations among the names of those API elements,
-thus, better deciding the need of \code{try-catch} blocks.
+be suitable across all the API method calls in all the
+libraries. Third, for the incomplete code snippets in which the names
+of the API methods in different packages or libraries are the same
+(e.g., \code{toString} or \code{getText} in various JDK packages),
+XRank
+%cannot distinguish them and
+uses one entry in the dictionary for them due to its IR approach,
+leading to mistakenly considering them the same.
+%
+Unlike XRank, which considers only the aforementioned association
+between an API call and an exception type,
+{\tool} considers the code in the block as the context to learn the
+dependencies among the API elements and the relations between the API
+calls and the exceptions, leading to better {\xblock}.
+
+%Unlike XRank, which considers only the API calls in a \code{try-catch}
+%block, {\tool} considers the code in the block as the context to learn
+%better the identities of APIs and dependencies with exceptions, thus,
+%better deciding the need of \code{try-catch} blocks.
 
 %and the corresponding exception types.
 

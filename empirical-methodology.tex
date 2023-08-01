@@ -28,8 +28,11 @@ as positive samples, and we also randomly selected from the same
 GitHub projects the same amount of code snippets that do not have any
 \code{try-catch} block as the negative samples. In total, we have 246,118
 code snippets for training, 30,764 for validation, and 30,764 for
-testing. There are the equal number of positive/negative samples in
-30,764 testing ones.
+testing. In 30,764 testing samples, there are an equal number of
+positive and negative ones (15,382).
+
+%There are the equal number of positive/negative samples in 30,764
+%testing ones.
 
 %We then selected the methods with at least one \code{try-catch} block,
 %which was not part of any fix in a later version. In total, we have
@@ -40,12 +43,14 @@ testing. There are the equal number of positive/negative samples in
 
 
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
-authors of XRank/XHand~\cite{xrank-fse20}, which contains 750
-StackOverflow code snippets with exception-related bugs (missing
+authors of XRank/XHand~\cite{xrank-fse20}, which contains 609 Android
+incomplete code snippets with exception-related bugs (missing
 \code{try- catch} blocks or exceptions). Finally, we used 553 snippets
-because other repos no longer exist. We also randomly selected from
-the projects in FuzzyCatch dataset the same amount of snippets with no
-exception-related bugs as the negative samples.
+because the others are not valid for the experiment.
+%Tien
+%We also randomly selected from the projects in FuzzyCatch dataset the
+%same amount of snippets with no exception-related bugs as the negative
+%samples.
 
 %We have conducted our experiments to evaluate {\tool} on the dataset DeepEx that we collected, and the existing dataset FuzzyCatch provided in a prior work~\cite{nguyen2020code}.
 
@@ -117,7 +122,7 @@ bug detection, i.e., missing \code{try-catch} blocks and/or exceptions.
 %We used {\tool} to detect such bugs and compare with FuzzyCatch.
 
 {\em Procedure.} We trained {\tool} on the GitHub dataset and detected
-the exception-related bugs in FuzzyCatch dataset of StackOverflow
+the exception-related bugs in FuzzyCatch dataset of incomplete
 code snippets. If the exception handling in a snippet matches with
 the one suggested by {\tool}, we consider it as a correct detection.
 

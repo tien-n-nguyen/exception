@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  31 JUL 2023 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  31 JUL 2023 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1535,11 +1535,11 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 19.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1442) has occurred while \output is active []
 
  [7.7]
 (rq1-case-study.tex
-<rq1-case-study.png, id=343, 1791.69376pt x 887.315pt>
+<rq1-case-study.png, id=344, 1791.69376pt x 887.315pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
 Package pdftex.def Info: rq1-case-study.png  used on input line 3.
@@ -1553,7 +1553,7 @@ Overfull \hbox (4.57005pt too wide) in paragraph at lines 3--5
 Class acmart Warning: A possible image without description on input line 7.
 
 )
-Overfull \hbox (1.06465pt too wide) in paragraph at lines 121--121
+Overfull \hbox (1.06465pt too wide) in paragraph at lines 129--129
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) Precision| 
  []
 
@@ -1600,12 +1600,12 @@ Package pdftex.def Info: rq4-density-v2.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 10.
 
-[9.9 <./rq4-density-v2.png>]) (rq5-new-results.tex
+) (rq5-new-results.tex
 Overfull \hbox (1.99309pt too wide) in paragraph at lines 14--15
  []|\T1/LinuxLibertineT-TLF/m/n/8 (-20) FuzzyCatch [[]]| 
  []
 
-(example-bug.tex
+[9.9 <./rq4-density-v2.png>] (example-bug.tex
 
 Class acmart Warning: A possible image without description on input line 38.
 
@@ -1657,11 +1657,11 @@ Package rerunfilecheck Info: File `icse24.out' has not changed.
 (rerunfilecheck)             Checksum: 9C3CF7AE8DEBB80C0D3820C95AFEA5C7;4149.
  ) 
 Here is how much of TeX's memory you used:
- 37580 strings out of 476374
- 699531 string characters out of 5798669
+ 37577 strings out of 476374
+ 699456 string characters out of 5798669
  1999340 words of memory out of 5000000
  56098 multiletter control sequences out of 15000+600000
- 746735 words of font info for 595 fonts, out of 8000000 for 9000
+ 746364 words of font info for 593 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1684,7 +1684,7 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2108751 bytes).
+Output written on icse24.pdf (11 pages, 2108599 bytes).
 PDF statistics:
  550 PDF objects out of 1000 (max. 8388607)
  182 named destinations out of 1000 (max. 500000)
