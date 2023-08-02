@@ -62,7 +62,7 @@ To provide more flexibility in code matching, the fourth category
 follows {\em information retrieval}
 (IR)~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
 source code and recommends a ranked list of API method calls in the
-code that are potentially involved in the exceptions in a \code{catch-try}
+code that are potentially involved in the exceptions in a \code{try}
 block. XHand~\cite{xrank-fse20} recommends the exception handling
 code in a \code{catch} block for a given code. Both use a fuzzy set
 technique to compute the associations between the API calls (e.g.,
@@ -92,7 +92,7 @@ elements to resolve the ambiguity of the names of the APIs and
 In this paper, we propose {\tool}, a learning-based exception handling
 recommender, which accepts a given Java code snippet and recommends 1)
 {\em whether a try-catch block is needed for the snippet} ({\xblock}),
-2) {\em what statements need to be placed in a \code{try-catch} block}
+2) {\em what statements need to be placed in a \code{try} block}
 ({\xstate}) and 3) {\em what exception types need to be caught in the
   \code{catch} clause} ({\xtype}).  We find a motivation for such a
 data-driven, learning-based approach from the previous studies
@@ -102,7 +102,7 @@ projects~\cite{chanchal-scam14,zhong-jss18}. The reason for such
 repetitions is that the designers of a software library have the
 intents for users to use certain API elements with corresponding
 exception types. Thus, we design {\tool} to learn from the statements
-in \code{try-catch} blocks and exception types retrieved from {\em
+in \code{try} blocks and exception types retrieved from {\em
   complete source code} in a large code corpus, and derive suggestions
 for given {\em (in)complete~code}.
 %the above exception handling suggestions for the {\em (partial) code
@@ -225,7 +225,7 @@ over the baseline. It achieves high F1-score from 98.2\%--99.7\% in
 \code{try-catch} block necessity checking (an relative improvement of
 up to 55.9\% over the baselines). It also correctly decides both the
 need of \code{try-catch} block(s) and the statements to be placed in
-such blocks with the F1-scores of 74.7\% and 87.1\% at the instance
+\code{try} blocks with the F1-scores of 74.7\% and 87.1\% at the instance
 and statement levels, an improvement of 127.3\% and 44.9\% over the
 baseline, respectively. Our extrinsic evaluation shows that {\tool}
 relatively improves over the baseline by 56.5\% in F1-score in

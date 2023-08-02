@@ -7,7 +7,7 @@ recommendation: given a Java code snippet, it will
 1) predict if a \code{try-catch} block is required ({\xblock}),
 
 2) point out which statements in the code snippet need to be placed in
-a \code{try-catch} block ({\xstate}), and
+a \code{try} block ({\xstate}), and
 
 3) suggest the exception types to be in the \code{catch}
 clause ({\xtype}).
@@ -92,7 +92,7 @@ suggest the exception types.
 Inspired by the sequence chunking
 techniques~\cite{sequence-chunking-aaai17} in NLP, we formulate our
 problem as identifying one or multiple chunks of consecutive
-statements that need to be placed within \code{try-catch} blocks. We
+statements that need to be placed within \code{try} blocks. We
 leverage and fine-tune the language model
 CodeBERT~\cite{codebert-emnlp20} to learn to the relations among
 statements with the API elements.  We also leverage the multi-tasking

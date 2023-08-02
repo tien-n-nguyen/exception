@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  1 AUG 2023 22:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.20)  2 AUG 2023 03:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1463,14 +1463,7 @@ Package pdftex.def Info: xtype-6.png  used on input line 6.
 
 Class acmart Warning: A possible image without description on input line 11.
 
-[5.5 <./xblock-4.png> <./xstate-3.png>]
-Overfull \hbox (3.87761pt too wide) in paragraph at lines 38--48
-\T1/LinuxLibertineT-TLF/m/n/9 (-20) from the state-ment \T1/zi4/m/it/7 out.writ
-e \T1/LinuxLibertineT-TLF/m/n/9 (-20) to the state-ment \T1/zi4/m/it/7 print(no
-de.getBody(...))\T1/LinuxLibertineT-TLF/m/n/9 (-20) .
- []
-
-) (multitasking.tex
+[5.5 <./xblock-4.png> <./xstate-3.png>]) (multitasking.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1522,8 +1515,29 @@ surrounding objects on input line 1.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(rq3-methodology.tex) (rq4-methodology.tex))) (empirical-results.tex
-(rq1-results.tex [7.7]
+(rq3-methodology.tex
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 1.
+
+) (rq4-methodology.tex
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 1.
+
+)
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 109.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 131.
+
+)) (empirical-results.tex (rq1-results.tex
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+ [7.7]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 55.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1534,7 +1548,8 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 66.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 66.
- (rq1-case-study.tex
+
+(rq1-case-study.tex
 <rq1-case-study.png, id=346, 895.84688pt x 443.6575pt>
 File: rq1-case-study.png Graphic file (type png)
 <use rq1-case-study.png>
@@ -1554,8 +1569,8 @@ Overfull \hbox (1.06465pt too wide) in paragraph at lines 138--138
  []
 
 ) (rq2-results.tex
-Underfull \hbox (badness 8038) in paragraph at lines 5--5
-[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 4: |Try-Catch State-ment De-tec-tio
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]\T1/LinuxLibertineT-TLF/b/n/9 (+20) Table 4: |Try-Block State-ment De-tec-tio
 n Com-par-i-son
  []
 
@@ -1671,14 +1686,14 @@ Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `icse24.out' has not changed.
-(rerunfilecheck)             Checksum: 0F47427C93F5A9CC2212CD7C619953E8;4149.
+(rerunfilecheck)             Checksum: 34202FA3C329E59CF0EFC76F770A366B;4149.
  ) 
 Here is how much of TeX's memory you used:
- 37632 strings out of 476374
- 700523 string characters out of 5798669
+ 37608 strings out of 476374
+ 699905 string characters out of 5798669
  1999340 words of memory out of 5000000
  56139 multiletter control sequences out of 15000+600000
- 746758 words of font info for 597 fonts, out of 8000000 for 9000
+ 744119 words of font info for 581 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  85i,16n,131p,1314b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{C:/Progra
@@ -1701,7 +1716,7 @@ ogram Files/MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Program
 Files/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/newtx/txmiaX.pfb><C:/Program Files/MiKTeX/fonts/type1/public/newtx
 /txsys.pfb>
-Output written on icse24.pdf (11 pages, 2196780 bytes).
+Output written on icse24.pdf (11 pages, 2197182 bytes).
 PDF statistics:
  572 PDF objects out of 1000 (max. 8388607)
  187 named destinations out of 1000 (max. 500000)

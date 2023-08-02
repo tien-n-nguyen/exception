@@ -373,7 +373,7 @@ exceptions and what exceptions need to be handled. We propose {\tool},
 an exception handling recommender that learns from complete code, and
 accepts a given Java code snippet and recommends 1) if a
 \code{try-catch} block is needed, 2) what statements need to be placed
-in a \code{try-catch} block, and 3) what exception types need to be
+in a \code{try} block, and 3) what exception types need to be
 caught in the \code{catch} clause.
 %We overcome the limitations of the state-of-the-art information
 %retrieval approaches by our learning exception handling from complete
@@ -395,7 +395,7 @@ baseline.
 It achieves high F1-score from 98.2\%--99.7\% in \code{try-catch}
 block necessity checking (an relative improvement of up to 55.9\% over
 the baselines). It also correctly decides both the need of
-\code{try-catch} block(s) and the statements to be placed in such
+\code{try-catch} block(s) and the statements to be placed in \code{try}
 blocks with the F1-scores of 74.7\% and 87.1\% at the instance and
 statement levels, an improvement of 129.1\% and 44.9\% over the
 baseline, respectively. Our extrinsic evaluation shows that {\tool}

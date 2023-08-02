@@ -31,12 +31,12 @@ thus, making the connection between the API and the presence of
 could be determined as having a relation with \code{IOException},
 %belong to \code{OutputStream} in JDK. Thus,
 leading to better learning to place that statement inside a
-\code{try-catch} block. Second, we expect that CodeBERT would learn
+\code{try} block. Second, we expect that CodeBERT would learn
      {\em the dependencies among the consecutive statements} separated
      by the special tokens {\bf [SEP]} (see Section~\ref{sec:rq4} for our
      experiment on this). Those dependencies would help the model better
      decide whether some consecutive statements need to be placed
-     together in a \code{try-catch} block. For example, in
+     together in a \code{try} block. For example, in
      Figure~\ref{overview}, the statements at lines 2--5 have data
      dependencies, thus, they might be in the same \code{try}
      block.
@@ -45,26 +45,26 @@ leading to better learning to place that statement inside a
 We take the embedding produced by CodeBERT for each {\bf [SEP]} token
 as the statement embedding and feed it to a layer with Feed-forward
 neural network (FFNN). We then use a softmax function to learn to
-label each corresponding statement with one of three tags: {\em
+label each corresponding statement with one of three~tags: {\em
   \code{O} tag means that the statement is outside of any
-  \code{try-catch} blocks; \code{B-Try} tag means that the statement
-  begins a \code{try-catch} block; and \code{I-Try} tag means that the
-  statement is inside a \code{try-catch} block and is not the first
+  \code{try} blocks; \code{B-Try} tag means that the statement
+  begins a \code{try} block; and \code{I-Try} tag means that the
+  statement is inside a \code{try} block and is not the first
   line of that block}. For example, in Figure~\ref{fig:xstate}, the
 embedding computed by CodeBERT for the first {\bf [SEP]}, which
 represents the statement \code{out.write(...)}, is classified by the
 first \code{FFNN+Softmax} layer into the \code{B-Try} category/label
-because it is the first statement of a \code{try-catch}
+because it is the first statement of a \code{try}
 block. However, the embedding for the second {\bf [SEP]}, representing
 \code{print(node.getBody(...))}, is labeled as \code{I-Try} because it
-is the second statement of the \code{try-catch} block. Finally, the
+is the second statement of the \code{try} block. Finally, the
 embedding of the third {\bf [SEP]}, is labeled as \code{O} because the
 statement \code{return null;} does not need to be in the
-\code{try-catch} block. With this IOB2 encoding~\cite{iob2}, we can
+\code{try} block. With this IOB2 encoding~\cite{iob2}, we can
 support multiple \code{try-catch} blocks in which the statement with
-the \code{B-Try} tag is the start of a \code{try-catch} block and the
+\code{B-Try} is the start of a \code{try} block and the
 statement with the last respective \code{I-Try} tag is the end of that
-block. A new block will be formed with another statement having a
+block. A new block is formed with another statement having a
 \code{B-Try} tag.
 
 

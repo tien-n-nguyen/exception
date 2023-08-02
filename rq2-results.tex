@@ -1,8 +1,8 @@
-\subsection{Try-Catch Statement Detection (RQ2)}
+\subsection{Try-Block Statement Detection (RQ2)}
 \label{sec:rq2}
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Statement Detection Comparison ({\xblock}+{\xstate}, Instance Level) (RQ2)}
+  \caption{Try-Block Statement Detection Comparison ({\xblock}+{\xstate}, Instance Level) (RQ2)}
 %  \caption{Try-Catch Statement Detecting Comparison (Evaluate {\xstate} in Connection with {\xblock} --- Instance Level) (RQ2)}
   \vspace{-12pt}
   \small
@@ -23,7 +23,7 @@
 \end{table}
 
 \begin{table}[t]%[htpb]
-\caption{Try-Catch Statement Detection Result ({\xstate} as Individual, Instance Level) (RQ2)}
+\caption{Try-Block Statement Detection Result ({\xstate} as Individual, Instance Level) (RQ2)}
   \vspace{-12pt}
   \small
 	\begin{center}
@@ -45,16 +45,16 @@ Table~\ref{tab:xstate-1} shows the result when we evaluated {\xstate}
 in connection with {\xblock}. That is, both individual results from
 {\xblock} and {\xstate} must be correct for the instance to be
 considered correct. {\tool} achieves a very high precision (96.9\%)
-and predicts correctly {\em all the statements in all \code{try-catch}
+and predicts correctly {\em all the statements in all \code{try}
   blocks} (could have multiple blocks) for 61\% of the positive code
 snippets. It improves relatively over GPT-3.5 {\bf
   76.2\%}, {\bf 161.6\%}, and {\bf 129.1\%} in Precision, Recall, and
 F1-score. Examining the results, we found that GPT-3.5 did not work
 well for the code snippets that have more than one \code{try-catch}
 blocks. It also does not recognize well multiple statements with
-dependencies that need to be placed in the same block. {\tool}
+dependencies that need to be placed in the same \code{try} block. {\tool}
 recognizes/captures well the dependencies among statements (see RQ4),
-thus, better grouping them into a \code{try-catch} block.
+thus, better grouping them into a \code{try} block.
 
 %several statements in which some statements are left outside of the
 %blocks.
@@ -156,8 +156,8 @@ correct predictions for those false negatives from {\xblock}.
 %\end{table}
 
 Table~\ref{tab:xstate-3} displays the result at the statement level
-(i.e., whether a statement needs to be inside a \code{try-catch} block
-or not). As seen, {\xblock}+{\xstate} improves relatively over GPT-3.5
+(i.e., whether a statement needs to be inside a \code{try} block
+or not). As seen, {\xblock}+ {\xstate} improves relatively over GPT-3.5
 {\bf 44.9\%}
 %, {\bf YY.Y\%}, and {\bf ZZ.Z\%} in Precision, Recall, and F1-score,
 %respectively

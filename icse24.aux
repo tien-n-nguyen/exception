@@ -58,7 +58,7 @@
 \citation{sequence-chunking-aaai17}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces {\textsc  {Neurex}\xspace  }: Architecture Overview\relax }}{4}{figure.caption.7}\protected@file@percent }
 \newlabel{overview}{{5}{4}{{\tool }: Architecture Overview\relax }{figure.caption.7}{}}
-\newlabel{ob5}{{5}{4}{\bf Learn to decide what statements to be in a Try-Catch block}{Observation.5}{}}
+\newlabel{ob5}{{5}{4}{\bf Learn to decide what statements to be in a \code {try} block}{Observation.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Key Ideas}{4}{subsection.2.2}\protected@file@percent }
 \newlabel{key:sec}{{2.2}{4}{Key Ideas}{subsection.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}{\bf  [Key Idea 1] Neural Network-based approach to Exception Handling Recommendation}}{4}{subsubsection.2.2.1}\protected@file@percent }
@@ -94,15 +94,15 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Research Questions}{6}{subsection.8.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Empirical Methodology}{6}{subsection.8.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}Datasets}{6}{subsubsection.8.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}RQ1. Effectiveness on Try-Catch Necessity Checking}{6}{subsubsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}Effectiveness on Try-Catch Necessity Checking (RQ1)}{6}{subsubsection.8.2.2}\protected@file@percent }
 \citation{xrank-fse20}
 \citation{xrank-fse20}
 \citation{fuzzycatchbugs}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}RQ2. Effectiveness on Try-Catch Statement Detection}{7}{subsubsection.8.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.4}RQ3. Effectiveness on Exception Type Recommendation}{7}{subsubsection.8.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.5}RQ4. Statement Dependency Probing}{7}{subsubsection.8.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.6}RQ5. Extrinsic Evaluation on Exception-related Bug Detection}{7}{subsubsection.8.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.7}RQ6. Ablation Study}{7}{subsubsection.8.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}Effectiveness on Try Statement Detection (RQ2)}{7}{subsubsection.8.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.4}Effectiveness on Exception Type Recommendation (RQ3)}{7}{subsubsection.8.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.5}Statement Dependency Probing (RQ4)}{7}{subsubsection.8.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.6}Extrinsic Evaluation on Exception Bug Detection (RQ5)}{7}{subsubsection.8.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.7}Ablation Study (RQ6)}{7}{subsubsection.8.2.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {9}Empirical Results}{7}{section.9}\protected@file@percent }
 \newlabel{sec:results}{{9}{7}{Empirical Results}{section.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Comparison on {\Small  \texttt  {Try-catch}} Block Checking}{7}{subsection.9.1}\protected@file@percent }
@@ -115,12 +115,12 @@
 \newlabel{fig:rq1-case}{{9}{8}{{\xblock } Puts Attention on the Right Tokens\relax }{figure.caption.13}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) \relax }}{8}{table.caption.14}\protected@file@percent }
 \newlabel{tab:rq1-detailed-result}{{3}{8}{Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) \relax }{table.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Try-Catch Statement Detection Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Instance Level) (RQ2)\relax }}{8}{table.caption.15}\protected@file@percent }
-\newlabel{tab:xstate-1}{{4}{8}{Try-Catch Statement Detection Comparison ({\xblock }+{\xstate }, Instance Level) (RQ2)\relax }{table.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Try-Catch Statement Detection Result ({\textsc  {XState}\xspace  } as Individual, Instance Level) (RQ2)\relax }}{8}{table.caption.16}\protected@file@percent }
-\newlabel{tab:xstate-2}{{5}{8}{Try-Catch Statement Detection Result ({\xstate } as Individual, Instance Level) (RQ2)\relax }{table.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Try-Catch Statement Detection (RQ2)}{8}{subsection.9.2}\protected@file@percent }
-\newlabel{sec:rq2}{{9.2}{8}{Try-Catch Statement Detection (RQ2)}{subsection.9.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Try-Block Statement Detection Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Instance Level) (RQ2)\relax }}{8}{table.caption.15}\protected@file@percent }
+\newlabel{tab:xstate-1}{{4}{8}{Try-Block Statement Detection Comparison ({\xblock }+{\xstate }, Instance Level) (RQ2)\relax }{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Try-Block Statement Detection Result ({\textsc  {XState}\xspace  } as Individual, Instance Level) (RQ2)\relax }}{8}{table.caption.16}\protected@file@percent }
+\newlabel{tab:xstate-2}{{5}{8}{Try-Block Statement Detection Result ({\xstate } as Individual, Instance Level) (RQ2)\relax }{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Try-Block Statement Detection (RQ2)}{8}{subsection.9.2}\protected@file@percent }
+\newlabel{sec:rq2}{{9.2}{8}{Try-Block Statement Detection (RQ2)}{subsection.9.2}{}}
 \citation{bertviz}
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Try-Catch Statement Detection Comparison ({\textsc  {XBlock}\xspace  }+{\textsc  {XState}\xspace  }, Statement Level, Small Dataset) (RQ2)\relax }}{9}{table.caption.17}\protected@file@percent }
 \newlabel{tab:xstate-3}{{6}{9}{Try-Catch Statement Detection Comparison ({\xblock }+{\xstate }, Statement Level, Small Dataset) (RQ2)\relax }{table.caption.17}{}}

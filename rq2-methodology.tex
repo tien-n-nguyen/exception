@@ -1,4 +1,4 @@
-\subsubsection{RQ2. Effectiveness on Try-Catch Statement Detection}~\\
+\subsubsection{Effectiveness on Try Statement Detection (RQ2)}~\\
 \indent {\em Baselines.} We compared {\xstate} against GPT-3.5 as in RQ1.
 
 %the pre-trained CodeBERT model without any fine-tuning step as in RQ1.
@@ -11,15 +11,15 @@
 instance level and the statement level. At the instance level, a
 prediction for a code snippet is considered as correct if all the
 statements inside or outside of all the predicted (zero or
-multiple) \code{try-catch} blocks must match with the grouping of the
+multiple) \code{try} blocks must match with the grouping of the
 corresponding statements in the corresponding (zero or
-multiple) \code{try-catch} blocks in the oracle. To do so, we match
+multiple) \code{try} blocks in the oracle. To do so, we match
 the encoded vector [O, B-Try, I-Try] of the prediction against the
 vector for a snippet in the oracle. Because we have both
 positive/negative instances, we used the same metrics Precision,
 Recall, and F1-score as in RQ1. At the statement level, we evaluated
 if a model predicts correctly whether a statement needs to be inside
-a \code{try-catch} block, regardless of the blocks themselves. Thus,
+a \code{try} block, regardless of the blocks themselves. Thus,
 we use {\em Accuracy} for the statement-level evaluation, which is
 defined as the ratio between the number of correct tagging of
 statements over the total number of statements.  Importantly, we also

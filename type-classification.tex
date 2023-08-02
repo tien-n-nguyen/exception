@@ -17,17 +17,17 @@ snippet. We use one single CodeBERT~\cite{codebert-emnlp20} model as
 in {\xblock} and {\xstate} to build the embeddings for code (sub)-tokens.
 %
 We expect CodeBERT to learn the connection between the statements in a
-\code{try-catch} block and the corresponding exception types to be
+\code{try} block and the corresponding exception types to be
 caught. From Key idea 2, we expect that via context, CodeBERT can
 implicitly learn the dependencies among API elements, leading to
 better learning of the exception~types.
 
 During training, we know all the exceptions to be caught in a code
-snippet. For each \code{try-catch} block, we identify the statement
+snippet. For each \code{try} block, we identify the statement
 that begins it (with the \code{B-Try} label) and ends it (with the
 last respective \code{I-Try} label). Then, we add the embeddings, from
 CodeBERT, for the [SEP] tokens that correspond to the statements
-inside the \code{try-catch} block and feed this \code{try-catch} block's representation vector into a linear layer.
+inside the \code{try} block and feed this \code{try} block's representation vector into a linear layer.
 %We consider the embeddings from CodeBERT for the {\bf [SEP]} tokens
 %corresponding to the statements from the beginning to the end of the
 %block. We add them together to get the embedding for the entire
@@ -37,10 +37,10 @@ exception types of interest.
 
 During prediction, we use the predicted tags for the given statements
 in the code snippet. From the predicted tags, we obtain the the
-statements in a predicted \code{try-catch} block. From there, the
+statements in a predicted \code{try} block. From there, the
 embeddings computed by CodeBERT are used in the same way as in
 training. For example, in Figure~\ref{fig:xtype}, the model predicts
-the \code{try-catch} block from the statement \code{out.write} to the
+the \code{try} block from the statement \code{out.write} to the
 statement \code{print(node.getBody(...))}. The embeddings of all the
 statements in the block are used and the output of \code{IOException}
 is predicted since its score is higher than 0.5.
