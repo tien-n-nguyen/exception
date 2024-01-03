@@ -17,8 +17,8 @@ types. They highlighted several adaptation types including {\em type
   checks}~\cite{zhang-icse19}. Among them, adding a \code{try-catch}
 block to wrap the code snippet and listing the handled exceptions in
 the \code{catch} clause are frequently performed,
-%(132 cases out of 629 S/O examples),
 yet not automated by existing tools.
+
 %code integration techniques.
 
 The adaptation process for exception handling is not trivial as Nguyen
@@ -27,51 +27,52 @@ for developers to learn and memorize what API methods could cause
 exceptions and what exceptions need to be handled. Kechagia {\em et
   al.}~\cite{kechagia-msr14} found that 19\% of the crashes in Android
 applications could have been caused by insufficient documented
-exceptions in Android APIs. Thus, it is desirable to have an automated
-tool to recommend proper exception handling for the adaptation of
-online code snippets.
+exceptions in Android APIs. In fact, it has been reported that the
+lack of API documentation and specifications has hindered software library
+utilization~\cite{dagenais-fse10}. Thus, it is desirable to have 
+automated tools to recommend proper exception handling for the
+adaptation of online code snippets.
 
 There exist several approaches to automatic recommendation of
 exception
 handling~\cite{barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-tse16,xrank-fse20,throw-ase22}. They
 can be classified into four categories. The first category of
-approaches relies on a few {\em program analysis heuristics} on
+approaches relies on {\em program~analysis heuristics} on
 exception types, API calls, and variable types to recommend exception
 handling code~\cite{barbosa-bsse12}. These heuristic-based approaches
-do not always work in all cases due to incomplete code. The second
-category utilized {\em exception handling policies},
-which are enforced in all
-cases~\cite{barbosa-tse16,barbosa-saner18}. However, the policies need
-to be pre-defined and encoded within the recommending tools.  This is
-not an ideal solution considering the fast evolution of software
-libraries. To enable more flexibility than policy enforcement, the
-third category leverages {\em mining algorithms} that derive similar
-exception handling for two similar code
-fragments~\cite{chanchal-scam14}. While avoiding hard-coding of the
-rules, these mining approaches suffer the issue of how much similar
-for two fragments to be considered as having similar exception
+do not always work in all the cases due to incomplete code. The second
+category utilized {\em exception handling policies}, which are
+enforced in all cases~\cite{barbosa-tse16,barbosa-saner18}. However,
+the policies need to be pre-defined and encoded within the
+recommending tools.  This is not an ideal solution considering the
+fast evolution of software libraries. To enable more flexibility than
+policy enforcement, the third category leverages {\em mining
+  algorithms} that derive similar exception handling for two similar
+code fragments~\cite{chanchal-scam14}. While avoiding hard-coding of
+the rules, these mining approaches suffer the issue of how much
+similar for two fragments to be considered as having similar exception
 handling. For the mining approaches, deterministically setting a
 threshold for frequent occurrences is also challenging.
+
 %In fact, two API method calls in two different contexts might require
 %to handle the same exception. For example, two fragments of code
 %using JDK containing an opening of the files for different purposes
 %in two contexts might need to catch and handle the \code{IOException}
 %due to the call to \code{java.io.nio.new\-Buffered\-Reader}.
 
-To provide more flexibility in code matching, the fourth category
-follows {\em information retrieval}
-(IR)~\cite{xrank-fse20}. XRank~\cite{xrank-fse20} takes as input
+To provide flexibility in code matching, several approaches follow the fourth category in {\em information retrieval}
+(IR). XRank~\cite{xrank-fse20} takes the input
 source code and recommends a ranked list of API method calls in the
 code that are potentially involved in the exceptions in a \code{try}
 block. XHand~\cite{xrank-fse20} recommends the exception handling
 code in a \code{catch} block for a given code. Both use a fuzzy set
-technique to compute the associations between the API calls (e.g.,
+technique to compute the association scores between the API calls (e.g.,
 \code{new\-Buffered\-Reader}) and the exceptions (e.g.,
 \code{IOException}).
 
 While the IR-based approach achieves higher accuracy than the
 others~\cite{xrank-fse20}, it has key limitations. First, it is not
-trivial to {\bf pre-define a threshold} for feature matching for a
+trivial to {\em pre-define a threshold} for feature matching for the
 retrieval of an exception type or an API element. The effectiveness of
 those IR techniques depends much on the correct value of such
 pre-defined threshold. Second, the IR-based techniques rely on the
@@ -83,9 +84,9 @@ the same simple name as the \code{Document} class in
 Toolkit library (GWT). An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
 of exceptions than the one in GWT. Those IR-based techniques are not
-sufficiently flexible to handle such {\bf ambiguous names}. Third, the
-IR techniques {\em do not consider the {\bf context} of surrounding
-  code}, thus, cannot leverage the {\em dependencies} among API
+sufficiently flexible to handle such {\em ambiguous names}. Third, the
+IR techniques do not consider the {\em context} of surrounding
+  code, thus, cannot leverage the {\em dependencies} among API
 elements to resolve the ambiguity of the names of the APIs and
   exceptions in an incomplete snippet.
 
@@ -100,48 +101,54 @@ reporting that exception handling for the API elements is frequently
 repeated across different
 projects~\cite{chanchal-scam14,zhong-jss18}. The reason for such
 repetitions is that the designers of a software library have the
-intents for users to use certain API elements with corresponding
-exception types. Thus, we design {\tool} to learn from the statements
+intents for users to utilize specific API elements paired with
+corresponding exception types. This intention is typically conveyed
+through API documentation, which may be inadequate or even
+absent~\cite{dagenais-fse10}.
+%
+Thus, we design {\tool} to learn from the statements
 in \code{try} blocks and exception types retrieved from {\em
   complete source code} in a large code corpus, and derive suggestions
-for given {\em (in)complete~code}.
+for a given {\em (in)complete~code}.
 %the above exception handling suggestions for the {\em (partial) code
 %  snippet} under study.
 
-We leverage and fine-tune the large language model
-CodeBERT~\cite{codebert-emnlp20} to capture the surrounding code {\bf context}
-with the dependencies among the API elements. Capturing such
-contextual information and the dependencies enable {\tool} to realize
-the idea {\em ``Tell Me Your Friends, I'll Tell You Who You Are''} to
-learn the {\em {\bf dependencies} among statements with APIs} in a given
-(in)complete code, leading to better learning in {\xblock}, {\xstate}
-and {\xtype}. Inspired by sequence chunking in natural language
+We leverage and fine-tune CodeBERT~\cite{codebert-emnlp20}, a large
+language model, to capture the surrounding code {\bf context} with the
+dependencies among the API elements. Capturing such contextual
+information and the dependencies enable {\tool} to realize the idea
+{\em ``Tell Me Your Friends, I'll Tell You Who You Are''} to learn the
+{\em {\bf dependencies} among the statements with API elements} in the
+given (in)complete code, leading to better learning in {\xblock},
+{\xstate} and {\xtype}.~Inspired by the sequence chunking
+techniques~\cite{sequence-chunking-aaai17} in natural language
 processing (NLP), we formulate our problem as detecting one or
 multiple chunks of consecutive statements that need \code{try-catch}
-blocks.
-%Tien
-{\tool} also has the three tasks in a {\bf multi-tasking} mechanism
-to enable the mutual impact among the learning, leading to
-better performance in all three tasks.
+blocks. {\tool} also employs a {\bf multi-tasking} mechanism,
+incorporating those three tasks to foster mutual influence among their
+learning. This enhances the performance across all three
+tasks.
+
+%{\tool} also has the three tasks in a {\bf multi-tasking} mechanism
+%to enable the mutual impact among the learning, leading to
+%better performance in all three tasks.
 
 %The context also enables {\tool} learn to connect those statements
 %with the corresponding exception types.
 %that need to be caught in the \code{catch} clauses.
 
 Our above idea gives {\tool} advantages over the state-of-the-art IR
-approach. First,
-%with the learning-based approach,
-via learning, {\tool} does not rely on a pre-defined threshold for
-explicit feature matching to retrieve API elements or
-exceptions. Second, instead of using {\em the associations between
-  pairs of an API and an exception type as in XRank},
-%instead of learning only the associations between an API element and
-%an exception type,
-{\tool} relies on {\bf dependencies} and {\bf contexts}
-%has advantages
-in both predicting and training. During training, the complete code
+approaches. First, with the learning-based approach, {\tool} does not
+rely on a pre-defined threshold for explicit feature matching to
+retrieve API elements or exceptions. Second,
+%instead of using {\em the associations between pairs of an API and an
+%  exception type as in XRank},
+instead of computing the association score between an API element and
+an exception type,
+{\tool} relies on {\em dependencies} and {\em contexts}
+in both prediction and training. During training, the complete code
 provides the context for {\tool} to learn the dependencies among the
-API elements and the exception types. During predicting, for a given
+API elements and the exception types. During prediction, for a given
 (in)complete code, {\tool} can implicitly match the current context
 with such knowledge to avoid the name ambiguity and to derive the
 exception handling suggestions.
@@ -157,8 +164,8 @@ For example, encountering the program dependencies among the API
 elements and exceptions in JDK, e.g., \code{get\-Declared\-Field} in
 \code{java.\-lang.\-Class}, \code{get} in
 \code{java.\-lang.\-Class.\-Field}, and
-\code{No\-Such\-Field\-Exception} in the training data will help
-     {\tool} learn to match the context in a given code to suggest
+\code{No\-Such\-Field\-Exception} in the training data, will help
+     {\tool} learn to match the context in a given code and then to suggest
      \code{NoSuchFieldException}.
 
 %Third, the context of surrounding code also helps the model implicitly
@@ -220,7 +227,7 @@ and 30,764 for testing.
 %30,764 code snippets (half of them have \code{try-catch} blocks).
 Our empirical evaluation shows that {\tool} correctly performs all
 three exception handling recommendation tasks in 71.5\% of the cases
-with an F1-score of 70.2\%. It has an relative improvement of 166\%
+with a F1-score of 70.2\%. It has a relative improvement of 166\%
 over the baseline. It achieves high F1-score from 98.2\%--99.7\% in
 \code{try-catch} block necessity checking (an relative improvement of
 up to 55.9\% over the baselines). It also correctly decides both the
@@ -228,8 +235,8 @@ need of \code{try-catch} block(s) and the statements to be placed in
 \code{try} blocks with the F1-scores of 74.7\% and 87.1\% at the instance
 and statement levels, an improvement of 127.3\% and 44.9\% over the
 baseline, respectively. Our extrinsic evaluation shows that {\tool}
-relatively improves over the baseline by 56.5\% in F1-score in
-exception-related bug detection in {\em incomplete} Android code
+relatively improves over the baseline by 56.5\% in F1-score for detecting
+exception-related bugs in incomplete Android code
 snippets.
 
 %The result shows that {\tool} achieves a high accuracy of {\bf 98.3\%}
