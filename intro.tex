@@ -272,25 +272,38 @@ snippets.
 
 In brief, this paper makes the following major contributions:
 
-\noindent {\bf 1. [Neural Network-based Automated Exception Handling
-    Recommendation]}. {\tool} is the first neural network approach to
-automated exception handling recommendation in three above tasks.
-{\tool} works for either complete or {\em incomplete} code.
+\begin{enumerate}
 
-\noindent {\bf 2. [Multi-tasking among three Exception Handling
-    Recommendations]} We formulate the problem as sequence chunking
-with a multi-tasking mechanism to learn for three above tasks.
+\item {\bf Neural Network-based Automated Exception Handling
+  Recommendation}. {\tool} is the first neural network approach to
+  automated exception handling recommendation tasks.
+  It works for either complete or incomplete code.
 
-%  \noindent {\bf 2. [Graph Neural Network and Explainable AI (XAI)]} We
-%  leverage R-GCN to capture the program
-%  dependencies among API elements and exceptions and leverage XAI
-%  to derive the statements to be placed in a \code{try-catch} block.
+%\noindent {\bf 1. [Neural Network-based Automated Exception Handling
+%    Recommendation]}. {\tool} is the first neural network approach to
+%automated exception handling recommendation in three above tasks.
+%{\tool} works for either complete or incomplete code.
 
-  \noindent {\bf 3. [Empirical Evaluation]}. Our evaluation
-  shows {\tool}'s high accuracy in exception handling recommendation
-  as well as in exception-related bug detection. Data and code is
-  available at~\cite{neurex-website}.
+\item {\bf Multi-tasking among three Tasks of Exception Handling
+  Recommendation}. We formulate the problem as~sequence chunking
+  with a multi-tasking scheme for three~tasks.
 
+  %to learn the predictions for three above tasks.
+  
+%\noindent {\bf 2. [Multi-tasking among three types of Exception Handling
+%    Recommendation]} We formulate the problem as sequence chunking
+%with a multi-tasking mechanism to learn for three above tasks.
+
+\item {\bf Empirical Evaluation}. Our evaluation shows {\tool}'s high
+  accuracy in exception handling suggestion and exception-related
+  bug detection. Data and code is available~\cite{neurex-website}.
+
+%  \noindent {\bf 3. [Empirical Evaluation]}. Our evaluation
+%  shows {\tool}'s high accuracy in exception handling recommendation
+%  as well as in exception-related bug detection. Data and code is
+%  available at~\cite{neurex-website}.
+
+\end{enumerate}
 
 %for exception blocks, statements, and types.
 

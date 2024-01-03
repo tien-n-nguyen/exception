@@ -15,7 +15,7 @@ post, thus, does not contain all the details on what exceptions that
 need to be handled. It contains only a throw of a generic
 \code{Exception} in the method header~(\code{addLibraryPath}). From
 Zhang {\em et al.}'s study~\cite{zhang-icse19}, this code snippet was
-adopted by developers into their GitHub project named \code{armint}
+adopted by developers into a GitHub project named \code{armint}
 (Figure~\ref{fig:example2}).~\code{armint}'s developers handle in a
 \code{try-catch} block several exceptions caused~by
 \code{java\-.lang\-.Class\-.get\-Declared\-Field(...)} (line 7)
@@ -35,7 +35,7 @@ The manual adaptation on exception handling by inserting a
 \code{try-catch} block is quite popular, yet not automated by any
 tools~\cite{zhang-icse19}. Such manual adaptation for a code snippet
 could lead to exception-related bugs, which could cause serious issues
-including crashes or unstable states.
+including crashes or unstable states~\cite{xrank-fse20}.
 %It is not trivial for developers to memorize what API methods could
 %cause exceptions and what exceptions need to be
 %handled~\cite{xrank-fse20}.
@@ -72,18 +72,18 @@ handling~\cite{xrank-fse20,barbosa-bsse12,chanchal-scam14,barbosa-tse18,barbosa-
 %setting a threshold for frequent occurrences).
 %-----------------
 However, the state-of-the-art, IR-based approaches~\cite{xrank-fse20},
-which have been shown to outperform others, still have the
+which have been shown to outperform others, still have 
 limitations. First, it is not trivial to pre-define a threshold for
 feature matching for a retrieval, e.g., the threshold to determine the
-associations between an API~call (e.g., \code{get\-Declared\-Field})
+association scores between an API~call (e.g., \code{get\-Declared\-Field})
 and an exception type (e.g., \code{No\-Such\-Field\-Exception}). Thus,
-the pre-defined threshold affects much their effectiveness.
+the pre-defined threshold affects much the effectiveness.
 %
 Second, relying on the lexical values of API elements' names, they
-suffer the issue of ambiguous names of the APIs or exceptions in an
-incomplete code snippet (e.g., the API method \code{get} at line 6 of
-Figure~\ref{fig:example1} occurs in multiple libraries), which might
-not be parseable for fully-qualified name resolution. Thus, this
+suffer the issue of ambiguous names of the APIs or exceptions (e.g.,
+the API method \code{get} at line 6 of Figure~\ref{fig:example1}
+occurs in multiple libraries) in an incomplete code snippet, which
+might not be parseable for fully-qualified name resolution. Thus, this
 reduces effectiveness. Finally, they consider only the {\em
   association pair between an API method and an exception type}, and
 {\em discard the surrounding context}.
