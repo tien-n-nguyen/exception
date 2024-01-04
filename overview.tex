@@ -6,17 +6,17 @@ Figure~\ref{overview} displays the overview architecture of
 {\tool}. Generally, it has three main components dedicated to the
 three tasks: for a given (in)complete code snippet, 1) {\xblock} aims
 to check the necessity of \code{try-catch} blocks, 2){\xstate} aims to
-detect which statements need to be in a \code{try} block, and 3)
+detect which statements need to be placed in a \code{try} block, and 3)
 {\xtype} aims to detect the exception types need to be caught in the
-\code{catch} clauses. We support the detection of one or multiple
+\code{catch} clause(s). We support the detection of one or multiple
 \code{try-catch} blocks if any.
 
 %training instances and prediction
 During training, the code snippets with \code{try-catch} blocks in
 complete code are used as the positive samples and the ones without
 them as the negative ones. For a positive sample, the statements
-inside the \code{try} blocks and the exception types in the
-\code{catch} clauses are used as the labels for training. The negative
+inside the \code{try} block(s) and the exception type(s) in the
+\code{catch} clause(s) are used as the labels for training. The negative
 samples are labeled as not needing a \code{try-catch} block. In
 prediction, {\tool} accepts as input any (in)complete code
 snippet without a \code{try-catch} block, and predicts the results for
