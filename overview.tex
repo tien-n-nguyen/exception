@@ -1,13 +1,22 @@
 \section{{\tool} Overview}
 \label{sec:overview}
 
+\begin{figure*}[t] %[htp]
+\begin{center}
+\includegraphics[width=5.7in]{overview-6.png} %5.7in, overview-6; 5: 5.65in
+\vspace{-10pt}
+\caption{{\tool}: Architecture Overview}
+\label{overview}
+\end{center}
+\end{figure*}
+
 %Goals
-Figure~\ref{overview} displays the overview architecture of
-{\tool}. Generally, it has three main components dedicated to the
-three tasks: for a given (in)complete code snippet, 1) {\xblock} aims
-to check the necessity of \code{try-catch} blocks, 2){\xstate} aims to
-detect which statements need to be placed in a \code{try} block, and 3)
-{\xtype} aims to detect the exception types need to be caught in the
+Figure~\ref{overview} illustrates the overview of {\tool}. Generally,
+{\tool} has three main components dedicated to the three tasks: for a
+given (in)complete code snippet, 1) {\xblock} aims to check the
+necessity of \code{try-catch} blocks, 2){\xstate} aims to detect which
+statements need to be placed within a \code{try} block, and 3) {\xtype}
+aims to detect the exception types need to be caught in the
 \code{catch} clause(s). We support the detection of one or multiple
 \code{try-catch} blocks if any.
 
@@ -24,7 +33,7 @@ those tasks. The predicted results from {\xstate} and {\xtype} are
 considered only when {\xblock} predicts {\em Yes}, i.e., a need of a
 \code{try-catch} block for the given code snippet.
 
-The code is input to a large language model. We use
+The input code snippet is fed into a large language model. We use
 CodeBERT~\cite{codebert-emnlp20} as the code representation learning
 model to produce vector representations for the (sub)tokens and
 statements in the source code, as CodeBERT is capable of producing
@@ -54,7 +63,7 @@ techniques~\cite{sequence-chunking-aaai17} in NLP, we model the second
 task, {\xstate}, as learning to tag/label each statement in the code
 snippet with either \code{O} (i.e., the statement is outside of a
 \code{try} block), \code{B-Try} (i.e., it is the beginning of a
-\code{try} block), or \code{I-Try} (i.e., it is inside of such a
+\code{try} block), or \code{I-Try} (i.e., it is inside of a \code{try}
 block).
 %Any consecutive statements from a \code{B-try} to the last respective
 %\code{I-try} are considered to belong to a \code{try-catch} block. The
