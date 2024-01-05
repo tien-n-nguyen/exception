@@ -1,24 +1,24 @@
-%\vspace{-2pt}
-\section{{\xblock}: \code{Try-Catch} Block Checker}
+\section{{\xblock}: \code{Try-Catch} Necessity Checker}
 \label{xblock:sec}
 
 \begin{figure}[t]
  	\centering
- 	\includegraphics[width=3.4in]{xblock-4.png}
+ 	\includegraphics[width=3.4in]{xblock-6.png} %xblock-4
         \vspace{-20pt}
  	\caption{\code{Try-catch} Necessity Checker ({\xblock})}
  	\label{fig:xblock}	
 \end{figure}
 
+Figure~\ref{fig:xblock} shows the illustration of {\xblock}.
 Given an input code snippet, {\xblock} first splits it into the
 statements (Figure~\ref{fig:xblock}). Each statement is then tokenized
-into sub-tokens using the CodeBERT tokenizer. We use a special
+into sub-tokens using CodeBERT's tokenizer. We use a special
 separator token \texttt{[SEP]} to concatenate the tokenized
 statements, and add a \texttt{[CLS]} token at the beginning. As in
-CodeBERT, we take the \texttt{[CLS]} token to be the representation of
+CodeBERT, we take that \texttt{[CLS]} token to be the representation of
 the entire code snippet.
 
-We fine-tune a CodeBERT(MLM)~\cite{codebertMLM} for this problem.
+We fine-tune a CodeBERT (MLM)~\cite{codebertMLM} for this task.
 %Given the good performance of CodeBERT on many code-related downstream
 %tasks,
 We expect it to be able to learn the dependencies among statements
@@ -28,19 +28,22 @@ leverage the code context in which the API elements are used with
 regard to one another. For example, in Figure~\ref{overview}, CodeBERT
 is expected to learn that the APIs \code{newBufferedReader} of the
 class \code{Files} and \code{readLine} of the class
-\code{BufferedReader} are used often together in API usages and they
-require \code{IOException}. For the input incomplete code snippet,
+\code{BufferedReader} are often used together in API usages and they
+require \code{IOException}. For the input incomplete code,
 CodeBERT is expected to learn such relations/connections to avoid name
 ambiguity and to connect them with the exception types.
 
 
-During training, as we use exactly one CodeBERT, all three modules
-(Sections~\ref{sec:xstate} and~\ref{sec:xtype}) contribute
-to the signal for updating the CodeBERT parameters. In {\xblock}, we
-feed the vector representation of the \texttt{[CLS]} token to a linear
-layer (Feed-forward neural network - FFNN) and use a softmax function
-to learn the decision as to whether the input code needs to handle any
-exceptions.
+
+During training, as we use one CodeBERT, all three modules
+(Sections~\ref{sec:xstate} and~\ref{sec:xtype}) contribute to the
+signal for updating the model's parameters (multi-tasking). In
+{\xblock}, we feed the vector representation of the \texttt{[CLS]}
+token to a linear layer (Feed-forward neural network - FFNN) and use a
+softmax function to learn the decision as to whether the input code
+needs to be placed in a \code{try} block.
+
+%handle any exceptions.
 
 % \begin{figure}[t]
 % 	\centering

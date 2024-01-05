@@ -5,7 +5,7 @@
 \begin{center}
 \includegraphics[width=5.7in]{overview-6.png} %5.7in, overview-6; 5: 5.65in
 \vspace{-10pt}
-\caption{{\tool}: Architecture Overview}
+\caption{{\tool}: Approach Overview}
 \label{overview}
 \end{center}
 \end{figure*}
@@ -52,10 +52,10 @@ embeddings that capture both the syntactic and semantic information.
 %for a block of statements.
 
 The vectors are used as the inputs for three components. The vectors
-for the [SEP] tokens are used to represent the corresponding
-statements, while the composition of those vectors for [SEP] tokens at
-the output layer is used for a block.
-%
+for the \texttt{[SEP]} tokens are used to represent the respective
+statements, while the summation of the vectors for the \texttt{[SEP]} tokens at
+the output layer is used for multiple statements.
+
 First, {\xblock} is modeled as a binary classifier on deciding whether
 the input code needs at least one \code{try-catch} block. Second,
 inspired by the sequence chunking
@@ -70,7 +70,7 @@ block).
 %next \code{B-try} statement and its last respective \code{I-try}
 %statement forms a new \code{try-catch} block and so on, if any.
 During training, the statements within or outside of the
-\code{try} blocks enable us to build the tags/labels for them.
+\code{try} blocks enable us to build their tags/labels.
 %For prediction, the results from {\xstate} and {\xtype}
 %are considered only when {\xblock} predicts {\em Yes}, i.e., a need
 %of a \code{try-catch} block.
@@ -80,13 +80,13 @@ each is responsible for deciding whether an exception type of interest
 needs to be caught in the \code{catch} clause. A {\em Yes} outcome
 indicates the need to catch a specific exception type of interest in
 the set of libraries. A {\em No} outcome indicates otherwise.  During
-training, the exception types for each \code{try-catch} block in the
-positive samples are used as labels. During prediction, for each
+training, the exception types for each \code{try-catch} block in a
+positive sample are used as labels. During prediction, for each
 predicted block from {\xstate} (starting from a statement with
 \code{B-Try} to the last respective \code{I-Try}), {\xtype} uses the
 embeddings for those statements to predict the corresponding exception
 types. Finally, from the results in all three tasks, {\tool} forms the
-final output.
+final output code.
 
 %{\bf DELETE LATER}. Given an input code snippet, we first split it by lines and concatenate them using a special token <SEP>. Then, we use the tokenizer from Pre-Trained CodeBERT to tokenize this concatenated string into sub-tokens and get the vector representation for each sub-token, as CodeBERT has been shown to have produced code representations that embed both the syntactic and semantic information. In the training phase, the input is all but the statements related to try-catch in a method body, while in the prediction phase, the input can be any code snippet that is part of a method body.
 

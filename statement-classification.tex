@@ -1,20 +1,15 @@
-\section{{\xstate}: \code{Try-Catch} Statement Detector}
+\section{{\xstate}: \code{Try-block} Statement Detector}
 \label{sec:xstate}
 
-\begin{figure}[t]
- 	\centering
- 	\includegraphics[width=3.2in]{xstate-3.png}
-        \vspace{-12pt}
- 	\caption{\code{Try-catch} Statement Detector ({\xstate})}
- 	\label{fig:xstate}	
-\end{figure}
 
+Figure~\ref{fig:xstate} displays the illustration of {\xstate}, the
+\code{try}-block statement detecting component.
 %goal and model
 The goal of {\xstate} (Figure~\ref{fig:xstate}) is to decide if a
-statement in the given code snippet needs to be in a \code{try}
+statement in the given code snippet needs to be placed within a \code{try}
 block. For code representation learning, we use one single
 CodeBERT~\cite{codebert-emnlp20} model as in {\xblock} (see
-Figure~\ref{fig:xblock}) to produce the embedding for code
+Figure~\ref{fig:xblock}) to produce the embedding for the code
 (sub)-tokens. For the input code, a \texttt{[SEP]} token represents
 the statement preceding~it.
 %Note that semicolon would not be as consistent as our explicit
@@ -24,17 +19,17 @@ the statement preceding~it.
 
 %rationale on why the model works
 The advantage in using CodeBERT on the entire code snippet has two
-folds. First, as in Key idea 2, the context of the entire code
-facilitates {\tool} to learn the relations of an API and its exception,
-thus, making the connection between the API and the presence of
-\code{try-catch} block.  For example, \code{write} in the statement 1
-could be determined as having a relation with \code{IOException},
-%belong to \code{OutputStream} in JDK. Thus,
+folds. First, as in Key Idea 2, the context of the entire code
+facilitates {\tool} to learn the {\em relations of an API and its
+  exception types}, thus, making the connection between the API and
+the presence of \code{try-catch} block. For example, in
+Figure~\ref{fig:xstate}, \code{write} in the statement $s1$ could be
+determined as having a relation with \code{IOException},
 leading to better learning to place that statement inside a
 \code{try} block. Second, we expect that CodeBERT would learn
      {\em the dependencies among the consecutive statements} separated
-     by the special tokens {\bf [SEP]} (see Section~\ref{sec:rq4} for our
-     experiment on this). Those dependencies would help the model better
+     by the special tokens \texttt{[SEP]} (see Section~\ref{sec:rq4} for our
+     experiment on this). Such dependencies would help the model better
      decide whether some consecutive statements need to be placed
      together in a \code{try} block. For example, in
      Figure~\ref{overview}, the statements at lines 2--5 have data
@@ -67,7 +62,13 @@ statement with the last respective \code{I-Try} tag is the end of that
 block. A new block is formed with another statement having a
 \code{B-Try} tag.
 
-
+\begin{figure}[t]
+ 	\centering
+ 	\includegraphics[width=3.4in]{xstate-4.png} %xstate-3: 3.2
+        \vspace{-18pt}
+ 	\caption{\code{Try-catch} Statement Detector ({\xstate})}
+ 	\label{fig:xstate}	
+\end{figure}
 
 
 %training/predicting
