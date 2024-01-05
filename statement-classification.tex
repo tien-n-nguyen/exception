@@ -2,11 +2,11 @@
 \label{sec:xstate}
 
 
-Figure~\ref{fig:xstate} displays the illustration of {\xstate}, the
-\code{try}-block statement detecting component.
+Figure~\ref{fig:xstate} illustrates the architecture of {\xstate}, the
+\code{try}-block statement detection component.
 %goal and model
-The goal of {\xstate} (Figure~\ref{fig:xstate}) is to decide if a
-statement in the given code snippet needs to be placed within a \code{try}
+The goal of {\xstate} is to decide if a
+statement in the given code snippet needs to be placed within~a~\code{try}
 block. For code representation learning, we use one single
 CodeBERT~\cite{codebert-emnlp20} model as in {\xblock} (see
 Figure~\ref{fig:xblock}) to produce the embedding for the code
@@ -37,7 +37,7 @@ leading to better learning to place that statement inside a
      block.
 
 %encoding
-We take the embedding produced by CodeBERT for each {\bf [SEP]} token
+We take the embedding produced by CodeBERT for each \texttt{[SEP]} token
 as the statement embedding and feed it to a layer with Feed-forward
 neural network (FFNN). We then use a softmax function to learn to
 label each corresponding statement with one of three~tags: {\em
@@ -46,20 +46,20 @@ label each corresponding statement with one of three~tags: {\em
   begins a \code{try} block; and \code{I-Try} tag means that the
   statement is inside a \code{try} block and is not the first
   line of that block}. For example, in Figure~\ref{fig:xstate}, the
-embedding computed by CodeBERT for the first {\bf [SEP]}, which
+embedding computed by CodeBERT for the first \texttt{[SEP]}, which
 represents the statement \code{out.write(...)}, is classified by the
 first \code{FFNN+Softmax} layer into the \code{B-Try} category/label
 because it is the first statement of a \code{try}
-block. However, the embedding for the second {\bf [SEP]}, representing
+block. However, the embedding for the second \texttt{[SEP]}, representing
 \code{print(node.getBody(...))}, is labeled as \code{I-Try} because it
 is the second statement of the \code{try} block. Finally, the
-embedding of the third {\bf [SEP]}, is labeled as \code{O} because the
+embedding of the third \texttt{[SEP]}, is labeled as \code{O} because the
 statement \code{return null;} does not need to be in the
 \code{try} block. With this IOB2 encoding~\cite{iob2}, we can
 support multiple \code{try-catch} blocks in which the statement with
 \code{B-Try} is the start of a \code{try} block and the
 statement with the last respective \code{I-Try} tag is the end of that
-block. A new block is formed with another statement having a
+block. A new block is formed as another statement having a
 \code{B-Try} tag.
 
 \begin{figure}[t]

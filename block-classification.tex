@@ -9,14 +9,14 @@
  	\label{fig:xblock}	
 \end{figure}
 
-Figure~\ref{fig:xblock} shows the illustration of {\xblock}.
-Given an input code snippet, {\xblock} first splits it into the
-statements (Figure~\ref{fig:xblock}). Each statement is then tokenized
-into sub-tokens using CodeBERT's tokenizer. We use a special
-separator token \texttt{[SEP]} to concatenate the tokenized
-statements, and add a \texttt{[CLS]} token at the beginning. As in
-CodeBERT, we take that \texttt{[CLS]} token to be the representation of
-the entire code snippet.
+Figure~\ref{fig:xblock} illustrates {\xblock}'s architecture.  Given
+an input code snippet, {\xblock} first splits it into the statements
+(Figure~\ref{fig:xblock}). Each statement is then tokenized into
+sub-tokens using CodeBERT's tokenizer. We use a special separator
+token \texttt{[SEP]} to concatenate the tokenized statements, and add
+a \texttt{[CLS]} token at the beginning of the code snippet. As in
+CodeBERT, we take that \texttt{[CLS]} token to be the representation
+of the entire code snippet.
 
 We fine-tune a CodeBERT (MLM)~\cite{codebertMLM} for this task.
 %Given the good performance of CodeBERT on many code-related downstream
