@@ -45,7 +45,7 @@ positive and negative ones (15,382).
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
 authors of XRank/XHand~\cite{xrank-fse20}, which contains 609 Android
 incomplete code snippets with exception-related bugs (missing
-\code{try- catch} blocks or exceptions). Finally, we used 553 snippets
+\code{try- catch} blocks or exceptions). Finally, we used 553 code snippets
 because the others are not valid for the experiment.
 %Tien
 %We also randomly selected from the projects in FuzzyCatch dataset the
@@ -106,11 +106,13 @@ because the others are not valid for the experiment.
 %metrics as in the previous experiments. Because our model is designed
 %with R-GCN, we cannot remove it to evaluate the impact of dependencies.
 %{\em Metrics.} We use the same evaluation metrics as RQ1 and RQ3 to evaluate the impact of the different features on the experiment results.
+
 \vspace{2pt}
 \subsubsection{Extrinsic Evaluation on Exception Bug Detection (RQ5)}~\\
 \noindent {\em Baselines.} We compared with
-FuzzyCatch~\cite{xrank-fse20} in exception-related
-bug detection, i.e., missing \code{try-catch} blocks and/or exceptions.
+FuzzyCatch~\cite{xrank-fse20} in exception-related bug detection,
+i.e., missing \code{try-catch} blocks and/or exceptions, or incorrect
+exception types.
 
 %leverages XRank to detect the exception-related bugs, which are the
 %StackOverflow code snippets that were supposed to handle exceptions,

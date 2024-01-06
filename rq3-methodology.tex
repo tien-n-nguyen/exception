@@ -1,6 +1,7 @@
-\vspace{2pt}
-\subsubsection{Effectiveness on Exception Type Recommendation (RQ3)}~\\
-{\em Baselines.} We compared {\xtype} against GPT-3.5 as in RQ1.
+\vspace{-6pt}
+\subsubsection{{\xtype}'s Effectiveness on Exception Type Recommendation (RQ3)}
+
+\indent {\em Baselines.} We compared {\xtype} against GPT-3.5 as in RQ1.
 
 %the pre-trained CodeBERT model without any fine-tuning step as in RQ1.
 
@@ -15,16 +16,20 @@
 {\em Procedure and Metrics.} For a predicted set of exception types,
 we used 1) Precision (defined as the ratio between the size of the
 overlapping set between the predicted and oracle sets over the size of
-the predicted one), 2) Recall (defined as the ratio between the size of
-the overlapping set and the size of the oracle set), and 3) F-score
-(harmonious mean of Precision and Recall). We evaluated {\tool} in two
-ways. First, we evaluate {\xtype} in connection with {\xblock} and
-{\xstate}. We consider the cases where all three parts are correct.
-We also computed those metrics in the cases where {\xblock} and
-{\xstate} are correct at the instance level. Second, we evaluate
-{\xtype} as individual: we evaluated {\xtype} with those metrics in
-the cases in which {\xblock} and {\xstate} are correct at the instance
-level.
+the predicted one), 2) Recall (defined as the ratio between the size
+of the overlapping set between the predicted and oracle sets and the
+size of the oracle set), and 3) F-score (harmonic mean of Precision
+and Recall).
+
+As with {\xstate}, we evaluated {\xtype} in two ways. First, we
+evaluated {\xtype} in connection with {\xblock} and {\xstate}. We
+consider a case as correct if all three components give correct
+predictions.
+%We also computed those metrics in the cases where {\xblock} and
+%{\xstate} are correct at the instance level.
+Second, we also evaluated {\xtype} as individual: we evaluated
+{\xtype} with those metrics in the cases in which {\xblock} and
+{\xstate} are correct at the instance level.
 
 %{\xblock} gives a correct prediction on whether \code{try-catch}
 %blocks are needed, {\xstate} produces correct tags for all the
