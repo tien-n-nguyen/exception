@@ -4,7 +4,7 @@
 
 \subsubsection{Attentions between Statements}
 Figure~\ref{fig:rq4-attention} shows the attention weights, at the
-output layer, for the statements in Figure~\ref{fig:rq1-case}. We used
+output layer, for the example in Figure~\ref{fig:rq1-case}. We used
 BertViz~\cite{bertviz} to display the weights in which a darker line
 means a higher attention weight. As seen, the statement S7 (creation
 of an \code{InputStream}) puts most attention on itself
@@ -15,7 +15,7 @@ Figure~\ref{fig:rq4-attention}c, S9 pays attention more to S7 and S8
 (beside itself). These connections reflect well the data dependencies
 among the statements. None of the three statements puts much attention
 on any statement outside the \code{try} block. Importantly, these
-statements contain the crucial APIs with respect to correctly catching
+statements contain the crucial API elements with respect to correctly catching
 the \code{IOException}. Thus, this example shows that {\tool} captures
 the dependencies among the statements with crucial API elements for
 correct exception handling.
@@ -47,7 +47,7 @@ correct exception handling.
          \caption{Rel. from S9}
          \label{fig:stmt-9}
      \end{subfigure}
-     \vspace{-12pt}
+     \vspace{-9pt}
         \caption{Dependency Probing via Attentions for Figure~\ref{fig:rq1-case}}
         \label{fig:rq4-attention}
 \end{figure}
@@ -55,15 +55,15 @@ correct exception handling.
 
 \subsubsection{Distances between Statement Embeddings}
 The confidence interval of the mean of cosine distances for the inside
-statement group is 0.1262 to 0.1268 with 95\% confidence, and the
+statement group is from 0.1262 to 0.1268 with 95\% confidence, and the
 confidence interval for the inside-to-outside statement group is
-0.7987 to 0.8001 with 95\% confidence. As seen in
+from 0.7987 to 0.8001 with 95\% confidence. As seen in
 Figure~\ref{fig:rq4-density}, the distribution of the cosine distances
 for all the inside-to-outside statement pairs is largely to the right
 of the distribution for all the inside statement pairs. That is,
 {\tool} tends to {\em encode statements in a way that the statements
   in the same \code{try} block are closer to each other in the
-  embedding space}, leading to better grouping.
+  embedding space}, leading to better grouping of statements.
   
 \begin{figure}[t]
  	\centering
