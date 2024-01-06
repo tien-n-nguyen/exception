@@ -18,10 +18,14 @@ FuzzyCatch~\cite{xrank-fse20} 85.2\% in Precision, 25\% in Recall, and
 %While the recall values between two models are almost the same,
 %FuzzyCatch has lower precision.
 %It tends to predict ``Yes'' (buggy) for all code snippets. That is
-Because if there is an association score between {\em only} one API
-method call in the code snippet and one exception type higher than the
-threshold, FuzzyCatch will decide that the snippet is buggy. Its
-result is more on the ``Yes'' (buggy) side. Thus, its precision is
+%
+If the association score between a single API method call in the code
+snippet and one exception type surpasses the pre-defined threshold, Fuzzy-Catch
+will determine that the snippet contains a bug.
+%Because if there is an association score between {\em only} one API
+%method call in the code snippet and one exception type higher than the
+%threshold, FuzzyCatch will decide that the snippet is buggy.
+Its result is more on the ``Yes'' (buggy) side. Thus, its precision is
 54\%, a slightly better than the probability of a coin
 toss. Figure~\ref{fig:example-bug} shows a bug detected by {\tool},
 and the correctly suggested fix (adding a \code{try-catch} block).
