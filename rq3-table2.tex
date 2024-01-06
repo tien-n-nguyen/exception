@@ -1,5 +1,5 @@
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Comparison (\xblock+\xstate+\xtype) (RQ3)}
+\begin{table}[htpb]
+  \caption{Exception Type Recommendation Comparison ({\xblock}+{\xstate}+{\xtype}) (RQ3)}
   \vspace{-12pt}
   \small
 	\begin{center}
@@ -23,17 +23,17 @@
 Finally, in comparison with GPT-3.5, as seen in
 Table~\ref{tab:xtype-2}, {\tool} as evaluated as three components,
 achieves relatively higher in Precision, Recall, and F1-score with
-{\bf 47.1\%, 278\%, and 166\%, respectively}. In 190 positive
+{\em 47.1\%, 278\%, and 166\%, respectively}. In 190 positive
 instances, {\tool} predicted correctly all three tasks in 30
-instances. In 380 all instances, it predicted correctly all
+instances. In all 380 instances, it predicted correctly all
 three tasks in 219 instances (57.6\%).
 
 Examining the result from GPT-3.5, we reported that for popular APIs,
 it works well, e.g., \code{ClassNotFoundException},
-\code{IllegalArgumentException}, \code{IOException},
+\code{IllegalArgumentExcept\-ion}, \code{IOException},
 \code{IndexOutOfBoundException}, etc. For
 unpopular API calls, it resorted to using the general exception
 \code{Exception} (694 in total, 58.6\%) or \code{APIException}
 as an answer. For the cases of multiple \code{try-catch} blocks, the
-common errors are the use of \code{Exception} for all blocks.
+common errors are the use of \code{Exception} for all the blocks.
 

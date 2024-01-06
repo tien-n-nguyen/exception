@@ -1,8 +1,85 @@
-\subsection{Try-Block Statement Detection (RQ2)}
+\subsection{{\xstate}: \code{Try-Block} Statement Detection (RQ2)}
 \label{sec:rq2}
 
-\begin{table}[t]%[htpb]
-  \caption{Try-Block Statement Detection Comparison ({\xblock}+{\xstate}, Instance Level) (RQ2)}
+\subsubsection{Performance of {\xstate} as Individual}
+
+
+
+\begin{table}[htpb]
+\caption{\code{Try}-Block Statement Detection Result ({\xstate} as Individual, Instance Level) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		  \hline
+		GitHub dataset	  & Precision  & Recall & F1-score \\
+%			\hline
+%			GPT-3.5 &   &   & \\
+			\hline
+			\xstate  & \textbf{1.0}  &  \textbf{0.620} & \textbf{0.765}\\
+			\hline
+		\end{tabular}
+		\label{tab:xstate-2}
+	\end{center}
+\end{table}
+
+\begin{table}[t]
+\caption{\code{Try}-Block Statement Detection Result ({\xstate} as Individual, Statement Level, GitHub Dataset) (RQ2)}
+  \vspace{-12pt}
+  \small
+	\begin{center}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering}|}
+		  \hline
+		Statement Level	  & Accuracy\\
+%			\hline
+%			GPT-3.5 &   &   & \\
+			\hline
+			\xstate  & \textbf{0.874}  \\
+			\hline
+		\end{tabular}
+		\label{tab:xstate-4}
+	\end{center}
+\end{table}
+
+Table~\ref{tab:xstate-2} displays the result when we evaluated
+{\xstate} individually (i.e., assuming {\xblock} correctly predicts
+the presence of \code{try-catch} blocks). From
+Table~\ref{tab:xstate-2} and Table~\ref{tab:xstate-1}, the numbers are
+slightly higher than those for {\xblock}+ {\xstate} because there is no
+impact from {\xblock}'s result. Moreover, {\xstate} manages to achieve
+a 100\% precision, showing that {\xstate} is capable of giving correct
+predictions for all the statements when {\xblock} is correct
+(including those correctly predicted as `not-needed' by {\xblock},
+i.e., all the statements are outside).
+
+As an individual, as seen in Table~\ref{tab:xstate-4}, {\tool} also
+achieves high numbers in accuracy at the statement level. As
+expected, it has a slightly higher accuracy than {\xblock}+{\xstate}
+because {\xblock} by itself has achieved high performance (+98\% F1-score).
+
+\subsubsection{Performance of {\xblock}+{\xstate}}
+
+
+
+Table~\ref{tab:xstate-1} shows the result when we evaluated
+{\xstate}+{\xblock}. That is, both individual results from {\xblock}
+and {\xstate} must be correct for the instance to be considered
+correct. {\tool} achieves a very high precision (96.9\%) and predicts
+correctly {\em all the statements in all \code{try} blocks} (could
+have multiple blocks) for 61\% of the positive code snippets. It
+improves relatively over GPT-3.5 {\em 76.2\%}, {\em 161.6\%}, and {\em
+  129.1\%} in Precision, Recall, and F1-score, respectively. Examining
+the results, we found that GPT-3.5 did not work well for the code
+snippets with multiple \code{try-catch} blocks. It also does not
+recognize well multiple statements with dependencies that need to be
+placed in the same \code{try} block. {\tool} recognizes well the
+dependencies among statements (Section~\ref{sec:rq4}), leading to
+better grouping them into a \code{try} block.
+
+\begin{table}[htpb]
+  \caption{\code{Try}-Block Statement Detection Comparison ({\xblock}+{\xstate}, Instance Level) (RQ2)}
 %  \caption{Try-Catch Statement Detecting Comparison (Evaluate {\xstate} in Connection with {\xblock} --- Instance Level) (RQ2)}
   \vspace{-12pt}
   \small
@@ -22,50 +99,12 @@
 	\end{center}
 \end{table}
 
-\begin{table}[t]%[htpb]
-\caption{Try-Block Statement Detection Result ({\xstate} as Individual, Instance Level) (RQ2)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
-		  \hline
-		GitHub dataset	  & Precision  & Recall & F1-score \\
-%			\hline
-%			GPT-3.5 &   &   & \\
-			\hline
-			\xstate  & \textbf{1.0}  &  \textbf{0.620} & \textbf{0.765}\\
-			\hline
-		\end{tabular}
-		\label{tab:xstate-2}
-	\end{center}
-\end{table}
-
-Table~\ref{tab:xstate-1} shows the result when we evaluated {\xstate}
-in connection with {\xblock}. That is, both individual results from
-{\xblock} and {\xstate} must be correct for the instance to be
-considered correct. {\tool} achieves a very high precision (96.9\%)
-and predicts correctly {\em all the statements in all \code{try}
-  blocks} (could have multiple blocks) for 61\% of the positive code
-snippets. It improves relatively over GPT-3.5 {\bf
-  76.2\%}, {\bf 161.6\%}, and {\bf 129.1\%} in Precision, Recall, and
-F1-score. Examining the results, we found that GPT-3.5 did not work
-well for the code snippets that have more than one \code{try-catch}
-blocks. It also does not recognize well multiple statements with
-dependencies that need to be placed in the same \code{try} block. {\tool}
-recognizes/captures well the dependencies among statements (see RQ4),
-thus, better grouping them into a \code{try} block.
-
 %several statements in which some statements are left outside of the
 %blocks.
 
-Table~\ref{tab:xstate-2} displays the result when we evaluated
-{\xstate} individually (i.e., assuming {\xblock} correctly predicts
-the presence of \code{try-catch} blocks). As seen, the numbers are
-slightly higher than those for {\xblock}+{\xstate} because there is no
-impact from {\xblock}'s result. In other words, {\xstate} manages to
-achieve a 100\% precision, showing that {\xstate} is capable of giving
-correct predictions for those false negatives from {\xblock}.
+
+
+%false negatives from {\xblock}.
 
 %As Table~\ref{tab:xstate-1} shows, when evaluating {\xstate} in
 %connection with {\xblock}, {\xstate} achieves high precision score and
@@ -100,8 +139,9 @@ correct predictions for those false negatives from {\xblock}.
 %	\end{center}
 %\end{table}
 
-\begin{table}[t]%[htpb]
-  \caption{Try-Catch Statement Detection Comparison ({\xblock}+{\xstate}, Statement Level, Small Dataset) (RQ2)}
+%\vspace{-26pt}
+\begin{table}[htpb]
+  \caption{\code{Try}-Block Statement Detection Comparison ({\xblock}+{\xstate}, Statement Level, Small Dataset) (RQ2)}
   \vspace{-12pt}
   \small
 	\begin{center}
@@ -119,24 +159,7 @@ correct predictions for those false negatives from {\xblock}.
 	\end{center}
 \end{table}
 
-\begin{table}[t]%[htpb]
-\caption{Try-Catch Statement Detection Result ({\xstate} as Individual, Statement Level, GitHub Dataset) (RQ2)}
-  \vspace{-12pt}
-  \small
-	\begin{center}
-		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.05cm}<{\centering} | p{1.2cm}<{\centering}|}
-		  \hline
-		Statement Level	  & Accuracy\\
-%			\hline
-%			GPT-3.5 &   &   & \\
-			\hline
-			\xstate  & \textbf{0.874}  \\
-			\hline
-		\end{tabular}
-		\label{tab:xstate-4}
-	\end{center}
-\end{table}
+
 
 %\begin{table}[t]%[htpb]
 %\caption{Try-Catch Statement Detecting Result ({\xstate} as Individual, Statement Level) (RQ2)}
@@ -156,16 +179,13 @@ correct predictions for those false negatives from {\xblock}.
 %\end{table}
 
 Table~\ref{tab:xstate-3} displays the result at the statement level
-(i.e., whether a statement needs to be inside a \code{try} block
-or not). As seen, {\xblock}+ {\xstate} improves relatively over GPT-3.5
-{\bf 44.9\%}
-%, {\bf YY.Y\%}, and {\bf ZZ.Z\%} in Precision, Recall, and F1-score,
-%respectively
-in accuracy at the statement level.
-%
-As seen in Table~\ref{tab:xstate-4}, {\tool} also achieves high
-numbers in accuracy at the statement level as individual.
-As expected, it has a slightly higher accuracy than \xblock+\xstate.
+(i.e., whether a statement needs to be inside a \code{try} block). As
+seen, {\xblock}+{\xstate} is able to correctly tag 87\% of the
+statements on their locations with respect to a \code{try} block.  In
+comparison, {\xblock}+ {\xstate} improves {\em 44.9\%} relatively over
+GPT-3.5 in accuracy at the statement level.
+
+
 
 %--------------------------
 %Table~\ref{tab:rq2} displays the result on detecting the statements
@@ -223,3 +243,5 @@ As expected, it has a slightly higher accuracy than \xblock+\xstate.
 %{\xstate}.
 
 %{\color{red}{N1-N10 are the number of nodes that the subgraph contains which means the size of the try-catch block. Because the average size of the try-catch is 5.7, I currently pick 6 as the size of the try-catch block. The accuracy here is defined as: if a statement is in the try-catch block and our model put it in the subgraph, I regard it is correct $S_c$. All other conditions, I think they are incorrect. If there are $S$ statements in the try-catch block, the total accuracy is calculated as $S_c/S$. Later, I will add an example showing that the statement that our model predicted in the try-catch block contains the method call which lead to the correct exception types prediction.}}
+
+

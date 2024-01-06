@@ -1,4 +1,18 @@
-\begin{table}[t]%[htpb]
+
+
+\subsubsection{Performance of {\xtype} as Individual}
+As seen in Table~\ref{tab:xtype-1}, as individual, {\xtype} achieves
+97.4\%, 56.9\%, and 71.8\% in Precision, Recall, and F1-score,
+respectively on the GitHub dataset. While it performs better for the
+case of single exception type, the results for the other cases with
+multiple exceptions needed to be caught are also consistently high.
+Precision ranges from 93.8\% to 100\%; recall ranges from 46.8\% to
+75\%; and F1-score ranges from 63.3\% to 84.8\%. When considering all
+numbers of exception types, {\xtype} as individual achieves very high
+performance: 97.4\% in precision, 56.9\% in recall, and 71.8\% in
+F-score.
+
+\begin{table}[htpb]
   \caption{Exception Type Recommendation (\xtype as Individual, GitHub Dataset) (RQ3)}
   \vspace{-12pt}
   \small
@@ -14,15 +28,9 @@
 			\hline
 			Recall &  0.739 & 0.484 & 0.468 & 0.469 & 0.75 & 0.5 & 0.569\\
 			\hline
-			F1-score &  0.840 & 0.648 & 0.633 & 0.625 & 0.848 & 0.666 & 0.718\\
+			F-score &  0.840 & 0.648 & 0.633 & 0.625 & 0.848 & 0.666 & 0.718\\
 			\hline
 		\end{tabular}
 		\label{tab:xtype-1}
 	\end{center}
 \end{table}
-
-As seen in Table~\ref{tab:xtype-1}, as individual, {\xtype}
-achieves 97.4\%, 56.9\%, and 71.8\% in Precision, Recall, and
-F1-score, respectively on the GitHub dataset. While it performs better
-for the case of single exception type, the results for the other cases
-with two or more exceptions to be caught are also consistent.

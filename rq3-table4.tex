@@ -1,5 +1,25 @@
-\begin{table}[t]%[htpb]
-  \caption{Exception Type Recommendation Result (\xblock+\xstate+\xtype) (RQ3)}
+\subsubsection{Performance of {\tool} ({\xblock}+{\xstate}+{\xtype})}
+
+
+
+
+As seen in Table~\ref{tab:xtype-4}, {\em {\tool} as evaluated as three
+  components, achieves 95.9\%, 45.1\%, and 61.3\%} in Precision,
+Recall, and F1-score, respectively. In almost 96\% of the predictions,
+{\tool} correctly decides the need of the \code{try-catch} block, the
+number of blocks and corresponding statements, and the exception types
+in the \code{catch} clauses. {\tool} covers 45.1\% of the exception
+types, resulting a F1-score of 61.3\%.
+%
+Comparing with Table~\ref{tab:xtype-1}, the numbers are lower because
+it has impacts of the results from \xblock and \xstate. In total,
+{\tool} predicts {\em correctly in all three tasks for 22,010 out of
+  30,764 total instances (71.5\%)} in GitHub dataset. Among 15,328
+positive samples, {\em {\tool} predicts correctly 6,928 positive
+  instances (45\%) in all three prediction tasks: {\xblock}, {\xstate}, and {\xtype}}.
+
+\begin{table}[htpb]
+  \caption{Exception Type Recommendation Result ({\xblock}+{\xstate}+{\xtype}) (RQ3)}
   \vspace{-12pt}
   \small
 	\begin{center}
@@ -14,18 +34,3 @@
 		\label{tab:xtype-4}
 	\end{center}
 \end{table}
-
-As seen in Table~\ref{tab:xtype-4}, {\bf {\tool} as evaluated as three
-  components, achieves 95.9\%, 45.1\%, and 61.3\%} in Precision,
-Recall, and F1-score, respectively. In almost 96\% of the predictions,
-{\tool} correctly decides the need of the \code{try-catch} block, the
-number of blocks and corresponding statements, and the exception types
-in the \code{catch} clauses. {\tool} covers 45.1\% of the exception
-types, resulting a F1-score of 61.3\%. Comparing with
-Table~\ref{tab:xtype-1}, the numbers are lower because it has impacts
-of the results from \xblock and \xstate. In total, {\tool} predicts
-{\bf correctly in all three tasks for 22,010 out of 30,764 total
-  instances (71.5\%)} in GitHub dataset. Among 15,328 positive
-samples, {\bf {\tool} predicts correctly 6,928 positive instances
-  (45\%) in all three tasks}.
-
