@@ -1,3 +1,5 @@
+\subsubsection{Attribution Scores}
+
 \begin{figure}[t]
  	\centering
  	\includegraphics[width=3.4in]{rq1-case-study.png}
@@ -6,10 +8,12 @@
  	\label{fig:rq1-case}	
 \end{figure}
 
-\noindent {\bf Attribution Scores.} To illustrate how {\xblock} makes
-the prediction, in Figure~\ref{fig:rq1-case}, we shows a code snippet
-that catches an \code{IOException} thrown by the \code{readAllBytes}
-API call on an \code{InputStream} object.
+%\noindent {\bf Attribution Scores.}
+
+To illustrate how {\xblock} makes the prediction, in
+Figure~\ref{fig:rq1-case}, we shows a code snippet that catches an
+\code{IOException} thrown by the \code{readAllBytes} API call on an
+\code{InputStream} object.
 %
 We first get the {\em attribution scores} for the input (sub)tokens
 via Transformer Interpret~\cite{transformers-interpret}. A higher
@@ -36,9 +40,10 @@ means the statement contributes negatively to the predicted class.  As
 seen, the two statements that receive the highest scores are the
 statement that defines the \code{InputStream} variable and the
 statement that invokes the \code{readAllBytes} method call on the
-\code{InputStream} object. This example illustrates that {\em {\tool} is
-able to put the attention on the right (sub)tokens of those statements}
-including \code{InputStream}, \code{in}, \code{get}, \code{System},
-\code{name}, \code{replace}, etc., leading to its correct prediction.
+\code{InputStream} object. This example illustrates that {\em {\tool}
+  is able to put the attention on the right (sub)tokens of those
+  statements} including \code{InputStream}, \code{in}, \code{get},
+\code{System}, \code{name}, \code{replace}, etc., leading to its
+correct prediction of the presence of a \code{try-catch} block.
 
 %to decide the need of the \code{try-catch} block.

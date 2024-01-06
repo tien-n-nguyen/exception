@@ -1,5 +1,5 @@
 %\subsection{Comparison on Try-Catch Necessity Checking Effectiveness (RQ1)}
-\subsection{Comparison on \code{Try-catch} Block Checking}
+\subsection{Comparison on \code{Try-catch} Necessity Checking}
 %\label{sec:rq1}
 
 
@@ -8,6 +8,8 @@
 %{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
 
 %Table~\ref{tab:xblock} displays the comparison result.
+
+
 
 As seen in Table~\ref{tab:xblock-1}, {\tool} achieves very high
 Precision, Recall and F-score on the GitHub dataset---all above
@@ -19,9 +21,12 @@ Precision, Recall and F-score on the GitHub dataset---all above
 %code snippet contains a \code{try-catch} block: In our balanced test
 %dataset that contains 30,764 samples, only 236 samples receives the
 %negative label (i.e., no \code{try-catch}) from CodeBert.
-In comparison, {\tool} relatively improves over XRank {\bf 21\%, 85.7\%,
+
+\subsubsection{Comparison with XRank}
+
+In comparison, {\tool} relatively improves over XRank {\em 21\%, 85.7\%,
 and 55.9\%} in Precision, Recall, and F1-score, respectively.
-%
+
 Examining the result, we reported the following in comparison with the
 baseline.
 %
@@ -37,21 +42,22 @@ be suitable across all the API method calls in all the
 libraries. Third, for the incomplete code snippets in which the names
 of the API methods in different packages or libraries are the same
 (e.g., \code{toString} or \code{getText} in various JDK packages),
-XRank
-%cannot distinguish them and
-uses one entry in the dictionary for them due to its IR approach,
-leading to mistakenly considering them the same.
+XRank mistakenly considers them the same
+%as it uses one entry in the dictionary for them
+due to its IR approach.
+%, leading to mistakenly considering them the same.
 %
-Unlike XRank, which considers only the association
-between an API call and an exception type,
+Moreover, unlike XRank, which considers only the association scores
+between the APIs and exception types,
 {\tool} considers the code in the block as the context to learn the
 dependencies among API elements and the relations between the API
 calls and the exceptions, leading to better block detection.
 
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Block Comparison with XRank (RQ1)}
-  \vspace{-12pt}
+  %\caption{\code{Try-Catch} Block Comparison with XRank (RQ1)}
+  \caption{\code{Try-Catch} Block Necessity Checking Comparison with XRank (RQ1)}
+  \vspace{-9pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
@@ -71,8 +77,9 @@ calls and the exceptions, leading to better block detection.
 \end{table}
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Block Comparison with GPT-3.5 (RQ1)}
-  \vspace{-12pt}
+%  \caption{\code{Try-Catch} Block Comparison with GPT-3.5 (RQ1)}
+  \caption{\code{Try-Catch} Block Necessity Checking Comparison with GPT-3.5 (RQ1)}
+  \vspace{-9pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
@@ -99,8 +106,10 @@ calls and the exceptions, leading to better block detection.
 
 %ChatGPT results ==== ?
 
+\subsubsection{Comparison with GPT-3.5}
+
 As seen in Table~\ref{tab:xblock-2}, {\tool} relatively improves over
-GPT-3.5 {\bf 23.6\%}, {\bf 28.5\%}, and {\bf 26\%}, in
+GPT-3.5 {\em 23.6\%}, {\em 28.5\%}, and {\em 26\%}, in
 Precision, Recall, and F1-score, respectively.
 %{\bf 23.6\%--49.3\%}, {\bf 28.5\%--37.7\%}, and {\bf 26\%--43.5\%}, in
 %Precision, Recall, and F1-score, respectively.
@@ -115,7 +124,7 @@ example, in an instance containing a method call to
 GPT-3.5 incorrectly considered it as to have a \code{try-catch}
 block. GPT-3.5 explained that it is similar to \code{parse} in a
 compiler, which needs to handle
-\code{In\-valid\-Input\-Exception}. Thus, it incorrectly makes
+\code{In\-valid\-Input\-Exception}. Thus, it makes an incorrect
 prediction.
 %for \code{parseVals}.
 
@@ -124,8 +133,8 @@ prediction.
 \input{rq1-case-study}
 
 \begin{table}[t]%[htpb]
-  \caption{Try-Catch Necessity Checking Evaluated on Test Partitions by the Number Of Try-Catch Blocks (RQ1) }
-  \vspace{-12pt}
+  \caption{\code{Try-Catch} Necessity Checking Evaluated on Test Set Partitioned by Number Of \code{Try-Catch} Blocks (RQ1) }
+  \vspace{-9pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
@@ -145,6 +154,8 @@ prediction.
 		\label{tab:rq1-detailed-result}
 	\end{center}
 \end{table}
+
+\subsubsection{Result on Test Set Partitioned by Number of \code{Try-Catch} Blocks}
 
 In addition, we partitioned the test dataset according to the number
 of \code{try-catch} blocks, and evaluated {\xblock} on each
