@@ -2,7 +2,7 @@
 \label{sec:related}
 
 The automated approaches to recommend exception handling can be
-classified into four categories as presented in Section~\ref{sec:intro}.
+classified into four categories (Section~\ref{sec:intro}).
 %The first category of approaches defines the {\em heuristics} on
 %exception types, API calls, and variable types to recommend proper
 %exception handling~\cite{barbosa-bsse12}.
@@ -28,8 +28,8 @@ classified into four categories as presented in Section~\ref{sec:intro}.
 %%exception handling. In many cases, the two pieces of code are quite
 %%different, yet have the same set of exceptions to be handled.
 The closest work to {\tool} is the state-of-the-art {\em information
-  retrieval} (IR) approaches~\cite{xrank-fse20}, which provides more
-flexibility than the others. XRank~\cite{xrank-fse20} recommends a
+  retrieval} approaches~\cite{xrank-fse20}, which provides more
+flexibility than others. XRank~\cite{xrank-fse20} recommends a
 ranked list of API calls that might need exception handling and
 XHand~\cite{xrank-fse20} recommends exception handling code. Both
 leverages fuzzy set theory to compute the associations between API
@@ -40,11 +40,11 @@ the IR techniques are not flexible as the ML approaches because they
 use the lexical values of API simple names. Thus, they suffer the
 ambiguity in the names of API elements in incomplete code
 snippets. Lastly, XRank/XHand considers only pairwise associations
-between the API method calls and exceptions. It disregards the
-surrounding code context and the dependencies/relations. XRank/XHand
-simply uses Groum~\cite{fse09}, a dependency graph among API elements,
-to collect the API calls, but did not use dependencies in
-computing the association scores.
+between the API method calls and exceptions.
+%It disregards the surrounding code context and the dependencies/relations.
+It uses Groum~\cite{fse09}, a dependency graph among
+APIs, to collect the API calls, but did not use dependencies
+in computing association scores.
 %among the API elements to disambiguate the simple names of the API
 %elements.
 
@@ -56,7 +56,7 @@ have same funcitonality as {\tool}.
 
 There exist research works on API usage mining including exception
 handling mining and error
-detection~\cite{suresh-icse09,mithun-fase09}. Similar to IR, the
+detection~\cite{suresh-icse09,mithun-fase09,BW08,NNP+09,PG09,WLWXM11,NNN+12a,PJAG12,MM13,RBMR13,SBA+15,NPVN16,ANNN+16,LHXRM16,NPVN16b,TR16,MCJ17,ZGCHPG17,fse16}. Similar to IR, the
 mining approaches cannot handle the API name ambiguity.
 
 %ThEx learns a classification model
