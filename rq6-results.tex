@@ -1,23 +1,27 @@
 \subsection{Impact of Fine-Tuning (RQ6)}
 \label{sec:rq6}
 
-
-
-As seen in Table~\ref{tab:codebert}, fine-tuning contributes much to
-{\tool} in much improving Precision (almost twice) and slightly
-improving in Recall (1\%), and much improving in F1-score (relatively
-49.5\%). Without fine-tuning, the model 
+Table~\ref{tab:codebert} shows the comparison result between
+our model with fine-tuning and CodeBERT without it.
+%
+As seen, fine-tuning contributes much to {\tool} in much improving
+Precision (almost twice) and slightly improving in Recall (1\%), and
+much improving in F1-score (relatively 49.5\%). Without fine-tuning,
+the model
 %In comparison, the CodeBERT baseline model has a much lower Precision,
 %around 50\%. However, it achieves a slightly higher Recall. After
 %examining the result, we find that the model
 overwhelmingly predicts that the input code snippet contains a
-\code{try-catch} block: in our balanced test dataset that contains
-30,764 samples, only 236 samples receives the negative label (i.e., no
-\code{try-catch}) from CodeBERT.
+\code{try-catch} block: in our balanced test dataset with
+30,764 samples, CodeBERT assigned the negative label (i.e., no
+\code{try-catch} block) to only 236 samples.
+
+%only 236 samples receives the negative label (i.e., no
+%\code{try-catch}) from CodeBERT.
 
 \input{example-bug.tex}
 
-\begin{table}[t]%[htpb]
+\begin{table}[htpb]
   \caption{Impact of Fine-Tuning in {\tool} (RQ6)}
   \vspace{-12pt}
   \small

@@ -1,39 +1,7 @@
 \subsection{Exception-Related Bug Detection (RQ5)}
 \label{sec:rq1}
 
-
-
-%{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
-
-%Table~\ref{tab:bug} displays the comparison result.
-
-As seen in Table~\ref{tab:bug}, {\tool} can be used to detect well
-real-world exception-related bugs in which a code snippet needs but
-did not have a \code{try-catch} block or missed some exceptions. In
-comparison, {\tool} improves relatively over
-FuzzyCatch~\cite{xrank-fse20} 85.2\% in Precision, 25\% in Recall, and
-56.5\% in F1-score.
-%The reason for a higher recall from FuzzyCatch is the same as in
-%RQ1. That is,
-%While the recall values between two models are almost the same,
-%FuzzyCatch has lower precision.
-%It tends to predict ``Yes'' (buggy) for all code snippets. That is
-%
-If the association score between a single API method call in the code
-snippet and one exception type surpasses the pre-defined threshold, Fuzzy-Catch
-will determine that the snippet contains a bug.
-%Because if there is an association score between {\em only} one API
-%method call in the code snippet and one exception type higher than the
-%threshold, FuzzyCatch will decide that the snippet is buggy.
-Its result is more on the ``Yes'' (buggy) side. Thus, its precision is
-54\%, a slightly better than the probability of a coin
-toss. Figure~\ref{fig:example-bug} shows a bug detected by {\tool},
-and the correctly suggested fix (adding a \code{try-catch} block).
-
-%All buggy code and fixes are available in FuzzyCatch's repository:
-%ebrand.ly/ExDataset.
-
-\begin{table}[t]%[htpb]
+\begin{table}[htpb]
   \caption {Exception-Related Bug Detection (RQ5)}
   \vspace{-12pt}
   \small
@@ -53,6 +21,50 @@ and the correctly suggested fix (adding a \code{try-catch} block).
 		\label{tab:bug}
 	\end{center}
 \end{table}
+
+%{\color{red}{This section waiting for the XRank Results. But from the current estimate, our approach should have higher F-score. But the recall and precision I'm not sure. Once I have the results, I will update this section.}}
+
+Table~\ref{tab:bug} displays the comparison result on
+exception-related bug detection. As seen, {\tool} can be used to
+detect well real-world exception-related bugs in which a code snippet
+needs but did not have a \code{try-catch} block or missed some
+exceptions. In comparison, {\tool} improves relatively over
+FuzzyCatch~\cite{xrank-fse20} 85.2\% in Precision, 25\% in Recall, and
+56.5\% in F1-score.
+%The reason for a higher recall from FuzzyCatch is the same as in
+%RQ1. That is,
+%While the recall values between two models are almost the same,
+%FuzzyCatch has lower precision.
+%It tends to predict ``Yes'' (buggy) for all code snippets. That is
+%
+If the association score between a single API method call in the code
+snippet and one exception type surpasses the pre-defined threshold, Fuzzy-Catch
+will determine that the snippet contains a bug.
+%Because if there is an association score between {\em only} one API
+%method call in the code snippet and one exception type higher than the
+%threshold, FuzzyCatch will decide that the snippet is buggy.
+Its result is more on the ``Yes'' (buggy) side. Thus, its precision is
+54\%, a slightly better than the probability of a coin
+toss.
+
+Figure~\ref{fig:example-bug} shows a bug detected by {\tool} and the
+correctly suggested fix. The code snippet uses the API method
+\code{getField} of the JDK library at line 6. {\tool} is able to
+detect the missing of a \code{try-catch} block and to recommend the
+fix by adding such a block around the statements from line 4 to line
+8, and adding the \code{catch} clauses with two exception types
+\code{NoSuchFieldException} and
+\code{IllegalAccessException}. {\xstate} was also able to exclude the
+lines 1--2 from the \code{try} block. Note that {\tool} performed
+correctly even without the knowledge of the JDK documentation.  This
+highlights the potential of {\tool} to serve as a valuable complement
+to API documentation, aiding developers in ensuring accurate API
+usage.
+
+%All buggy code and fixes are available in FuzzyCatch's repository:
+%ebrand.ly/ExDataset.
+
+
 
 %\input{example-bug.tex}
 

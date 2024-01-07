@@ -1,14 +1,31 @@
 %\vspace{3pt}
 
-\subsubsection*{\bf Limitations and Threats to Validity}
+\subsection{\bf Limitations and Threats to Validity}
+
+\subsubsection{Limitations}
+
+{\tool} still has several limitations.
 %First, {\tool} can not handle the code with multiple \code{try-catch}
 %blocks.
-First, {\tool} cannot generate new exception types that were not in
+First, it cannot generate new exception types that were not in
 the training corpus. Second, it does not support the generation of
-exception handling code inside the \code{catch} body. Third, {\tool}
-needs training data, thus, does not work for a new library without any
-API usage~yet. {\tool} is specifically for Java. Our collected data
-might not be representative. However, we use well-established projects
-and libraries. FuzzyCatch~\cite{xrank-fse20} does not
-suggest \code{try} block statements and exceptions, thus, we compared
-only with XRank (part of FuzzyCatch).
+exception handling code inside the \code{catch} body. Each
+project might have a different way to handle exception types in
+the \code{catch} body. Thus, we chose not to support that function.
+Third, {\tool} needs training data, thus, does not work for a new
+library without any API usage~yet. Fourth, it is possible that the
+model produces the labels \code{O}, \code{B-Try}, and \code{I-Try}
+that do not correspond to the legal way of a \code{try-catch}
+block. Finally, {\xblock} might produce a conflicting result with
+{\xstate}.
+
+\subsubsection{Threats to Validity}
+
+{\tool} is specifically for Java. Our empirical evaluation was only on
+Android and JDK libraries. The results might vary for other
+libraries. Our data might not be representative. However, we
+used well-established projects and libraries.  We used only a balanced
+dataset, which might not reflect well the ratio in practice.
+FuzzyCatch~\cite{xrank-fse20} does not suggest \code{try} block
+statements and exceptions, thus, we compared only with XRank (part of
+FuzzyCatch). For GPT-3.5, we ran only on a sampled dataset.

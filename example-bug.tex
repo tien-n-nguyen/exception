@@ -23,7 +23,7 @@ public void onCreate(Bundle state) {
   (*@{\color{orange}{+ try \{}@*)
     final WindowManager.LayoutParams attrs = getWindow().getAttributes();
     final Class<?> cls = attrs.getClass();
-    final Field fld = cls.getField("buttonBrightness");
+    final Field fld = cls.(*@{\color{orange}{getField}@*)("buttonBrightness");
     if (fld != null && "float".equals(fld.getType().toString())) {
     fld.setFloat(attrs, 0);
   (*@{\color{orange}{+ \}}@*)
@@ -32,6 +32,6 @@ public void onCreate(Bundle state) {
   (*@{\color{orange}{+ \}}@*)...
 \end{lstlisting}
         \vspace{-16pt}
-        \caption{Exception-related Bug \#106 in FuzzyCatch dataset (missing \code{try-catch}) (detected by {\tool})}
+        \caption{Exception-related Bug \#106 (missing \code{try-catch}) in FuzzyCatch dataset  (detected by {\tool})}
         \label{fig:example-bug}
 \end{figure}

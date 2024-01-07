@@ -1941,3 +1941,37 @@ publisher = {Curran Associates, Inc.},
  pages = {127--136},
  publisher = {ACM},
 }
+@inproceedings{suresh-icse09,
+author = {Thummalapenta, Suresh and Xie, Tao},
+title = {Mining Exception-Handling Rules as Sequence Association Rules},
+year = {2009},
+isbn = {9781424434534},
+publisher = {IEEE Computer Society},
+address = {USA},
+url = {https://doi.org/10.1109/ICSE.2009.5070548},
+doi = {10.1109/ICSE.2009.5070548},
+abstract = {Programming languages such as Java and C++ provide exception-handling constructs to handle exception conditions. Applications are expected to handle these exception conditions and take necessary recovery actions such as releasing opened database connections. However, exception-handling rules that describe these necessary recovery actions are often not available in practice. To address this issue, we develop a novel approach that mines exception-handling rules as sequence association rules of the form “(FC1c1…FCcn) ∧ FCa ⇒ (FCe1…FCem)”. This rule describes that function call FCa should be followed by a sequence of function calls (FCe1…FCem) when FCa is preceded by a sequence of function calls (FCe1…FCcn). Such form of rules is required to characterize common exception-handling rules. We show the usefulness of these mined rules by applying them on five real-world applications (including 285 KLOC) to detect violations in our evaluation. Our empirical results show that our approach mines 294 real exception-handling rules in these five applications and also detects 160 defects, where 87 defects are new defects that are not found by a previous related approach.},
+booktitle = {Proceedings of the 31st International Conference on Software Engineering},
+pages = {496–506},
+numpages = {11},
+series = {ICSE '09}
+}
+
+@inproceedings{mithun-fase09,
+author = {Acharya, Mithun and Xie, Tao},
+title = {Mining API Error-Handling Specifications from Source Code},
+year = {2009},
+isbn = {9783642005923},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-642-00593-0_25},
+doi = {10.1007/978-3-642-00593-0_25},
+abstract = {API error-handling specifications are often not documented, necessitating automated specification mining. Automated mining of error-handling specifications is challenging for procedural languages such as C, which lack explicit exception-handling mechanisms. Due to the lack of explicit exception handling, error-handling code is often scattered across different procedures and files making it difficult to mine error-handling specifications through manual inspection of source code. In this paper, we present a novel framework for mining API error-handling specifications automatically from API client code, without any user input. In our framework, we adapt a trace generation technique to distinguish and generate static traces representing different API run-time behaviors. We apply data mining techniques on the static traces to mine specifications that define correct handling of API errors. We then use the mined specifications to detect API error-handling violations. Our framework mines 62 error-handling specifications and detects 264 real error-handling defects from the analyzed open source packages.},
+booktitle = {Proceedings of the 12th International Conference on Fundamental Approaches to Software Engineering: Held as Part of the Joint European Conferences on Theory and Practice of Software, ETAPS 2009},
+pages = {370–384},
+numpages = {15},
+location = {York, UK},
+series = {FASE '09}
+}
+
+
