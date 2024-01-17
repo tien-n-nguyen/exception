@@ -33,15 +33,13 @@ require \code{IOException}. For the input incomplete code,
 CodeBERT is expected to learn such relations/connections to avoid name
 ambiguity and to connect them with the exception types.
 
-
-
 During training, as we use one CodeBERT, all three modules
 (Sections~\ref{sec:xstate} and~\ref{sec:xtype}) contribute to the
 signal for updating the model's parameters (multi-tasking). In
 {\xblock}, we feed the vector representation of the \texttt{[CLS]}
 token to a linear layer (Feed-forward neural network - FFNN) and use a
 softmax function to learn the decision as to whether the input code
-needs to be placed in a \code{try} block.
+needs to be placed in a \code{try-catch} block.
 
 %handle any exceptions.
 
