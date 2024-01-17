@@ -44,15 +44,15 @@ do not always work in all the cases due to incomplete code. The second
 category utilized {\em exception handling policies}, which are
 enforced in all cases~\cite{barbosa-tse16,barbosa-saner18}. However,
 the policies need to be pre-defined and encoded within the
-recommending tools.  This is not an ideal solution considering the
+recommendation tools.  This is not an ideal solution considering the
 fast evolution of software libraries. To enable more flexibility than
 policy enforcement, the third category leverages {\em mining
   algorithms} that derive similar exception handling for two similar
-code fragments~\cite{chanchal-scam14}. While avoiding hard-coding of
+code snippets~\cite{chanchal-scam14}. While avoiding hard-coding of
 the rules, these mining approaches suffer the issue of how much
-similar for two fragments to be considered as having similar exception
+similar for two snippets to be considered as having similar exception
 handling. For the mining approaches, deterministically setting a
-threshold for frequent occurrences is also challenging.
+threshold for frequent occurrences is challenging.
 
 %In fact, two API method calls in two different contexts might require
 %to handle the same exception. For example, two fragments of code
