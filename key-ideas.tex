@@ -20,11 +20,11 @@ clause ({\xtype}).
 From Observations, we design {\tool} with the following
 ideas:
 
-\subsubsection{[Key Idea 1] Neural Network-based approach to Exception Handling Recommendation}
+\subsubsection{[Key Idea 1] Neural Network-based Approach to Exception Handling Recommendation}
 Instead of deterministically deriving the exceptions to be handled for
 a given (incomplete) code snippet, from Observation~\ref{ob2}, we
-use a learning-based approach to suggest to properly handle the
-exceptions via the three above tasks.
+use a machine learning-based approach to suggest to properly handle the
+exceptions via the above tasks.
 %to learn to analyze that snippet to recommend if a \code{try-catch}
 %block is needed and the statements to be placed within the
 %\code{try-catch} block, and to recommend the exception types in the
@@ -44,9 +44,9 @@ suggest exception handling.
   
 Instead of computing the association scores for the pairs between API
 elements and exception types as in IR-based approaches, we leverage as
-the context the complete code in the training corpus, to fine-tune a code-aware
-language model (LM)~to learn the dependencies among the API elements and their
-relations with the corresponding exception types.
+the context the complete code in the training corpus, to fine-tune a
+code-aware language model (LM)~to learn the dependencies among the API
+elements, and their relations with the corresponding exception types.
 %
 In predicting for a snippet $C$, {\tool} uses the LM to take the
 context with the dependencies among the API elements in $C$ and suggest
@@ -100,9 +100,9 @@ problem as identifying one or multiple chunks of consecutive
 statements that need to be placed within \code{try} blocks. We
 leverage and fine-tune the language model
 CodeBERT~\cite{codebert-emnlp20} to learn the relations among the
-statements with the API elements. We also utilize the multi-tasking
+statements with the API elements. We also utilize a multi-tasking
 framework for three tasks: {\xblock}, {\xstate}, and {\xtype}, as the
-knowledge learned from one task can enhance the performance in the others.
+knowledge learned from one task can enhance the performance of the others.
 
 
 %We also leverage the multi-tasking
