@@ -13,11 +13,11 @@
 The goal of {\xtype} (Figure~\ref{fig:xtype}) is to predict what
 exception types need to be placed in the \code{catch} clause of each
 of the predicted \code{try-catch} block(s) for the given input code
-snippet. We use one single CodeBERT~\cite{codebert-emnlp20} model as
-in {\xblock} and {\xstate} to build the embeddings for code (sub)-tokens.
+snippet. We use one single CodeBERT model as
+in {\xblock} and {\xstate} to build the embeddings~for code (sub)-tokens.
 %
 We expect CodeBERT to learn the connection between the statements in a
-\code{try} block and the corresponding exception types to be
+\code{try} block and the corresponding excep\-tion types to be
 caught. From Key Idea 2, we expect that via context, CodeBERT can
 implicitly learn the dependencies among API elements, leading to
 better learning of the exception~types.
@@ -25,8 +25,8 @@ better learning of the exception~types.
 During training, we know all the exceptions to be caught in a code
 snippet. For each \code{try} block, we identify the statement
 that begins it (with the \code{B-Try} label) and ends it (with the
-last respective \code{I-Try} label). Then, we add the embeddings, from
-CodeBERT, for the [SEP] tokens that correspond to the statements
+respective \code{I-Try} label). Then, we calculate the sum of the embeddings from
+CodeBERT, for the \code{[SEP]} tokens that correspond to the statements
 inside the \code{try} block and feed this \code{try} block's representation vector into a linear layer.
 %We consider the embeddings from CodeBERT for the {\bf [SEP]} tokens
 %corresponding to the statements from the beginning to the end of the
