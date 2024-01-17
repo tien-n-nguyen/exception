@@ -1,4 +1,4 @@
-\section{{\xstate}: \code{Try-block} Statement Detector}
+\section{{\xstate}: \code{Try}-Block Statement Detector}
 \label{sec:xstate}
 
 
@@ -19,11 +19,11 @@ the statement preceding~it.
 
 %rationale on why the model works
 The advantage in using CodeBERT on the entire code snippet has two
-folds. First, as in Key Idea 2, the context of the entire code
+folds. First, as in Key Idea 2, the context of the entire~code
 facilitates {\tool} to learn the {\em relations of an API and its
   exception types}, thus, making the connection between the API and
 the presence of \code{try-catch} block. For example, in
-Figure~\ref{fig:xstate}, \code{write} in the statement $s1$ could be
+Figure~\ref{fig:xstate}, \code{write} in the statement $s_1$ could be
 determined as having a relation with \code{IOException},
 leading to better learning to place that statement inside a
 \code{try} block. Second, we expect that CodeBERT would learn
@@ -48,7 +48,7 @@ label each corresponding statement with one of three~tags: {\em
   line of that block}. For example, in Figure~\ref{fig:xstate}, the
 embedding computed by CodeBERT for the first \texttt{[SEP]}, which
 represents the statement \code{out.write(...)}, is classified by the
-first \code{FFNN+Softmax} layer into the \code{B-Try} category/label
+first \code{FFNN+Softmax} layer into the \code{B-Try} label
 because it is the first statement of a \code{try}
 block. However, the embedding for the second \texttt{[SEP]}, representing
 \code{print(node.getBody(...))}, is labeled as \code{I-Try} because it
@@ -58,15 +58,15 @@ statement \code{return null;} does not need to be in the
 \code{try} block. With this IOB2 encoding~\cite{iob2}, we can
 support multiple \code{try-catch} blocks in which the statement with
 \code{B-Try} is the start of a \code{try} block and the
-statement with the last respective \code{I-Try} tag is the end of that
+statement with the respective \code{I-Try} tag is the end of that
 block. A new block is formed as another statement having a
 \code{B-Try} tag.
 
 \begin{figure}[t]
  	\centering
- 	\includegraphics[width=3.4in]{xstate-4.png} %xstate-3: 3.2
+ 	\includegraphics[width=3.4in]{xstate-5.png} %xstate-4: 3.4
         \vspace{-18pt}
- 	\caption{\code{Try-catch} Statement Detector ({\xstate})}
+ 	\caption{\code{Try}-Block Statement Detector ({\xstate})}
  	\label{fig:xstate}	
 \end{figure}
 
