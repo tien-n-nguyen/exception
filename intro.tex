@@ -51,7 +51,7 @@ policy enforcement, the third category leverages {\em mining
 code snippets~\cite{chanchal-scam14}. While avoiding hard-coding of
 the rules, these mining approaches suffer the issue of how much
 similar for two snippets to be considered as having similar exception
-handling. For the mining approaches, deterministically setting a
+handling. For the mining approaches, deterministically setting a right
 threshold for frequent occurrences is challenging.
 
 %In fact, two API method calls in two different contexts might require
@@ -85,20 +85,20 @@ Toolkit library (GWT). An API method to open/write/read a
 \code{Document} in the W3C library might need to catch a different set
 of exceptions than the one in GWT. Those IR-based techniques are not
 sufficiently flexible to handle such {\em ambiguous names}. Third, the
-IR techniques do not consider the {\em context} of surrounding
+IR techniques do not~con\-sider the {\em context} of surrounding
   code, thus, cannot leverage the {\em dependencies} among API
 elements to resolve the ambiguity of the names of the APIs and
   exceptions in an incomplete snippet.
 
 In this paper, we propose {\tool}, a learning-based exception handling
 recommender, which accepts a given Java code snippet and recommends 1)
-{\em whether a try-catch block is needed for the snippet} ({\xblock}),
+{\em whether a try-catch block is needed for the~snippet} ({\xblock}),
 2) {\em what statements need to be placed in a \code{try} block}
 ({\xstate}) and 3) {\em what exception types need to be caught in the
   \code{catch} clause} ({\xtype}).  We find a motivation for such a
-data-driven, learning-based approach from the previous studies
+data-driven, machine learning-based approach from the previous studies
 reporting that exception handling for the API elements is frequently
-repeated across different
+repeated across 
 projects~\cite{chanchal-scam14,zhong-jss18}. The reason for such
 repetitions is that the designers of a software library have the
 intents for users to utilize specific API elements paired with
