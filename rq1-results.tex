@@ -51,7 +51,7 @@ Moreover, unlike XRank, which considers only the association scores
 between the APIs and exception types,
 {\tool} considers the code in the block as the context to learn the
 dependencies among API elements and the relations between the API
-calls and the exceptions, leading to better block detection.
+calls and exception types, leading to better \code{try}-block detection.
 
 
 \begin{table}[t]%[htpb]
@@ -67,7 +67,7 @@ calls and the exceptions, leading to better block detection.
 %			\hline
 %			CodeBERT w/o fine-tuning & 0.4969  & \textbf{0.9719}   & 0.6576\\
 			\hline
-			XRank & 0.810 & 0.530 & 0.630\\
+			XRank~\cite{xrank-fse20} & 0.810 & 0.530 & 0.630\\
 			\hline
 			\tool   &  \textbf{0.981} &  {\bf 0.984} & \textbf{0.982}\\
 			\hline
@@ -88,7 +88,7 @@ calls and the exceptions, leading to better block detection.
 		Small dataset	  & Precision  &  Recall & F1-score \\
 			\hline
 %			GPT-3.5  & 0.666--0.804  & 0.726--0.778   & 0.695--0.791\\
-                        GPT-3.5  & 0.804  & 0.778   & 0.791\\
+                        GPT-3.5~\cite{ChatGPT}  & 0.804  & 0.778   & 0.791\\
 			\hline
 			\tool   &  \textbf{0.994} &  {\bf 1.0} & \textbf{0.997}\\
 			\hline
@@ -116,9 +116,9 @@ Precision, Recall, and F1-score, respectively.
 Examining GPT-3.5's results, we found that it detected well only the
 popular APIs and corresponding exception types because it was not
 trained specifically for the exception handling task. Moreover, for
-the un-popular API names, GPT-3.5 often resorted to another API with
+the un-popular API names, GPT-3.5 often resorted to another API $a$ with
 similar name, and predicted that the given code snippet needs a
-\code{try-catch} block since that API requires such a block. For
+\code{try-catch} block since $a$ requires a \code{try-catch} block. For
 example, in an instance containing a method call to
 \code{interval.parseWithOffset}, which is specific to a project,
 GPT-3.5 incorrectly considered it as to have a \code{try-catch}
