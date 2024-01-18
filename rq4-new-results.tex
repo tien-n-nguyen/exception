@@ -6,18 +6,18 @@
 Figure~\ref{fig:rq4-attention} shows the attention weights, at the
 output layer, for the example in Figure~\ref{fig:rq1-case}. We used
 BertViz~\cite{bertviz} to display the weights in which a darker line
-means a higher attention weight. As seen, the statement S7 (creation
+means a higher attention weight. As seen, the statement $S7$ (creation
 of an \code{InputStream}) puts most attention on itself
-(Figure~\ref{fig:rq4-attention}a). S8 (invoking \code{readAllBytes()}
-on the \code{InputStream} object) indeed has most attention on S7
+(Figure~\ref{fig:rq4-attention}a). $S8$ (invoking \code{readAllBytes()}
+on the \code{InputStream} object) indeed has most attention on $S7$
 (Figure~\ref{fig:rq4-attention}b). As seen in
-Figure~\ref{fig:rq4-attention}c, S9 pays attention more to S7 and S8
-(beside itself). These connections reflect well the data dependencies
+Figure~\ref{fig:rq4-attention}c, $S9$ pays attention more to $S7$ and $S8$
+(beside itself). These connections reflect well the {\em data dependencies}
 among the statements. None of the three statements puts much attention
 on any statement outside the \code{try} block. Importantly, these
 statements contain the crucial API elements with respect to correctly catching
 the \code{IOException}. Thus, this example shows that {\tool} captures
-the dependencies among the statements with crucial API elements for
+the dependencies among the statements with crucial API elements, leading to
 correct exception handling.
 
 %Statement 7 defines an \code{InputStream} object which puts the most attention weight on itself (Figure~\ref{fig:stmt-7}). Statement 8 invokes \code{readAllBytes()} on the \code{InputStream} object; In Figure~\ref{fig:stmt-8}, we see that it indeed puts the most attention on Statement 7. In Figure~\ref{fig:stmt-9}, we see that Statement 9 attends to Statements 7 and 8 (besides itself), reflecting the data dependencies between statements. None of the three statements put much attention on any statement outside the \code{try} block. Also, note that these statements contain important APIs with respect to correctly catching the \code{IOException}. Therefore, we argure that through the attention mechanism, {\tool} is able to better understand important API calls from the context in order to recommend exceptions.
@@ -54,22 +54,23 @@ correct exception handling.
 
 
 \subsubsection{Distances between Statement Embeddings}
-The confidence interval of the mean of cosine distances for the inside
-statement group is from 0.1262 to 0.1268 with 95\% confidence, and the
-confidence interval for the inside-to-outside statement group is
-from 0.7987 to 0.8001 with 95\% confidence. As seen in
-Figure~\ref{fig:rq4-density}, the distribution of the cosine distances
-for all the inside-to-outside statement pairs is largely to the right
-of the distribution for all the inside statement pairs. That is,
-{\tool} tends to {\em encode statements in a way that the statements
-  in the same \code{try} block are closer to each other in the
-  embedding space}, leading to better grouping of statements.
-  
+
+As seen in Figure~\ref{fig:rq4-density}, the distribution of the
+cosine distances for all the inside-to-outside statement pairs is
+largely to the right of the distribution~for all the inside statement
+pairs. That is, {\tool} tends to {\em encode~statements in a way that
+  the statements in the same \code{try} block are closer to each other
+  in the embedding space}, leading to better statement grouping.
+Specifically, the confidence interval of the mean of cosine distances
+for the inside statement group is from 0.1262--0.1268 with 95\%
+confidence, and the confidence interval for the inside-to-outside
+statement group is from 0.7987--0.8001 with 95\% confidence.
+
 \begin{figure}[t]
  	\centering
  	\includegraphics[width=2.6in]{rq4-density-v2.png}
         \vspace{-12pt}
- 	\caption{Distribution of Cosine Distances}
+ 	\caption{Distribution of Distances of Statement Embeddings}
  	\label{fig:rq4-density}	
 \end{figure}
 
