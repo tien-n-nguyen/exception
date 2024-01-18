@@ -1,20 +1,21 @@
 \vspace{2pt}
 \subsubsection{Statement Dependency Probing (RQ4)}~\\
-We evaluate if {\tool} could learn the connections
-among the statements inside the same \code{try} block. We
-selected the instances that it predicted correctly in all three
-tasks. For a \code{try-catch} block in an instance, we randomly
-selected a statement $S_1$ and another statement $S_2$ inside the
-block. We then randomly selected another statement $T$ outside of the
-block. We measured the cosine distances $d_1(S_1,S_2)$ and $d_2(S_1,T)$
-for the statement embeddings. We repeated that for all triples
-of $(S_1,S_2,T)$ in the GitHub dataset, and computed the cosine
-distances for the group of inside statement pairs and the group of
-inside-to-outside statement pairs. For each group, we constructed
-confidence intervals at 95\% confidence via bootstrapping for the mean
-of the distances (the number of re-samples is 1,000). The comparison
-of the distances allows us to probe whether our model is able to
-distinguish the statements inside from those outside of the \code{try} blocks.
+We evaluate if {\tool} could learn the connections among the
+statements inside the same \code{try} block. We selected the instances
+that it predicted correctly in all three tasks. For a \code{try-catch}
+block in an instance, we randomly selected a statement $S_1$ and
+another statement $S_2$ inside the block. We then randomly selected
+another statement $T$ outside of the block. We measured the cosine
+distances $d_1(S_1,S_2)$ and $d_2(S_1,T)$ for the statement
+embeddings. We repeated that for all triples of $(S_1,S_2,T)$ in the
+GitHub dataset, and computed the cosine distances for the group of
+inside statement pairs and the group of inside-to-outside statement
+pairs. For each group, we constructed confidence intervals at 95\%
+confidence via bootstrapping for the mean of the distances (the number
+of re-samples is 1,000). The comparison of the distances allows us to
+probe whether our model is able to distinguish the statements inside
+from those outside of the \code{try} blocks via statement embeddings.
+
 %Based on the population in our dataset, that size gives the confidence level of
 %95\% and the confidence interval of 5\%.
 %We used statistical $p$-value evaluate our hypothesis $H_1$: $d_1 \geq d_2$. The null-hypothesis $H_0$ is $d_1 > d_2$.

@@ -1,22 +1,22 @@
 \subsubsection{{\xblock}'s Effectiveness on \code{Try-Catch} Necessity Checking (RQ1)}
 \indent {\em Baselines.} We compared {\xblock} with
-GPT-3.5~\cite{ChatGPT}. Due to cost of using GPT-3.5 on OpenAI, we
+GPT-3.5~\cite{ChatGPT}. Due to the time complexity of using OpenAI's ChatGPT, we
 performed sampling on the GitHub dataset of 30,764 snippets. To obtain
 the confidence level of 95\%, we randomly selected 380 code snippets
 in which 190 are negative samples (no \code{try-catch} block), and 190
 are positive samples (at least one \code{try-catch} block). We trained
 our model on GitHub dataset and compared with GPT-3.5 on this sampled
-test set.
+test~set.
 
 %the pre-trained CodeBERT without any fine-tuning steps. In the
 %pre-trained CodeBERT, We add a randomly-initialized linear layer on
 %top of the output vector of the \texttt{[CLS]} token, and use a
 %softmax function to learn the decision.
-We also compared {\xblock} with XRank~\cite{xrank-fse20} (XRank is
-part of FuzzyCatch) on the GitHub dataset. XRank computed the
-exception risk score for each API call in a code snippet. If a score
-of a call in the snippet is higher than a threshold, we consider the case as
-needing a \code{try-catch} block.
+We also compared {\xblock} with XRank (XRank is part of
+FuzzyCatch~\cite{xrank-fse20}) on the GitHub dataset. XRank computed
+the exception risk score for each API call in a code snippet. If a
+score of an API call in the code snippet is higher than a threshold, we consider
+the case as needing a \code{try-catch} block.
 
 {\em Procedure.} We randomly split both the positive and negative sets
 in a dataset into 80\%, 10\%, and 10\% of the code
@@ -25,22 +25,25 @@ that each partition contains the equal amount of positive and
 negative samples; and the training and tuning partitions do not
 contain any duplicates.
 
-To request responses from ChatGPT, we constructed a prompt with the format
-"question + code", where the question we posed was {\em "Does the code below
-need to catch any exceptions?\textbackslash n\textbackslash n"}.
-Considering that the answers from ChatGPT for the same prompt may
-vary, for each code snippet, we sent the prompt three times through
-the Chat Completions API.
+To request responses from ChatGPT, we constructed a prompt with the
+format "question+code", where the question was {\em "Does the code
+below need to catch any exceptions?\textbackslash n\textbackslash n"}.
+Considering that ChatGPT's answers for the same prompt may vary, for
+each code snippet, we sent the prompt three times through Chat
+Completions~API.
+
 %(https://platform.openai.com/docs/guides/gpt/chat-completions-api).
+
 Labeling the responses has three steps. First, we checked whether the
 first word in each response is Yes or No. If it is a Yes, we assign a
 positive label; If it is a No, we assign a negative label. Second, for
 the responses that do not start with Yes or No, we read each response
 and manually assigned labels to them. However, there are some cases in
 which it is hard to make the decision on whether or not the code needs
-any try-catch blocks. The common scenarios are (1) the response is not
-informative enough, as it only relays a general advice about exception
-handling, (2) the response states that it is uncertain whether a
+any \code{try-catch} blocks. The common scenarios are (1) the response
+is not informative enough, as it only relays a general advice about
+exception handling, (2) the response states that it is uncertain
+whether a
 \code{try-catch} block is needed, or (3) the decision making depends on the
 background knowledge on either the project structure or certain method
 specifications. Thus, in evaluating GPT-3.5's performance, for
@@ -49,7 +52,7 @@ prediction labels to them, assuming the best performance of GPT-3.5.
 %for each metric, we calculate the lower and upper bound. In the upper
 %bound, all such uncertain cases are considered as correct,
 %in the lower bound, all such cases are considered as incorrect.
-We assigned the final label for each instance from the majority
+We assigned the final label for each case from the majority
 vote of the three attempts.
 
 %We took all the code snippets from DeepEX and FuzzyCatch datasets. On
@@ -65,7 +68,7 @@ vote of the three attempts.
 %the trained model from the DeepEx dataset and test it on the
 %FuzzyCatch dataset for both the baseline and {\tool}.
 
-{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We select the model with the lowest overall validation loss.
+{\em Tuning.} We trained {\tool} for $15$ epochs with the following key hyper-parameters: (1) Batch size is set to $32$; (2) Learning rate is set to $0.000006$; (3) Weight decay is set to $0.01$. We selected the model with the lowest overall validation loss.
 
 %We tuned {\tool} with autoML~\cite{NNI} for the
 %following key hyper-parameters to have the best performance: (1) Epoch

@@ -45,8 +45,9 @@ positive and negative ones (15,382).
 For extrinsic evaluation, we used FuzzyCatch dataset, provided by the
 authors of XRank/XHand~\cite{xrank-fse20}, which contains 609 Android
 incomplete code snippets with exception-related bugs (missing
-\code{try- catch} blocks or exceptions). Finally, we used 553 code snippets
+\code{try-catch} blocks or exception types). Finally, we used 553 code snippets
 because the others are not valid for the experiment.
+
 %Tien
 %We also randomly selected from the projects in FuzzyCatch dataset the
 %same amount of snippets with no exception-related bugs as the negative
@@ -111,7 +112,7 @@ because the others are not valid for the experiment.
 \subsubsection{Extrinsic Evaluation on Exception Bug Detection (RQ5)}~\\
 \noindent {\em Baselines.} We compared with
 FuzzyCatch~\cite{xrank-fse20} in exception-related bug detection,
-i.e., missing \code{try-catch} blocks and/or exceptions, or incorrect
+i.e., missing \code{try-catch} blocks and/or exception types, or incorrect
 exception types.
 
 %leverages XRank to detect the exception-related bugs, which are the
@@ -123,7 +124,7 @@ exception types.
 {\em Procedure.} We trained {\tool} on the GitHub dataset and detected
 the exception-related bugs~\cite{fuzzycatchbugs} in FuzzyCatch dataset of
 incomplete code snippets. If exception handling in a snippet
-matches exactly with {\tool}'s suggestion, we consider it as correct.
+matches exactly with {\tool}'s suggestion, we consider it as~correct.
 
 %To make the FuzzyCatch dataset a balanced dataset for a fair comparison, we randomly select the same number of non-buggy code snippets comparing the bugs as the negative samples from the methods in the FuzzyCatch dataset.
 

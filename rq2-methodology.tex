@@ -14,14 +14,14 @@ prediction for a code snippet is considered as correct if all the
 statements inside or outside of all the predicted (zero or
 multiple) \code{try} blocks must match with the grouping of the
 corresponding statements in the corresponding (zero or
-multiple) \code{try} blocks in the oracle. To do so, we match
-the encoded vector [O, B-Try, I-Try] of the prediction against the
-vector for a snippet in the oracle. Because we have both
+multiple) \code{try} blocks in the oracle. To do so, we match the
+encoded vector \code{[O,B-Try,I-Try]} of the prediction against the
+vector for a code snippet in the oracle. Because we have both
 positive/negative instances, we used the same metrics Precision,
 Recall, and F1-score as in RQ1. At the statement level, we evaluated
 if a model predicts correctly whether a statement needs to be inside
-a \code{try} block, regardless of the blocks themselves. Thus,
-we use {\em Accuracy} for the evaluation at the statement level, which is
+a \code{try} block, regardless of the blocks themselves. Thus, we use
+{\em Accuracy} for the evaluation at the statement level, which is
 defined as the ratio between the number of correct tags on the
 statements over the total number of statements.
 
