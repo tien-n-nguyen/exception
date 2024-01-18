@@ -1143,17 +1143,27 @@
   doi       = {10.1109/icse.2013.6606613},
 }
 
-@Article{MM13,
-  author    = {Monperrus, Martin and Mezini, Mira},
-  title     = {Detecting Missing Method Calls as Violations of the Majority Rule},
-  journal   = {{ACM} Transactions on Software Engineering and Methodology},
-  year      = {2013},
-  volume    = {22},
-  number    = {1},
-  pages     = {1--25},
-  doi       = {10.1145/2430536.2430541},
-  publisher = {{ACM} Press},
+@article{MM13,
+author = {Monperrus, Martin and Mezini, Mira},
+title = {Detecting missing method calls as violations of the majority rule},
+year = {2013},
+issue_date = {February 2013},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {22},
+number = {1},
+issn = {1049-331X},
+url = {https://doi.org/10.1145/2430536.2430541},
+doi = {10.1145/2430536.2430541},
+abstract = {When using object-oriented frameworks it is easy to overlook certain important method calls that are required at particular places in code. In this article, we provide a comprehensive set of empirical facts on this problem, starting from traces of missing method calls in a bug repository. We propose a new system that searches for missing method calls in software based on the other method calls that are observable. Our key insight is that the voting theory concept of majority rule holds for method calls: a call is likely to be missing if there is a majority of similar pieces of code where this call is present. The evaluation shows that the system predictions go further missing method calls and often reveal different kinds of code smells (e.g., violations of API best practices).},
+journal = {ACM Trans. Softw. Eng. Methodol.},
+month = {mar},
+articleno = {7},
+numpages = {25},
+keywords = {Bugdetection, data mining, static analysis}
 }
+
+
 
 @Article{RBMR13,
   author    = {Robillard, Martin P. and Bodden, Eric and Kawrykow, David and Mezini, Mira and Ratchford, Tristan},
@@ -1492,15 +1502,18 @@
   -url       = {http://doi.acm.org/10.1145/2884781.2884790},
 }
 
-@InProceedings{NPVN16b,
-  author    = {Nguyen, Tam The and Pham, Hung Viet and Vu, Phong Minh and Nguyen, Tung Thanh},
-  title     = {Learning {API} Usages from Bytecode : A Statistical Approach},
-  booktitle = {Proceedings of the 38\textsuperscript{th} International Conference on Software Engineering},
-  year      = {2016},
-  series    = {ICSE '16},
-  publisher = {{ACM} Press},
-  doi       = {10.1145/2884781.2884873},
-}
+@INPROCEEDINGS{NPVN16b,
+  author={Nguyen, Tam The and Pham, Hung Viet and Vu, Phong Minh and Nguyen, Tung Thanh},
+  booktitle={2016 IEEE/ACM 38th International Conference on Software Engineering (ICSE)}, 
+  title={Learning API Usages from Bytecode: A Statistical Approach}, 
+  year={2016},
+  volume={},
+  number={},
+  pages={416-427},
+  doi={10.1145/2884781.2884873},
+  publisher = {IEEE CS},
+  }
+
 
 @InProceedings{RHM16,
   author    = {Stevche Radevski and Hideaki Hata and Kenichi Matsumoto},
