@@ -1,34 +1,37 @@
-
-
 \subsubsection{Performance of {\xtype} as Individual}
 As seen in Table~\ref{tab:xtype-1}, as individual, {\xtype} achieves
 97.4\%, 56.9\%, and 71.8\% in Precision, Recall, and F1-score,
-respectively on the GitHub dataset. While it performs better for the
-case of single exception type, the results for the other cases with
-multiple exceptions needed to be caught are also consistently high.
-Precision ranges from 93.8\% to 100\%; recall ranges from 46.8\% to
-75\%; and F1-score ranges from 63.3\% to 84.8\%. When considering all
-numbers of exception types, {\xtype} as individual achieves very high
-performance: 97.4\% in precision, 56.9\% in recall, and 71.8\% in
-F-score.
+respectively, when considering all possible numbers of exception
+types on the Github dataset.
+%
+While it performs better for the case of single exception type, the
+results for the other cases with multiple exceptions needed to be
+caught are also consistently high. The result is still high even for
+the cases of more exception types. Precision ranges from 93.8\% to
+100\%; recall ranges from 46.8\% to 75\%; and F1-score ranges from
+62.5\% to 84.8\%.
+
+%When considering all numbers of exception types, {\xtype} as
+%individual achieves very high performance: 97.4\% in precision, 56.9\%
+%in recall, and 71.8\% in F-score.
 
 \begin{table}[htpb]
-  \caption{Exception Type Recommendation (\xtype as Individual, GitHub Dataset) (RQ3)}
+  \caption{Exception Type Recommendation Result (\xtype as Individual) (RQ3)}
   \vspace{-12pt}
   \small
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
 		\begin{tabular}{| p{1.2cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering}| p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} | p{0.6cm}<{\centering} |}
 		  \hline
-			\multirow{2}{*}{} & \multicolumn{7}{c|}{Number of Exceptions} \\
+			\multirow{2}{*}{} & \multicolumn{7}{c|}{Number of Exception Types} \\
 			\cline{2-8}
-			GitHub & One & Two & Three & Four & Five & Six & All\\
+			Github & One & Two & Three & Four & Five & Six & All\\
 			\hline
 			Precision &  0.973 & 0.977 & 0.978 & 0.938 & 0.975 & 1.0 & 0.974\\
 			\hline
 			Recall &  0.739 & 0.484 & 0.468 & 0.469 & 0.75 & 0.5 & 0.569\\
 			\hline
-			F-score &  0.840 & 0.648 & 0.633 & 0.625 & 0.848 & 0.666 & 0.718\\
+			F1-score &  0.840 & 0.648 & 0.633 & 0.625 & 0.848 & 0.666 & 0.718\\
 			\hline
 		\end{tabular}
 		\label{tab:xtype-1}

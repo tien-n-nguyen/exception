@@ -1,9 +1,9 @@
-\subsubsection{Performance of {\tool} ({\xblock}+{\xstate}+{\xtype})}
+\subsubsection{Performance of {\bf {\tool}} ({\xblock}+{\xstate}+{\xtype})}
 
 As seen in Table~\ref{tab:xtype-4}, {\em {\tool} as evaluated as three
   components, achieves 95.9\%, 45.1\%, and 61.3\%} in Precision,
 Recall, and F1-score, respectively. In almost 96\% of the predictions,
-it correctly decides the need of the \code{try-catch} block, the
+it correctly decides the need of the \code{try-catch} block(s), the
 number of blocks and respective statements, and the exception types
 in the \code{catch} clauses. {\tool} covers 45.1\% of the exception
 types, resulting a F1-score of 61.3\%.
@@ -11,7 +11,7 @@ types, resulting a F1-score of 61.3\%.
 Comparing with Table~\ref{tab:xtype-1}, the numbers are lower due
 to the impacts from \xblock and \xstate. In total,
 {\tool} predicts {\em correctly in all three tasks for 22,010 out of
-  30,764 total instances (71.5\%)} in GitHub dataset. Among 15,328
+  30,764 total instances (71.5\%)} in Github dataset. Among 15,328
 positive samples, {\em {\tool} predicts correctly 6,928 positive
   instances (45\%) in all three tasks}. Moreover, the higher
 performance of {\xblock}+{\xstate}+{\xtype} over the multiplication of
@@ -21,16 +21,17 @@ multi-tasking.
   %three prediction tasks: {\xblock}, {\xstate}, and {\xtype}}.
 
 \begin{table}[htpb]
-  \caption{Exception Type Recommendation Result ({\xblock}+{\xstate}+{\xtype}) (RQ3)}
+  \caption{Exception Type Recommendation Result ({\tool} = {\xblock}+{\xstate}+{\xtype}) (RQ3)}
   \vspace{-12pt}
   \small
+  \tabcolsep 3pt
 	\begin{center}
 		\renewcommand{\arraystretch}{1}
-		\begin{tabular}{| p{3.10cm}<{\centering} | p{1.2cm}<{\centering} | p{1.2cm}<{\centering}| p{1.2cm}<{\centering}|}
+		\begin{tabular}{| p{4.5cm}<{\centering} | p{1cm}<{\centering} | p{1cm}<{\centering}| p{1cm}<{\centering}|}
 		  \hline
 			GitHub dataset  & Precision  & Recall & F1-score \\
 			\hline
-			\xblock + \xstate  + \xtype  & {\bf 0.959}  &  {\bf 0.451} & {\bf 0.613}\\
+			{\tool} = \xblock + \xstate  + \xtype  & {\bf 0.959}  &  {\bf 0.451} & {\bf 0.613}\\
 			\hline
 		\end{tabular}
 		\label{tab:xtype-4}
